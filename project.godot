@@ -8,10 +8,32 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Bullet",
+"language": "GDScript",
+"path": "res://bullet/bullet.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://enemy/enemy.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Tower",
+"language": "GDScript",
+"path": "res://tower/tower.gd"
+} ]
+_global_script_class_icons={
+"Bullet": "",
+"Enemy": "",
+"Tower": ""
+}
+
 [application]
 
 config/name="Arnor"
-run/main_scene="res://sample.tscn"
+run/main_scene="res://tower/tower.tscn"
 config/icon="res://icon.png"
 
 [gui]
