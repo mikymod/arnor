@@ -11,9 +11,9 @@
 extents = Vector2( 57.5, 96 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 428.5, 50 )
+extents = Vector2( 428.5, 93 )
 
-[node name="Tower" type="KinematicBody2D"]
+[node name="Tower" type="KinematicBody2D" groups=["towers"]]
 collision_mask = 4
 script = ExtResource( 5 )
 shoot_rate = 0.5
@@ -38,11 +38,13 @@ texture = ExtResource( 3 )
 position = Vector2( 0, -45 )
 texture = ExtResource( 4 )
 
-[node name="ShootTrigger" type="Area2D" parent="."]
+[node name="ShootTriggerArea" type="Area2D" parent="."]
 collision_mask = 4
+monitorable = false
+linear_damp = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ShootTrigger"]
-position = Vector2( 557.5, -28 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShootTriggerArea"]
+position = Vector2( 536, -59 )
 shape = SubResource( 1 )
 
 [node name="ShootTimer" type="Timer" parent="."]
@@ -51,7 +53,7 @@ __meta__ = {
 }
 
 [node name="ShootPoint" type="Node2D" parent="."]
-position = Vector2( 55, -76 )
+position = Vector2( 64, -64 )
 
-[connection signal="body_entered" from="ShootTrigger" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="ShootTriggerArea" to="." method="_on_ShootArea_body_entered"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]

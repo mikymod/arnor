@@ -1,5 +1,5 @@
-extends KinematicBody2D
 class_name Tower
+extends KinematicBody2D
 
 export var damage_per_hit : float = 1
 export var shoot_rate: float = 1			# number of bullets per second
@@ -17,7 +17,6 @@ var weight: float = 0
 
 func _ready() -> void:
 	_spawn_bullets()
-	$ShootTrigger.monitoring = true
 			
 func _spawn_bullets() -> void:
 	for _i in range(num_bullets):
@@ -27,14 +26,12 @@ func _spawn_bullets() -> void:
 
 func _fire_bullet() -> void:
 	var bullet = _bullets_pool[_current_index % num_bullets]
-	bullet.call('fire', $ShootPoint.global_position)
+	bullet.call('shoot', $ShootPoint.global_position)
 	_current_index += 1
 
-func _on_Area2D_body_entered(_body: Node):
+func _on_ShootArea_body_entered(_body: Node):
 	_timer.wait_time /= shoot_rate
 	_timer.start()
 	
 func _on_ShootTimer_timeout():
 	_fire_bullet()
-
-
