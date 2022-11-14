@@ -48,6 +48,7 @@ position = Vector2( 536, -59 )
 shape = SubResource( 1 )
 
 [node name="ShootTimer" type="Timer" parent="."]
+autostart = true
 __meta__ = {
 "_editor_description_": "Timer used to shoot a bullet"
 }

@@ -1,7 +1,7 @@
 class_name Enemy
 extends RigidBody2D
 
-export var health: float = 10
+export var health: float = 4
 export var speed: float = 10
 
 # func _physics_process(delta) -> void:

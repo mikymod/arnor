@@ -9,29 +9,27 @@ export var num_bullets: int = 10
 export var bullet_res: PackedScene
 
 onready var _timer: Timer = $ShootTimer
-
-var _bullets_pool: Array
-var _current_index: int = 0
+onready var _shoot_area: Area2D = $ShootTriggerArea
 
 var weight: float = 0
 
 func _ready() -> void:
-	_spawn_bullets()
-			
-func _spawn_bullets() -> void:
-	for _i in range(num_bullets):
-		var bullet = bullet_res.instance()
-		_bullets_pool.append(bullet)
-		add_child(bullet)
+	_timer.wait_time /= shoot_rate
+	_timer.paused = true
 
 func _fire_bullet() -> void:
-	var bullet = _bullets_pool[_current_index % num_bullets]
-	bullet.call('shoot', $ShootPoint.global_position)
-	_current_index += 1
+	var bullet = bullet_res.instance()
+	add_child(bullet)
+	bullet.global_position = $ShootPoint.global_position
 
 func _on_ShootArea_body_entered(_body: Node):
-	_timer.wait_time /= shoot_rate
-	_timer.start()
+	if _timer.paused:
+		_timer.paused = false
 	
 func _on_ShootTimer_timeout():
-	_fire_bullet()
+	var bodies = _shoot_area.get_overlapping_bodies()
+	if (bodies.size() == 0):
+		_timer.paused = true
+	else:
+		_fire_bullet()
+
