@@ -60,6 +60,13 @@ config/name="Arnor"
 run/main_scene="res://tower/tower.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
