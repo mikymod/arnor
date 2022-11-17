@@ -1,10 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://tower/tower.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemy/enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://enemy_spawner/enemy_spawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://card/card.tscn" type="PackedScene" id=4]
+[ext_resource path="res://place/place.tscn" type="PackedScene" id=5]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 656.0
+margin_top = -336.0
+margin_right = 776.0
+margin_bottom = -216.0
+rect_scale = Vector2( 3.05018, 2.76191 )
+text = "1- Tower
+2- Bullet
+3- Enemy
+4- Place
+5- Card
+"
 
 [node name="Tower" parent="." instance=ExtResource( 1 )]
 position = Vector2( 94, 390 )
@@ -12,3 +27,14 @@ position = Vector2( 94, 390 )
 [node name="EnemySpawner" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1112, 320 )
 enemy_res = ExtResource( 2 )
+
+[node name="EnemySpawner2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1112, 120 )
+enemy_res = ExtResource( 2 )
+
+[node name="Place" parent="." instance=ExtResource( 5 )]
+position = Vector2( 96, 160 )
+
+[node name="Card" parent="." instance=ExtResource( 4 )]
+position = Vector2( 120, 528 )
+tmp = ExtResource( 1 )
