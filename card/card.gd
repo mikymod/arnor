@@ -1,5 +1,7 @@
 class_name Card
 extends Area2D
 
-export var card_data: Resource
+export var data: Resource
+
+onready var init_pos: Vector2 = global_position
 

@@ -1,11 +1,8 @@
+class_name CardStateMachine
 extends StateMachine
 
 var mouse_over: bool = false
-var curr_event: InputEvent
 var place: Area2D
-
-onready var root: Area2D = owner
-onready var init_pos: Vector2 = root.global_position
 
 func _on_Card_mouse_entered() -> void:
 	mouse_over = true

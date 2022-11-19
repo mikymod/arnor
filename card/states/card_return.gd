@@ -1,10 +1,12 @@
 class_name CardReturn
 extends State
 
+export var root_path: NodePath
+onready var root: Node2D = get_node(root_path)
 
 func process(_delta: float) -> void:
-	state_machine.root.global_position = lerp(state_machine.root.global_position, state_machine.init_pos, 0.1);
-	if state_machine.root.global_position.distance_to(state_machine.init_pos) <= 0.01:
+	root.global_position = lerp(root.global_position, root.init_pos, 0.1);
+	if root.global_position.distance_to(root.init_pos) <= 0.01:
 		state_machine.transition_to('Idle')
 
 func _on_Card_input_event(event: InputEvent) -> void:
