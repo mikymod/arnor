@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://tower/tower.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemy/enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://enemy_spawner/enemy_spawner.tscn" type="PackedScene" id=3]
-[ext_resource path="res://card/card.tscn" type="PackedScene" id=4]
-[ext_resource path="res://place/place.tscn" type="PackedScene" id=5]
 
 [node name="Node2D" type="Node2D"]
 
@@ -27,14 +25,3 @@ position = Vector2( 94, 390 )
 [node name="EnemySpawner" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1112, 320 )
 enemy_res = ExtResource( 2 )
-
-[node name="EnemySpawner2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1112, 120 )
-enemy_res = ExtResource( 2 )
-
-[node name="Place" parent="." instance=ExtResource( 5 )]
-position = Vector2( 96, 160 )
-
-[node name="Card" parent="." instance=ExtResource( 4 )]
-position = Vector2( 120, 528 )
-tmp = ExtResource( 1 )

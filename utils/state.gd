@@ -1,6 +1,6 @@
 # Virtual base class for all states.
 class_name State
-extends Node
+extends Node2D
 
 var state_machine = null
 
@@ -11,7 +11,7 @@ func handle_input(_event: InputEvent) -> void:
 	pass
 
 
-func update(_delta: float) -> void:
+func process(_delta: float) -> void:
 	pass
 
 

@@ -9,8 +9,8 @@ export var initial_state := NodePath()
 onready var state: State = get_node(initial_state)
 
 func _ready() -> void:
-    # Wait untill the parent emits ready signal
-    # The states are children of the owner node so their `_ready()` callback will execute first.
+	# Wait untill the parent emits ready signal
+	# The states are children of the owner node so their `_ready()` callback will execute first.
 	yield(owner, "ready")
 
 	for child in get_children():
@@ -21,7 +21,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	state.handle_input(event)
 
 func _process(delta: float) -> void:
-	state.update(delta)
+	state.process(delta)
 
 func _physics_process(delta: float) -> void:
 	state.physics_update(delta)
