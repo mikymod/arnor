@@ -60,11 +60,11 @@ script = ExtResource( 4 )
 
 [node name="Selected" type="Node2D" parent="StateMachine"]
 script = ExtResource( 7 )
-root_path = NodePath("../..")
+card_path = NodePath("../..")
 
 [node name="Return" type="Node2D" parent="StateMachine"]
 script = ExtResource( 5 )
-root_path = NodePath("../..")
+card_path = NodePath("../..")
 
 [node name="Play" type="Node2D" parent="StateMachine"]
 script = ExtResource( 6 )
