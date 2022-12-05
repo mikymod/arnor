@@ -1,6 +1,8 @@
 class_name Card
 extends Area2D
 
+signal card_played(card)
+
 export var data: Resource
 
 onready var _sprite: Sprite = $Sprite
@@ -8,6 +10,7 @@ onready var _name_label: RichTextLabel = $Sprite/NameLabel
 onready var _cost_label: RichTextLabel = $Sprite/CostLabel
 onready var _description_label: RichTextLabel = $Sprite/DescriptionLabel
 onready var init_pos: Vector2 = global_position
+onready var state_machine: StateMachine = $StateMachine
 
 func _ready() -> void:
 	setup(data)
