@@ -9,5 +9,4 @@ func enter(_msg := {}) -> void:
 	state_machine.place.add_child(new_tower)
 	new_tower.global_position = state_machine.place.global_position
 	card.emit_signal("card_played", card)
-	# # TODO: should be placed in the discard pile
-	# root.queue_free()
+

@@ -6,10 +6,10 @@
 [node name="Deck" type="Node2D"]
 script = ExtResource( 1 )
 cards = {
-Resource( "res://card/resources/green_card.tres" ): 3,
-Resource( "res://card/resources/blue_card.tres" ): 3,
-Resource( "res://card/resources/grey_card.tres" ): 3,
 Resource( "res://card/resources/red_card.tres" ): 30,
-Resource( "res://card/resources/purple_card.tres" ): 3
+Resource( "res://card/resources/blue_card.tres" ): 3,
+Resource( "res://card/resources/purple_card.tres" ): 3,
+Resource( "res://card/resources/green_card.tres" ): 3,
+Resource( "res://card/resources/grey_card.tres" ): 3
 }
 card = ExtResource( 2 )
