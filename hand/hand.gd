@@ -1,9 +1,6 @@
 class_name Hand
 extends Node2D
 
-export var deck_path: NodePath
-onready var deck: Node2D = get_node(deck_path)
-
 var cards: Array = []
 
 func _on_card_drawed(card):
