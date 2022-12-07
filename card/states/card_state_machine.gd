@@ -1,6 +1,8 @@
 class_name CardStateMachine
 extends StateMachine
 
+## The state machine of Card
+
 var mouse_over: bool = false
 var place: Area2D
 

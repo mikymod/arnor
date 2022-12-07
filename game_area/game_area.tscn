@@ -1,22 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game_area/game_area.gd" type="Script" id=1]
 [ext_resource path="res://hand/hand.tscn" type="PackedScene" id=2]
 [ext_resource path="res://discard/discard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://deck/deck.tscn" type="PackedScene" id=4]
+[ext_resource path="res://card/card.tscn" type="PackedScene" id=5]
 
 [node name="GameArea" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Deck" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1088, 640 )
-cards = {
-Resource( "res://card/resources/grey_card.tres" ): 3,
-Resource( "res://card/resources/red_card.tres" ): 3,
-Resource( "res://card/resources/purple_card.tres" ): 3,
-Resource( "res://card/resources/green_card.tres" ): 3,
-Resource( "res://card/resources/blue_card.tres" ): 3
+deck_list = {
+Resource( "res://card/resources/grey_card.tres" ): 8
 }
+card_scene = ExtResource( 5 )
 
 [node name="Hand" parent="." instance=ExtResource( 2 )]
 position = Vector2( 640, 640 )

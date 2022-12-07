@@ -4,20 +4,20 @@ extends Node2D
 signal card_drawed(card)
 signal deck_depleted()
 
-export var cards: Dictionary
-export var card: PackedScene
+export var deck_list: Dictionary
+export var card_scene: PackedScene
 
 var deck: Array = []
 
 func _ready() -> void:
-	for entry in cards:
-		var quantity = cards[entry]
+	for entry in deck_list:
+		var quantity = deck_list[entry]
 		for _i in range(quantity):
-			var instance = card.instance()
+			var instance = card_scene.instance()
 			add_child(instance)
 			instance.setup(entry)
 			deck.append(instance)
-			
+
 	deck.shuffle()
 
 func draw_card() -> void:
@@ -28,7 +28,6 @@ func draw_card() -> void:
 		emit_signal('deck_depleted')
 
 func _on_deck_restored(cards_to_restore:Array):
-	print('Deck restored')
 	deck.append_array(cards_to_restore)
 	for _card in deck:
 		add_child(_card)

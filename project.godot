@@ -25,6 +25,11 @@ _global_script_classes=[ {
 "path": "res://card/states/card_idle.gd"
 }, {
 "base": "State",
+"class": "CardInactive",
+"language": "GDScript",
+"path": "res://card/card_inactive.gd"
+}, {
+"base": "State",
 "class": "CardPlay",
 "language": "GDScript",
 "path": "res://card/states/card_play.gd"
@@ -98,6 +103,7 @@ _global_script_class_icons={
 "Bullet": "",
 "Card": "",
 "CardIdle": "",
+"CardInactive": "",
 "CardPlay": "",
 "CardResource": "",
 "CardReturn": "",

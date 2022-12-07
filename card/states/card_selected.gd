@@ -1,6 +1,10 @@
 class_name CardSelected
 extends State
 
+## Card selected
+##
+## The selected state of Card's state machine 
+
 export var card_path: NodePath
 onready var card: Node2D = get_node(card_path)
 
