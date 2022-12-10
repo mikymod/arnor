@@ -10,7 +10,7 @@ extends Area2D
 
 signal card_played(card)
 
-export var data: Resource
+export(Resource) var resource # CardResource
 
 # The sprite in background
 onready var _background: Sprite = $Background
@@ -28,15 +28,11 @@ onready var init_pos: Vector2 = global_position
 onready var state_machine: StateMachine = $StateMachine
 
 func _ready() -> void:
-	setup(data)
-
-func setup(res: Resource) -> void:
-	data = res
-	_background.texture = data.background
-	# _foreground.texture = data.foreground
-	_name_label.text = data.name
-	_cost_label.text = String(data.cost)
-	_description_label.text = data.description
+	_background.texture = resource.background
+	# _foreground.texture = resource.foreground
+	_name_label.text = resource.name
+	_cost_label.text = String(resource.cost)
+	_description_label.text = resource.description
 
 func active() -> void:
 	state_machine.transition_to('Idle');

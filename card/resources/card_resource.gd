@@ -5,18 +5,21 @@ extends Resource
 ##
 ## Each CardResource instance represents a different card.
 
-
 enum Rarity {
     common,
     uncommon,
     rare,
 }
 
-export var name: String = ''
-export var cost: int = 0
+export(String) var name = ''
+export(int) var cost = 0
 export(Rarity) var rarity = Rarity.common
-export var description: String = ''
-export var background: Texture
-export var foreground: Texture
+export(String) var description = ''
+export(Texture) var background
+export(Texture) var foreground
 
-export var object: PackedScene
+export(Resource) var tower_resource 
+export(PackedScene) var tower
+
+func change_cost(variation: int) -> void:
+    cost += variation

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://bullet/resources/bullet_resource.gd" type="Script" id=1]
+[ext_resource path="res://bullet/textures/bullet_1.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+texture = ExtResource( 2 )
+velocity = 200.0
+damage = 1.0

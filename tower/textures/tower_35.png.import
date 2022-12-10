@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bullet.png-2c2153c0dd3b3eaf69d3b6d097e024ff.stex"
+path="res://.import/tower_35.png-7550367a59a2d9b648377f50f9d4e06c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bullet/bullet.png"
-dest_files=[ "res://.import/bullet.png-2c2153c0dd3b3eaf69d3b6d097e024ff.stex" ]
+source_file="res://tower/textures/tower_35.png"
+dest_files=[ "res://.import/tower_35.png-7550367a59a2d9b648377f50f9d4e06c.stex" ]
 
 [params]
 
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0

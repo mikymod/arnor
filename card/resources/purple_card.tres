@@ -1,14 +1,16 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://card/resources/card_resource.gd" type="Script" id=1]
 [ext_resource path="res://tower/tower.tscn" type="PackedScene" id=2]
 [ext_resource path="res://card/textures/purple_card.png" type="Texture" id=3]
+[ext_resource path="res://tower/resources/empowered_tower.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )
+name = "Purple"
 cost = 1
 rarity = 0
-name = "Purple"
 description = "Lorem Ipsum"
 background = ExtResource( 3 )
-object = ExtResource( 2 )
+tower_resource = ExtResource( 4 )
+tower = ExtResource( 2 )

@@ -14,8 +14,8 @@ func _ready() -> void:
 		var quantity = deck_list[entry]
 		for _i in range(quantity):
 			var instance = card_scene.instance()
+			instance.resource = entry
 			add_child(instance)
-			instance.setup(entry)
 			deck.append(instance)
 
 	deck.shuffle()

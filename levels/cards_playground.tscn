@@ -5,18 +5,18 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Place" parent="." instance=ExtResource( 2 )]
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Place" parent="Map" instance=ExtResource( 2 )]
 position = Vector2( 96, 96 )
 
-[node name="Place2" parent="." instance=ExtResource( 2 )]
+[node name="Place2" parent="Map" instance=ExtResource( 2 )]
 position = Vector2( 96, 288 )
 
-[node name="Place3" parent="." instance=ExtResource( 2 )]
+[node name="Place3" parent="Map" instance=ExtResource( 2 )]
 position = Vector2( 96, 480 )
 
-[node name="Place4" parent="." instance=ExtResource( 2 )]
+[node name="Place4" parent="Map" instance=ExtResource( 2 )]
 position = Vector2( 96, 672 )
 
 [node name="GameArea" parent="." instance=ExtResource( 1 )]
-
-[editable path="GameArea"]

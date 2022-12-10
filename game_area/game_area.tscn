@@ -10,17 +10,17 @@
 script = ExtResource( 1 )
 
 [node name="Deck" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1088, 640 )
+position = Vector2( 1664, 900 )
 deck_list = {
 Resource( "res://card/resources/grey_card.tres" ): 8
 }
 card_scene = ExtResource( 5 )
 
 [node name="Hand" parent="." instance=ExtResource( 2 )]
-position = Vector2( 640, 640 )
+position = Vector2( 960, 900 )
 
 [node name="Discard" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1216, 640 )
+position = Vector2( 1792, 900 )
 
 [connection signal="card_drawed" from="Deck" to="Hand" method="_on_card_drawed"]
 [connection signal="card_drawed" from="Deck" to="Discard" method="_on_card_drawed"]

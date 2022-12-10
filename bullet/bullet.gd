@@ -1,15 +1,17 @@
 class_name Bullet
 extends Area2D
 
-export var velocity: float = 1
-export var damage: float = 1
+export(Resource) var resource; # Bullet Resource
+
+func _ready() -> void:
+	$Sprite.texture = resource.texture
 
 func _process(delta: float) -> void:
-	global_position += Vector2.RIGHT * velocity * delta;
+	global_position += Vector2.RIGHT * resource.velocity * delta;
 
 func _on_Bullet_body_entered(body: Node):
 	if (body.is_in_group("enemies")):
-		body.hit(damage)
+		body.hit(resource.damage)
 	queue_free()
 
 

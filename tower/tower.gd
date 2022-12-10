@@ -1,24 +1,24 @@
 class_name Tower
 extends KinematicBody2D
 
-export var damage_per_hit : float = 1
-export var shoot_rate: float = 1			# number of bullets per second
-export var shoot_range: float = 200
-export var max_target: int = 1
-export var num_bullets: int = 10
-export var bullet_res: PackedScene
+export(Resource) var resource # TowerResource
+export(PackedScene) var bullet_scene
 
 onready var _timer: Timer = $ShootTimer
 onready var _shoot_area: Area2D = $ShootTriggerArea
-
-var weight: float = 0
+ 
 
 func _ready() -> void:
-	_timer.wait_time /= shoot_rate
+	_timer.wait_time /= resource.shoot_rate
 	_timer.paused = true
+	$Base.texture = resource.base
+	$Base/Body1.texture = resource.body1
+	$Base/Body1/Body2.texture = resource.body2
+	$Base/Body1/Body2/Roof.texture = resource.roof
 
 func _fire_bullet() -> void:
-	var bullet = bullet_res.instance()
+	var bullet = bullet_scene.instance()
+	bullet.resource = resource.bullet_resource
 	add_child(bullet)
 	bullet.global_position = $ShootPoint.global_position
 
