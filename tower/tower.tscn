@@ -12,7 +12,7 @@
 extents = Vector2( 57.5, 96 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 428.5, 93 )
+extents = Vector2( 838.75, 93 )
 
 [node name="Tower" type="KinematicBody2D" groups=["towers"]]
 position = Vector2( -1, 1 )
@@ -49,7 +49,7 @@ monitorable = false
 linear_damp = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShootTriggerArea"]
-position = Vector2( 536, -59 )
+position = Vector2( 946.25, -59 )
 shape = SubResource( 1 )
 
 [node name="ShootTimer" type="Timer" parent="."]

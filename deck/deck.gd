@@ -10,11 +10,11 @@ export var card_scene: PackedScene
 var deck: Array = []
 
 func _ready() -> void:
-	for entry in deck_list:
-		var quantity = deck_list[entry]
+	for resource in deck_list:
+		var quantity = deck_list[resource]
 		for _i in range(quantity):
 			var instance = card_scene.instance()
-			instance.resource = entry
+			instance.resource = resource
 			add_child(instance)
 			deck.append(instance)
 
