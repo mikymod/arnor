@@ -74,6 +74,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://enemy/enemy.gd"
 }, {
+"base": "Resource",
+"class": "EnemyResource",
+"language": "GDScript",
+"path": "res://enemy/resources/enemy_resource.gd"
+}, {
 "base": "Node2D",
 "class": "GameArea",
 "language": "GDScript",
@@ -123,6 +128,7 @@ _global_script_class_icons={
 "Deck": "",
 "Discard": "",
 "Enemy": "",
+"EnemyResource": "",
 "GameArea": "",
 "Hand": "",
 "Place": "",

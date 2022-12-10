@@ -1,16 +1,20 @@
 class_name Enemy
 extends RigidBody2D
 
-export var health: float = 4
-export var speed: float = 10
+export(Resource) var resource;
 
-# func _physics_process(delta) -> void:
-# 	global_position += Vector2.LEFT * speed * delta
+var _health: float = 1.0
+var _speed: float = 1.0
+
+func _ready() -> void:
+	print('enemy ready called')
+	_health = resource.health
+	self.linear_velocity = resource.speed * Vector2.LEFT
 
 func hit(damage: float) -> void:
 	print("I collided with Bullet")
-	health -= damage
-	if (health <= 0):
+	_health -= damage
+	if (_health <= 0):
 		queue_free()
 
 	# if (body is Tower):
