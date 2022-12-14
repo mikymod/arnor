@@ -1,10 +1,17 @@
 class_name Discard
 extends Area2D
 
-signal deck_restored(cards)
+signal deck_restored()
+
+export(Resource) var deck_resource
 
 var cards: Array = []
 
+func _ready() -> void:
+	deck_resource.connect('card_drawed', self, '_on_card_drawed')
+	deck_resource.connect('deck_depleted', self, '_on_deck_depleted')
+
+# Only used to connects card_played events to this script 
 func _on_card_drawed(card:Card):
 	card.connect("card_played", self, "_on_card_played")
 	
@@ -17,6 +24,8 @@ func _on_card_played(card:Card):
 func _on_deck_depleted():
 	for card in cards:
 		remove_child(card)
-		
-	emit_signal('deck_restored', cards)
+	
+	deck_resource.restore_deck(cards)
+	emit_signal('deck_restored')
+	
 	cards.clear()

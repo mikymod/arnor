@@ -1,7 +1,12 @@
 class_name Hand
 extends Node2D
 
+export(Resource) var deck_resource
+
 var cards: Array = []
+
+func _ready() -> void:
+	deck_resource.connect('card_drawed', self, '_on_card_drawed')
 
 func _on_card_drawed(card):
 	card.connect("card_played", self, "_on_card_played")

@@ -5,6 +5,8 @@ extends Resource
 ##
 ## Each CardResource instance represents a different card.
 
+signal cost_changed(cost)
+
 enum Rarity {
     common,
     uncommon,
@@ -21,5 +23,6 @@ export(Texture) var foreground
 export(Resource) var tower_resource 
 export(PackedScene) var tower
 
-func change_cost(variation: int) -> void:
-    cost += variation
+func change_cost(new_cost: int) -> void:
+    cost = new_cost
+    emit_signal('cost_changed', new_cost)

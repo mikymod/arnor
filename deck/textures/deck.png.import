@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/deck.png-e007d7d8f5a04c88d3e05a395a87c21e.stex"
+path="res://.import/deck.png-7397321f9273494593b29a20bda6ceef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://deck/deck.png"
-dest_files=[ "res://.import/deck.png-e007d7d8f5a04c88d3e05a395a87c21e.stex" ]
+source_file="res://deck/textures/deck.png"
+dest_files=[ "res://.import/deck.png-7397321f9273494593b29a20bda6ceef.stex" ]
 
 [params]
 
