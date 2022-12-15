@@ -14,3 +14,4 @@ description = "Lorem Ipsum"
 background = ExtResource( 3 )
 tower_resource = ExtResource( 2 )
 tower = ExtResource( 4 )
+effect_resources = [  ]

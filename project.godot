@@ -74,6 +74,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://discard/discard.gd"
 }, {
+"base": "Resource",
+"class": "EffectResource",
+"language": "GDScript",
+"path": "res://effect/effect_resource.gd"
+}, {
 "base": "RigidBody2D",
 "class": "Enemy",
 "language": "GDScript",
@@ -133,6 +138,7 @@ _global_script_class_icons={
 "Deck": "",
 "DeckResource": "",
 "Discard": "",
+"EffectResource": "",
 "Enemy": "",
 "EnemyResource": "",
 "GameArea": "",
@@ -154,6 +160,8 @@ config/icon="res://icon.png"
 
 window/size/width=1920
 window/size/height=1080
+window/size/test_width=1280
+window/size/test_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 

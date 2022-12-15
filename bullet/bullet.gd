@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 	global_position += Vector2.RIGHT * resource.velocity * delta;
 
 func _on_Bullet_body_entered(body: Node):
-	if (body.is_in_group("enemies")):
+	if (body.has_method('hit')):
 		body.hit(resource.damage)
 	queue_free()
 

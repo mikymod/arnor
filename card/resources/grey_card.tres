@@ -14,3 +14,4 @@ description = "Empty"
 background = ExtResource( 1 )
 tower_resource = ExtResource( 2 )
 tower = ExtResource( 4 )
+effect_resources = [  ]

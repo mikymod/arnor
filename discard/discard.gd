@@ -1,7 +1,7 @@
 class_name Discard
 extends Area2D
 
-signal deck_restored()
+
 
 export(Resource) var deck_resource
 
@@ -24,8 +24,5 @@ func _on_card_played(card:Card):
 func _on_deck_depleted():
 	for card in cards:
 		remove_child(card)
-	
 	deck_resource.restore_deck(cards)
-	emit_signal('deck_restored')
-	
 	cards.clear()

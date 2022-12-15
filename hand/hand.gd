@@ -11,6 +11,7 @@ func _ready() -> void:
 func _on_card_drawed(card):
 	card.connect("card_played", self, "_on_card_played")
 	cards.append(card)
+	card.get_parent().remove_child(card)
 	add_child(card)
 
 	_reposition()

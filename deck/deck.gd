@@ -5,6 +5,7 @@ export(Resource) var resource
 export(PackedScene) var card_scene
 
 func _ready() -> void:
+	resource.connect('deck_restored', self, '_on_deck_restored')
 	# Instantiates deck
 	for card in resource.deck_list:
 		var quantity = resource.deck_list[card]
@@ -17,7 +18,7 @@ func _ready() -> void:
 	resource.deck.shuffle()
 
 func draw_card() -> void:
-	resource.draw_card(self)
+	resource.draw_card()
 
 func _on_deck_restored():
 	for _card in resource.deck:
