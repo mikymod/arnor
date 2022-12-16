@@ -1,4 +1,4 @@
-class_name GameArea
+class_name BoardArea
 extends Node2D
 
 onready var deck: Deck = $Deck
@@ -16,4 +16,3 @@ func _process(_delta: float) -> void:
 		var num_cards_to_draw = min(deck.resource.deck_list.size(), 4)
 		for _i in range(num_cards_to_draw):
 			deck.draw_card()
-	

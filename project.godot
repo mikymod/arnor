@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "BoardArea",
+"language": "GDScript",
+"path": "res://board_area/board_area.gd"
+}, {
+"base": "Node2D",
 "class": "BuildEffect",
 "language": "GDScript",
 "path": "res://effect/build/build_effect.gd"
@@ -95,11 +100,6 @@ _global_script_classes=[ {
 "path": "res://enemy/resources/enemy_resource.gd"
 }, {
 "base": "Node2D",
-"class": "GameArea",
-"language": "GDScript",
-"path": "res://game_area/game_area.gd"
-}, {
-"base": "Node2D",
 "class": "Hand",
 "language": "GDScript",
 "path": "res://hand/hand.gd"
@@ -130,6 +130,7 @@ _global_script_classes=[ {
 "path": "res://tower/resources/tower_resource.gd"
 } ]
 _global_script_class_icons={
+"BoardArea": "",
 "BuildEffect": "",
 "Bullet": "",
 "BulletResource": "",
@@ -147,7 +148,6 @@ _global_script_class_icons={
 "EffectResource": "",
 "Enemy": "",
 "EnemyResource": "",
-"GameArea": "",
 "Hand": "",
 "Place": "",
 "State": "",
@@ -166,8 +166,6 @@ config/icon="res://icon.png"
 
 window/size/width=1920
 window/size/height=1080
-window/size/test_width=1280
-window/size/test_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 

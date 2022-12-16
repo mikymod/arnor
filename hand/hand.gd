@@ -3,6 +3,8 @@ extends Node2D
 
 export(Resource) var deck_resource
 
+
+
 var cards: Array = []
 
 func _ready() -> void:
