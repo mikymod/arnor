@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "BuildEffect",
+"language": "GDScript",
+"path": "res://effect/build/build_effect.gd"
+}, {
 "base": "Area2D",
 "class": "Bullet",
 "language": "GDScript",
@@ -42,7 +47,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "CardResource",
 "language": "GDScript",
-"path": "res://card/resources/card_resource.gd"
+"path": "res://card/card_resource.gd"
 }, {
 "base": "State",
 "class": "CardReturn",
@@ -125,6 +130,7 @@ _global_script_classes=[ {
 "path": "res://tower/resources/tower_resource.gd"
 } ]
 _global_script_class_icons={
+"BuildEffect": "",
 "Bullet": "",
 "BulletResource": "",
 "Card": "",

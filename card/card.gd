@@ -28,7 +28,6 @@ onready var init_pos: Vector2 = global_position
 onready var state_machine: StateMachine = $StateMachine
 
 func _ready() -> void:
-	resource.connect('cost_changed', self, '_on_card_cost_changed')
 	_background.texture = resource.background
 	# _foreground.texture = resource.foreground
 	_name_label.text = resource.name
@@ -37,10 +36,3 @@ func _ready() -> void:
 
 func active() -> void:
 	state_machine.transition_to('Idle');
-
-func _on_card_cost_changed(cost: int) -> void:
-	_cost_label.text = String(cost)
-
-
-
-
