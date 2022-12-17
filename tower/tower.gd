@@ -6,7 +6,6 @@ export(PackedScene) var bullet_scene
 
 onready var _timer: Timer = $ShootTimer
 onready var _shoot_area: Area2D = $ShootTriggerArea
- 
 
 func _ready() -> void:
 	_timer.wait_time /= resource.shoot_rate

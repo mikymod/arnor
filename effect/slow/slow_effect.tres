@@ -7,3 +7,4 @@
 script = ExtResource( 1 )
 effect_scene = ExtResource( 2 )
 description = "The bullet fired by this tower slows."
+collision_mask = 1
