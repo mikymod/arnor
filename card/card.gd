@@ -36,5 +36,3 @@ func _ready() -> void:
 	_cost_label.text = String(resource.cost)
 	_description_label.text = resource.description
 
-func active() -> void:
-	state_machine.transition_to('Idle');
