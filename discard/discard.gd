@@ -1,8 +1,6 @@
 class_name Discard
 extends Area2D
 
-
-
 export(Resource) var deck_resource
 
 var cards: Array = []

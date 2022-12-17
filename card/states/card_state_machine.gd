@@ -16,8 +16,3 @@ func _on_Card_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -
 	if mouse_over and (state is CardIdle or state is CardReturn):
 		state._on_Card_input_event(event)
 
-func _on_Card_area_entered(area: Area2D) -> void:
-	place = area
-
-func _on_Card_area_exited(_area: Area2D) -> void:
-	place = null

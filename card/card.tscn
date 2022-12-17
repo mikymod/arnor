@@ -13,7 +13,7 @@
 extents = Vector2( 32, 48 )
 
 [node name="Card" type="Area2D"]
-collision_layer = 16
+collision_layer = 17
 collision_mask = 8
 script = ExtResource( 2 )
 __meta__ = {
@@ -74,8 +74,6 @@ card_path = NodePath("../..")
 script = ExtResource( 6 )
 root_path = NodePath("../..")
 
-[connection signal="area_entered" from="." to="StateMachine" method="_on_Card_area_entered"]
-[connection signal="area_exited" from="." to="StateMachine" method="_on_Card_area_exited"]
 [connection signal="input_event" from="." to="StateMachine" method="_on_Card_input_event"]
 [connection signal="mouse_entered" from="." to="StateMachine" method="_on_Card_mouse_entered"]
 [connection signal="mouse_exited" from="." to="StateMachine" method="_on_Card_mouse_exited"]

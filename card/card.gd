@@ -27,6 +27,8 @@ onready var init_pos: Vector2 = global_position
 
 onready var state_machine: StateMachine = $StateMachine
 
+var playable = false
+
 func _ready() -> void:
 	_background.texture = resource.background
 	# _foreground.texture = resource.foreground

@@ -14,10 +14,14 @@ func process(_delta: float) -> void:
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		mouse_pos = get_global_mouse_position()
 		card.global_position = mouse_pos
+		
+		if Input.is_mouse_button_pressed(BUTTON_RIGHT):
+			state_machine.transition_to('Return')
 	else:
-		if state_machine.place != null:
+		if !Input.is_mouse_button_pressed(BUTTON_LEFT) && card.playable:
 			state_machine.transition_to('Play')
 			return
-
+		
 		state_machine.transition_to('Return')
+
 

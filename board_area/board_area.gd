@@ -3,7 +3,6 @@ extends Node2D
 
 onready var deck: Deck = $Deck
 onready var hand: Hand = $Hand
-onready var discard: Discard = $Discard
 
 func _ready() -> void:
 	deck.draw_card()

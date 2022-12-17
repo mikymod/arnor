@@ -99,6 +99,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://enemy/resources/enemy_resource.gd"
 }, {
+"base": "Area2D",
+"class": "GameArea",
+"language": "GDScript",
+"path": "res://game_area/game_area.gd"
+}, {
 "base": "Node2D",
 "class": "Hand",
 "language": "GDScript",
@@ -148,6 +153,7 @@ _global_script_class_icons={
 "EffectResource": "",
 "Enemy": "",
 "EnemyResource": "",
+"GameArea": "",
 "Hand": "",
 "Place": "",
 "State": "",
@@ -166,6 +172,8 @@ config/icon="res://icon.png"
 
 window/size/width=1920
 window/size/height=1080
+window/size/test_width=1280
+window/size/test_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
