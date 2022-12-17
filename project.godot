@@ -89,6 +89,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://effect/effect_resource.gd"
 }, {
+"base": "Node2D",
+"class": "EffectSolver",
+"language": "GDScript",
+"path": "res://effect_solver/effect_solver.gd"
+}, {
 "base": "RigidBody2D",
 "class": "Enemy",
 "language": "GDScript",
@@ -108,6 +113,11 @@ _global_script_classes=[ {
 "class": "Hand",
 "language": "GDScript",
 "path": "res://hand/hand.gd"
+}, {
+"base": "Resource",
+"class": "HandResource",
+"language": "GDScript",
+"path": "res://hand/hand_resource.gd"
 }, {
 "base": "Area2D",
 "class": "Place",
@@ -151,10 +161,12 @@ _global_script_class_icons={
 "DeckResource": "",
 "Discard": "",
 "EffectResource": "",
+"EffectSolver": "",
 "Enemy": "",
 "EnemyResource": "",
 "GameArea": "",
 "Hand": "",
+"HandResource": "",
 "Place": "",
 "State": "",
 "StateMachine": "",
@@ -177,9 +189,23 @@ window/size/test_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
+[global]
+
+collision=false
+layer=false
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[layer_names]
+
+2d_physics/layer_1="towers"
+2d_physics/layer_2="places"
+2d_physics/layer_3="enemies"
+2d_physics/layer_4="bullets"
+2d_physics/layer_9="cards"
+2d_physics/layer_10="game_area"
 
 [physics]
 

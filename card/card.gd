@@ -8,8 +8,6 @@ extends Area2D
 ## - placed in discard when it's played
 ## - replaced in deck when the deck is depleted
 
-signal card_played(card)
-
 export(Resource) var resource # CardResource
 
 # The sprite in background

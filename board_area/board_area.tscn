@@ -17,7 +17,6 @@ card_scene = ExtResource( 6 )
 
 [node name="Hand" parent="." instance=ExtResource( 5 )]
 position = Vector2( 960, 979 )
-deck_resource = ExtResource( 2 )
 
 [node name="Discard" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1792, 956 )

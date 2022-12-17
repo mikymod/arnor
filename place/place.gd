@@ -19,8 +19,3 @@ func _on_Place_mouse_entered():
 	
 func _on_Place_mouse_exited():
 	mouse_over = false
-
-func _on_Place_input_event(_viewport: Node, event:InputEvent, _shape_idx: int):
-	if event is InputEventMouseButton:
-		if event.pressed and event.button_index == BUTTON_LEFT:
-			print('event')	

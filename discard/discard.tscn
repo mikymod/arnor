@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://discard/discard.png" type="Texture" id=1]
 [ext_resource path="res://discard/discard.gd" type="Script" id=2]
+[ext_resource path="res://hand/hand.tres" type="Resource" id=3]
+[ext_resource path="res://deck/resources/start_deck.tres" type="Resource" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 48 )
@@ -10,6 +12,8 @@ extents = Vector2( 32, 48 )
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 2 )
+deck_resource = ExtResource( 4 )
+hand_resource = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

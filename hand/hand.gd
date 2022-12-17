@@ -1,28 +1,20 @@
 class_name Hand
 extends Node2D
 
+export(Resource) var hand_resource
 export(Resource) var deck_resource
-
-
-
-var cards: Array = []
 
 func _ready() -> void:
 	deck_resource.connect('card_drawed', self, '_on_card_drawed')
+	hand_resource.connect('card_played', self, '_on_card_played')
 
 func _on_card_drawed(card):
-	card.connect("card_played", self, "_on_card_played")
-	cards.append(card)
+	hand_resource.cards.append(card)
 	card.get_parent().remove_child(card)
 	add_child(card)
-
 	_reposition()
 
 func _on_card_played(card):
-	remove_child(card)
-	cards.erase(card)
-	card.disconnect("card_played", self, "_on_card_played")
-
 	_reposition()
 
 func _generate_positions(center: Vector2, offset: int, num_card: int) -> Array:
@@ -41,7 +33,7 @@ func _generate_positions(center: Vector2, offset: int, num_card: int) -> Array:
 	return positions
 
 func _reposition():
-	var positions = _generate_positions(global_position, 70, cards.size())
-	for i in range(cards.size()):
-		cards[i].init_pos = positions[i]
-		cards[i].state_machine.transition_to('Return')
+	var positions = _generate_positions(global_position, 70, hand_resource.cards.size())
+	for i in range(hand_resource.cards.size()):
+		hand_resource.cards[i].init_pos = positions[i]
+		hand_resource.cards[i].state_machine.transition_to('Return')

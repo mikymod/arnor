@@ -7,3 +7,5 @@
 script = ExtResource( 1 )
 effect_scene = ExtResource( 2 )
 description = "Build a tower."
+target = 0
+layer_mask = 2
