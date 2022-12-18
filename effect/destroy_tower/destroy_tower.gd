@@ -1,4 +1,5 @@
 extends Node2D
 
-func apply_effect(tower: Node) -> void:
+func apply_effect(args: Dictionary) -> void:
+	var tower = args.target
 	tower.queue_free()

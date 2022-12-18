@@ -4,7 +4,8 @@ extends Node2D
 export(Resource) var tower_resource
 export(PackedScene) var tower
 
-func apply_effect(parent: Node) -> void:
+func apply_effect(args: Dictionary) -> void:
+	var parent = args.target
 	var instance = tower.instance()
 	parent.add_child(instance)
 	instance.resource = tower_resource

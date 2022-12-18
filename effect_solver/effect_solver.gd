@@ -8,15 +8,15 @@ func _ready() -> void:
 	$TargetSelector.set_physics_process(false)
 
 func _on_card_played(card) -> void:
-	var target
+	var args = {}
 	for effect_resource in card.resource.effect_resources:
 		if effect_resource.collision_mask != 0x00000000:
 			$TargetSelector.collision_mask = effect_resource.collision_mask
 			$TargetSelector.set_physics_process(true)
 			var state = yield($TargetSelector, "target_selected")
 			$TargetSelector.set_physics_process(false)
-			target = state.collider
+			args.target = state.collider
 			
 		var effect = effect_resource.effect_scene.instance()
 		if effect.has_method('apply_effect'):
-			effect.apply_effect(target)
+			effect.apply_effect(args)
