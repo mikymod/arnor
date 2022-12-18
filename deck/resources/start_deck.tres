@@ -6,5 +6,6 @@
 script = ExtResource( 1 )
 deck_list = {
 Resource( "res://card/resources/red_card.tres" ): 8,
-Resource( "res://card/resources/grey_card.tres" ): 8
+Resource( "res://card/resources/grey_card.tres" ): 8,
+Resource( "res://card/resources/blue_card.tres" ): 2
 }

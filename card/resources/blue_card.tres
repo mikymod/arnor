@@ -1,10 +1,9 @@
 [gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://card/card_resource.gd" type="Script" id=1]
-[ext_resource path="res://tower/resources/basic_tower.tres" type="Resource" id=2]
+[ext_resource path="res://effect/draw/draw_effect.tres" type="Resource" id=2]
 [ext_resource path="res://card/textures/blue_card.png" type="Texture" id=3]
-[ext_resource path="res://tower/tower.tscn" type="PackedScene" id=4]
-
+[ext_resource path="res://effect/destroy_tower/destroy_tower.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )
@@ -13,6 +12,4 @@ cost = 1
 rarity = 0
 description = "Lorem Ipsum"
 background = ExtResource( 3 )
-tower_resource = ExtResource( 2 )
-tower = ExtResource( 4 )
-effect_resources = [  ]
+effect_resources = [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 2 ) ]
