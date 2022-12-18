@@ -44,6 +44,7 @@ position = Vector2( 0, -45 )
 texture = ExtResource( 4 )
 
 [node name="ShootTriggerArea" type="Area2D" parent="."]
+collision_layer = 0
 collision_mask = 4
 monitorable = false
 linear_damp = 0.0

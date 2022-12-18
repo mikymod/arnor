@@ -6,3 +6,4 @@ func apply_effect(_args: Dictionary) -> void:
 	# load(res) does not cause cyclic deps. why?
 	var deck_resource = load('res://deck/resources/start_deck.tres') 
 	deck_resource.draw_card()
+	queue_free()

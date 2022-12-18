@@ -4,7 +4,7 @@ signal target_selected(target)
 
 var collision_mask: int = 0xffffffff
 
-func _physics_process(delta: float) -> void:		
+func _physics_process(delta: float) -> void:
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		var space_state = get_world_2d().direct_space_state
 		var mouse_pos = get_global_mouse_position()
