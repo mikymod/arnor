@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://effect/effect_resource.gd" type="Script" id=1]
+[ext_resource path="res://effect/draw/draw_effect.tscn" type="PackedScene" id=2]
+
+[resource]
+script = ExtResource( 1 )
+effect_scene = ExtResource( 2 )
+description = "Draw a card from deck."
+collision_mask = 0
