@@ -14,7 +14,7 @@ func _on_card_drawed(card):
 	add_child(card)
 	_reposition()
 
-func _on_card_played(card):
+func _on_card_played(_card):
 	_reposition()
 
 func _generate_positions(center: Vector2, offset: int, num_card: int) -> Array:

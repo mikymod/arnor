@@ -11,6 +11,9 @@ collision_layer = 512
 collision_mask = 0
 script = ExtResource( 1 )
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
 [node name="Map" type="Node2D" parent="."]
 position = Vector2( -896, -360 )
 
@@ -73,9 +76,6 @@ position = Vector2( 864, 459 )
 
 [node name="Place20" parent="Map" instance=ExtResource( 2 )]
 position = Vector2( 864, 651 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
 
 [connection signal="area_entered" from="." to="." method="_on_GameArea_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_GameArea_area_exited"]

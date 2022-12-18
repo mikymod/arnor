@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://board_area/board_area.gd" type="Script" id=1]
-[ext_resource path="res://deck/resources/start_deck.tres" type="Resource" id=2]
-[ext_resource path="res://discard/discard.tscn" type="PackedScene" id=3]
-[ext_resource path="res://deck/deck.tscn" type="PackedScene" id=4]
-[ext_resource path="res://hand/hand.tscn" type="PackedScene" id=5]
+[ext_resource path="res://board_area/deck/deck.tres" type="Resource" id=2]
+[ext_resource path="res://board_area/discard/discard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://board_area/deck/deck.tscn" type="PackedScene" id=4]
+[ext_resource path="res://board_area/hand/hand.tscn" type="PackedScene" id=5]
 [ext_resource path="res://card/card.tscn" type="PackedScene" id=6]
 
 [node name="BoardArea" type="Node2D"]

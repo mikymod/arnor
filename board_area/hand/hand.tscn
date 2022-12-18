@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://hand/hand.gd" type="Script" id=1]
-[ext_resource path="res://hand/hand.tres" type="Resource" id=2]
-[ext_resource path="res://deck/resources/start_deck.tres" type="Resource" id=3]
+[ext_resource path="res://board_area/hand/hand.gd" type="Script" id=1]
+[ext_resource path="res://board_area/hand/hand.tres" type="Resource" id=2]
+[ext_resource path="res://board_area/deck/deck.tres" type="Resource" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 720, 100 )
