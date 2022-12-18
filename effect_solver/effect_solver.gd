@@ -16,7 +16,13 @@ func _on_card_played(card) -> void:
 			var state = yield($TargetSelector, "target_selected")
 			$TargetSelector.set_physics_process(false)
 			args.target = state.collider
+		
 			
 		var effect = effect_resource.effect_scene.instance()
+		
+		if effect_resource is BuildEffectResource:
+			effect.tower_resource = effect_resource.tower_resource
+			effect.tower = effect_resource.tower
+			
 		if effect.has_method('apply_effect'):
 			effect.apply_effect(args)
