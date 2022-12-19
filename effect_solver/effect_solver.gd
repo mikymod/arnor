@@ -2,6 +2,7 @@ class_name EffectSolver
 extends Node2D
 
 export(Resource) var hand_resource
+export(Resource) var deck_resource
 
 func _ready() -> void:
 	hand_resource.connect('card_played', self, '_on_card_played')
@@ -23,6 +24,9 @@ func _on_card_played(card) -> void:
 		if effect_resource is BuildEffectResource:
 			effect.tower_resource = effect_resource.tower_resource
 			effect.tower = effect_resource.tower
+		
+		if effect_resource is DrawEffectResource:
+			effect.deck_resource = deck_resource
 			
 		if effect.has_method('apply_effect'):
 			effect.apply_effect(args)
