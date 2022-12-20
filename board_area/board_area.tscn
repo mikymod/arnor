@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://board_area/board_area.gd" type="Script" id=1]
 [ext_resource path="res://board_area/deck/deck.tres" type="Resource" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://board_area/deck/deck.tscn" type="PackedScene" id=4]
 [ext_resource path="res://board_area/hand/hand.tscn" type="PackedScene" id=5]
 [ext_resource path="res://card/card.tscn" type="PackedScene" id=6]
+[ext_resource path="res://board_area/power_bar/power_bar.tscn" type="PackedScene" id=7]
 
 [node name="BoardArea" type="Node2D"]
 script = ExtResource( 1 )
@@ -20,3 +21,6 @@ position = Vector2( 960, 979 )
 
 [node name="Discard" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1792, 956 )
+
+[node name="PowerBar" parent="." instance=ExtResource( 7 )]
+position = Vector2( 816, 824 )

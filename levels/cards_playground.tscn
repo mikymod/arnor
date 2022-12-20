@@ -25,6 +25,9 @@ wait_time = 3.0
 
 [node name="BoardArea" parent="." instance=ExtResource( 2 )]
 
+[node name="PowerBar" parent="BoardArea" index="3"]
+position = Vector2( 960, 833 )
+
 [node name="GameArea" parent="." instance=ExtResource( 1 )]
 position = Vector2( 968, 435 )
 
