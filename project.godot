@@ -112,7 +112,12 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "EnemyResource",
 "language": "GDScript",
-"path": "res://enemy/resources/enemy_resource.gd"
+"path": "res://enemy/enemy_resource.gd"
+}, {
+"base": "Resource",
+"class": "EnemyWaveResource",
+"language": "GDScript",
+"path": "res://enemy_wave_spawner/enemy_wave_resource.gd"
 }, {
 "base": "Area2D",
 "class": "GameArea",
@@ -181,6 +186,7 @@ _global_script_class_icons={
 "EffectSolver": "",
 "Enemy": "",
 "EnemyResource": "",
+"EnemyWaveResource": "",
 "GameArea": "",
 "Hand": "",
 "HandResource": "",
