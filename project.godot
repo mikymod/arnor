@@ -107,12 +107,12 @@ _global_script_classes=[ {
 "base": "RigidBody2D",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://enemy/enemy.gd"
+"path": "res://enemy_wave_spawner/enemy/enemy.gd"
 }, {
 "base": "Resource",
 "class": "EnemyResource",
 "language": "GDScript",
-"path": "res://enemy/enemy_resource.gd"
+"path": "res://enemy_wave_spawner/enemy/enemy_resource.gd"
 }, {
 "base": "Resource",
 "class": "EnemyWaveResource",
