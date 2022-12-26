@@ -1,6 +1,9 @@
 class_name EffectSolver
 extends Node2D
 
+signal effect_solved()
+signal card_solved(card)
+
 export(Resource) var hand_resource
 export(Resource) var deck_resource
 
@@ -30,3 +33,6 @@ func _on_card_played(card) -> void:
 			
 		if effect.has_method('apply_effect'):
 			effect.apply_effect(args)
+		
+		emit_signal("effect_solved")
+	emit_signal("card_solved", card)

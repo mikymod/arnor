@@ -34,3 +34,8 @@ func _ready() -> void:
 	_cost_label.text = String(resource.cost)
 	_description_label.text = resource.description
 
+func enable_collision() -> void:
+	$CollisionShape2D.disabled = false
+
+func disable_collision() -> void:
+	$CollisionShape2D.disabled = true
