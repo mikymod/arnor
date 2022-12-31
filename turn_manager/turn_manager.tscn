@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://turn_manager/turn_manager.gd" type="Script" id=1]
+[ext_resource path="res://board_area/hand/hand.tres" type="Resource" id=2]
+[ext_resource path="res://board_area/power_bar/power.tres" type="Resource" id=3]
+[ext_resource path="res://board_area/deck/deck.tres" type="Resource" id=4]
+
+[node name="TurnManager" type="Node2D"]
+script = ExtResource( 1 )
+power_resource = ExtResource( 3 )
+hand_resource = ExtResource( 2 )
+deck_resource = ExtResource( 4 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 103.0
+margin_bottom = 68.0
+
+[node name="Restore Phase" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_right = 103.0
+margin_bottom = 20.0
+text = "Restore Phase"
+align = 0
+
+[node name="Draw Phase" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 103.0
+margin_bottom = 44.0
+text = "Draw Phase"
+align = 0
+
+[node name="Spawn Phase" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 48.0
+margin_right = 103.0
+margin_bottom = 68.0
+text = "Spawn Phase"
+align = 0
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Restore Phase" to="." method="_on_Restore_Phase_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Draw Phase" to="." method="_on_Draw_Phase_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Spawn Phase" to="." method="_on_Spawn_Phase_button_down"]

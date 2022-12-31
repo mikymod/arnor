@@ -9,6 +9,7 @@ var items: Array = []
 
 func _ready() -> void:
 	hand_resource.connect('card_played', self, '_on_card_played')
+	power_resource.connect("power_restored", self, "_on_power_restored")
 	
 	for i in range(power_resource.max_power):
 		var instance = power_scene.instance()
@@ -25,4 +26,8 @@ func _on_card_played(card: Card) -> void:
 			items[i].set_enabled(true)
 		else:
 			items[i].set_enabled(false)
+
+func _on_power_restored() -> void:
+	for item in items:
+		item.set_enabled(true)
 	
