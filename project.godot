@@ -79,7 +79,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://board_area/deck/deck.gd"
 }, {
-"base": "Reference",
+"base": "Resource",
 "class": "DeckResource",
 "language": "GDScript",
 "path": "res://board_area/deck/deck_resource.gd"
@@ -207,7 +207,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Arnor"
-run/main_scene="res://tower/tower.tscn"
+run/main_scene="res://levels/cards_playground.tscn"
 config/icon="res://icon.png"
 
 [display]
