@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/power_off.png-841a12df86e346293f27595b0347ced0.stex"
+path="res://.import/power_off.png-3d39f19b5a807c839ebb1d5cb2474e5c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://board_area/power_bar/power_off.png"
-dest_files=[ "res://.import/power_off.png-841a12df86e346293f27595b0347ced0.stex" ]
+source_file="res://board_area/power_bar/power/power_off.png"
+dest_files=[ "res://.import/power_off.png-3d39f19b5a807c839ebb1d5cb2474e5c.stex" ]
 
 [params]
 

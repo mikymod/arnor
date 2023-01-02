@@ -35,7 +35,7 @@ func spawn_wave() -> void:
 	for i in range(wave_res.num_enemies):
 		var random_spawn_point = spawn_points[_rng.randi_range(0, spawn_points.size() - 1)]
 		var random_wait_time = _rng.randf_range(0.0, wave_res.duration / wave_res.num_enemies)
-		var random_enemy_res = wave_res.enemy_resources[_rng.randi_range(0, wave_res.enemy_resources.size() - 1)]		
+		var random_enemy_res = wave_res.enemy_resources[_rng.randi_range(0, wave_res.enemy_resources.size() - 1)]
 		
 		random_spawn_point.enemies.append({'enemy_resource': random_enemy_res, 'wait_time': random_wait_time})
 

@@ -1,15 +1,16 @@
 extends Node2D
 
 export(Resource) var power_resource
-export(PackedScene) var power_scene
-
 export(Resource) var hand_resource
+export(Resource) var turn_manager_resource
+
+export(PackedScene) var power_scene
 
 var items: Array = []
 
 func _ready() -> void:
 	hand_resource.connect('card_played', self, '_on_card_played')
-	power_resource.connect("power_restored", self, "_on_power_restored")
+	turn_manager_resource.connect("restore_phase_started", self, "_on_restore_phase_started")
 	
 	for i in range(power_resource.max_power):
 		var instance = power_scene.instance()
@@ -27,7 +28,8 @@ func _on_card_played(card: Card) -> void:
 		else:
 			items[i].set_enabled(false)
 
-func _on_power_restored() -> void:
+func _on_restore_phase_started() -> void:
+	power_resource.reset_power()
 	for item in items:
 		item.set_enabled(true)
 	

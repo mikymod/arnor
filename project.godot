@@ -168,6 +168,11 @@ _global_script_classes=[ {
 "class": "TurnManager",
 "language": "GDScript",
 "path": "res://turn_manager/turn_manager.gd"
+}, {
+"base": "Resource",
+"class": "TurnManagerResource",
+"language": "GDScript",
+"path": "res://turn_manager/turn_manager_resource.gd"
 } ]
 _global_script_class_icons={
 "BoardArea": "",
@@ -201,7 +206,8 @@ _global_script_class_icons={
 "StateMachine": "",
 "Tower": "",
 "TowerResource": "",
-"TurnManager": ""
+"TurnManager": "",
+"TurnManagerResource": ""
 }
 
 [application]
