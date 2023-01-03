@@ -16,4 +16,3 @@ func set_velocity(new_velocity: float) -> void:
 
 func increase_velocity(variation: float) -> void:
 	velocity += variation
-

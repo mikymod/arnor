@@ -18,4 +18,4 @@ export(String) var description = ''
 export(Texture) var background
 export(Texture) var foreground
 
-export(Array) var effect_resources
+export(Array, Resource) var effect_resources

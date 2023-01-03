@@ -14,11 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://board_area/board_area.gd"
 }, {
-"base": "Node2D",
-"class": "BuildEffect",
-"language": "GDScript",
-"path": "res://effect/build/build_effect.gd"
-}, {
 "base": "EffectResource",
 "class": "BuildEffectResource",
 "language": "GDScript",
@@ -83,6 +78,11 @@ _global_script_classes=[ {
 "class": "DeckResource",
 "language": "GDScript",
 "path": "res://board_area/deck/deck_resource.gd"
+}, {
+"base": "EffectResource",
+"class": "DestroyTowerEffectResource",
+"language": "GDScript",
+"path": "res://effect/destroy_tower/destroy_tower_effect_resource.gd"
 }, {
 "base": "Area2D",
 "class": "Discard",
@@ -176,7 +176,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "BoardArea": "",
-"BuildEffect": "",
 "BuildEffectResource": "",
 "Bullet": "",
 "BulletResource": "",
@@ -190,6 +189,7 @@ _global_script_class_icons={
 "CardStateMachine": "",
 "Deck": "",
 "DeckResource": "",
+"DestroyTowerEffectResource": "",
 "Discard": "",
 "DrawEffectResource": "",
 "EffectResource": "",
