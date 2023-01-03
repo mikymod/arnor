@@ -1,43 +1,53 @@
 extends Node2D
 
+export(Resource) var turn_manager_resource
+
+export(PackedScene) var enemy_scene
+
 export(Array, Resource) var enemy_wave_list
 
 onready var spawn_points: Array = [
-	$SpawnPoints/EnemySpawner,
-	$SpawnPoints/EnemySpawner2,
-	$SpawnPoints/EnemySpawner3,
-	$SpawnPoints/EnemySpawner4,
+	$SpawnPoints/SpawnPoint,
+	$SpawnPoints/SpawnPoint2,
+	$SpawnPoints/SpawnPoint3,
+	$SpawnPoints/SpawnPoint4,
 ]
 
-var _current_wave: int = 0
+var _wave_res: Resource
+var _current_wave: int = -1
+var _num_enemies: int = 0
 var _rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
-	$Timer.wait_time = enemy_wave_list[_current_wave].start_after
+	turn_manager_resource.connect("wave_phase_started", self, "_on_wave_phase_started")
+
+func _on_wave_phase_started() -> void:
+	_current_wave += 1
+	if _current_wave >= enemy_wave_list.size():
+		_current_wave = 0
+		
+	_wave_res = enemy_wave_list[_current_wave]
+	_num_enemies = _wave_res.num_enemies
+	
 	$Timer.one_shot = false
 	$Timer.autostart = false
 	$Timer.start()
 
 func _on_Timer_timeout():
-	spawn_wave()
-	var current_duration = enemy_wave_list[_current_wave].duration
-	_current_wave += 1
-	if _current_wave == enemy_wave_list.size():
+	spawn_enemy()
+	if _num_enemies <= 0:
 		$Timer.stop()
 	else:
-		$Timer.wait_time = current_duration + enemy_wave_list[_current_wave].start_after
+		$Timer.wait_time = 1
 		$Timer.start()
 		
-func spawn_wave() -> void:
-	print("wave num: ", _current_wave)
-	var wave_res = enemy_wave_list[_current_wave]
+func spawn_enemy() -> void:
+	var random_spawn_point = spawn_points[_rng.randi_range(0, spawn_points.size() - 1)]
+	var random_enemy_res = _wave_res.enemy_resources[_rng.randi_range(0, _wave_res.enemy_resources.size() - 1)]
 	
-	for i in range(wave_res.num_enemies):
-		var random_spawn_point = spawn_points[_rng.randi_range(0, spawn_points.size() - 1)]
-		var random_wait_time = _rng.randf_range(0.0, wave_res.duration / wave_res.num_enemies)
-		var random_enemy_res = wave_res.enemy_resources[_rng.randi_range(0, wave_res.enemy_resources.size() - 1)]
-		
-		random_spawn_point.enemies.append({'enemy_resource': random_enemy_res, 'wait_time': random_wait_time})
-
-	for spawn_point in spawn_points:
-		spawn_point.start()
+	var enemy = enemy_scene.instance()
+	enemy.resource = random_enemy_res
+	random_spawn_point.add_child(enemy)
+	
+	_num_enemies -= 1
+	

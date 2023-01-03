@@ -20,10 +20,9 @@ position = Vector2( 968, 435 )
 position = Vector2( 120, -128 )
 
 [node name="EnemyWaveSpawner" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2048, -80 )
+position = Vector2( 1856, -72 )
 
 [node name="TurnManager" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1744, 816 )
 
 [editable path="BoardArea"]
-[editable path="EnemyWaveSpawner"]
