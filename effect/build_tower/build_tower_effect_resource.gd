@@ -1,4 +1,4 @@
-class_name BuildEffectResource
+class_name BuildTowerEffectResource
 extends EffectResource
 
 export(Resource) var tower_resource

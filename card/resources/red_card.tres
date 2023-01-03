@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://card/card_resource.gd" type="Script" id=1]
-[ext_resource path="res://effect/build/resources/build_effect_empowered_tower.tres" type="Resource" id=2]
+[ext_resource path="res://effect/build_tower/resources/build_tower_effect_empowered_tower.tres" type="Resource" id=2]
 [ext_resource path="res://card/textures/red_card.png" type="Texture" id=3]
 [ext_resource path="res://effect/draw/draw_effect.tres" type="Resource" id=4]
 
