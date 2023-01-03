@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://board_area/board_area.gd"
 }, {
 "base": "EffectResource",
+"class": "BuffEffectResource",
+"language": "GDScript",
+"path": "res://effect/buff/buff_effect_resource.gd"
+}, {
+"base": "EffectResource",
 "class": "BuildTowerEffectResource",
 "language": "GDScript",
 "path": "res://effect/build_tower/build_tower_effect_resource.gd"
@@ -176,6 +181,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "BoardArea": "",
+"BuffEffectResource": "",
 "BuildTowerEffectResource": "",
 "Bullet": "",
 "BulletResource": "",

@@ -9,7 +9,10 @@
 
 [resource]
 script = ExtResource( 1 )
-shoot_rate = 0.25
+damage = 2.0
+health = 1.0
+shoot_rate = 0.5
+armor = 0.0
 bullet_resource = ExtResource( 6 )
 base = ExtResource( 3 )
 body1 = ExtResource( 2 )
