@@ -10,7 +10,6 @@ func enter(_msg := {}) -> void:
 func handle_input(_event: InputEvent) -> void:
 	pass
 
-
 func process(_delta: float) -> void:
 	pass
 

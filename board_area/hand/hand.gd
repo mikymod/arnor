@@ -16,7 +16,6 @@ func _ready() -> void:
 
 func _on_card_drawed(card):
 	hand_resource.cards.append(card)
-	card.get_parent().remove_child(card)
 	add_child(card)
 	_reposition()
 
@@ -24,6 +23,7 @@ func _on_card_played(_card):
 	_reposition()
 	for card in hand_resource.cards:
 		card.disable_collision()
+	remove_child(_card)
 
 func _on_card_solved(card: Card):
 	print('Card Solved')
