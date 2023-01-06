@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://game_area/game_area.tscn" type="PackedScene" id=1]
 [ext_resource path="res://board_area/board_area.tscn" type="PackedScene" id=2]
@@ -6,8 +6,14 @@
 [ext_resource path="res://effect_solver/effect_solver.tscn" type="PackedScene" id=4]
 [ext_resource path="res://turn_manager/turn_manager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://reward_area/reward_area.tscn" type="PackedScene" id=6]
+[ext_resource path="res://levels/level.gd" type="Script" id=7]
+[ext_resource path="res://turn_manager/turn_manager.tres" type="Resource" id=8]
+[ext_resource path="res://reward_area/reward_area.tres" type="Resource" id=9]
 
-[node name="Node2D" type="Node2D"]
+[node name="Level" type="Node2D"]
+script = ExtResource( 7 )
+turn_manager_resource = ExtResource( 8 )
+reward_area_resource = ExtResource( 9 )
 
 [node name="BoardArea" parent="." instance=ExtResource( 2 )]
 
@@ -27,6 +33,7 @@ position = Vector2( 1856, -72 )
 position = Vector2( 1744, 816 )
 
 [node name="RewardArea" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1240, 488 )
+visible = false
+position = Vector2( 744, 374 )
 
 [editable path="BoardArea"]

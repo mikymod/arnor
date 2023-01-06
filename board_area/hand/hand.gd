@@ -7,7 +7,7 @@ export(Resource) var deck_resource
 var effect_solver: EffectSolver
 
 func _ready() -> void:
-	effect_solver = get_node('/root/Node2D/EffectSolver')
+	effect_solver = get_node('/root/Level/EffectSolver')
 	
 	if effect_solver != null:
 		effect_solver.connect("card_solved", self, "_on_card_solved")
