@@ -14,13 +14,10 @@ extents = Vector2( 57.5, 96 )
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 838.75, 93 )
 
-[node name="Tower" type="KinematicBody2D" groups=["towers"]]
+[node name="Tower" type="StaticBody2D" groups=["towers"]]
 position = Vector2( -1, 1 )
 collision_mask = 4
 script = ExtResource( 5 )
-__meta__ = {
-"_edit_vertical_guides_": [ 592.0 ]
-}
 resource = ExtResource( 7 )
 bullet_scene = ExtResource( 6 )
 

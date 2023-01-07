@@ -1,5 +1,5 @@
 class_name Tower
-extends KinematicBody2D
+extends StaticBody2D
 
 export(Resource) var resource # TowerResource
 export(PackedScene) var bullet_scene
