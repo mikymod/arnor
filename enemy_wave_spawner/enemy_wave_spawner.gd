@@ -46,7 +46,7 @@ func spawn_enemy() -> void:
 	var random_enemy_res = _wave_res.enemy_resources[_rng.randi_range(0, _wave_res.enemy_resources.size() - 1)]
 	
 	var enemy = enemy_scene.instance()
-	enemy.resource = random_enemy_res
+	enemy.enemy_resource = random_enemy_res
 	random_spawn_point.add_child(enemy)
 	
 	_num_enemies -= 1

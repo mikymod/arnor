@@ -1,8 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://enemy_wave_spawner/enemy/enemy.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://enemy_wave_spawner/enemy/basic_enemy.tres" type="Resource" id=3]
+[ext_resource path="res://enemy_wave_spawner/enemy/states/enemy_idle.gd" type="Script" id=4]
+[ext_resource path="res://utils/state_machine.gd" type="Script" id=5]
+[ext_resource path="res://enemy_wave_spawner/enemy/states/enemy_move.gd" type="Script" id=6]
+[ext_resource path="res://enemy_wave_spawner/enemy/states/enemy_dead.gd" type="Script" id=7]
+[ext_resource path="res://enemy_wave_spawner/enemy/states/enemy_hit.gd" type="Script" id=8]
+[ext_resource path="res://enemy_wave_spawner/enemy/states/enemy_attack.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -11,15 +17,39 @@ extents = Vector2( 32, 32 )
 collision_layer = 4
 collision_mask = 9
 gravity_scale = 0.0
-linear_velocity = Vector2( -100, 0 )
+contacts_reported = 2
+contact_monitor = true
 linear_damp = 0.0
 script = ExtResource( 1 )
-resource = ExtResource( 3 )
+enemy_resource = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="StateMachine" type="Node2D" parent="."]
+script = ExtResource( 5 )
+initial_state = NodePath("Move")
+
+[node name="Idle" type="Node2D" parent="StateMachine"]
+script = ExtResource( 4 )
+enemy_path = NodePath("../..")
+
+[node name="Move" type="Node2D" parent="StateMachine"]
+script = ExtResource( 6 )
+enemy_path = NodePath("../..")
+
+[node name="Attack" type="Node2D" parent="StateMachine"]
+script = ExtResource( 9 )
+
+[node name="Hit" type="Node2D" parent="StateMachine"]
+script = ExtResource( 8 )
+enemy_path = NodePath("../..")
+
+[node name="Dead" type="Node2D" parent="StateMachine"]
+script = ExtResource( 7 )
+enemy_path = NodePath("../..")
 
 [connection signal="body_entered" from="." to="." method="_on_Enemy_body_entered"]
