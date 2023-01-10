@@ -39,6 +39,7 @@ func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
 	emit_signal("transitioned", state.name)
 
 func back_to_previous_state(msg: Dictionary = {}) -> void:
+	state.exit()
 	state = previous_state
 	state.enter(msg)
 	emit_signal("transitioned", state.name)

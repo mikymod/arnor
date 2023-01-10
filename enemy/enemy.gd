@@ -11,7 +11,8 @@ func _ready() -> void:
 	health = enemy_resource.health
 
 func hit(damage: float) -> void:
-	state_machine.transition_to("Hit", {"damage": damage})
+	if (health > 0):
+		state_machine.transition_to("Hit", {"damage": damage})
 
 func deal_damage(damage: float) -> void:
 	health -= damage

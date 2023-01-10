@@ -9,3 +9,4 @@ Meanwhile, thanks <3<3!
 - [Kenny](https://www.kenney.nl/assets)
 - [WenRexa](https://wenrexa.itch.io/)
 - [PaperHatLizard](https://paperhatlizard.itch.io/)
+- [LuizMelo](https://luizmelo.itch.io/)
