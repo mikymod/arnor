@@ -39,6 +39,7 @@ func _on_ShootTimer_timeout():
 		_timer.paused = true
 	else:
 		_fire_bullet()
+		_timer.wait_time = 1 / _shoot_rate
 
 func add_effect(effect: Resource) -> void:
 	if effect == null:

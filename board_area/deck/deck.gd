@@ -3,6 +3,9 @@ extends Node2D
 
 export(Resource) var deck_resource
 export(Resource) var turn_manager_resource
+export(Resource) var hand_resource
+
+const min_cards_in_hand = 5
 
 func _ready() -> void:
 	deck_resource.connect('deck_restored', self, '_on_deck_restored')
@@ -20,6 +23,6 @@ func _on_deck_restored():
 		_card.global_position = global_position
 
 func _on_draw_phase_started() -> void:
-	var num_cards_to_draw = min(deck_resource.deck_list.size(), 4)
+	var num_cards_to_draw = max(min_cards_in_hand - hand_resource.cards.size(), 1)
 	for _i in range(num_cards_to_draw):
 		deck_resource.draw_card()
