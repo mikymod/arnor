@@ -27,7 +27,7 @@ position = Vector2( 968, 435 )
 position = Vector2( 120, -128 )
 
 [node name="EnemyWaveSpawner" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1982, -72 )
+position = Vector2( 1982, -112 )
 
 [node name="TurnManager" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1744, 816 )

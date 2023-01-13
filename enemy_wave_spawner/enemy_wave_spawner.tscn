@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://enemy_wave_spawner/enemy_wave_spawner.gd" type="Script" id=1]
 [ext_resource path="res://enemy_wave_spawner/resources/basic_enemy_wave.tres" type="Resource" id=2]
@@ -6,12 +6,15 @@
 [ext_resource path="res://enemy_wave_spawner/resources/basic_enemy_wave_1.tres" type="Resource" id=4]
 [ext_resource path="res://enemy/enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://turn_manager/turn_manager.tres" type="Resource" id=6]
+[ext_resource path="res://enemy_wave_spawner/resources/basic_enemy_wave_4.tres" type="Resource" id=7]
+[ext_resource path="res://enemy_wave_spawner/resources/basic_enemy_wave_3.tres" type="Resource" id=8]
+[ext_resource path="res://enemy_wave_spawner/resources/basic_enemy_wave_5.tres" type="Resource" id=9]
 
 [node name="EnemyWaveSpawner" type="Node2D"]
 script = ExtResource( 1 )
 turn_manager_resource = ExtResource( 6 )
 enemy_scene = ExtResource( 5 )
-enemy_wave_list = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ]
+enemy_wave_list = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ) ]
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 

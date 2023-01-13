@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://enemy/states/enemy_hit.gd" type="Script" id=1]
 [ext_resource path="res://enemy/states/enemy_walk.gd" type="Script" id=2]
@@ -15,13 +15,16 @@
 [ext_resource path="res://enemy/textures/Death.png" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20, 32 )
+extents = Vector2( 12, 26.6667 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 21.8333, 21.3333 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Attack"
 length = 0.8
 tracks/0/type = "value"
-tracks/0/path = NodePath("CollisionShape2D/Sprites/AttackSprite:frame")
+tracks/0/path = NodePath("Sprites/AttackSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -32,12 +35,38 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "try_attack"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprites/AttackSprite/Attack:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "Dead"
 length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("CollisionShape2D/Sprites/DeadSprite:frame")
+tracks/0/path = NodePath("Sprites/DeadSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -65,7 +94,7 @@ tracks/1/keys = {
 resource_name = "Idle"
 length = 0.4
 tracks/0/type = "value"
-tracks/0/path = NodePath("CollisionShape2D/Sprites/IdleSprite:frame")
+tracks/0/path = NodePath("Sprites/IdleSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -80,7 +109,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=4]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("CollisionShape2D/Sprites/IdleSprite:frame")
+tracks/0/path = NodePath("Sprites/IdleSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -92,7 +121,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CollisionShape2D/Sprites/WalkSprite:frame")
+tracks/1/path = NodePath("Sprites/WalkSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -104,7 +133,7 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CollisionShape2D/Sprites/AttackSprite:frame")
+tracks/2/path = NodePath("Sprites/AttackSprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -116,7 +145,7 @@ tracks/2/keys = {
 "values": [ 0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("CollisionShape2D/Sprites/TakeHitSprite:frame")
+tracks/3/path = NodePath("Sprites/TakeHitSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -128,7 +157,7 @@ tracks/3/keys = {
 "values": [ 1 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("CollisionShape2D/Sprites/DeadSprite:frame")
+tracks/4/path = NodePath("Sprites/DeadSprite:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -139,12 +168,24 @@ tracks/4/keys = {
 "update": 0,
 "values": [ 0 ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprites/AttackSprite/Attack:monitoring")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "TakeHit"
 length = 0.4
 tracks/0/type = "value"
-tracks/0/path = NodePath("CollisionShape2D/Sprites/TakeHitSprite:frame")
+tracks/0/path = NodePath("Sprites/TakeHitSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -161,7 +202,7 @@ resource_name = "Walk"
 length = 0.4
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("CollisionShape2D/Sprites/WalkSprite:frame")
+tracks/0/path = NodePath("Sprites/WalkSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -184,34 +225,45 @@ script = ExtResource( 5 )
 enemy_resource = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 4, 0 )
-scale = Vector2( -3, 3 )
+rotation = -3.14159
+scale = Vector2( 3, -3 )
 shape = SubResource( 1 )
 
-[node name="Sprites" type="Node2D" parent="CollisionShape2D"]
-position = Vector2( -4, 0 )
+[node name="Sprites" type="Node2D" parent="."]
+rotation = 3.14159
+scale = Vector2( 3, -3 )
 
-[node name="IdleSprite" type="Sprite" parent="CollisionShape2D/Sprites"]
+[node name="IdleSprite" type="Sprite" parent="Sprites"]
+position = Vector2( 0, 2.84217e-14 )
 texture = ExtResource( 7 )
 hframes = 4
 
-[node name="WalkSprite" type="Sprite" parent="CollisionShape2D/Sprites"]
+[node name="WalkSprite" type="Sprite" parent="Sprites"]
 visible = false
 texture = ExtResource( 11 )
 hframes = 4
 
-[node name="AttackSprite" type="Sprite" parent="CollisionShape2D/Sprites"]
+[node name="AttackSprite" type="Sprite" parent="Sprites"]
 visible = false
 texture = ExtResource( 10 )
 hframes = 8
 
-[node name="TakeHitSprite" type="Sprite" parent="CollisionShape2D/Sprites"]
+[node name="Attack" type="Area2D" parent="Sprites/AttackSprite"]
+position = Vector2( 48, -5.33333 )
+collision_layer = 4
+monitoring = false
+
+[node name="Shape" type="CollisionShape2D" parent="Sprites/AttackSprite/Attack"]
+position = Vector2( -5.33333, -3.33786e-06 )
+shape = SubResource( 8 )
+
+[node name="TakeHitSprite" type="Sprite" parent="Sprites"]
 visible = false
 texture = ExtResource( 12 )
 hframes = 4
 frame = 1
 
-[node name="DeadSprite" type="Sprite" parent="CollisionShape2D/Sprites"]
+[node name="DeadSprite" type="Sprite" parent="Sprites"]
 visible = false
 texture = ExtResource( 13 )
 hframes = 4
@@ -231,31 +283,32 @@ initial_state = NodePath("Idle")
 [node name="Idle" type="Node2D" parent="StateMachine"]
 script = ExtResource( 4 )
 enemy_path = NodePath("../..")
-sprite_path = NodePath("../../CollisionShape2D/Sprites/IdleSprite")
+sprite_path = NodePath("../../Sprites/IdleSprite")
 animation_player_path = NodePath("../../AnimationPlayer")
 
 [node name="Walk" type="Node2D" parent="StateMachine"]
 script = ExtResource( 2 )
 enemy_path = NodePath("../..")
-sprite_path = NodePath("../../CollisionShape2D/Sprites/WalkSprite")
+sprite_path = NodePath("../../Sprites/WalkSprite")
 animation_player_path = NodePath("../../AnimationPlayer")
 
 [node name="Attack" type="Node2D" parent="StateMachine"]
 script = ExtResource( 6 )
 enemy_path = NodePath("../..")
-sprite_path = NodePath("../../CollisionShape2D/Sprites/AttackSprite")
+sprite_path = NodePath("../../Sprites/AttackSprite")
 animation_player_path = NodePath("../../AnimationPlayer")
 
 [node name="Hit" type="Node2D" parent="StateMachine"]
 script = ExtResource( 1 )
 enemy_path = NodePath("../..")
-sprite_path = NodePath("../../CollisionShape2D/Sprites/TakeHitSprite")
+sprite_path = NodePath("../../Sprites/TakeHitSprite")
 animation_player_path = NodePath("../../AnimationPlayer")
 
 [node name="Dead" type="Node2D" parent="StateMachine"]
 script = ExtResource( 3 )
 enemy_path = NodePath("../..")
-sprite_path = NodePath("../../CollisionShape2D/Sprites/DeadSprite")
+sprite_path = NodePath("../../Sprites/DeadSprite")
 animation_player_path = NodePath("../../AnimationPlayer")
 
 [connection signal="body_entered" from="." to="." method="_on_Enemy_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Enemy_body_exited"]

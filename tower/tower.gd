@@ -65,3 +65,9 @@ func change_skin(base: Texture, body1: Texture, body2: Texture, roof: Texture) -
 	if body1 != null: $Base/Body1.texture = body1
 	if body2 != null: $Base/Body1/Body2.texture = body2
 	if roof != null: $Base/Body1/Body2/Roof.texture = roof
+
+func take_damage(damage: float) -> void:
+	_health -= damage
+	if (_health <= 0):
+		queue_free()
+		# TODO: state machine

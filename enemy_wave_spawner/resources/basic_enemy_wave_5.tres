@@ -6,4 +6,4 @@
 [resource]
 script = ExtResource( 1 )
 enemy_resources = [ ExtResource( 2 ) ]
-num_enemies = 4
+num_enemies = 27

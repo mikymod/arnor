@@ -24,5 +24,7 @@ func exit() -> void:
 func _on_animation_end(anim_name: String) -> void:
 	if (enemy.health <= 0):
 		state_machine.transition_to("Dead")
+	elif enemy.colliding_body != null:
+		state_machine.transition_to("Attack")
 	else: 
-		state_machine.back_to_previous_state()
+		state_machine.transition_to("Walk")

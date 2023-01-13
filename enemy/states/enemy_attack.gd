@@ -1,7 +1,8 @@
+class_name EnemyAttack
 extends State
 
 export var enemy_path: NodePath
-onready var enemy: Enemy = get_node(enemy_path)
+onready var enemy = get_node(enemy_path)
 
 export var sprite_path: NodePath
 onready var sprite: Sprite = get_node(sprite_path)
@@ -34,4 +35,4 @@ func _on_animation_end(anim_name: String) -> void:
 	elif _collides_with_tower: 
 		state_machine.transition_to("Attack")
 	else:
-		state_machine.back_to_previous_state()
+		state_machine.transition_to("Walk")

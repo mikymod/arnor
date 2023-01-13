@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource( 2 )
 name = "Empty"
-cost = 1
+cost = 2
 rarity = 0
 description = "Empty"
 background = ExtResource( 1 )

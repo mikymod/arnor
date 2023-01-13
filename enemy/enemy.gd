@@ -6,12 +6,13 @@ export(Resource) var enemy_resource;
 onready var state_machine = $StateMachine
 
 var health: float = 1.0
+var colliding_body
 
 func _ready() -> void:
 	health = enemy_resource.health
 
 func hit(damage: float) -> void:
-	if (health > 0):
+	if health > 0:
 		state_machine.transition_to("Hit", {"damage": damage})
 
 func deal_damage(damage: float) -> void:
@@ -29,5 +30,19 @@ func reset_speed() -> void:
 
 func _on_Enemy_body_entered(body):
 	if body is Tower:
+		colliding_body = body
 		state_machine.transition_to("Attack")
+
+func _on_Enemy_body_exited(body):
+		colliding_body = null
+
+func try_attack() -> void:
+	var attack_area = $Sprites/AttackSprite/Attack
+	var bodies = attack_area.get_overlapping_bodies()
+	for body in bodies:
+		if body.has_method("take_damage"):
+			body.take_damage(enemy_resource.damage)
+
+
+
 
