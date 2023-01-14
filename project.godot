@@ -150,6 +150,11 @@ _global_script_classes=[ {
 "path": "res://place/place.gd"
 }, {
 "base": "Resource",
+"class": "PlayerResource",
+"language": "GDScript",
+"path": "res://player/player_resource.gd"
+}, {
+"base": "Resource",
 "class": "PowerResource",
 "language": "GDScript",
 "path": "res://board_area/power_bar/power_resource.gd"
@@ -218,6 +223,7 @@ _global_script_class_icons={
 "Hand": "",
 "HandResource": "",
 "Place": "",
+"PlayerResource": "",
 "PowerResource": "",
 "RewardAreaResource": "",
 "State": "",

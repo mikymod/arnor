@@ -9,6 +9,6 @@ description = ""
 collision_mask = 1
 damage = 0.0
 health = 0.0
-shoot_rate = 0.1
+shoot_rate = 0.3
 armor = 0.0
 roof = ExtResource( 2 )
