@@ -19,9 +19,6 @@ reward_area_resource = ExtResource( 9 )
 
 [node name="BoardArea" parent="." instance=ExtResource( 2 )]
 
-[node name="PowerBar" parent="BoardArea" index="3"]
-position = Vector2( 960, 833 )
-
 [node name="GameArea" parent="." instance=ExtResource( 1 )]
 position = Vector2( 968, 432 )
 
@@ -41,5 +38,3 @@ position = Vector2( 744, 374 )
 [node name="Player" parent="." instance=ExtResource( 10 )]
 
 [node name="HealthBar" parent="." instance=ExtResource( 11 )]
-
-[editable path="BoardArea"]
