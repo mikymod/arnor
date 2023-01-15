@@ -249,11 +249,6 @@ window/size/test_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
-[global]
-
-collision=false
-layer=false
-
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

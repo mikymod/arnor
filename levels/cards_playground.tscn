@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://game_area/game_area.tscn" type="PackedScene" id=1]
 [ext_resource path="res://board_area/board_area.tscn" type="PackedScene" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://reward_area/reward_area.tres" type="Resource" id=9]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://game_ui/health_bar.tscn" type="PackedScene" id=11]
+[ext_resource path="res://card/resources/red_card.tres" type="Resource" id=12]
+[ext_resource path="res://card/resources/green_card.tres" type="Resource" id=13]
+[ext_resource path="res://card/resources/grey_card.tres" type="Resource" id=14]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 7 )
@@ -20,13 +23,16 @@ reward_area_resource = ExtResource( 9 )
 [node name="BoardArea" parent="." instance=ExtResource( 2 )]
 
 [node name="GameArea" parent="." instance=ExtResource( 1 )]
-position = Vector2( 968, 432 )
+position = Vector2( 88, 152 )
 
 [node name="EffectSolver" parent="." instance=ExtResource( 4 )]
 position = Vector2( 120, -128 )
 
 [node name="EnemyWaveSpawner" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1982, -112 )
+position = Vector2( 1986, -132 )
+
+[node name="SpawnPoints" parent="EnemyWaveSpawner" index="0"]
+position = Vector2( 0, 40 )
 
 [node name="TurnManager" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1744, 816 )
@@ -34,7 +40,10 @@ position = Vector2( 1744, 816 )
 [node name="RewardArea" parent="." instance=ExtResource( 6 )]
 visible = false
 position = Vector2( 744, 374 )
+cards = [ ExtResource( 14 ), ExtResource( 12 ), ExtResource( 13 ) ]
 
 [node name="Player" parent="." instance=ExtResource( 10 )]
 
 [node name="HealthBar" parent="." instance=ExtResource( 11 )]
+
+[editable path="EnemyWaveSpawner"]

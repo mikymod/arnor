@@ -19,13 +19,13 @@ enemy_wave_list = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtRes
 [node name="SpawnPoints" type="Node2D" parent="."]
 
 [node name="SpawnPoint" type="Node2D" parent="SpawnPoints"]
-position = Vector2( 0, 192 )
+position = Vector2( 0, 288 )
 
 [node name="SpawnPoint2" type="Node2D" parent="SpawnPoints"]
-position = Vector2( 0, 384 )
+position = Vector2( 0, 448 )
 
 [node name="SpawnPoint3" type="Node2D" parent="SpawnPoints"]
-position = Vector2( 0, 576 )
+position = Vector2( 0, 608 )
 
 [node name="SpawnPoint4" type="Node2D" parent="SpawnPoints"]
 position = Vector2( 0, 768 )
