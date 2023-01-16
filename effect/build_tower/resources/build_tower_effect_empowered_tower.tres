@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource( 1 )
-description = ""
+description = "Build an empowered tower."
 collision_mask = 2
 tower_resource = ExtResource( 3 )
 tower = ExtResource( 2 )

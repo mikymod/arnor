@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource( 1 )
-description = ""
+description = "Draw a card."
 collision_mask = 0
 cards_to_draw = 1

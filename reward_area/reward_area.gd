@@ -1,13 +1,13 @@
-extends Node2D
+extends Control
 
 export(Resource) var turn_manager_resource
 
 export(Array, Resource) var cards
 
 onready var slots = [
-	$MarginContainer/CenterContainer/HBoxContainer/RewardSlot1,
-	$MarginContainer/CenterContainer/HBoxContainer/RewardSlot2,
-	$MarginContainer/CenterContainer/HBoxContainer/RewardSlot3,
+	$CenterContainer/HBoxContainer/RewardSlot1,
+	$CenterContainer/HBoxContainer/RewardSlot2,
+	$CenterContainer/HBoxContainer/RewardSlot3,
 ]
 
 var _rng = RandomNumberGenerator.new()
@@ -20,5 +20,5 @@ func _on_reward_phase_started() -> void:
 	for slot in slots:
 		var index = _rng.randi_range(0, cards.size() - 1)
 		slot.card_resource = cards[index]
-		if slot.has_method("change_skin"):
-			slot.change_skin()
+		slot.set_skin()
+		slot.set_data()

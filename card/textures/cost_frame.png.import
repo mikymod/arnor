@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/blue_card.png-41d21b3fbd2f050298245a37d91b015f.stex"
+path="res://.import/cost_frame.png-ee3f95d641c337ca818b5e22284444fb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://card/textures/blue_card.png"
-dest_files=[ "res://.import/blue_card.png-41d21b3fbd2f050298245a37d91b015f.stex" ]
+source_file="res://card/textures/cost_frame.png"
+dest_files=[ "res://.import/cost_frame.png-ee3f95d641c337ca818b5e22284444fb.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

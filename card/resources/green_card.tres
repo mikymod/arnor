@@ -1,14 +1,28 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=9 format=2]
 
 [ext_resource path="res://card/card_resource.gd" type="Script" id=1]
 [ext_resource path="res://effect/buff/resources/increase_shoot_rate.tres" type="Resource" id=2]
-[ext_resource path="res://card/textures/green_card.png" type="Texture" id=3]
+[ext_resource path="res://card/textures/background_frame.png" type="Texture" id=3]
+[ext_resource path="res://card/textures/cost_frame.png" type="Texture" id=4]
+[ext_resource path="res://card/textures/name_frame.png" type="Texture" id=5]
+[ext_resource path="res://card/textures/foreground_frame.png" type="Texture" id=6]
+[ext_resource path="res://card/textures/description_frame.png" type="Texture" id=7]
+[ext_resource path="res://card/textures/rarity_frame.png" type="Texture" id=8]
 
 [resource]
 script = ExtResource( 1 )
 name = "Green"
 cost = 1
 rarity = 0
-description = "Lorem Ipsum"
-background = ExtResource( 3 )
+background_frame = ExtResource( 3 )
+background_frame_color = Color( 0.0823529, 0.8, 0.0588235, 1 )
+foreground_frame = ExtResource( 6 )
+name_frame = ExtResource( 5 )
+name_frame_color = Color( 1, 0.909804, 0.631373, 1 )
+cost_frame = ExtResource( 4 )
+cost_frame_color = Color( 0.517647, 0.517647, 0.517647, 1 )
+description_frame = ExtResource( 7 )
+description_frame_color = Color( 1, 0.909804, 0.631373, 1 )
+rarity_frame = ExtResource( 8 )
+rarity_frame_color = Color( 0.517647, 0.517647, 0.517647, 1 )
 effect_resources = [ ExtResource( 2 ) ]

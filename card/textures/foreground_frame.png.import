@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grey_card.png-7dfebba4ca40d49a3290c33c66d070cb.stex"
+path="res://.import/foreground_frame.png-ec011644454d2588146ceaf19c61dda9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://card/textures/grey_card.png"
-dest_files=[ "res://.import/grey_card.png-7dfebba4ca40d49a3290c33c66d070cb.stex" ]
+source_file="res://card/textures/foreground_frame.png"
+dest_files=[ "res://.import/foreground_frame.png-ec011644454d2588146ceaf19c61dda9.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -29,3 +29,4 @@ func _on_reward_selected(card_res):
 	instance.resource = card_res
 	cards.append(instance)
 
+

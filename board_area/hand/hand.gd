@@ -17,6 +17,8 @@ func _ready() -> void:
 func _on_card_drawed(card):
 	hand_resource.cards.append(card)
 	add_child(card)
+	card.set_skin()
+	card.set_data()
 	_reposition()
 
 func _on_card_played(_card):
@@ -42,7 +44,7 @@ func _generate_positions(center: Vector2, offset: int, num_card: int) -> Array:
 	return positions
 
 func _reposition():
-	var positions = _generate_positions(global_position, 70, hand_resource.cards.size())
+	var positions = _generate_positions(global_position, 214, hand_resource.cards.size())
 	for i in range(hand_resource.cards.size()):
 		hand_resource.cards[i].init_pos = positions[i]
 		hand_resource.cards[i].state_machine.transition_to('Return')

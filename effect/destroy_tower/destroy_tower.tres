@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource( 1 )
-description = ""
+description = "Destroy a target tower."
 collision_mask = 1

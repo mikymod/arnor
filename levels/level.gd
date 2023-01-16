@@ -3,8 +3,8 @@ extends Node2D
 export(Resource) var turn_manager_resource
 export(Resource) var reward_area_resource
 
-onready var _reward_area: Node2D = $RewardArea
-onready var _reward_area_pos: Vector2 = $RewardArea.global_position
+onready var _reward_area: Control = $RewardArea
+#onready var _reward_area_pos: Vector2 = $RewardArea.global_position
 
 func _ready() -> void:
 	turn_manager_resource.connect("reward_phase_started", self, "_on_reward_phase_started")
@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func _on_reward_phase_started() -> void:
 	add_child(_reward_area)
-	_reward_area.global_position = _reward_area_pos
+#	_reward_area.global_position = _reward_area_pos
 	_reward_area.visible = true
 
 func _on_reward_selected(_card) -> void:
