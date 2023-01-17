@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://game_area/game_area.tscn" type="PackedScene" id=1]
 [ext_resource path="res://board_area/board_area.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://reward_area/reward_area.tres" type="Resource" id=9]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://game_ui/health_bar.tscn" type="PackedScene" id=11]
+[ext_resource path="res://game_ui/info_box.tscn" type="PackedScene" id=12]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 7 )
@@ -33,7 +34,16 @@ position = Vector2( 1744, 816 )
 
 [node name="Player" parent="." instance=ExtResource( 10 )]
 
-[node name="RewardArea" parent="." instance=ExtResource( 6 )]
+[node name="GameUI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1920, 1080 )
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RewardArea" parent="GameUI" instance=ExtResource( 6 )]
 visible = false
 anchor_bottom = 0.0
 margin_left = 648.0
@@ -41,7 +51,15 @@ margin_top = 352.0
 margin_right = 648.0
 margin_bottom = 352.0
 
-[node name="HealthBar" parent="." instance=ExtResource( 11 )]
+[node name="HealthBar" parent="GameUI" instance=ExtResource( 11 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+
+[node name="InfoBox" parent="GameUI" instance=ExtResource( 12 )]
+visible = false
+mouse_filter = 2
+target_selector_path = NodePath("../../EffectSolver/TargetSelector")
 
 [editable path="BoardArea"]
+[editable path="EffectSolver"]
 [editable path="EnemyWaveSpawner"]
