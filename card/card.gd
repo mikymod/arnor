@@ -62,7 +62,9 @@ func set_skin() -> void:
 
 func set_data() -> void:
 	_name_label.text = resource.name
-	_cost_label.text = str(resource.cost)
+	
+	_cost_label.bbcode_enabled = true
+	_cost_label.bbcode_text = "[center]" + str(resource.cost) + "[/center]"
 
 	_description_label.bbcode_enabled = true
 	_description_label.bbcode_text = "[center]"
