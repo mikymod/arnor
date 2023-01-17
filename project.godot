@@ -129,11 +129,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://enemy_wave_spawner/enemy_wave_resource.gd"
 }, {
-"base": "Area2D",
-"class": "GameArea",
-"language": "GDScript",
-"path": "res://game_area/game_area.gd"
-}, {
 "base": "Node2D",
 "class": "Hand",
 "language": "GDScript",
@@ -219,7 +214,6 @@ _global_script_class_icons={
 "EnemyAttack": "",
 "EnemyResource": "",
 "EnemyWaveResource": "",
-"GameArea": "",
 "Hand": "",
 "HandResource": "",
 "Place": "",
@@ -260,7 +254,7 @@ common/drop_mouse_on_gui_input_disabled=true
 2d_physics/layer_3="enemies"
 2d_physics/layer_4="bullets"
 2d_physics/layer_9="cards"
-2d_physics/layer_10="game_area"
+2d_physics/layer_10="hand_area"
 
 [physics]
 

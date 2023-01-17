@@ -19,4 +19,4 @@ position = Vector2( 960, 979 )
 position = Vector2( 1792, 956 )
 
 [node name="PowerBar" parent="." instance=ExtResource( 7 )]
-position = Vector2( 816, 824 )
+position = Vector2( 240, 832 )

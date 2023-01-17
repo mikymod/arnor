@@ -48,3 +48,11 @@ func _reposition():
 	for i in range(hand_resource.cards.size()):
 		hand_resource.cards[i].init_pos = positions[i]
 		hand_resource.cards[i].state_machine.transition_to('Return')
+
+func _on_Hand_area_entered(area):
+	if area is Card:
+		area.playable = false
+
+func _on_Hand_area_exited(area):
+	if area is Card:
+		area.playable = true
