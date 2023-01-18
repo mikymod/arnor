@@ -10,3 +10,5 @@ Meanwhile, thanks <3<3!
 - [WenRexa](https://wenrexa.itch.io/)
 - [PaperHatLizard](https://paperhatlizard.itch.io/)
 - [LuizMelo](https://luizmelo.itch.io/)
+- [PIPOSCHPATZ](https://piposchpatz.itch.io/)
+- [Emhuo](https://emhuo.itch.io/)
