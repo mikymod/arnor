@@ -46,10 +46,10 @@ __meta__ = {
 [node name="RewardArea" parent="GameUI" instance=ExtResource( 6 )]
 visible = false
 anchor_bottom = 0.0
-margin_left = 648.0
-margin_top = 352.0
-margin_right = 648.0
-margin_bottom = 352.0
+margin_left = 536.0
+margin_top = 362.0
+margin_right = 536.0
+margin_bottom = 658.0
 
 [node name="HealthBar" parent="GameUI" instance=ExtResource( 11 )]
 anchor_right = 0.0

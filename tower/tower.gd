@@ -8,6 +8,9 @@ var _effects: Array = []
 
 onready var _timer: Timer = $ShootTimer
 onready var _shoot_area: Area2D = $ShootTriggerArea
+onready var _stats_damage_label: Label = $StatsPanel/MarginContainer/HBoxContainer/DamageContainer/DamageHBox/Label
+onready var _stats_shoot_rate_label: Label = $StatsPanel/MarginContainer/HBoxContainer/ShootRateContainer/ShootRateHBox/Label
+onready var _stats_armor_label: Label = $StatsPanel/MarginContainer/HBoxContainer/ArmorContainer/ArmorHBox/Label
 
 var _damage: float = 0
 var _health: float = 0
@@ -19,6 +22,11 @@ func _ready() -> void:
 	change_skin(resource.base, resource.body1, resource.body2, resource.roof)
 	_timer.wait_time = 1 / _shoot_rate
 	_timer.paused = true
+
+func _process(delta: float) -> void:
+	_stats_damage_label.text = str(_damage)
+	_stats_shoot_rate_label.text = str(_shoot_rate)
+	_stats_armor_label.text = str(_armor)
 	
 func _fire_bullet() -> void:
 	var bullet = bullet_scene.instance()
@@ -72,3 +80,10 @@ func take_damage(damage: float) -> void:
 	if (_health <= 0):
 		queue_free()
 		# TODO: state machine
+
+func _on_Tower_mouse_entered() -> void:
+	$StatsPanel.visible = true
+
+
+func _on_Tower_mouse_exited() -> void:
+	$StatsPanel.visible = false

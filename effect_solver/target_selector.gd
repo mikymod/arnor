@@ -11,5 +11,5 @@ func _physics_process(_delta: float) -> void:
 		var result = space_state.intersect_ray(mouse_pos, mouse_pos, [self],
 			collision_mask, true, true)
 		if result:
-			print(result)
+
 			emit_signal('target_selected', result)
