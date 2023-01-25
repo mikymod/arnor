@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shoot_rate_icon.png-2c847d351d2c4aec9e5e0357886dab30.stex"
+path="res://.import/wave_counter_icon.png-1aa7363dc1153359ab548e2fc8173d91.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tower/textures/icons/shoot_rate_icon.png"
-dest_files=[ "res://.import/shoot_rate_icon.png-2c847d351d2c4aec9e5e0357886dab30.stex" ]
+source_file="res://game_ui/wave_counter_icon.png"
+dest_files=[ "res://.import/wave_counter_icon.png-1aa7363dc1153359ab548e2fc8173d91.stex" ]
 
 [params]
 

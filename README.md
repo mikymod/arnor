@@ -12,3 +12,4 @@ Meanwhile, thanks <3<3!
 - [LuizMelo](https://luizmelo.itch.io/)
 - [PIPOSCHPATZ](https://piposchpatz.itch.io/)
 - [Emhuo](https://emhuo.itch.io/)
+- [cheekyinkling](https://cheekyinkling.itch.io/)
