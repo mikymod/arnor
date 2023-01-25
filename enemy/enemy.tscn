@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://enemy/states/enemy_hit.gd" type="Script" id=1]
 [ext_resource path="res://enemy/states/enemy_walk.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://enemy/textures/Walk.png" type="Texture" id=11]
 [ext_resource path="res://enemy/textures/Take Hit.png" type="Texture" id=12]
 [ext_resource path="res://enemy/textures/Death.png" type="Texture" id=13]
+[ext_resource path="res://enemy/events/enemy_events.tres" type="Resource" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 26.6667 )
@@ -223,6 +224,7 @@ contact_monitor = true
 linear_damp = 0.0
 script = ExtResource( 5 )
 enemy_resource = ExtResource( 8 )
+enemy_events = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -3.14159

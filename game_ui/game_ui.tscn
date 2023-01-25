@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game_ui/wave_counter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game_ui/dead_enemies_counter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game_ui/info_box.tscn" type="PackedScene" id=7]
 [ext_resource path="res://reward_area/reward_area.tscn" type="PackedScene" id=8]
 [ext_resource path="res://game_ui/health_bar.tscn" type="PackedScene" id=9]
@@ -26,6 +27,17 @@ margin_bottom = -228.0
 [node name="HealthBar" parent="." instance=ExtResource( 9 )]
 
 [node name="InfoBox" parent="." instance=ExtResource( 7 )]
+visible = false
 target_selector_path = NodePath("../../EffectSolver/TargetSelector")
 
 [node name="WaveCounter" parent="." instance=ExtResource( 1 )]
+margin_left = 47.0
+margin_top = 32.0
+margin_right = 47.36
+margin_bottom = 32.28
+
+[node name="DeadEnemyCounter" parent="." instance=ExtResource( 2 )]
+margin_left = 1028.0
+margin_top = 32.0
+margin_right = 1028.36
+margin_bottom = 32.28

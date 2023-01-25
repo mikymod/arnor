@@ -1,7 +1,8 @@
 class_name Enemy
 extends RigidBody2D
 
-export(Resource) var enemy_resource;
+export(Resource) var enemy_resource
+export(Resource) var enemy_events
 
 onready var state_machine = $StateMachine
 

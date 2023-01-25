@@ -18,5 +18,6 @@ func _on_animation_end(_anim_name: Sprite) -> void:
 	sprite.visible = false
 	animation_player.stop()
 	animation_player.disconnect("animation_finished", self, "_on_animation_end")
+	enemy.enemy_events.emit_signal("enemy_dead")
 	enemy.queue_free()
 
