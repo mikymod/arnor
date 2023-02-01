@@ -159,10 +159,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://board_area/power_bar/power_resource.gd"
 }, {
-"base": "Resource",
+"base": "Reference",
 "class": "RewardAreaResource",
 "language": "GDScript",
-"path": "res://reward_area/reward_area_resource.gd"
+"path": "res://game_ui/reward_area/reward_area_resource.gd"
 }, {
 "base": "Node2D",
 "class": "State",

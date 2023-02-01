@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/reward_area_frame.png-ab841c4251610d8e7ea869164c0d4898.stex"
+path="res://.import/reward_area_frame.png-15a8d08a481440329be96335075c6513.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://reward_area/reward_area_frame.png"
-dest_files=[ "res://.import/reward_area_frame.png-ab841c4251610d8e7ea869164c0d4898.stex" ]
+source_file="res://game_ui/reward_area/reward_area_frame.png"
+dest_files=[ "res://.import/reward_area_frame.png-15a8d08a481440329be96335075c6513.stex" ]
 
 [params]
 

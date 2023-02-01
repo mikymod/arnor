@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wave_counter_icon.png-1aa7363dc1153359ab548e2fc8173d91.stex"
+path="res://.import/dead_enemy_icon.png-85dfd13563d27f8e510e4a3fc8ac4c99.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_ui/wave_counter_icon.png"
-dest_files=[ "res://.import/wave_counter_icon.png-1aa7363dc1153359ab548e2fc8173d91.stex" ]
+source_file="res://game_ui/dead_enemies_counter/dead_enemy_icon.png"
+dest_files=[ "res://.import/dead_enemy_icon.png-85dfd13563d27f8e510e4a3fc8ac4c99.stex" ]
 
 [params]
 

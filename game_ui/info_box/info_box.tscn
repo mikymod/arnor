@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://game_ui/info_box.gd" type="Script" id=1]
+[ext_resource path="res://game_ui/info_box/info_box.gd" type="Script" id=1]
 [ext_resource path="res://card/events/card_events.tres" type="Resource" id=2]
 [ext_resource path="res://PeaberryBase.ttf" type="DynamicFontData" id=3]
 

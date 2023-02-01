@@ -7,7 +7,7 @@
 [ext_resource path="res://game_ui/game_ui.tscn" type="PackedScene" id=6]
 [ext_resource path="res://levels/level.gd" type="Script" id=7]
 [ext_resource path="res://turn_manager/turn_manager.tres" type="Resource" id=8]
-[ext_resource path="res://reward_area/reward_area.tres" type="Resource" id=9]
+[ext_resource path="res://game_ui/reward_area/reward_area.tres" type="Resource" id=9]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=10]
 
 [node name="Level" type="Node2D"]

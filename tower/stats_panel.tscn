@@ -3,7 +3,7 @@
 [ext_resource path="res://tower/textures/icons/shoot_rate_icon.png" type="Texture" id=1]
 [ext_resource path="res://tower/textures/icons/sword_icon.png" type="Texture" id=2]
 [ext_resource path="res://tower/textures/icons/shield_icon.png" type="Texture" id=3]
-[ext_resource path="res://reward_area/reward_area_frame.png" type="Texture" id=4]
+[ext_resource path="res://game_ui/reward_area/reward_area_frame.png" type="Texture" id=4]
 [ext_resource path="res://PeaberryBase.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://game_ui/game_ui_theme.tres" type="Theme" id=6]
 
