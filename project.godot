@@ -109,11 +109,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://effect/effect_resource.gd"
 }, {
-"base": "Node2D",
-"class": "EffectSolver",
-"language": "GDScript",
-"path": "res://effect_solver/effect_solver.gd"
-}, {
 "base": "RigidBody2D",
 "class": "Enemy",
 "language": "GDScript",
@@ -220,7 +215,6 @@ _global_script_class_icons={
 "Discard": "",
 "DrawEffectResource": "",
 "EffectResource": "",
-"EffectSolver": "",
 "Enemy": "",
 "EnemyAttack": "",
 "EnemyEvents": "",

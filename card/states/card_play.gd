@@ -12,4 +12,4 @@ onready var card: Node2D = get_node(root_path)
 
 func enter(_msg := {}) -> void:
 	card_events.emit_signal("card_played", card)
-
+	state_machine.transition_to("Solve")

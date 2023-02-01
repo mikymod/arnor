@@ -1,15 +1,10 @@
 extends Control
 
 export(Resource) var card_events
-export(NodePath) var target_selector_path
-var target_selector
 
 func _ready() -> void:
 	card_events.connect("card_played", self, "_on_card_played")
-	if not target_selector_path.is_empty():
-		target_selector = get_node(target_selector_path)
-		target_selector.connect("target_selected", self, "_on_target_selected")
-		
+	card_events.connect("target_selected", self, "_on_target_selected")
 	visible = false
 
 func _on_card_played(card) -> void:

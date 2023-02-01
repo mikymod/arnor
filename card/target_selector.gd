@@ -1,6 +1,6 @@
 extends Node2D
 
-signal target_selected(target)
+export(Resource) var card_events
 
 var collision_mask: int = 0xffffffff
 
@@ -11,5 +11,4 @@ func _physics_process(_delta: float) -> void:
 		var result = space_state.intersect_ray(mouse_pos, mouse_pos, [self],
 			collision_mask, true, true)
 		if result:
-
-			emit_signal('target_selected', result)
+			card_events.emit_signal('target_selected', result)
