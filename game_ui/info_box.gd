@@ -1,11 +1,11 @@
 extends Control
 
-export(Resource) var hand_resource
+export(Resource) var card_events
 export(NodePath) var target_selector_path
 var target_selector
 
 func _ready() -> void:
-	hand_resource.connect("card_played", self, "_on_card_played")
+	card_events.connect("card_played", self, "_on_card_played")
 	if not target_selector_path.is_empty():
 		target_selector = get_node(target_selector_path)
 		target_selector.connect("target_selected", self, "_on_target_selected")

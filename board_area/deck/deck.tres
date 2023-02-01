@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://board_area/deck/deck_resource.gd" type="Script" id=1]
 [ext_resource path="res://card/card.tscn" type="PackedScene" id=2]
+[ext_resource path="res://card/events/card_events.tres" type="Resource" id=3]
 
 [resource]
 script = ExtResource( 1 )
@@ -12,3 +13,4 @@ Resource( "res://card/resources/blue_card.tres" ): 1,
 Resource( "res://card/resources/grey_card.tres" ): 5
 }
 card_scene = ExtResource( 2 )
+card_events = ExtResource( 3 )

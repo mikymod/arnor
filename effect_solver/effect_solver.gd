@@ -2,12 +2,11 @@ class_name EffectSolver
 extends Node2D
 
 signal effect_solved()
-signal card_solved(card)
 
-export(Resource) var hand_resource
+export(Resource) var card_events
 
 func _ready() -> void:
-	hand_resource.connect('card_played', self, '_on_card_played')
+	card_events.connect("card_played", self, "_on_card_played")
 	$TargetSelector.set_physics_process(false)
 
 func _on_card_played(card) -> void:
@@ -23,4 +22,4 @@ func _on_card_played(card) -> void:
 		if effect_resource.has_method("apply_effect"):
 			effect_resource.apply_effect(args)
 		emit_signal("effect_solved")
-	emit_signal("card_solved", card)
+	card_events.emit_signal("card_solved", card)

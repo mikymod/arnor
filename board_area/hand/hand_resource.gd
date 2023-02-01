@@ -1,9 +1,8 @@
 class_name HandResource
 extends Resource
 
-signal card_played(card)
-
 export(Resource) var power_resource
+export(Resource) var card_events
 
 var cards: Array = []
 
@@ -14,5 +13,4 @@ func play_card(card: Card) -> void:
 		
 	cards.erase(card)
 	card.state_machine.transition_to("Inactive")
-	emit_signal('card_played', card)
-	
+	card_events.emit_signal("card_played", card)

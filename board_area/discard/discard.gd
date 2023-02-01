@@ -2,14 +2,14 @@ class_name Discard
 extends Node2D
 
 export(Resource) var deck_resource
-export(Resource) var hand_resource
+export(Resource) var card_events
 export(Resource) var reward_area_resource
 export(PackedScene) var card_scene
 
 var cards: Array = []
 
 func _ready() -> void:
-	hand_resource.connect('card_played', self, '_on_card_played')
+	card_events.connect('card_played', self, '_on_card_played')
 	deck_resource.connect('deck_depleted', self, '_on_deck_depleted')
 	reward_area_resource.connect("reward_selected", self, "_on_reward_selected")
 

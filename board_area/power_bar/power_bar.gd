@@ -1,7 +1,7 @@
 extends Node2D
 
 export(Resource) var power_resource
-export(Resource) var hand_resource
+export(Resource) var card_events
 export(Resource) var turn_manager_resource
 
 export(PackedScene) var power_scene
@@ -9,7 +9,7 @@ export(PackedScene) var power_scene
 var items: Array = []
 
 func _ready() -> void:
-	hand_resource.connect('card_played', self, '_on_card_played')
+	card_events.connect('card_played', self, '_on_card_played')
 	turn_manager_resource.connect("restore_phase_started", self, "_on_restore_phase_started")
 	
 	for i in range(power_resource.max_power):
