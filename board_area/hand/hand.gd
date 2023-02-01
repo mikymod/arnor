@@ -4,27 +4,24 @@ extends Node2D
 export(Resource) var hand_resource
 export(Resource) var card_events
 
-var effect_solver: EffectSolver
-
 func _ready() -> void:
-	effect_solver = get_node('/root/Level/EffectSolver')
-
 	card_events.connect("card_solved", self, "_on_card_solved")
 	card_events.connect("card_drawed", self, "_on_card_drawed")
 	card_events.connect("card_played", self, "_on_card_played")
 
 func _on_card_drawed(card: Card):
-	hand_resource.cards.append(card)
+	hand_resource.append_card(card)
 	add_child(card)
 	card.set_skin()
 	card.set_data()
 	_reposition()
 
-func _on_card_played(_card: Card):
+func _on_card_played(card: Card):
+	hand_resource.remove_card(card)
 	_reposition()
-	for card in hand_resource.cards:
-		card.disable_collision()
-	remove_child(_card)
+	for card_in_hand in hand_resource.cards:
+		card_in_hand.disable_collision()
+	remove_child(card)
 
 func _on_card_solved(card: Card):
 	for card in hand_resource.cards:

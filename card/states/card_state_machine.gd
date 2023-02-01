@@ -15,4 +15,3 @@ func _on_Card_mouse_exited() -> void:
 func _on_Card_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if mouse_over and (state is CardIdle or state is CardReturn):
 		state._on_Card_input_event(event)
-

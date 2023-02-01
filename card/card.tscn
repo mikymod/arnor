@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://card/textures/background_frame.png" type="Texture" id=1]
 [ext_resource path="res://card/card.gd" type="Script" id=2]
@@ -9,7 +9,7 @@
 [ext_resource path="res://card/states/card_selected.gd" type="Script" id=7]
 [ext_resource path="res://card/resources/red_card.tres" type="Resource" id=8]
 [ext_resource path="res://card/states/card_inactive.gd" type="Script" id=9]
-[ext_resource path="res://board_area/hand/hand.tres" type="Resource" id=10]
+[ext_resource path="res://card/events/card_events.tres" type="Resource" id=10]
 [ext_resource path="res://card/textures/cost_frame.png" type="Texture" id=11]
 [ext_resource path="res://card/textures/description_frame.png" type="Texture" id=12]
 [ext_resource path="res://card/textures/name_frame.png" type="Texture" id=13]
@@ -17,6 +17,7 @@
 [ext_resource path="res://card/textures/rarity_frame.png" type="Texture" id=15]
 [ext_resource path="res://PeaberryBase.ttf" type="DynamicFontData" id=16]
 [ext_resource path="res://game_ui/game_ui_theme.tres" type="Theme" id=17]
+[ext_resource path="res://card/states/card_solve.gd" type="Script" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 104, 144 )
@@ -119,8 +120,11 @@ card_path = NodePath("../..")
 
 [node name="Play" type="Node2D" parent="StateMachine"]
 script = ExtResource( 6 )
-hand_resource = ExtResource( 10 )
+card_events = ExtResource( 10 )
 root_path = NodePath("../..")
+
+[node name="Solve" type="Node2D" parent="StateMachine"]
+script = ExtResource( 18 )
 
 [connection signal="input_event" from="." to="StateMachine" method="_on_Card_input_event"]
 [connection signal="mouse_entered" from="." to="StateMachine" method="_on_Card_mouse_entered"]

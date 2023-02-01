@@ -28,5 +28,3 @@ func _on_reward_selected(card_res):
 	var instance = card_scene.instance()
 	instance.resource = card_res
 	cards.append(instance)
-
-

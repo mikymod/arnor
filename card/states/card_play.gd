@@ -5,11 +5,11 @@ extends State
 ##
 ## The play state of Card's state machine
 
-export(Resource) var hand_resource
+export(Resource) var card_events
 
 export(NodePath) var root_path
 onready var card: Node2D = get_node(root_path)
 
 func enter(_msg := {}) -> void:
-	hand_resource.play_card(card)
+	card_events.emit_signal("card_played", card)
 
