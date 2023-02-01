@@ -28,7 +28,6 @@ func _on_card_played(_card):
 	remove_child(_card)
 
 func _on_card_solved(card: Card):
-	print('Card Solved')
 	for card in hand_resource.cards:
 		card.enable_collision()
 
