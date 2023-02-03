@@ -27,3 +27,4 @@ description_frame_color = Color( 1, 0.909804, 0.631373, 1 )
 rarity_frame = ExtResource( 9 )
 rarity_frame_color = Color( 0.517647, 0.517647, 0.517647, 1 )
 effect_resources = [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 2 ) ]
+exhaust = false

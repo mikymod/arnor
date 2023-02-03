@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/deck.png-36dc3b112fb60081cc8977580d7faceb.stex"
+path="res://.import/circular_container.png-e60d272f56bf196dc770775bd25df543.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://board_area/deck/deck.png"
-dest_files=[ "res://.import/deck.png-36dc3b112fb60081cc8977580d7faceb.stex" ]
+source_file="res://board_area/circular_container.png"
+dest_files=[ "res://.import/circular_container.png-e60d272f56bf196dc770775bd25df543.stex" ]
 
 [params]
 

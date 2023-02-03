@@ -33,3 +33,4 @@ export(Texture) var rarity_frame = preload("res://card/textures/rarity_frame.png
 export(Color) var rarity_frame_color = Color("848484")
 
 export(Array, Resource) var effect_resources
+export(bool) var exhaust = false

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/circular_container.png-42faaf4adecefbf51bb2934ca28ca3c2.stex"
+path="res://.import/exhaust_icon.png-e330ee65e24b61cda06439ad66e5eed8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://board_area/deck/circular_container.png"
-dest_files=[ "res://.import/circular_container.png-42faaf4adecefbf51bb2934ca28ca3c2.stex" ]
+source_file="res://board_area/exhaust/exhaust_icon.png"
+dest_files=[ "res://.import/exhaust_icon.png-e330ee65e24b61cda06439ad66e5eed8.stex" ]
 
 [params]
 

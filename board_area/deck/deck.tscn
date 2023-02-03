@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://board_area/deck/deck.gd" type="Script" id=1]
-[ext_resource path="res://board_area/deck/deck.png" type="Texture" id=2]
+[ext_resource path="res://board_area/deck/deck_icon.png" type="Texture" id=2]
 [ext_resource path="res://board_area/deck/deck.tres" type="Resource" id=3]
 [ext_resource path="res://board_area/hand/hand.tres" type="Resource" id=4]
 [ext_resource path="res://turn_manager/turn_manager.tres" type="Resource" id=5]
-[ext_resource path="res://board_area/deck/circular_container.png" type="Texture" id=6]
+[ext_resource path="res://board_area/circular_container.png" type="Texture" id=6]
 [ext_resource path="res://PeaberryBase.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://game_ui/game_ui_theme.tres" type="Theme" id=8]
 
@@ -22,14 +22,17 @@ hand_resource = ExtResource( 4 )
 [node name="Sprite" type="TextureRect" parent="."]
 anchor_right = 0.255
 margin_right = 64.0
-margin_bottom = 96.0
+margin_bottom = 64.0
 texture = ExtResource( 2 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_left = 32.0
-margin_top = 56.0
-margin_right = 88.0
-margin_bottom = 112.0
+margin_left = 40.0
+margin_top = 32.0
+margin_right = 96.0
+margin_bottom = 88.0
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 margin_right = 56.0

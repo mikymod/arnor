@@ -22,4 +22,7 @@ func enter(_msg := {}) -> void:
 		if effect_resource.has_method("apply_effect"):
 			effect_resource.apply_effect(args)
 	card_events.emit_signal("card_solved", card)
-
+	if (card.resource.exhaust):
+		card_events.emit_signal("card_exhausted", card)
+	else:
+		card_events.emit_signal("card_discarded", card)
