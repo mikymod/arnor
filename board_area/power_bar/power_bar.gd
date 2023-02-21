@@ -10,6 +10,7 @@ var items: Array = []
 
 func _ready() -> void:
 	card_events.connect('card_played', self, '_on_card_played')
+	card_events.connect('card_returned', self, '_on_card_returned')
 	turn_manager_resource.connect("restore_phase_started", self, "_on_restore_phase_started")
 	
 	for i in range(power_resource.max_power):
@@ -17,6 +18,7 @@ func _ready() -> void:
 		add_child(instance)
 		instance.position = Vector2(i * 48, 0)
 		items.append(instance)
+	
 
 func _on_card_played(card: Card) -> void:
 	var cost = card.resource.cost
@@ -27,7 +29,16 @@ func _on_card_played(card: Card) -> void:
 			items[i].set_enabled(true)
 		else:
 			items[i].set_enabled(false)
-
+			
+func _on_card_returned(card: Card) -> void:
+	var cost = card.resource.cost
+	power_resource.increase_power(cost)
+	for i in range(power_resource.max_power):
+		if i < power_resource.current_power:
+			items[i].set_enabled(true)
+		else:
+			items[i].set_enabled(false)	
+	
 func _on_restore_phase_started() -> void:
 	power_resource.reset_power()
 	for item in items:

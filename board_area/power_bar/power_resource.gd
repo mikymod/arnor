@@ -17,6 +17,9 @@ func decrease_power(variation: int) -> void:
 	if current_power <= 0:
 		emit_signal("power_depleted")
 
+func increase_power(variation: int) -> void:
+	current_power += variation
+
 func increase_max_power(variation: int) -> void:
 	max_power += variation
 	emit_signal("max_power_changed", max_power)

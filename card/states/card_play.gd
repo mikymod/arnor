@@ -12,4 +12,9 @@ onready var card: Node2D = get_node(root_path)
 
 func enter(_msg := {}) -> void:
 	card_events.emit_signal("card_played", card)
-	state_machine.transition_to("Solve")
+
+func update(delta: float) -> void:
+	if Input.is_mouse_button_pressed(BUTTON_RIGHT):
+		state_machine.transition_to("Return")
+
+

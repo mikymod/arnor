@@ -7,9 +7,11 @@
 [resource]
 script = ExtResource( 1 )
 deck_list = {
+Resource( "res://card/resources/double_tower.tres" ): 5,
+Resource( "res://card/resources/celeste.tres" ): 5,
+Resource( "res://card/resources/grey_card.tres" ): 5,
 Resource( "res://card/resources/red_card.tres" ): 1,
 Resource( "res://card/resources/green_card.tres" ): 2,
-Resource( "res://card/resources/grey_card.tres" ): 5,
 Resource( "res://card/resources/blue_card.tres" ): 1
 }
 card_scene = ExtResource( 2 )

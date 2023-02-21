@@ -21,7 +21,6 @@ func create_deck() -> void:
 
 func draw_card() -> void:
 	var current = deck.pop_back()
-	
 	card_events.emit_signal("card_drawed", current)
 	if deck.size() <= 0:
 		emit_signal("deck_depleted")

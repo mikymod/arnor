@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://card/target_arrow/target_arrow.gd" type="Script" id=1]
+[ext_resource path="res://card/target_arrow/arrow.png" type="Texture" id=2]
+[ext_resource path="res://card/events/card_events.tres" type="Resource" id=3]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0.00291545, 0.981818 ), 0.0, 0.0, 0, 0, Vector2( 0.991254, 0.981818 ), 0.0, 0.0, 0, 0 ]
+
+[node name="TargetArrow" type="Line2D"]
+position = Vector2( 976, 880 )
+points = PoolVector2Array( 16, 0 )
+width = 15.0
+width_curve = SubResource( 1 )
+antialiased = true
+script = ExtResource( 1 )
+card_events = ExtResource( 3 )
+
+[node name="ArrowHead" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="ArrowHead"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ArrowHead/Area2D"]
+polygon = PoolVector2Array( 0, 0, -32, 32, -32, -32 )

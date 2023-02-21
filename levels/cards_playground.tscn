@@ -1,14 +1,17 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://game_area/game_area.tscn" type="PackedScene" id=1]
 [ext_resource path="res://board_area/board_area.tscn" type="PackedScene" id=2]
 [ext_resource path="res://enemy_wave_spawner/enemy_wave_spawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/effect_solver.gd" type="Script" id=4]
 [ext_resource path="res://turn_manager/turn_manager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://game_ui/game_ui.tscn" type="PackedScene" id=6]
 [ext_resource path="res://levels/level.gd" type="Script" id=7]
 [ext_resource path="res://turn_manager/turn_manager.tres" type="Resource" id=8]
 [ext_resource path="res://game_ui/reward_area/reward_area.tres" type="Resource" id=9]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://card/events/card_events.tres" type="Resource" id=11]
+[ext_resource path="res://card/target_arrow/target_arrow.tscn" type="PackedScene" id=12]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 7 )
@@ -29,6 +32,11 @@ position = Vector2( 1744, 816 )
 [node name="Player" parent="." instance=ExtResource( 10 )]
 
 [node name="GameUI" parent="." instance=ExtResource( 6 )]
+
+[node name="EffectSolver" type="Node" parent="."]
+script = ExtResource( 4 )
+card_events = ExtResource( 11 )
+target_arrow_scene = ExtResource( 12 )
 
 [editable path="BoardArea"]
 [editable path="EnemyWaveSpawner"]

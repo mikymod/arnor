@@ -31,6 +31,7 @@ onready var init_pos: Vector2 = global_position
 onready var state_machine: StateMachine = $StateMachine
 
 var playable = false
+var mouseover = false
 
 func _ready() -> void:
 	set_skin()
@@ -71,3 +72,10 @@ func set_data() -> void:
 	for effect in resource.effect_resources:
 		_description_label.bbcode_text += effect.description + "\n"
 	_description_label.bbcode_text += "[/center]"
+
+
+func _on_Card_mouse_entered():
+	mouseover = true
+
+func _on_Card_mouse_exited():
+	mouseover = false
