@@ -37,8 +37,12 @@ func _resolve_effects() -> void:
 		var e = effect.effect
 		if e.has_method("apply_effect"):
 			e.apply_effect({"target": effect.target})
+	
 	card_events.emit_signal("card_resolved", card)
-	card_events.emit_signal("card_discarded", card)
+	if card.resource.exhaust:
+		card_events.emit_signal("card_exhausted", card)
+	else:
+		card_events.emit_signal("card_discarded", card)
 	effects.clear()
 
 func _spawn_arrow_target(effect) -> void:
