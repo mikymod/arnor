@@ -39,10 +39,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://card/card.gd"
 }, {
-"base": "State",
+"base": "Reference",
 "class": "CardDraw",
 "language": "GDScript",
-"path": "res://card/card_draw.gd"
+"path": "res://card/states/card_draw.gd"
 }, {
 "base": "Resource",
 "class": "CardEvents",

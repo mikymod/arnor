@@ -34,4 +34,5 @@ func _on_card_played(card) -> void:
 	_playable = false
 
 func _on_card_resolved(card) -> void:
+
 	_playable = true

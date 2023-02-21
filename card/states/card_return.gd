@@ -19,9 +19,9 @@ func enter(_msg := {}) -> void:
 #			state_machine.transition_to('Selected')
 
 func update(_delta: float) -> void:
-	card.global_position = lerp(card.global_position, card.init_pos, 0.1);
-	if abs(card.global_position.distance_to(card.init_pos)) <= 1:
-		card.global_position = card.init_pos
-		state_machine.transition_to('Idle')
-
+#	card.global_position = lerp(card.global_position, card.init_pos, 0.1);
+#	if abs(card.global_position.distance_to(card.init_pos)) <= 1:
+#		card.global_position = card.init_pos
+#		state_machine.transition_to('Idle')
+	pass
 
