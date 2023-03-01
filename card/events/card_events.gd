@@ -7,9 +7,3 @@ signal card_returned(card) # Emitted when a card is not played anymore and retur
 signal card_resolved(card)  # Emitted when a card is played and all effects are resolved
 signal card_discarded(card) # Emitted when a card is discarded
 signal card_exhausted(card) # Emitted when a card is exhausted
-
-signal target_selected(target)
-
-signal effect_started(effect)
-signal effect_finished(effect)
-

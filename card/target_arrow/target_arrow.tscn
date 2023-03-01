@@ -2,7 +2,7 @@
 
 [ext_resource path="res://card/target_arrow/target_arrow.gd" type="Script" id=1]
 [ext_resource path="res://card/target_arrow/arrow.png" type="Texture" id=2]
-[ext_resource path="res://card/events/card_events.tres" type="Resource" id=3]
+[ext_resource path="res://effect/effect_events.tres" type="Resource" id=3]
 
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0.00291545, 0.981818 ), 0.0, 0.0, 0, 0, Vector2( 0.991254, 0.981818 ), 0.0, 0.0, 0, 0 ]
@@ -14,7 +14,7 @@ width = 15.0
 width_curve = SubResource( 1 )
 antialiased = true
 script = ExtResource( 1 )
-card_events = ExtResource( 3 )
+effect_events = ExtResource( 3 )
 
 [node name="ArrowHead" type="Sprite" parent="."]
 texture = ExtResource( 2 )

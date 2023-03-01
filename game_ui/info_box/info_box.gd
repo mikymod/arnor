@@ -1,11 +1,12 @@
 extends Control
 
 export(Resource) var card_events
+export(Resource) var effect_events
 
 func _ready() -> void:
 	card_events.connect("card_played", self, "_on_card_played")
 	card_events.connect("card_returned", self, "_on_card_returned")
-	card_events.connect("target_selected", self, "_on_target_selected")
+	effect_events.connect("target_selected", self, "_on_target_selected")
 	visible = false
 
 func _on_card_played(card) -> void:

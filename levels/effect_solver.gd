@@ -1,39 +1,51 @@
 extends Node
 
 export(Resource) var card_events
-export(PackedScene) var target_arrow_scene
+export(Resource) var effect_events
+export(PackedScene) var effect_scene
 
 var card: Card
 var arrow_target
-
-var effects: Array = []
+var effects_to_solve: Array = []
+var effect_index = 0
+var current_effect
 
 func _ready() -> void:
 	card_events.connect("card_played", self, "_on_card_played")
 	card_events.connect("card_returned", self, "_on_card_returned")
+	effect_events.connect("effect_started", self, "_on_effect_started")
+	effect_events.connect("effect_prepared", self, "_on_effect_prepared")
+	effect_events.connect("effect_solved", self, "_on_effect_solved")
 
-func _on_card_played(played_card: Card) -> void:
-	card = played_card
-	_enqueue_effect(card.resource.effect_resources)
+func _on_card_played(card: Card) -> void:
+	self.card = card
+	_enqueue_effect(card, card.resource.effect_resources[effect_index])
 
 func _on_card_returned(played_card: Card) -> void:
-	card = null
-	effects.clear()
-	_dispose_arrow_target()
+	_reset()
 
-func _enqueue_effect(effect_list) -> void:
-	var args = {}
-	for effect in effect_list:
-		var target
-		if effect.collision_mask != 0:
-			_spawn_arrow_target(effect)
-			target = yield(card_events, "target_selected")
-			_dispose_arrow_target()
-		effects.append({"effect": effect, "target": target.collider if target != null else null})
-	_resolve_effects()
+func _on_effect_started(card, effect) -> void:
+	pass
+
+func _on_effect_prepared(card, effect_res, target) -> void:
+	effects_to_solve.append({"effect": effect_res, "target": target.collider if target != null else null})
+
+func _on_effect_solved(card, effect_res) -> void:
+	current_effect.queue_free()
+	current_effect = null
+	effect_index += 1
+	if effect_index >= card.resource.effect_resources.size():
+		_resolve_effects()
+	else:
+		_enqueue_effect(card, card.resource.effect_resources[effect_index])
+		
+func _enqueue_effect(card, effect_res) -> void:
+	current_effect = effect_scene.instance()
+	current_effect.init(card, effect_res)
+	add_child(current_effect)
 
 func _resolve_effects() -> void:
-	for effect in effects:
+	for effect in effects_to_solve:
 		var e = effect.effect
 		if e.has_method("apply_effect"):
 			e.apply_effect({"target": effect.target})
@@ -43,15 +55,11 @@ func _resolve_effects() -> void:
 		card_events.emit_signal("card_exhausted", card)
 	else:
 		card_events.emit_signal("card_discarded", card)
-	effects.clear()
+	_reset()
 
-func _spawn_arrow_target(effect) -> void:
-	arrow_target = target_arrow_scene.instance()
-	add_child(arrow_target)
-	arrow_target.init(card, card.global_position, effect.collision_mask)
-
-func _dispose_arrow_target() -> void:
-	if not arrow_target: return
-	remove_child(arrow_target)
-	arrow_target.queue_free()
-	arrow_target = null
+func _reset() -> void:
+	card = null
+	effect_index = 0
+	effects_to_solve.clear()
+	remove_child(current_effect)
+	

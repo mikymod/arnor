@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game_ui/info_box/info_box.gd" type="Script" id=1]
 [ext_resource path="res://card/events/card_events.tres" type="Resource" id=2]
 [ext_resource path="res://PeaberryBase.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://effect/effect_events.tres" type="Resource" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -14,6 +15,7 @@ anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 1 )
 card_events = ExtResource( 2 )
+effect_events = ExtResource( 4 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_left = 0.304167

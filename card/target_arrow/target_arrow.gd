@@ -1,6 +1,6 @@
 extends Line2D
 
-export(Resource) var card_events
+export(Resource) var effect_events
 
 var card: Card
 var target_mask: int = 0
@@ -29,7 +29,7 @@ func select_target() -> void:
 		target_mask, true, true
 	)
 	if result and result.collider != card:
-		card_events.emit_signal('target_selected', result)
+		effect_events.emit_signal('target_selected', result)
 
 func draw_arrow() -> void:
 	var start_pos = global_position

@@ -12,6 +12,7 @@ onready var card: Node2D = get_node(card_path)
 
 func enter(_msg := {}) -> void:
 	card_events.emit_signal("card_returned", card)
+	state_machine.transition_to('Idle')
 
 #func handle_input(event: InputEvent) -> void:
 #	if event is InputEventMouseButton:
