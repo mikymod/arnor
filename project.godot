@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node2D",
-"class": "BoardArea",
-"language": "GDScript",
-"path": "res://board_area/board_area.gd"
-}, {
 "base": "EffectResource",
 "class": "BuffEffectResource",
 "language": "GDScript",
@@ -82,22 +77,22 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Deck",
 "language": "GDScript",
-"path": "res://board_area/deck/deck.gd"
-}, {
-"base": "Resource",
-"class": "DeckResource",
-"language": "GDScript",
-"path": "res://board_area/deck/deck_resource.gd"
+"path": "res://deck/deck.gd"
 }, {
 "base": "Reference",
+"class": "DeckEvents",
+"language": "GDScript",
+"path": "res://deck/deck_events.gd"
+}, {
+"base": "Reference",
+"class": "DeckResource",
+"language": "GDScript",
+"path": "res://deck/deck_resource.gd"
+}, {
+"base": "EffectResource",
 "class": "DestroyTowerEffectResource",
 "language": "GDScript",
 "path": "res://effect/resources/destroy_tower/destroy_tower_effect_resource.gd"
-}, {
-"base": "Node2D",
-"class": "Discard",
-"language": "GDScript",
-"path": "res://board_area/discard/discard.gd"
 }, {
 "base": "EffectResource",
 "class": "DiscardEffectResource",
@@ -152,12 +147,12 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Hand",
 "language": "GDScript",
-"path": "res://board_area/hand/hand.gd"
+"path": "res://hand/hand.gd"
 }, {
 "base": "Resource",
 "class": "HandResource",
 "language": "GDScript",
-"path": "res://board_area/hand/hand_resource.gd"
+"path": "res://hand/hand_resource.gd"
 }, {
 "base": "Area2D",
 "class": "Place",
@@ -169,10 +164,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://player/player_resource.gd"
 }, {
-"base": "Resource",
+"base": "Reference",
 "class": "PowerResource",
 "language": "GDScript",
-"path": "res://board_area/power_bar/power_resource.gd"
+"path": "res://power_bar/power_resource.gd"
 }, {
 "base": "Reference",
 "class": "RewardAreaResource",
@@ -210,7 +205,6 @@ _global_script_classes=[ {
 "path": "res://turn_manager/turn_manager_resource.gd"
 } ]
 _global_script_class_icons={
-"BoardArea": "",
 "BuffEffectResource": "",
 "BuildTowerEffectResource": "",
 "Bullet": "",
@@ -225,9 +219,9 @@ _global_script_class_icons={
 "CardReturn": "",
 "CardStateMachine": "",
 "Deck": "",
+"DeckEvents": "",
 "DeckResource": "",
 "DestroyTowerEffectResource": "",
-"Discard": "",
 "DiscardEffectResource": "",
 "DrawEffectResource": "",
 "Effect": "",

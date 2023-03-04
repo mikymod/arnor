@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/circular_container.png-e60d272f56bf196dc770775bd25df543.stex"
+path="res://.import/discard_icon.png-a67a69ce6dd81256990724f268246524.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://board_area/circular_container.png"
-dest_files=[ "res://.import/circular_container.png-e60d272f56bf196dc770775bd25df543.stex" ]
+source_file="res://deck/textures/discard_icon.png"
+dest_files=[ "res://.import/discard_icon.png-a67a69ce6dd81256990724f268246524.stex" ]
 
 [params]
 

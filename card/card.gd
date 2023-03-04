@@ -37,12 +37,6 @@ func _ready() -> void:
 	set_skin()
 	set_data()
 
-func enable_collision() -> void:
-	$CollisionShape2D.disabled = false
-
-func disable_collision() -> void:
-	$CollisionShape2D.disabled = true
-
 func set_skin() -> void:
 	_background_frame.texture = resource.background_frame
 	_background_frame.modulate = resource.background_frame_color

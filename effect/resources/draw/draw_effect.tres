@@ -1,9 +1,11 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://effect/resources/draw/draw_effect_resource.gd" type="Script" id=1]
+[ext_resource path="res://deck/resources/deck_events.tres" type="Resource" id=2]
 
 [resource]
 script = ExtResource( 1 )
 description = "Draw a card."
 collision_mask = 0
 cards_to_draw = 1
+deck_events = ExtResource( 2 )

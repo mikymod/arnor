@@ -4,11 +4,11 @@ export(Resource) var card_events
 export(Resource) var effect_events
 export(PackedScene) var effect_scene
 
-var card: Card
 var arrow_target
+
+var card: Card
 var effects_to_solve: Array = []
 var effect_index = 0
-var current_effect
 
 func _ready() -> void:
 	card_events.connect("card_played", self, "_on_card_played")
@@ -31,8 +31,6 @@ func _on_effect_prepared(card, effect_res, target) -> void:
 	effects_to_solve.append({"effect": effect_res, "target": target.collider if target != null else null})
 
 func _on_effect_solved(card, effect_res) -> void:
-	current_effect.queue_free()
-	current_effect = null
 	effect_index += 1
 	if effect_index >= card.resource.effect_resources.size():
 		_resolve_effects()
@@ -40,7 +38,7 @@ func _on_effect_solved(card, effect_res) -> void:
 		_enqueue_effect(card, card.resource.effect_resources[effect_index])
 		
 func _enqueue_effect(card, effect_res) -> void:
-	current_effect = effect_scene.instance()
+	var current_effect = effect_scene.instance()
 	current_effect.init(card, effect_res)
 	add_child(current_effect)
 
@@ -61,5 +59,4 @@ func _reset() -> void:
 	card = null
 	effect_index = 0
 	effects_to_solve.clear()
-	remove_child(current_effect)
 	

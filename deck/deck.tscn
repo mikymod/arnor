@@ -1,0 +1,57 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://deck/scenes/exhaust_icon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://deck/deck.gd" type="Script" id=2]
+[ext_resource path="res://deck/scenes/discard_icon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://deck/scenes/deck_icon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://card/events/card_events.tres" type="Resource" id=5]
+[ext_resource path="res://deck/resources/deck_events.tres" type="Resource" id=6]
+[ext_resource path="res://hand/hand.tres" type="Resource" id=7]
+[ext_resource path="res://deck/resources/deck.tres" type="Resource" id=8]
+[ext_resource path="res://card/card.tscn" type="PackedScene" id=9]
+[ext_resource path="res://game_ui/reward_area/reward_area.tres" type="Resource" id=10]
+[ext_resource path="res://turn_manager/turn_manager.tres" type="Resource" id=11]
+
+[node name="Deck" type="Node2D"]
+script = ExtResource( 2 )
+deck_resource = ExtResource( 8 )
+turn_manager_resource = ExtResource( 11 )
+hand_resource = ExtResource( 7 )
+reward_area_resource = ExtResource( 10 )
+deck_events = ExtResource( 6 )
+card_events = ExtResource( 5 )
+card_scene = ExtResource( 9 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 382.0
+margin_bottom = 135.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -9.0
+margin_right = -0.0400391
+margin_bottom = 7.48
+
+[node name="DeckIcon" parent="Control/HBoxContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 127.0
+margin_bottom = 142.0
+size_flags_horizontal = 3
+
+[node name="DiscardIcon" parent="Control/HBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 131.0
+margin_right = 258.0
+margin_bottom = 142.0
+size_flags_horizontal = 3
+
+[node name="ExhaustIcon" parent="Control/HBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 262.0
+margin_right = 390.0
+margin_bottom = 142.0
+size_flags_horizontal = 3

@@ -36,4 +36,4 @@ func _reposition():
 	var positions = _generate_positions(global_position, 214, hand_resource.cards.size())
 	for i in range(hand_resource.cards.size()):
 		hand_resource.cards[i].init_pos = positions[i]
-		hand_resource.cards[i].state_machine.transition_to('Draw')
+

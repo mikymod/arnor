@@ -12,7 +12,7 @@ func _input(event: InputEvent) -> void:
 		if left_button_pressed:
 			select_target()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	draw_arrow()
 	
 func init(card: Card, position: Vector2, mask: int):

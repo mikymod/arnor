@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/discard_icon.png-ef46238cc24669ddbfa8c1265854a909.stex"
+path="res://.import/exhaust_icon.png-539aa64dfc0f4dadfe64fd257ca7ad8d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://board_area/discard/discard_icon.png"
-dest_files=[ "res://.import/discard_icon.png-ef46238cc24669ddbfa8c1265854a909.stex" ]
+source_file="res://deck/textures/exhaust_icon.png"
+dest_files=[ "res://.import/exhaust_icon.png-539aa64dfc0f4dadfe64fd257ca7ad8d.stex" ]
 
 [params]
 
