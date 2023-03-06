@@ -10,14 +10,17 @@ export(PackedScene) var target_arrow_scene
 
 var card: Card
 var arrow_target
+var target
 
 func _ready() -> void:
 	connect("target_selected", self, "_on_target_selected")
 	card_events.connect("card_returned", self, "_on_card_returned")
 
-func start(card, resource) -> void:
+func init(card, resource) -> void:
 	self.card = card
 	self.resource = resource
+
+func start() -> void:
 	if resource.collision_mask != 0:
 		spawn_arrow_target()
 	else:

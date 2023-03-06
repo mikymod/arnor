@@ -6,7 +6,7 @@ export(Resource) var effect_events
 func _ready() -> void:
 	card_events.connect("card_played", self, "_on_card_played")
 	card_events.connect("card_returned", self, "_on_card_returned")
-	effect_events.connect("target_selected", self, "_on_target_selected")
+#	effect_events.connect("target_selected", self, "_on_target_selected")
 	visible = false
 
 func _on_card_played(card) -> void:
@@ -19,6 +19,6 @@ func _on_card_played(card) -> void:
 func _on_card_returned(card) -> void:
 	visible = false
 
-func _on_target_selected(target) -> void:
-	visible = false
-	$ColorRect/RichTextLabel.bbcode_text = ""
+#func _on_target_selected(target) -> void:
+#	visible = false
+#	$ColorRect/RichTextLabel.bbcode_text = ""

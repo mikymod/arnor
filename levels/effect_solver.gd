@@ -7,7 +7,7 @@ export(PackedScene) var effect_scene
 var arrow_target
 
 var card: Card
-var effects_to_solve: Array = []
+var effects: Array = []
 var effect_index = 0
 
 func _ready() -> void:
@@ -17,36 +17,39 @@ func _ready() -> void:
 
 func _on_card_played(card: Card) -> void:
 	self.card = card
-	_enqueue_effect(card, card.resource.effect_resources[effect_index])
+	_enqueue_effects(card)
+	_start_next_effect()
+
+func _enqueue_effects(card) -> void:
+	for effect_res in card.resource.effect_resources:
+		var current_effect = effect_scene.instance()
+		current_effect.init(card, effect_res)
+		add_child(current_effect)
+		
+func _start_next_effect() -> void:
+	get_children()[effect_index].start()
 
 func _on_card_returned(played_card: Card) -> void:
 	_reset()
 
 func _on_effect_prepared(card, effect, target) -> void:
-	effects_to_solve.append({"effect": effect, "target": target.collider if target != null else null})
+	var children = get_children()
+	children[effect_index].target = target.collider if target != null else null
 	effect_index += 1
-	if effect_index >= card.resource.effect_resources.size():
+	if effect_index >= children.size():
 		_resolve_effects()
 	else:
-		_enqueue_effect(card, card.resource.effect_resources[effect_index])
-		
-func _enqueue_effect(card, effect_res) -> void:
-	var current_effect = effect_scene.instance()
-	current_effect.start(card, effect_res)
-	add_child(current_effect)
+		_start_next_effect()
 
 func _resolve_effects() -> void:
-	for element in effects_to_solve:
-		var effect = element.effect
-		effect.resource.apply_effect({"target": element.target})
+	for effect in get_children():
+		effect.resource.apply_effect({"target": effect.target})
 		remove_child(effect)
 		effect.stop()
-	
 	card_events.emit_signal("card_resolved", card)
 	_reset()
 
 func _reset() -> void:
 	card = null
 	effect_index = 0
-	effects_to_solve.clear()
-	
+	effects.clear()

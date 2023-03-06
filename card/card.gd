@@ -36,6 +36,7 @@ var mouseover = false
 
 func _ready() -> void:
 	card_events.connect("card_played", self, "_on_card_played")
+	card_events.connect("card_returned", self, "_on_card_returned")
 	card_events.connect("card_resolved", self, "_on_card_resolved")
 	set_skin()
 	set_data()
@@ -78,6 +79,9 @@ func _on_Card_mouse_exited():
 
 func _on_card_played(card) -> void:
 	playable = false
+	
+func _on_card_returned(card) -> void:
+	playable = true
 
 func _on_card_resolved(card) -> void:
 	playable = true
