@@ -35,6 +35,7 @@ __meta__ = {
 "_edit_group_": true
 }
 resource = ExtResource( 8 )
+card_events = ExtResource( 10 )
 
 [node name="BackgroundFrame" type="Sprite" parent="."]
 texture = ExtResource( 1 )

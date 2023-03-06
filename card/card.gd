@@ -9,6 +9,7 @@ extends Area2D
 ## - replaced in deck when the deck is depleted
 
 export(Resource) var resource # CardResource
+export(Resource) var card_events
 
 # The sprite in background
 onready var _background_frame: Sprite = $BackgroundFrame
@@ -30,10 +31,12 @@ onready var init_pos: Vector2 = global_position
 
 onready var state_machine: StateMachine = $StateMachine
 
-var playable = false
+var playable = true
 var mouseover = false
 
 func _ready() -> void:
+	card_events.connect("card_played", self, "_on_card_played")
+	card_events.connect("card_resolved", self, "_on_card_resolved")
 	set_skin()
 	set_data()
 
@@ -67,9 +70,19 @@ func set_data() -> void:
 		_description_label.bbcode_text += effect.description + "\n"
 	_description_label.bbcode_text += "[/center]"
 
-
 func _on_Card_mouse_entered():
 	mouseover = true
 
 func _on_Card_mouse_exited():
 	mouseover = false
+
+func _on_card_played(card) -> void:
+	playable = false
+
+func _on_card_resolved(card) -> void:
+	playable = true
+	if self == card:
+		if resource.exhaust:
+			card_events.emit_signal("card_exhausted", card)
+		else:
+			card_events.emit_signal("card_discarded", card)

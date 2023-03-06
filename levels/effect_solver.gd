@@ -13,9 +13,7 @@ var effect_index = 0
 func _ready() -> void:
 	card_events.connect("card_played", self, "_on_card_played")
 	card_events.connect("card_returned", self, "_on_card_returned")
-	effect_events.connect("effect_started", self, "_on_effect_started")
 	effect_events.connect("effect_prepared", self, "_on_effect_prepared")
-	effect_events.connect("effect_solved", self, "_on_effect_solved")
 
 func _on_card_played(card: Card) -> void:
 	self.card = card
@@ -24,13 +22,8 @@ func _on_card_played(card: Card) -> void:
 func _on_card_returned(played_card: Card) -> void:
 	_reset()
 
-func _on_effect_started(card, effect) -> void:
-	pass
-
-func _on_effect_prepared(card, effect_res, target) -> void:
-	effects_to_solve.append({"effect": effect_res, "target": target.collider if target != null else null})
-
-func _on_effect_solved(card, effect_res) -> void:
+func _on_effect_prepared(card, effect, target) -> void:
+	effects_to_solve.append({"effect": effect, "target": target.collider if target != null else null})
 	effect_index += 1
 	if effect_index >= card.resource.effect_resources.size():
 		_resolve_effects()
@@ -39,20 +32,17 @@ func _on_effect_solved(card, effect_res) -> void:
 		
 func _enqueue_effect(card, effect_res) -> void:
 	var current_effect = effect_scene.instance()
-	current_effect.init(card, effect_res)
+	current_effect.start(card, effect_res)
 	add_child(current_effect)
 
 func _resolve_effects() -> void:
-	for effect in effects_to_solve:
-		var e = effect.effect
-		if e.has_method("apply_effect"):
-			e.apply_effect({"target": effect.target})
+	for element in effects_to_solve:
+		var effect = element.effect
+		effect.resource.apply_effect({"target": element.target})
+		remove_child(effect)
+		effect.stop()
 	
 	card_events.emit_signal("card_resolved", card)
-	if card.resource.exhaust:
-		card_events.emit_signal("card_exhausted", card)
-	else:
-		card_events.emit_signal("card_discarded", card)
 	_reset()
 
 func _reset() -> void:

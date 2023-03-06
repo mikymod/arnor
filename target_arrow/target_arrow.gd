@@ -3,6 +3,7 @@ extends Line2D
 export(Resource) var effect_events
 
 var card: Card
+var effect: Effect
 var target_mask: int = 0
 var left_button_pressed: bool = false
 
@@ -15,8 +16,9 @@ func _input(event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	draw_arrow()
 	
-func init(card: Card, position: Vector2, mask: int):
+func init(card: Card, effect: Effect, position: Vector2, mask: int):
 	self.card = card
+	self.effect = effect
 	global_position = position
 	target_mask = mask
 
@@ -29,12 +31,10 @@ func select_target() -> void:
 		target_mask, true, true
 	)
 	if result and result.collider != card:
-		effect_events.emit_signal('target_selected', result)
+		effect.emit_signal("target_selected", result)
 
 func draw_arrow() -> void:
 	var start_pos = global_position
-#	var space_state = get_world_2d().direct_space_state
-#	var final_pos = get_global_mouse_position()
 	var final_pos = get_viewport().get_mouse_position()
 	
 	clear_points()

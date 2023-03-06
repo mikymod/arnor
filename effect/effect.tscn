@@ -1,32 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://effect/effect_solve.gd" type="Script" id=1]
-[ext_resource path="res://utils/state_machine.gd" type="Script" id=2]
-[ext_resource path="res://effect/effect_start.gd" type="Script" id=3]
-[ext_resource path="res://effect/effect_prepare.gd" type="Script" id=4]
+[ext_resource path="res://target_arrow/target_arrow.tscn" type="PackedScene" id=1]
+[ext_resource path="res://effect/resources/build_tower/resources/build_tower_effect_basic_tower.tres" type="Resource" id=2]
+[ext_resource path="res://card/events/card_events.tres" type="Resource" id=3]
 [ext_resource path="res://effect/effect.gd" type="Script" id=5]
-[ext_resource path="res://effect/effect_events.tres" type="Resource" id=6]
-[ext_resource path="res://card/target_arrow/target_arrow.tscn" type="PackedScene" id=7]
+[ext_resource path="res://effect/resources/effect_events.tres" type="Resource" id=6]
 
 [node name="Effect" type="Node"]
 script = ExtResource( 5 )
-
-[node name="StateMachine" type="Node" parent="."]
-script = ExtResource( 2 )
-initial_state = NodePath("Start")
-
-[node name="Start" type="Node" parent="StateMachine"]
-script = ExtResource( 3 )
-effect_node_path = NodePath("../..")
+resource = ExtResource( 2 )
 effect_events = ExtResource( 6 )
-
-[node name="Prepare" type="Node" parent="StateMachine"]
-script = ExtResource( 4 )
-effect_node_path = NodePath("../..")
-effect_events = ExtResource( 6 )
-target_arrow_scene = ExtResource( 7 )
-
-[node name="Solve" type="Node" parent="StateMachine"]
-script = ExtResource( 1 )
-effect_node_path = NodePath("../..")
-effect_events = ExtResource( 6 )
+card_events = ExtResource( 3 )
+target_arrow_scene = ExtResource( 1 )

@@ -11,9 +11,9 @@ export(PackedScene) var card_scene
 
 const min_cards_in_hand = 5
 
-var deck: Array = []
-var discard: Array = []
-var exhaust: Array = []
+var deck: Array = []    # The array containing cards in deck
+var discard: Array = [] # The array containing cards in discard pile
+var exhaust: Array = [] # The array containing cards in exhaust pile
 
 func _ready() -> void:
 	deck_events.connect('deck_draw_triggered', self, '_on_deck_draw_triggered')
@@ -36,7 +36,8 @@ func _process(delta: float) -> void:
 	$Control/HBoxContainer/DeckIcon/MarginContainer/Label.text = str(deck.size())
 	$Control/HBoxContainer/DiscardIcon/MarginContainer/Label.text = str(discard.size())
 	$Control/HBoxContainer/ExhaustIcon/MarginContainer/Label.text = str(exhaust.size())
-	
+
+# Draws a card from deck
 func draw_card() -> void:
 	var current = deck.pop_back()
 	card_events.emit_signal("card_drawed", current)
@@ -44,6 +45,7 @@ func draw_card() -> void:
 		deck_events.emit_signal("deck_depleted")
 		restore_deck()
 
+# Move cards in discard pile to deck 
 func restore_deck() -> void:
 	deck.append_array(discard)
 	deck.shuffle()

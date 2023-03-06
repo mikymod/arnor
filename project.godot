@@ -117,7 +117,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "EffectResource",
 "language": "GDScript",
-"path": "res://effect/resources/effect_resource.gd"
+"path": "res://effect/effect_resource.gd"
 }, {
 "base": "RigidBody2D",
 "class": "Enemy",
