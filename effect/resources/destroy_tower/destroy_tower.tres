@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource( 1 )
 description = "Destroy a target tower."
+hint = "Target a tower to destroy"
 collision_mask = 1

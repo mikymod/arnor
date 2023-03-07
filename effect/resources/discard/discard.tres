@@ -6,7 +6,8 @@
 
 [resource]
 script = ExtResource( 1 )
-description = "Discard a card"
 collision_mask = 256
+description = "Discard a card"
+hint = "Select a card to discard"
 card_events = ExtResource( 3 )
 hand = ExtResource( 2 )

@@ -21,6 +21,7 @@ func init(card, resource) -> void:
 	self.resource = resource
 
 func start() -> void:
+	effect_events.emit_signal("effect_started", card, self)
 	if resource.collision_mask != 0:
 		spawn_arrow_target()
 	else:

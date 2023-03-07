@@ -8,5 +8,6 @@
 script = ExtResource( 1 )
 description = "Build an empowered tower."
 collision_mask = 2
+hint = "Select a place"
 tower_resource = ExtResource( 3 )
 tower = ExtResource( 2 )

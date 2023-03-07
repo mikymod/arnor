@@ -4,21 +4,18 @@ export(Resource) var card_events
 export(Resource) var effect_events
 
 func _ready() -> void:
-	card_events.connect("card_played", self, "_on_card_played")
+	effect_events.connect("effect_started", self, "_on_effect_started")
+	effect_events.connect("effect_prepared", self, "_on_effect_prepared")
 	card_events.connect("card_returned", self, "_on_card_returned")
-#	effect_events.connect("target_selected", self, "_on_target_selected")
 	visible = false
 
-func _on_card_played(card) -> void:
+func _on_effect_started(card, effect) -> void:
 	visible = true
-	var effects_res = card.resource.effect_resources
-	for effect in effects_res:
-		if effect.collision_mask != 0:
-			$ColorRect/RichTextLabel.bbcode_text = "[center]Select a target[/center]"
+	$ColorRect/RichTextLabel.bbcode_text = "[center]{hint}[/center]".format({"hint": effect.resource.hint})
+
+func _on_effect_prepared(_card, effect, _target) -> void:
+	visible = false
 
 func _on_card_returned(card) -> void:
 	visible = false
 
-#func _on_target_selected(target) -> void:
-#	visible = false
-#	$ColorRect/RichTextLabel.bbcode_text = ""
