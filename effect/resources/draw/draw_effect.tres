@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource( 1 )
+collision_mask = 0
 description = "Draw a card."
 hint = ""
-collision_mask = 0
 cards_to_draw = 1
 deck_events = ExtResource( 2 )
