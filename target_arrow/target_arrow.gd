@@ -31,6 +31,9 @@ func select_target() -> void:
 		target_mask, true, true
 	)
 	if result and result.collider != card:
+		if result.collider.has_method("set_selected"):
+			if result.collider.selected: return
+			result.collider.set_selected(true)
 		effect.emit_signal("target_selected", result)
 
 func draw_arrow() -> void:
