@@ -8,7 +8,7 @@
 [ext_resource path="res://card/textures/background_frame.png" type="Texture" id=6]
 [ext_resource path="res://game_ui/reward_area/reward_area.tres" type="Resource" id=7]
 [ext_resource path="res://game_ui/reward_area/reward_card/reward_card.gd" type="Script" id=8]
-[ext_resource path="res://card/resources/grey_card.tres" type="Resource" id=9]
+[ext_resource path="res://resources/cards/tower/tower_card.tres" type="Resource" id=9]
 
 [node name="RewardCard" type="Control"]
 anchor_right = 0.110937

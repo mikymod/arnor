@@ -59,7 +59,6 @@ func set_skin() -> void:
 	_rarity_frame.texture = resource.rarity_frame
 	_rarity_frame.modulate = resource.rarity_frame_color
 	_selected_frame.visible = false
-	
 
 func set_data() -> void:
 	_name_label.text = resource.name

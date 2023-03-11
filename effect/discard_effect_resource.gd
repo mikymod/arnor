@@ -1,0 +1,11 @@
+class_name DiscardEffectResource
+extends EffectResource
+
+export(Resource) var card_events = preload("res://card/card_events.tres")
+export(Resource) var hand = preload("res://hand/hand.tres")
+
+func apply_effect(args: Dictionary) -> void:
+	var card = args.target
+	card.get_parent().remove_child(card)
+	hand.remove_card(card)
+	card_events.emit_signal("card_discarded", card)

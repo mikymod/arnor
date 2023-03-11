@@ -7,9 +7,9 @@
 [ext_resource path="res://card/states/card_return.gd" type="Script" id=5]
 [ext_resource path="res://card/states/card_play.gd" type="Script" id=6]
 [ext_resource path="res://card/states/card_draw.gd" type="Script" id=7]
-[ext_resource path="res://card/resources/red_card.tres" type="Resource" id=8]
+[ext_resource path="res://resources/cards/tower_red/red_tower_card.tres" type="Resource" id=8]
 [ext_resource path="res://card/states/card_inactive.gd" type="Script" id=9]
-[ext_resource path="res://card/events/card_events.tres" type="Resource" id=10]
+[ext_resource path="res://card/card_events.tres" type="Resource" id=10]
 [ext_resource path="res://card/textures/cost_frame.png" type="Texture" id=11]
 [ext_resource path="res://card/textures/description_frame.png" type="Texture" id=12]
 [ext_resource path="res://card/textures/name_frame.png" type="Texture" id=13]
@@ -39,7 +39,7 @@ resource = ExtResource( 8 )
 card_events = ExtResource( 10 )
 
 [node name="Selected" type="Sprite" parent="."]
-scale = Vector2( 1, 1 )
+visible = false
 texture = ExtResource( 19 )
 
 [node name="BackgroundFrame" type="Sprite" parent="."]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game_ui/info_box/info_box.gd" type="Script" id=1]
-[ext_resource path="res://card/events/card_events.tres" type="Resource" id=2]
+[ext_resource path="res://card/card_events.tres" type="Resource" id=2]
 [ext_resource path="res://PeaberryBase.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://effect/resources/effect_events.tres" type="Resource" id=4]
+[ext_resource path="res://effect/effect_events.tres" type="Resource" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32

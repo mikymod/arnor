@@ -4,9 +4,9 @@ extends Node
 signal target_selected(target)
 
 export(Resource) var resource
-export(Resource) var effect_events
-export(Resource) var card_events
-export(PackedScene) var target_arrow_scene
+export(Resource) var effect_events = preload("res://effect/effect_events.tres")
+export(Resource) var card_events = preload("res://card/card_events.tres")
+export(PackedScene) var target_arrow_scene 
 
 var card: Card
 var arrow_target

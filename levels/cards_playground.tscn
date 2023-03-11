@@ -10,9 +10,9 @@
 [ext_resource path="res://turn_manager/turn_manager.tres" type="Resource" id=8]
 [ext_resource path="res://game_ui/reward_area/reward_area.tres" type="Resource" id=9]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=10]
-[ext_resource path="res://card/events/card_events.tres" type="Resource" id=11]
+[ext_resource path="res://card/card_events.tres" type="Resource" id=11]
 [ext_resource path="res://effect/effect.tscn" type="PackedScene" id=12]
-[ext_resource path="res://effect/resources/effect_events.tres" type="Resource" id=13]
+[ext_resource path="res://effect/effect_events.tres" type="Resource" id=13]
 [ext_resource path="res://hand/hand.tscn" type="PackedScene" id=14]
 [ext_resource path="res://power_bar/power_bar.tscn" type="PackedScene" id=15]
 

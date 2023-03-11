@@ -3,7 +3,7 @@
 [ext_resource path="res://power_bar/power_bar.gd" type="Script" id=1]
 [ext_resource path="res://power_bar/power/power.tscn" type="PackedScene" id=2]
 [ext_resource path="res://turn_manager/turn_manager.tres" type="Resource" id=3]
-[ext_resource path="res://card/events/card_events.tres" type="Resource" id=4]
+[ext_resource path="res://card/card_events.tres" type="Resource" id=4]
 [ext_resource path="res://power_bar/power/power.tres" type="Resource" id=5]
 
 [node name="PowerBar" type="Node2D"]

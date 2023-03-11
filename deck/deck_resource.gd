@@ -1,3 +1,4 @@
+# A resource to store a deck
 class_name DeckResource
 extends Resource
 

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://deck/deck_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+deck_list = {
+Resource( "res://resources/cards/looting/looting_card.tres" ): 2,
+Resource( "res://resources/cards/shoot_harder/shoot_harder_card.tres" ): 2,
+Resource( "res://resources/cards/deal_damage/deal_damage_card.tres" ): 2,
+Resource( "res://resources/cards/destroy_tower/destroy_tower_card.tres" ): 2,
+Resource( "res://resources/cards/shoot_faster/shoot_faster_card.tres" ): 2,
+Resource( "res://resources/cards/draw/draw_card.tres" ): 2,
+Resource( "res://resources/cards/tower/tower_card.tres" ): 4
+}

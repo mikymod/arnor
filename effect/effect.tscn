@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://target_arrow/target_arrow.tscn" type="PackedScene" id=1]
-[ext_resource path="res://effect/resources/build_tower/resources/build_tower_effect_basic_tower.tres" type="Resource" id=2]
-[ext_resource path="res://card/events/card_events.tres" type="Resource" id=3]
+[ext_resource path="res://resources/cards/tower/build_tower_effect.tres" type="Resource" id=2]
+[ext_resource path="res://card/card_events.tres" type="Resource" id=3]
 [ext_resource path="res://effect/effect.gd" type="Script" id=5]
-[ext_resource path="res://effect/resources/effect_events.tres" type="Resource" id=6]
+[ext_resource path="res://effect/effect_events.tres" type="Resource" id=6]
 
 [node name="Effect" type="Node"]
 script = ExtResource( 5 )

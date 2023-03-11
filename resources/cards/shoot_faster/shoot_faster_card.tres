@@ -1,0 +1,29 @@
+[gd_resource type="Resource" load_steps=9 format=2]
+
+[ext_resource path="res://card/card_resource.gd" type="Script" id=1]
+[ext_resource path="res://card/textures/name_frame.png" type="Texture" id=2]
+[ext_resource path="res://card/textures/rarity_frame.png" type="Texture" id=3]
+[ext_resource path="res://card/textures/foreground_frame.png" type="Texture" id=4]
+[ext_resource path="res://card/textures/cost_frame.png" type="Texture" id=5]
+[ext_resource path="res://card/textures/description_frame.png" type="Texture" id=6]
+[ext_resource path="res://card/textures/background_frame.png" type="Texture" id=7]
+[ext_resource path="res://resources/cards/shoot_faster/inc_shoot_rate_effect.tres" type="Resource" id=8]
+
+[resource]
+script = ExtResource( 1 )
+name = "Shoot Faster"
+cost = 1
+rarity = 0
+background_frame = ExtResource( 7 )
+background_frame_color = Color( 0.337255, 1, 0.317647, 1 )
+foreground_frame = ExtResource( 4 )
+name_frame = ExtResource( 2 )
+name_frame_color = Color( 1, 0.909804, 0.631373, 1 )
+cost_frame = ExtResource( 5 )
+cost_frame_color = Color( 0.517647, 0.517647, 0.517647, 1 )
+description_frame = ExtResource( 6 )
+description_frame_color = Color( 1, 0.909804, 0.631373, 1 )
+rarity_frame = ExtResource( 3 )
+rarity_frame_color = Color( 0.517647, 0.517647, 0.517647, 1 )
+effect_resources = [ ExtResource( 8 ) ]
+exhaust = false
