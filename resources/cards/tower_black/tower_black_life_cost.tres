@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://player/player_resource.tres" type="Resource" id=1]
+[ext_resource path="res://effect/lose_life_effect_resource.gd" type="Script" id=2]
+
+[resource]
+script = ExtResource( 2 )
+collision_mask = 0
+description = "Lose 1 life"
+hint = ""
+life = 1
+player_resource = ExtResource( 1 )
