@@ -10,6 +10,7 @@ var health: float = 1.0
 var colliding_body
 
 func _ready() -> void:
+	enemy_events.connect("enemy_damaged", self, "_on_enemy_damaged")
 	health = enemy_resource.health
 
 func hit(damage: float) -> void:
@@ -36,6 +37,9 @@ func _on_Enemy_body_entered(body):
 
 func _on_Enemy_body_exited(body):
 		colliding_body = null
+
+func _on_enemy_damaged(damage: float) -> void:
+	 hit(damage)
 
 func try_attack() -> void:
 	var attack_area = $Sprites/AttackSprite/Attack

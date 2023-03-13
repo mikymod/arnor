@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "EffectResource",
+"class": "AoeDamageEffectResource",
+"language": "GDScript",
+"path": "res://effect/aoe_damage/aoe_damage_effect_resource.gd"
+}, {
+"base": "EffectResource",
 "class": "BuffEffectResource",
 "language": "GDScript",
 "path": "res://effect/buff_effect_resource.gd"
@@ -215,6 +220,7 @@ _global_script_classes=[ {
 "path": "res://turn_manager/turn_manager_resource.gd"
 } ]
 _global_script_class_icons={
+"AoeDamageEffectResource": "",
 "BuffEffectResource": "",
 "BuildTowerEffectResource": "",
 "Bullet": "",
