@@ -8,42 +8,42 @@ extends Area2D
 ## - placed in discard when it's played
 ## - replaced in deck when the deck is depleted
 
-export(Resource) var resource # CardResource
-export(Resource) var card_events
+@export var resource: CardResource # CardResource
+@export var card_events: CardEvents
 
 # The sprite in background
-onready var _background_frame: Sprite = $BackgroundFrame
+@onready var _background_frame: Sprite2D = $BackgroundFrame
 # The sprite in foreground
-onready var _foreground_frame: Sprite = $ForegroundFrame
-onready var _name_frame: Sprite = $NameFrame
-onready var _cost_frame: Sprite = $CostFrame
-onready var _description_frame: Sprite = $DescriptionFrame
-onready var _rarity_frame: Sprite = $RarityFrame
-onready var _selected_frame: Sprite = $Selected
+@onready var _foreground_frame: Sprite2D = $ForegroundFrame
+@onready var _name_frame: Sprite2D = $NameFrame
+@onready var _cost_frame: Sprite2D = $CostFrame
+@onready var _description_frame: Sprite2D = $DescriptionFrame
+@onready var _rarity_frame: Sprite2D = $RarityFrame
+@onready var _selected_frame: Sprite2D = $Selected
 
 # The label where card's name is displayed
-onready var _name_label: RichTextLabel = $NameFrame/NameLabel
+@onready var _name_label: RichTextLabel = $NameFrame/NameLabel
 # The label where card's cost is displayed
-onready var _cost_label: RichTextLabel = $CostFrame/CostLabel
+@onready var _cost_label: RichTextLabel = $CostFrame/CostLabel
 # The label where card's description is displayed
-onready var _description_label: RichTextLabel = $DescriptionFrame/DescriptionLabel
+@onready var _description_label: RichTextLabel = $DescriptionFrame/DescriptionLabel
 # The initial position of this node
-onready var init_pos: Vector2 = global_position
+@onready var init_pos: Vector2 = global_position
 
-onready var state_machine: StateMachine = $StateMachine
+@onready var state_machine: StateMachine = $StateMachine
 
 var mouseover = false
 var playable = true
 var selected = false;
 
 func _ready() -> void:
-	card_events.connect("card_played", self, "_on_card_played")
-	card_events.connect("card_returned", self, "_on_card_returned")
-	card_events.connect("card_resolved", self, "_on_card_resolved")
+	card_events.connect("card_played",Callable(self,"_on_card_played"))
+	card_events.connect("card_returned",Callable(self,"_on_card_returned"))
+	card_events.connect("card_resolved",Callable(self,"_on_card_resolved"))
 	set_skin()
 	set_data()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_selected_frame.visible = selected
 
 func set_skin() -> void:
@@ -63,12 +63,12 @@ func set_skin() -> void:
 func set_data() -> void:
 	_name_label.text = resource.name
 	_cost_label.bbcode_enabled = true
-	_cost_label.bbcode_text = "[center]" + str(resource.cost) + "[/center]"
+	_cost_label.text = "[center]" + str(resource.cost) + "[/center]"
 	_description_label.bbcode_enabled = true
-	_description_label.bbcode_text = "[center]"
+	_description_label.text = "[center]"
 	for effect in resource.effect_resources:
-		_description_label.bbcode_text += effect.description + "\n"
-	_description_label.bbcode_text += "[/center]"
+		_description_label.text += effect.description + "\n"
+	_description_label.text += "[/center]"
 
 func set_selected(value: bool) -> void:
 	selected = value
@@ -79,14 +79,14 @@ func _on_Card_mouse_entered():
 func _on_Card_mouse_exited():
 	mouseover = false
 
-func _on_card_played(card) -> void:
+func _on_card_played(_card: Card) -> void:
 	playable = false
 	
-func _on_card_returned(card) -> void:
+func _on_card_returned(_card: Card) -> void:
 	playable = true
 	selected = false
 
-func _on_card_resolved(card) -> void:
+func _on_card_resolved(card: Card) -> void:
 	playable = true
 	selected = false
 	if self == card:

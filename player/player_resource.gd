@@ -5,8 +5,8 @@ signal max_health_changed(max_health)
 signal health_changed(health)
 signal player_lost()
 
-export(int) var max_health = 100
-export(int) var health = 100
+@export var max_health: int = 100
+@export var health: int = 100
 
 func change_max_health(value: int):
 	max_health += value

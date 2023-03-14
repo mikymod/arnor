@@ -1,9 +1,9 @@
 class_name BulletResource
 extends Resource
 
-export var texture: Texture
-export var velocity: float = 1
-export var damage: float = 1
+@export var texture: Texture2D
+@export var velocity: float = 1
+@export var damage: float = 1
 
 func set_damage(new_damage: float) -> void:
 	damage += new_damage

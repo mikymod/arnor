@@ -6,11 +6,11 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 656.0
-margin_top = -336.0
-margin_right = 776.0
-margin_bottom = -216.0
-rect_scale = Vector2( 3.05018, 2.76191 )
+offset_left = 656.0
+offset_top = -336.0
+offset_right = 776.0
+offset_bottom = -216.0
+scale = Vector2( 3.05018, 2.76191 )
 text = "1- Tower
 2- Bullet
 3- Enemy

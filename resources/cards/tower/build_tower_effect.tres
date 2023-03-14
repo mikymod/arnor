@@ -1,13 +1,13 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" script_class="BuildTowerEffectResource" load_steps=4 format=3 uid="uid://ca1jqu17t824t"]
 
-[ext_resource path="res://effect/build_tower_effect_resource.gd" type="Script" id=1]
-[ext_resource path="res://tower/resources/basic_tower.tres" type="Resource" id=2]
-[ext_resource path="res://tower/tower.tscn" type="PackedScene" id=3]
+[ext_resource type="Script" path="res://effect/build_tower_effect_resource.gd" id="1"]
+[ext_resource type="Resource" path="res://tower/resources/basic_tower.tres" id="2"]
+[ext_resource type="PackedScene" path="res://tower/tower.tscn" id="3"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 collision_mask = 2
 description = "Build a tower."
 hint = "Select a place"
-tower_resource = ExtResource( 2 )
-tower = ExtResource( 3 )
+tower_resource = ExtResource("2")
+tower = ExtResource("3")

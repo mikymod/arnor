@@ -1,17 +1,17 @@
-tool
+@tool
 
 extends Node2D
 
-export(Texture) var tex_enabled
-export(Texture) var tex_disabled
+@export var tex_enabled: Texture2D
+@export var tex_disabled: Texture2D
 
-export var enabled: bool = true
+@export var enabled: bool = true
 
 func _ready():
-	$Sprite.texture = tex_enabled
+	$Sprite2D.texture = tex_enabled
 
 func set_enabled(value: bool) -> void:
 	enabled = value
-	$Sprite.texture = tex_enabled if enabled else tex_disabled
+	$Sprite2D.texture = tex_enabled if enabled else tex_disabled
 
 

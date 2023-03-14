@@ -1,23 +1,23 @@
 extends Control
 
-export(Resource) var reward_area_resource
-export(Resource) var card_resource
+@export var reward_area_resource: Resource
+@export var card_resource: Resource
 
 # The sprite in background
-onready var _background_frame: TextureRect = $BackgroundFrame
+@onready var _background_frame: TextureRect = $BackgroundFrame
 # The sprite in foreground
-onready var _foreground_frame: TextureRect = $ForegroundFrame
-onready var _name_frame: TextureRect = $NameFrame
-onready var _cost_frame: TextureRect = $CostFrame
-onready var _description_frame: TextureRect = $DescriptionFrame
-onready var _rarity_frame: TextureRect = $RarityFrame
+@onready var _foreground_frame: TextureRect = $ForegroundFrame
+@onready var _name_frame: TextureRect = $NameFrame
+@onready var _cost_frame: TextureRect = $CostFrame
+@onready var _description_frame: TextureRect = $DescriptionFrame
+@onready var _rarity_frame: TextureRect = $RarityFrame
 
 # The label where card's name is displayed
-onready var _name_label: RichTextLabel = $NameFrame/NameLabel
+@onready var _name_label: RichTextLabel = $NameFrame/NameLabel
 # The label where card's cost is displayed
-onready var _cost_label: RichTextLabel = $CostFrame/CostLabel
+@onready var _cost_label: RichTextLabel = $CostFrame/CostLabel
 # The label where card's description is displayed
-onready var _description_label: RichTextLabel = $DescriptionFrame/DescriptionLabel
+@onready var _description_label: RichTextLabel = $DescriptionFrame/DescriptionLabel
 
 func _ready() -> void:
 	if card_resource != null:
@@ -29,7 +29,7 @@ func set_card_resource(card_res: CardResource)-> void:
 
 func _on_RewardCard_gui_input(event):
 	if event is InputEventMouseButton:
-		if event.pressed and event.button_index == BUTTON_LEFT:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			reward_area_resource.emit_signal("reward_selected", card_resource)
 
 func set_skin() -> void:
@@ -55,7 +55,7 @@ func set_data() -> void:
 	_cost_label.text = str(card_resource.cost)
 	
 	_description_label.bbcode_enabled = true
-	_description_label.bbcode_text = "[center]"
+	_description_label.text = "[center]"
 	for effect in card_resource.effect_resources:
-		_description_label.bbcode_text += effect.description + "\n"
-	_description_label.bbcode_text += "[/center]"
+		_description_label.text += effect.description + "\n"
+	_description_label.text += "[/center]"

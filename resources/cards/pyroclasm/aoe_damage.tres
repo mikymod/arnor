@@ -1,7 +1,7 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=3 format=3]
 
-[ext_resource path="res://effect/aoe_damage/aoe_damage_effect_resource.gd" type="Script" id=1]
-[ext_resource path="res://enemy/events/enemy_events.tres" type="Resource" id=2]
+[ext_resource type="Script" path="res://effect/aoe_damage_effect_resource.gd" id="1"]
+[ext_resource type="Resource" path="res://enemy/events/enemy_events.tres" id="2"]
 
 [resource]
 resource_local_to_scene = true

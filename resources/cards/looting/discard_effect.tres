@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DiscardEffectResource" load_steps=4 format=3 uid="uid://dl73n5ukpuxtx"]
+
+[ext_resource type="Resource" path="res://card/card_events.tres" id="1_y52q2"]
+[ext_resource type="Resource" path="res://hand/hand.tres" id="2_8he0p"]
+[ext_resource type="Script" path="res://effect/discard_effect_resource.gd" id="3_ykdbe"]
+
+[resource]
+script = ExtResource("3_ykdbe")
+card_events = ExtResource("1_y52q2")
+hand = ExtResource("2_8he0p")
+collision_mask = 256
+description = "Discard a card."
+hint = "Select a card to discard"

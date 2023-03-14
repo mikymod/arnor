@@ -1,57 +1,49 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=12 format=3 uid="uid://rmkd7vk4wscw"]
 
-[ext_resource path="res://deck/scenes/exhaust_icon.tscn" type="PackedScene" id=1]
-[ext_resource path="res://deck/deck.gd" type="Script" id=2]
-[ext_resource path="res://deck/scenes/discard_icon.tscn" type="PackedScene" id=3]
-[ext_resource path="res://deck/scenes/deck_icon.tscn" type="PackedScene" id=4]
-[ext_resource path="res://card/card_events.tres" type="Resource" id=5]
-[ext_resource path="res://deck/deck_events.tres" type="Resource" id=6]
-[ext_resource path="res://hand/hand.tres" type="Resource" id=7]
-[ext_resource path="res://resources/decks/deck_1.tres" type="Resource" id=8]
-[ext_resource path="res://card/card.tscn" type="PackedScene" id=9]
-[ext_resource path="res://game_ui/reward_area/reward_area.tres" type="Resource" id=10]
-[ext_resource path="res://turn_manager/turn_manager.tres" type="Resource" id=11]
+[ext_resource type="PackedScene" path="res://deck/scenes/exhaust_icon.tscn" id="1"]
+[ext_resource type="Script" path="res://deck/deck.gd" id="2"]
+[ext_resource type="Resource" uid="uid://dp6anr087agj0" path="res://resources/decks/deck.tres" id="2_yekpi"]
+[ext_resource type="PackedScene" path="res://deck/scenes/discard_icon.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://deck/scenes/deck_icon.tscn" id="4"]
+[ext_resource type="Resource" path="res://card/card_events.tres" id="5"]
+[ext_resource type="Resource" path="res://deck/deck_events.tres" id="6"]
+[ext_resource type="Resource" path="res://hand/hand.tres" id="7"]
+[ext_resource type="PackedScene" path="res://card/card.tscn" id="9"]
+[ext_resource type="Resource" path="res://game_ui/reward_area/reward_area.tres" id="10"]
+[ext_resource type="Resource" path="res://turn_manager/turn_manager.tres" id="11"]
 
 [node name="Deck" type="Node2D"]
-script = ExtResource( 2 )
-deck_resource = ExtResource( 8 )
-turn_manager_resource = ExtResource( 11 )
-hand_resource = ExtResource( 7 )
-reward_area_resource = ExtResource( 10 )
-deck_events = ExtResource( 6 )
-card_events = ExtResource( 5 )
-card_scene = ExtResource( 9 )
+script = ExtResource("2")
+deck_resource = ExtResource("2_yekpi")
+turn_manager_resource = ExtResource("11")
+hand_resource = ExtResource("7")
+reward_area_resource = ExtResource("10")
+deck_events = ExtResource("6")
+card_events = ExtResource("5")
+card_scene = ExtResource("9")
 
 [node name="Control" type="Control" parent="."]
-margin_right = 382.0
-margin_bottom = 135.0
+layout_mode = 3
+anchors_preset = 0
+offset_right = 382.0
+offset_bottom = 135.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -9.0
-margin_right = -0.0400391
-margin_bottom = 7.48
+offset_left = -9.0
+offset_right = -0.0400391
+offset_bottom = 7.48
 
-[node name="DeckIcon" parent="Control/HBoxContainer" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 127.0
-margin_bottom = 142.0
+[node name="DeckIcon" parent="Control/HBoxContainer" instance=ExtResource("4")]
+layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DiscardIcon" parent="Control/HBoxContainer" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 131.0
-margin_right = 258.0
-margin_bottom = 142.0
+[node name="DiscardIcon" parent="Control/HBoxContainer" instance=ExtResource("3")]
+layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ExhaustIcon" parent="Control/HBoxContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 262.0
-margin_right = 390.0
-margin_bottom = 142.0
+[node name="ExhaustIcon" parent="Control/HBoxContainer" instance=ExtResource("1")]
+layout_mode = 2
 size_flags_horizontal = 3

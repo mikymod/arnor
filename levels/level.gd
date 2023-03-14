@@ -1,14 +1,14 @@
 extends Node2D
 
-export(Resource) var turn_manager_resource
-export(Resource) var reward_area_resource
+@export var turn_manager_resource: TurnManagerResource
+@export var reward_area_resource: RewardAreaResource
 
-onready var _reward_area: Control = $GameUI/RewardArea
+@onready var _reward_area: Control = $GameUI/RewardArea
 #onready var _reward_area_pos: Vector2 = $RewardArea.global_position
 
 func _ready() -> void:
-	turn_manager_resource.connect("reward_phase_started", self, "_on_reward_phase_started")
-	reward_area_resource.connect("reward_selected", self, "_on_reward_selected")
+	turn_manager_resource.connect("reward_phase_started",Callable(self,"_on_reward_phase_started"))
+	reward_area_resource.connect("reward_selected",Callable(self,"_on_reward_selected"))
 	# Disable reward area
 	# The easiest way to stop processing a node is to remove it from the tree
 	# (call remove_child() from its parent). This will make it invisible and stop

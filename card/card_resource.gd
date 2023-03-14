@@ -11,26 +11,26 @@ enum Rarity {
 	rare,
 }
 
-export(String) var name = ''
-export(int) var cost = 0
-export(Rarity) var rarity = Rarity.common
+@export var name: String = ''
+@export var cost: int = 0
+@export var rarity: Rarity = Rarity.common
 
-export(Texture) var background_frame = preload("res://card/textures/background_frame.png")
-export(Color) var background_frame_color = Color("848484")
+@export var background_frame: Texture2D = preload("res://card/textures/background_frame.png")
+@export var background_frame_color: Color = Color("848484")
 
-export(Texture) var foreground_frame = preload("res://card/textures/foreground_frame.png")
+@export var foreground_frame: Texture2D = preload("res://card/textures/foreground_frame.png")
 
-export(Texture) var name_frame = preload("res://card/textures/name_frame.png")
-export(Color) var name_frame_color = Color("ffe8a1")
+@export var name_frame: Texture2D = preload("res://card/textures/name_frame.png")
+@export var name_frame_color: Color = Color("ffe8a1")
 
-export(Texture) var cost_frame = preload("res://card/textures/cost_frame.png")
-export(Color) var cost_frame_color = Color("848484")
+@export var cost_frame: Texture2D = preload("res://card/textures/cost_frame.png")
+@export var cost_frame_color: Color = Color("848484")
 
-export(Texture) var description_frame = preload("res://card/textures/description_frame.png")
-export(Color) var description_frame_color = Color("ffe8a1")
+@export var description_frame: Texture2D = preload("res://card/textures/description_frame.png")
+@export var description_frame_color: Color = Color("ffe8a1")
 
-export(Texture) var rarity_frame = preload("res://card/textures/rarity_frame.png")
-export(Color) var rarity_frame_color = Color("848484")
+@export var rarity_frame: Texture2D = preload("res://card/textures/rarity_frame.png")
+@export var rarity_frame_color: Color = Color("848484")
 
-export(Array, Resource) var effect_resources
-export(bool) var exhaust = false
+@export var effect_resources: Array[EffectResource]
+@export var exhaust: bool = false

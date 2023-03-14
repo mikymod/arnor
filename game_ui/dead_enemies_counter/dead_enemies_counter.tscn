@@ -1,47 +1,37 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://cco53ulalwj2i"]
 
-[ext_resource path="res://game_ui/game_ui_theme.tres" type="Theme" id=1]
-[ext_resource path="res://enemy/events/enemy_events.tres" type="Resource" id=2]
-[ext_resource path="res://game_ui/dead_enemies_counter/dead_enemy_icon.png" type="Texture" id=3]
-[ext_resource path="res://game_ui/dead_enemies_counter/dead_enemies_counter.gd" type="Script" id=4]
-[ext_resource path="res://PeaberryBase.ttf" type="DynamicFontData" id=5]
-
-[sub_resource type="DynamicFont" id=1]
-size = 50
-font_data = ExtResource( 5 )
+[ext_resource type="Theme" uid="uid://w7yk87i8qd5d" path="res://game_ui/game_ui_theme.tres" id="1"]
+[ext_resource type="Resource" path="res://enemy/events/enemy_events.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://c1w7nd27wajem" path="res://game_ui/dead_enemies_counter/dead_enemy_icon.png" id="3"]
+[ext_resource type="Script" path="res://game_ui/dead_enemies_counter/dead_enemies_counter.gd" id="4"]
 
 [node name="DeadEnemyCounter" type="Control"]
+layout_mode = 3
 anchor_right = 0.1
 anchor_bottom = 0.059
-margin_bottom = 0.279995
-script = ExtResource( 4 )
-enemy_events = ExtResource( 2 )
+offset_bottom = 0.279995
+script = ExtResource("4")
+enemy_events = ExtResource("2")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
-margin_right = 62.0
-margin_bottom = 64.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
-texture = ExtResource( 3 )
-expand = true
+texture = ExtResource("3")
+expand_mode = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
-margin_left = 66.0
-margin_right = 192.0
-margin_bottom = 64.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/CenterContainer"]
-margin_left = 47.0
-margin_top = 6.0
-margin_right = 78.0
-margin_bottom = 57.0
-theme = ExtResource( 1 )
-custom_fonts/font = SubResource( 1 )
+layout_mode = 2
+theme = ExtResource("1")
 text = "0"

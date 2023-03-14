@@ -2,4 +2,4 @@
 class_name DeckResource
 extends Resource
 
-export(Dictionary) var deck_list
+@export var deck_list: Dictionary

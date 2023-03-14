@@ -1,10 +1,10 @@
 extends Control
 
-export(Resource) var enemy_events
+@export var enemy_events: EnemyEvents
 var counter: int = 0
 
 func _ready() -> void:
-	enemy_events.connect("enemy_dead", self, "_on_enemy_dead")
+	enemy_events.connect("enemy_dead",Callable(self,"_on_enemy_dead"))
 
 func _process(delta: float) -> void:
 	$HBoxContainer/CenterContainer/Label.text = str(counter)

@@ -1,7 +1,7 @@
 class_name TurnManager
 extends Node2D
 
-export(Resource) var turn_manager_resource
+@export var turn_manager_resource: Resource
 
 func _on_Restore_Phase_button_down():
 	turn_manager_resource.emit_signal("restore_phase_started")

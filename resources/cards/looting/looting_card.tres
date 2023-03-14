@@ -1,30 +1,30 @@
-[gd_resource type="Resource" load_steps=10 format=2]
+[gd_resource type="Resource" script_class="CardResource" load_steps=10 format=3 uid="uid://bej2esfyqe1ud"]
 
-[ext_resource path="res://card/textures/background_frame.png" type="Texture" id=1]
-[ext_resource path="res://card/textures/name_frame.png" type="Texture" id=2]
-[ext_resource path="res://card/textures/rarity_frame.png" type="Texture" id=3]
-[ext_resource path="res://card/textures/foreground_frame.png" type="Texture" id=4]
-[ext_resource path="res://card/textures/description_frame.png" type="Texture" id=5]
-[ext_resource path="res://card/textures/cost_frame.png" type="Texture" id=6]
-[ext_resource path="res://card/card_resource.gd" type="Script" id=7]
-[ext_resource path="res://resources/cards/looting/effects/discard_effect.tres" type="Resource" id=8]
-[ext_resource path="res://resources/cards/looting/effects/draw_effect.tres" type="Resource" id=9]
+[ext_resource type="Texture2D" uid="uid://bij0i4ko1fp4r" path="res://card/textures/background_frame.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://d081clexolmeo" path="res://card/textures/name_frame.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://5bgincnel8i1" path="res://card/textures/rarity_frame.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cd3el6mxg2ci6" path="res://card/textures/foreground_frame.png" id="4"]
+[ext_resource type="Resource" uid="uid://dl73n5ukpuxtx" path="res://resources/cards/looting/discard_effect.tres" id="4_7sjvl"]
+[ext_resource type="Texture2D" uid="uid://bn4ml40n7dqcu" path="res://card/textures/description_frame.png" id="5"]
+[ext_resource type="Resource" path="res://resources/cards/looting/draw_effect.tres" id="5_l5cgd"]
+[ext_resource type="Texture2D" uid="uid://b41bay2ovukum" path="res://card/textures/cost_frame.png" id="6"]
+[ext_resource type="Script" path="res://card/card_resource.gd" id="7"]
 
 [resource]
-script = ExtResource( 7 )
+script = ExtResource("7")
 name = "Looting"
-cost = 1
+cost = 0
 rarity = 0
-background_frame = ExtResource( 1 )
-background_frame_color = Color( 0.235294, 0.517647, 1, 1 )
-foreground_frame = ExtResource( 4 )
-name_frame = ExtResource( 2 )
-name_frame_color = Color( 1, 0.909804, 0.631373, 1 )
-cost_frame = ExtResource( 6 )
-cost_frame_color = Color( 0.517647, 0.517647, 0.517647, 1 )
-description_frame = ExtResource( 5 )
-description_frame_color = Color( 1, 0.909804, 0.631373, 1 )
-rarity_frame = ExtResource( 3 )
-rarity_frame_color = Color( 0.517647, 0.517647, 0.517647, 1 )
-effect_resources = [ ExtResource( 9 ), ExtResource( 8 ) ]
+background_frame = ExtResource("1")
+background_frame_color = Color(0.517647, 0.517647, 0.517647, 1)
+foreground_frame = ExtResource("4")
+name_frame = ExtResource("2")
+name_frame_color = Color(1, 0.909804, 0.631373, 1)
+cost_frame = ExtResource("6")
+cost_frame_color = Color(0.517647, 0.517647, 0.517647, 1)
+description_frame = ExtResource("5")
+description_frame_color = Color(1, 0.909804, 0.631373, 1)
+rarity_frame = ExtResource("3")
+rarity_frame_color = Color(0.517647, 0.517647, 0.517647, 1)
+effect_resources = Array[Resource("res://effect/effect_resource.gd")]([ExtResource("4_7sjvl"), ExtResource("5_l5cgd")])
 exhaust = false

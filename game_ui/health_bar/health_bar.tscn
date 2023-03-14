@@ -1,39 +1,24 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://pdsbk70c00ui"]
 
-[ext_resource path="res://game_ui/game_ui_theme.tres" type="Theme" id=1]
-[ext_resource path="res://player/player_resource.tres" type="Resource" id=2]
-[ext_resource path="res://game_ui/health_bar/health_bar.gd" type="Script" id=3]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 1, 0.25098, 0.25098, 1 )
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.160784, 0.160784, 0.160784, 1 )
-border_color = Color( 1, 0.588235, 0.588235, 1 )
-border_blend = true
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[ext_resource type="Theme" uid="uid://w7yk87i8qd5d" path="res://game_ui/game_ui_theme.tres" id="1"]
+[ext_resource type="Resource" path="res://player/player_resource.tres" id="2"]
+[ext_resource type="Script" path="res://game_ui/health_bar/health_bar.gd" id="3"]
 
 [node name="HealthBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-script = ExtResource( 3 )
-player_resource = ExtResource( 2 )
+script = ExtResource("3")
+player_resource = ExtResource("2")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
-margin_left = 24.0
-margin_top = 24.0
-margin_right = 680.0
-margin_bottom = 64.0
-theme = ExtResource( 1 )
-custom_styles/fg = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 680.0
+offset_bottom = 64.0
+theme = ExtResource("1")
 value = 100.0
 rounded = true

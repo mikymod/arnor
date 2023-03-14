@@ -2,10 +2,10 @@
 
 [ext_resource path="res://tower/resources/tower_resource.gd" type="Script" id=1]
 [ext_resource path="res://bullet/resources/basic_bullet.tres" type="Resource" id=2]
-[ext_resource path="res://tower/textures/basic_tower_body1.png" type="Texture" id=3]
-[ext_resource path="res://tower/textures/basic_tower_base.png" type="Texture" id=4]
-[ext_resource path="res://tower/textures/basic_tower_body2.png" type="Texture" id=5]
-[ext_resource path="res://tower/textures/tower_53.png" type="Texture" id=6]
+[ext_resource path="res://tower/textures/basic_tower_body1.png" type="Texture2D" id=3]
+[ext_resource path="res://tower/textures/basic_tower_base.png" type="Texture2D" id=4]
+[ext_resource path="res://tower/textures/basic_tower_body2.png" type="Texture2D" id=5]
+[ext_resource path="res://tower/textures/tower_53.png" type="Texture2D" id=6]
 
 [resource]
 script = ExtResource( 1 )

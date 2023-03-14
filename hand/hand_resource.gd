@@ -1,9 +1,9 @@
 class_name HandResource
 extends Resource
 
-export(Resource) var power_resource
+@export var power_resource: Resource
 
-var cards: Array = []
+var cards: Array[Card] = []
 
 func append_card(card: Card) -> void:
 	cards.append(card)

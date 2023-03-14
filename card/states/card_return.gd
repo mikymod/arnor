@@ -5,10 +5,10 @@ extends State
 ##
 ## The return state of Card's state machine 
 
-export(Resource) var card_events
+@export var card_events: CardEvents
 
-export var card_path: NodePath
-onready var card: Node2D = get_node(card_path)
+@export var card_path: NodePath
+@onready var card: Node2D = get_node(card_path)
 
 func enter(_msg := {}) -> void:
 	card_events.emit_signal("card_returned", card)
@@ -16,7 +16,7 @@ func enter(_msg := {}) -> void:
 
 #func handle_input(event: InputEvent) -> void:
 #	if event is InputEventMouseButton:
-#		if event.pressed and event.button_index == BUTTON_LEFT:
+#		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 #			state_machine.transition_to('Selected')
 
 func update(_delta: float) -> void:

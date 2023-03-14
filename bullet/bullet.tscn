@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://bullet/textures/bullet_0.png" type="Texture" id=1]
+[ext_resource path="res://bullet/textures/bullet_0.png" type="Texture2D" id=1]
 [ext_resource path="res://bullet/bullet.gd" type="Script" id=2]
 [ext_resource path="res://bullet/resources/basic_bullet.tres" type="Resource" id=3]
 
@@ -16,7 +16,7 @@ resource = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource( 1 )
 
 [connection signal="body_entered" from="." to="." method="_on_Bullet_body_entered"]

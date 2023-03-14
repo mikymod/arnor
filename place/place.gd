@@ -3,7 +3,7 @@ extends Area2D
 
 ## A place where a tower can be built
 
-onready var _sprite: Sprite = $Sprite
+@onready var _sprite: Sprite2D = $Sprite2D
 
 var mouse_over: bool = false
 var available: bool = true
@@ -19,3 +19,4 @@ func _on_Place_mouse_entered():
 	
 func _on_Place_mouse_exited():
 	mouse_over = false
+

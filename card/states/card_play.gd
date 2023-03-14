@@ -5,15 +5,14 @@ extends State
 ##
 ## The play state of Card's state machine
 
-export(Resource) var card_events
+@export var card_events: CardEvents
 
-export(NodePath) var root_path
-onready var card: Node2D = get_node(root_path)
+@export var root_path: NodePath
+@onready var card: Node2D = get_node(root_path)
 
 func enter(_msg := {}) -> void:
 	card_events.emit_signal("card_played", card)
-	print("played {card}".format({"card": card}))
 
 func update(delta: float) -> void:
-	if Input.is_mouse_button_pressed(BUTTON_RIGHT):
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		state_machine.transition_to("Return")

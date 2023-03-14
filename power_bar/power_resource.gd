@@ -5,8 +5,8 @@ signal power_restored()
 signal power_depleted()
 signal max_power_changed(num_power)
 
-export(int) var current_power = 5
-export(int) var max_power = 5
+@export var current_power: int = 5
+@export var max_power: int = 5
 
 func reset_power() -> void:
 	current_power = max_power

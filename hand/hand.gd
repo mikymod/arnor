@@ -1,12 +1,12 @@
 class_name Hand
 extends Node2D
 
-export(Resource) var hand_resource
-export(Resource) var card_events
+@export var hand_resource: HandResource
+@export var card_events: CardEvents
 
 func _ready() -> void:
-	card_events.connect("card_drawed", self, "_on_card_drawed")
-	card_events.connect("card_resolved", self, "_on_card_resolved")
+	card_events.connect("card_drawed",Callable(self,"_on_card_drawed"))
+	card_events.connect("card_resolved",Callable(self,"_on_card_resolved"))
 
 func _on_card_drawed(card: Card):
 	hand_resource.append_card(card)

@@ -1,13 +1,13 @@
 class_name Deck
 extends Node2D
 
-export(Resource) var deck_resource
-export(Resource) var turn_manager_resource
-export(Resource) var hand_resource
-export(Resource) var reward_area_resource
-export(Resource) var deck_events
-export(Resource) var card_events
-export(PackedScene) var card_scene
+@export var deck_resource: DeckResource
+@export var turn_manager_resource: TurnManagerResource
+@export var hand_resource: HandResource
+@export var reward_area_resource: RewardAreaResource
+@export var deck_events: DeckEvents
+@export var card_events: CardEvents
+@export var card_scene: PackedScene
 
 const min_cards_in_hand = 5
 
@@ -16,23 +16,23 @@ var discard: Array = [] # The array containing cards in discard pile
 var exhaust: Array = [] # The array containing cards in exhaust pile
 
 func _ready() -> void:
-	deck_events.connect('deck_draw_triggered', self, '_on_deck_draw_triggered')
-	turn_manager_resource.connect('draw_phase_started', self, '_on_draw_phase_started')
-	reward_area_resource.connect("reward_selected", self, "_on_reward_selected")
-	card_events.connect('card_discarded', self, '_on_card_discarded')
-	card_events.connect('card_exhausted', self, '_on_card_exhausted')
+	deck_events.connect('deck_draw_triggered',Callable(self,'_on_deck_draw_triggered'))
+	turn_manager_resource.connect('draw_phase_started',Callable(self,'_on_draw_phase_started'))
+	reward_area_resource.connect("reward_selected",Callable(self,"_on_reward_selected"))
+	card_events.connect('card_discarded',Callable(self,'_on_card_discarded'))
+	card_events.connect('card_exhausted',Callable(self,'_on_card_exhausted'))
 	create_deck()
 
 func create_deck() -> void:
 	for card in deck_resource.deck_list:
 		var quantity = deck_resource.deck_list[card]
 		for _i in range(quantity):
-			var instance = card_scene.instance()
+			var instance = card_scene.instantiate()
 			instance.resource = card
 			deck.append(instance)
 	deck.shuffle()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$Control/HBoxContainer/DeckIcon/MarginContainer/Label.text = str(deck.size())
 	$Control/HBoxContainer/DiscardIcon/MarginContainer/Label.text = str(discard.size())
 	$Control/HBoxContainer/ExhaustIcon/MarginContainer/Label.text = str(exhaust.size())
@@ -63,7 +63,7 @@ func _on_draw_phase_started() -> void:
 		draw_card()
 
 func _on_reward_selected(card_res):
-	var instance = card_scene.instance()
+	var instance = card_scene.instantiate()
 	instance.resource = card_res
 	discard.append(instance)
 

@@ -1,10 +1,10 @@
 extends Control
 
-export(Resource) var turn_manager_resource
+@export var turn_manager_resource: Resource
 
-export(Array, Resource) var cards
+@export var cards: Array[CardResource]
 
-onready var slots = [
+@onready var slots = [
 	$CenterContainer/HBoxContainer/RewardSlot1,
 	$CenterContainer/HBoxContainer/RewardSlot2,
 	$CenterContainer/HBoxContainer/RewardSlot3,
@@ -13,7 +13,7 @@ onready var slots = [
 var _rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
-	turn_manager_resource.connect("reward_phase_started", self, "_on_reward_phase_started")
+	turn_manager_resource.connect("reward_phase_started",Callable(self,"_on_reward_phase_started"))
 
 func _on_reward_phase_started() -> void:
 	print("_on_reward_phase_started")

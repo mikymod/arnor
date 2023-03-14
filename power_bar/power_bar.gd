@@ -1,20 +1,19 @@
 extends Node2D
 
-export(Resource) var power_resource
-export(Resource) var card_events
-export(Resource) var turn_manager_resource
-
-export(PackedScene) var power_scene
+@export var power_resource: PowerResource
+@export var card_events: CardEvents
+@export var turn_manager_resource: TurnManagerResource
+@export var power_scene: PackedScene
 
 var items: Array = []
 
 func _ready() -> void:
-	card_events.connect('card_played', self, '_on_card_played')
-	card_events.connect('card_returned', self, '_on_card_returned')
-	turn_manager_resource.connect("restore_phase_started", self, "_on_restore_phase_started")
+	card_events.connect('card_played',Callable(self,'_on_card_played'))
+	card_events.connect('card_returned',Callable(self,'_on_card_returned'))
+	turn_manager_resource.connect("restore_phase_started",Callable(self,"_on_restore_phase_started"))
 	
 	for i in range(power_resource.max_power):
-		var instance = power_scene.instance()
+		var instance = power_scene.instantiate()
 		add_child(instance)
 		instance.position = Vector2(i * 48, 0)
 		items.append(instance)

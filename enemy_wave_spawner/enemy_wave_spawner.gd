@@ -1,12 +1,12 @@
 extends Node2D
 
-export(Resource) var turn_manager_resource
+@export var turn_manager_resource: Resource
 
-export(PackedScene) var enemy_scene
+@export var enemy_scene: PackedScene
 
-export(Array, Resource) var enemy_wave_list
+@export var enemy_wave_list: Array[EnemyWaveResource]
 
-onready var spawn_points: Array = [
+@onready var spawn_points: Array = [
 	$SpawnPoints/SpawnPoint,
 	$SpawnPoints/SpawnPoint2,
 	$SpawnPoints/SpawnPoint3,
@@ -19,7 +19,7 @@ var _num_enemies: int = 0
 var _rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
-	turn_manager_resource.connect("wave_phase_started", self, "_on_wave_phase_started")
+	turn_manager_resource.connect("wave_phase_started",Callable(self,"_on_wave_phase_started"))
 
 func _on_wave_phase_started() -> void:
 	_current_wave += 1
@@ -45,9 +45,10 @@ func spawn_enemy() -> void:
 	var random_spawn_point = spawn_points[_rng.randi_range(0, spawn_points.size() - 1)]
 	var random_enemy_res = _wave_res.enemy_resources[_rng.randi_range(0, _wave_res.enemy_resources.size() - 1)]
 	
-	var enemy = enemy_scene.instance()
+	var enemy = enemy_scene.instantiate()
 	enemy.enemy_resource = random_enemy_res
 	random_spawn_point.add_child(enemy)
+	
 	
 	_num_enemies -= 1
 	

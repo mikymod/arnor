@@ -1,17 +1,17 @@
 class_name BuffEffectResource
 extends EffectResource
 
-export(float) var damage: float = 1
-export(float) var health: float = 1
-export(float) var shoot_rate: float = 1
-export(float) var armor: float = 0
+@export var damage: float = 1
+@export var health: float = 1
+@export var shoot_rate: float = 1
+@export var armor: float = 0
 
-export(Resource) var bullet_resource
+@export var bullet_resource: Resource
 
-export(Texture) var base
-export(Texture) var body1
-export(Texture) var body2
-export(Texture) var roof
+@export var base: Texture2D
+@export var body1: Texture2D
+@export var body2: Texture2D
+@export var roof: Texture2D
 
 func apply_effect(args: Dictionary) -> void:
 	var tower = args.target

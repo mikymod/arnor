@@ -1,16 +1,16 @@
 class_name Tower
 extends StaticBody2D
 
-export(Resource) var resource # TowerResource
-export(PackedScene) var bullet_scene
+@export var resource: Resource # TowerResource
+@export var bullet_scene: PackedScene
 
 var _effects: Array = []
 
-onready var _timer: Timer = $ShootTimer
-onready var _shoot_area: Area2D = $ShootTriggerArea
-onready var _stats_damage_label: Label = $StatsPanel/MarginContainer/HBoxContainer/DamageContainer/DamageHBox/Label
-onready var _stats_shoot_rate_label: Label = $StatsPanel/MarginContainer/HBoxContainer/ShootRateContainer/ShootRateHBox/Label
-onready var _stats_armor_label: Label = $StatsPanel/MarginContainer/HBoxContainer/ArmorContainer/ArmorHBox/Label
+@onready var _timer: Timer = $ShootTimer
+@onready var _shoot_area: Area2D = $ShootTriggerArea
+@onready var _stats_damage_label: Label = $StatsPanel/MarginContainer/HBoxContainer/DamageContainer/DamageHBox/Label
+@onready var _stats_shoot_rate_label: Label = $StatsPanel/MarginContainer/HBoxContainer/ShootRateContainer/ShootRateHBox/Label
+@onready var _stats_armor_label: Label = $StatsPanel/MarginContainer/HBoxContainer/ArmorContainer/ArmorHBox/Label
 
 var _damage: float = 0
 var _health: float = 0
@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 	_stats_armor_label.text = str(_armor)
 	
 func _fire_bullet() -> void:
-	var bullet = bullet_scene.instance()
+	var bullet = bullet_scene.instantiate()
 	bullet.resource = resource.bullet_resource
 	add_child(bullet)
 	
@@ -69,7 +69,7 @@ func change_stats(damage, health, shoot_rate, armor) -> void:
 	_shoot_rate = shoot_rate
 	_armor = armor
 
-func change_skin(base: Texture, body1: Texture, body2: Texture, roof: Texture) -> void:
+func change_skin(base: Texture2D, body1: Texture2D, body2: Texture2D, roof: Texture2D) -> void:
 	if base != null: $Base.texture = base 
 	if body1 != null: $Base/Body1.texture = body1
 	if body2 != null: $Base/Body1/Body2.texture = body2

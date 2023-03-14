@@ -1,6 +1,6 @@
 class_name EnemyResource
 extends Resource
 
-export(float) var health = 0.0
-export(float) var speed = 0.0
-export(float) var damage = 0.0
+@export var health: float = 0.0
+@export var speed: float = 0.0
+@export var damage: float = 0.0

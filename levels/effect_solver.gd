@@ -1,19 +1,18 @@
 extends Node
 
-export(Resource) var card_events
-export(Resource) var effect_events
-export(PackedScene) var effect_scene
+@export var card_events: CardEvents
+@export var effect_events: EffectEvents
+@export var effect_scene: PackedScene
 
 var arrow_target
 
 var card: Card
-var effects: Array = []
-var effect_index = 0
+var effect_index: int = 0
 
 func _ready() -> void:
-	card_events.connect("card_played", self, "_on_card_played")
-	card_events.connect("card_returned", self, "_on_card_returned")
-	effect_events.connect("effect_prepared", self, "_on_effect_prepared")
+	card_events.connect("card_played",Callable(self,"_on_card_played"))
+	card_events.connect("card_returned",Callable(self,"_on_card_returned"))
+	effect_events.connect("effect_prepared",Callable(self,"_on_effect_prepared"))
 
 func _on_card_played(card: Card) -> void:
 	self.card = card
@@ -22,7 +21,7 @@ func _on_card_played(card: Card) -> void:
 
 func _enqueue_effects(card) -> void:
 	for effect_res in card.resource.effect_resources:
-		var current_effect = effect_scene.instance()
+		var current_effect = effect_scene.instantiate()
 		current_effect.init(card, effect_res)
 		add_child(current_effect)
 		
@@ -52,4 +51,4 @@ func _resolve_effects() -> void:
 func _reset() -> void:
 	card = null
 	effect_index = 0
-	effects.clear()
+

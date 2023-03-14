@@ -1,8 +1,8 @@
 class_name DiscardEffectResource
 extends EffectResource
 
-export(Resource) var card_events = preload("res://card/card_events.tres")
-export(Resource) var hand = preload("res://hand/hand.tres")
+@export var card_events: CardEvents = preload("res://card/card_events.tres")
+@export var hand: HandResource = preload("res://hand/hand.tres")
 
 func apply_effect(args: Dictionary) -> void:
 	var card = args.target

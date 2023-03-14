@@ -1,7 +1,7 @@
 extends Area2D
 
 
-export(Resource) var player_resource
+@export var player_resource: Resource
 
 func _on_Player_body_entered(body):
 	body.queue_free()

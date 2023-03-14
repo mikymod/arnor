@@ -1,16 +1,16 @@
 class_name Enemy
 extends RigidBody2D
 
-export(Resource) var enemy_resource
-export(Resource) var enemy_events
+@export var enemy_resource: EnemyResource
+@export var enemy_events: EnemyEvents
 
-onready var state_machine = $StateMachine
+@onready var state_machine = $StateMachine
 
 var health: float = 1.0
 var colliding_body
 
 func _ready() -> void:
-	enemy_events.connect("enemy_damaged", self, "_on_enemy_damaged")
+	enemy_events.connect("enemy_damaged",Callable(self,"_on_enemy_damaged"))
 	health = enemy_resource.health
 
 func hit(damage: float) -> void:
@@ -21,7 +21,8 @@ func deal_damage(damage: float) -> void:
 	health -= damage
 
 func change_speed(new_speed: float) -> void:
-	self.linear_velocity = new_speed * Vector2.LEFT
+	self.set_linear_damp(0)
+	self.set_linear_velocity(new_speed * Vector2.LEFT)
 
 func change_speed_rate(rate: float) -> void:
 	rate = clamp(rate, 0, 1.0)
@@ -39,7 +40,7 @@ func _on_Enemy_body_exited(body):
 		colliding_body = null
 
 func _on_enemy_damaged(damage: float) -> void:
-	 hit(damage)
+	hit(damage)
 
 func try_attack() -> void:
 	var attack_area = $Sprites/AttackSprite/Attack

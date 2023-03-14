@@ -1,42 +1,60 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://c7klec1u15hn6"]
 
-[ext_resource path="res://game_ui/wave_counter/wave_counter.tscn" type="PackedScene" id=1]
-[ext_resource path="res://game_ui/dead_enemies_counter/dead_enemies_counter.tscn" type="PackedScene" id=2]
-[ext_resource path="res://game_ui/info_box/info_box.tscn" type="PackedScene" id=7]
-[ext_resource path="res://game_ui/reward_area/reward_area.tscn" type="PackedScene" id=8]
-[ext_resource path="res://game_ui/health_bar/health_bar.tscn" type="PackedScene" id=9]
+[ext_resource type="PackedScene" uid="uid://cy058you4po4r" path="res://game_ui/wave_counter/wave_counter.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cco53ulalwj2i" path="res://game_ui/dead_enemies_counter/dead_enemies_counter.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://cxti8vfbmgkti" path="res://game_ui/info_box/info_box.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://cnwwiqsistdnc" path="res://game_ui/reward_area/reward_area.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://pdsbk70c00ui" path="res://game_ui/health_bar/health_bar.tscn" id="9"]
 
 [node name="GameUI" type="Control"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 1920, 1080 )
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
-[node name="RewardArea" parent="." instance=ExtResource( 8 )]
+[node name="RewardArea" parent="." instance=ExtResource("8")]
 visible = false
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 472.0
-margin_top = 16.0
-margin_right = -488.0
-margin_bottom = -228.0
+offset_left = 472.0
+offset_top = 16.0
+offset_right = -488.0
+offset_bottom = -228.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="HealthBar" parent="." instance=ExtResource( 9 )]
+[node name="HealthBar" parent="." instance=ExtResource("9")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 
-[node name="InfoBox" parent="." instance=ExtResource( 7 )]
+[node name="InfoBox" parent="." instance=ExtResource("7")]
 visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 
-[node name="WaveCounter" parent="." instance=ExtResource( 1 )]
-margin_left = 47.0
-margin_top = 32.0
-margin_right = 47.36
-margin_bottom = 32.28
+[node name="WaveCounter" parent="." instance=ExtResource("1")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 47.0
+offset_top = 32.0
+offset_right = 47.36
+offset_bottom = 32.28
 
-[node name="DeadEnemyCounter" parent="." instance=ExtResource( 2 )]
-margin_left = 1028.0
-margin_top = 32.0
-margin_right = 1028.36
-margin_bottom = 32.28
+[node name="DeadEnemyCounter" parent="." instance=ExtResource("2")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1028.0
+offset_top = 32.0
+offset_right = 1028.36
+offset_bottom = 32.28
