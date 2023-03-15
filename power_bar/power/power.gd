@@ -13,5 +13,3 @@ func _ready():
 func set_enabled(value: bool) -> void:
 	enabled = value
 	$Sprite2D.texture = tex_enabled if enabled else tex_disabled
-
-

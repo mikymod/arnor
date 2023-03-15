@@ -13,16 +13,3 @@ extends State
 func enter(_msg := {}) -> void:
 	card_events.card_returned.emit(card)
 	state_machine.transition_to('Idle')
-
-#func handle_input(event: InputEvent) -> void:
-#	if event is InputEventMouseButton:
-#		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-#			state_machine.transition_to('Selected')
-
-func update(_delta: float) -> void:
-#	card.global_position = lerp(card.global_position, card.init_pos, 0.1);
-#	if abs(card.global_position.distance_to(card.init_pos)) <= 1:
-#		card.global_position = card.init_pos
-#		state_machine.transition_to('Idle')
-	pass
-

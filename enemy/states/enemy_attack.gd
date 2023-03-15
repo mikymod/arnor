@@ -13,7 +13,7 @@ extends State
 var _collides_with_tower = false
 
 func enter(msg = {}) -> void:
-	animation_player.animation_finished,connect(_on_animation_end)
+	animation_player.animation_finished.connect(_on_animation_end)
 	animation_player.play("Attack")
 	sprite.visible = true
 

@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=3 uid="uid://rmkd7vk4wscw"]
 
-[ext_resource type="PackedScene" path="res://deck/scenes/exhaust_icon.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://dloqpb7visjj3" path="res://deck/scenes/exhaust_icon.tscn" id="1"]
 [ext_resource type="Script" path="res://deck/deck.gd" id="2"]
 [ext_resource type="Resource" uid="uid://dp6anr087agj0" path="res://resources/decks/deck.tres" id="2_yekpi"]
-[ext_resource type="PackedScene" path="res://deck/scenes/discard_icon.tscn" id="3"]
-[ext_resource type="PackedScene" path="res://deck/scenes/deck_icon.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://c8y4iwxhu57pk" path="res://deck/scenes/discard_icon.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://siymtwxhc2uj" path="res://deck/scenes/deck_icon.tscn" id="4"]
 [ext_resource type="Resource" path="res://card/card_events.tres" id="5"]
 [ext_resource type="Resource" path="res://deck/deck_events.tres" id="6"]
 [ext_resource type="Resource" path="res://hand/hand.tres" id="7"]
-[ext_resource type="PackedScene" path="res://card/card.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://cc8knt7ggr72s" path="res://card/card.tscn" id="9"]
 [ext_resource type="Resource" path="res://game_ui/reward_area/reward_area.tres" id="10"]
 [ext_resource type="Resource" path="res://turn_manager/turn_manager.tres" id="11"]
 

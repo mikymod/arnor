@@ -2,7 +2,6 @@ extends Line2D
 
 @export var effect_events: Resource
 
-
 var card: Card
 var effect: Effect
 var target_mask: int = 0

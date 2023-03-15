@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://crpn3h1nq5hkb"]
+[gd_scene load_steps=24 format=3 uid="uid://c48ykq38b02wc"]
 
 [ext_resource type="Script" path="res://enemy/states/enemy_hit.gd" id="1"]
 [ext_resource type="Script" path="res://enemy/states/enemy_walk.gd" id="2"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c8v062e3cv8fx" path="res://enemy/textures/Walk.png" id="11"]
 [ext_resource type="Texture2D" uid="uid://jfj68iyui0k5" path="res://enemy/textures/Take Hit.png" id="12"]
 [ext_resource type="Texture2D" uid="uid://c44ywl0kkfkyg" path="res://enemy/textures/Death.png" id="13"]
-[ext_resource type="Resource" path="res://enemy/events/enemy_events.tres" id="14"]
+[ext_resource type="Resource" path="res://enemy/enemy_events.tres" id="14"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(23.0001, 50.3333)

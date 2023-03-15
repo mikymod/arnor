@@ -6,7 +6,7 @@ extends EffectResource
 @export var shoot_rate: float = 1
 @export var armor: float = 0
 
-@export var bullet_resource: Resource
+@export var bullet_resource: BulletResource = preload("res://bullet/resources/basic_bullet.tres")
 
 @export var base: Texture2D
 @export var body1: Texture2D

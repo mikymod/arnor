@@ -15,7 +15,8 @@ func _ready() -> void:
 	# The states are children of the owner node so their `_ready()` callback will execute first.
 	await owner.ready
 
-	for child in get_children():
+	var children = get_children()
+	for child in children:
 		child.state_machine = self
 	state.enter()
 

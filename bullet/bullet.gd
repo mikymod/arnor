@@ -1,7 +1,7 @@
 class_name Bullet
 extends Area2D
 
-@export var resource: Resource; # Bullet Resource
+@export var resource: BulletResource; # Bullet Resource
 
 var damage: float = 0
 

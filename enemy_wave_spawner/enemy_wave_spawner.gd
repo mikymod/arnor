@@ -1,9 +1,7 @@
 extends Node2D
 
-@export var turn_manager_resource: Resource
-
+@export var turn_manager_resource: TurnManagerResource
 @export var enemy_scene: PackedScene
-
 @export var enemy_wave_list: Array[EnemyWaveResource]
 
 @onready var spawn_points: Array = [
@@ -13,7 +11,7 @@ extends Node2D
 	$SpawnPoints/SpawnPoint4,
 ]
 
-var _wave_res: Resource
+var _wave_res: EnemyWaveResource
 var _current_wave: int = -1
 var _num_enemies: int = 0
 var _rng = RandomNumberGenerator.new()
