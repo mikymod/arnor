@@ -5,8 +5,8 @@ extends Node2D
 @export var card_events: CardEvents
 
 func _ready() -> void:
-	card_events.connect("card_drawed",Callable(self,"_on_card_drawed"))
-	card_events.connect("card_resolved",Callable(self,"_on_card_resolved"))
+	card_events.card_drawed.connect(_on_card_drawed)
+	card_events.card_resolved.connect(_on_card_resolved)
 
 func _on_card_drawed(card: Card):
 	hand_resource.append_card(card)

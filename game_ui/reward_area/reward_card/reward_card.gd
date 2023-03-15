@@ -30,7 +30,7 @@ func set_card_resource(card_res: CardResource)-> void:
 func _on_RewardCard_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			reward_area_resource.emit_signal("reward_selected", card_resource)
+			reward_area_resource.reward_selected.emit(card_resource)
 
 func set_skin() -> void:
 	_background_frame.texture = card_resource.background_frame

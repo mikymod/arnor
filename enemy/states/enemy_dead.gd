@@ -10,14 +10,13 @@ extends State
 @onready var animation_player: AnimationPlayer = get_node(animation_player_path)
 
 func enter(msg = {}) -> void:
-	animation_player.connect("animation_finished",Callable(self,"_on_animation_end"))
+	animation_player.animation_finished.connect(_on_animation_end)
 	animation_player.play("Dead")
 	sprite.visible = true
 
-func _on_animation_end(_anim_name: Sprite2D) -> void:
+func _on_animation_end(_anim_name: String) -> void:
 	sprite.visible = false
 	animation_player.stop()
-	animation_player.disconnect("animation_finished",Callable(self,"_on_animation_end"))
-	enemy.enemy_events.emit_signal("enemy_dead")
+	enemy.enemy_events.enemy_dead.emit()
 	enemy.queue_free()
 

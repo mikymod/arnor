@@ -244,7 +244,6 @@ position = Vector2(-7.50009, 2.50005)
 rotation = -3.14159
 scale = Vector2(3, -3)
 shape = SubResource("1")
-disabled = true
 
 [node name="Sprites" type="Node2D" parent="."]
 rotation = 3.14159

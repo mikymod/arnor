@@ -11,7 +11,7 @@ extends State
 @onready var card: Node2D = get_node(card_path)
 
 func enter(_msg := {}) -> void:
-	card_events.emit_signal("card_returned", card)
+	card_events.card_returned.emit(card)
 	state_machine.transition_to('Idle')
 
 #func handle_input(event: InputEvent) -> void:

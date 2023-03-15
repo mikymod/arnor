@@ -13,15 +13,15 @@ var arrow_target
 var target
 
 func _ready() -> void:
-	connect("target_selected",Callable(self,"_on_target_selected"))
-	card_events.connect("card_returned",Callable(self,"_on_card_returned"))
+	self.target_selected.connect(_on_target_selected)
+	card_events.card_returned.connect(_on_card_returned)
 
 func init(card, resource) -> void:
 	self.card = card
 	self.resource = resource
 
 func start() -> void:
-	effect_events.emit_signal("effect_started", card, self)
+	effect_events.effect_started.emit(card, self)
 	if resource.collision_mask != 0:
 		spawn_arrow_target()
 	else:
@@ -49,4 +49,4 @@ func _on_card_returned(card: Card) -> void:
 	stop()
 
 func _prepare_effect(target) -> void:
-	effect_events.emit_signal("effect_prepared", card, self, target)
+	effect_events.effect_prepared.emit(card, self, target)

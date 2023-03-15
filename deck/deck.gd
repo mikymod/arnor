@@ -16,11 +16,11 @@ var discard: Array = [] # The array containing cards in discard pile
 var exhaust: Array = [] # The array containing cards in exhaust pile
 
 func _ready() -> void:
-	deck_events.connect('deck_draw_triggered',Callable(self,'_on_deck_draw_triggered'))
-	turn_manager_resource.connect('draw_phase_started',Callable(self,'_on_draw_phase_started'))
-	reward_area_resource.connect("reward_selected",Callable(self,"_on_reward_selected"))
-	card_events.connect('card_discarded',Callable(self,'_on_card_discarded'))
-	card_events.connect('card_exhausted',Callable(self,'_on_card_exhausted'))
+	deck_events.deck_draw_triggered.connect(_on_deck_draw_triggered)
+	turn_manager_resource.draw_phase_started.connect(_on_draw_phase_started)
+	reward_area_resource.reward_selected.connect(_on_reward_selected)
+	card_events.card_discarded.connect(_on_card_discarded)
+	card_events.card_exhausted.connect(_on_card_exhausted)
 	create_deck()
 
 func create_deck() -> void:
@@ -40,9 +40,9 @@ func _process(_delta: float) -> void:
 # Draws a card from deck
 func draw_card() -> void:
 	var current = deck.pop_back()
-	card_events.emit_signal("card_drawed", current)
+	card_events.card_drawed.emit(current)
 	if deck.size() <= 0:
-		deck_events.emit_signal("deck_depleted")
+		deck_events.deck_depleted.emit()
 		restore_deck()
 
 # Move cards in discard pile to deck 
@@ -52,7 +52,7 @@ func restore_deck() -> void:
 	for _card in deck:
 		_card.global_position = global_position
 	discard.clear()
-	deck_events.emit_signal("deck_restored")
+	deck_events.deck_restored.emit()
 
 func _on_deck_draw_triggered() -> void:
 	draw_card()

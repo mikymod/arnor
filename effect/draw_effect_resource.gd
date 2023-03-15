@@ -6,5 +6,5 @@ extends EffectResource
 
 func apply_effect(args: Dictionary) -> void:
 	for i in cards_to_draw:
-		deck_events.emit_signal("deck_draw_triggered")
+		deck_events.deck_draw_triggered.emit()
 

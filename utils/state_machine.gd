@@ -36,10 +36,10 @@ func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
 	previous_state = state
 	state = get_node(target_state_name)
 	state.enter(msg)
-	emit_signal("transitioned", state.name)
+	self.transitioned.emit(state.name)
 
 func back_to_previous_state(msg: Dictionary = {}) -> void:
 	state.exit()
 	state = previous_state
 	state.enter(msg)
-	emit_signal("transitioned", state.name)
+	self.transitioned.emit(state.name)

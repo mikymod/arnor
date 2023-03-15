@@ -10,7 +10,7 @@ var health: float = 1.0
 var colliding_body
 
 func _ready() -> void:
-	enemy_events.connect("enemy_damaged",Callable(self,"_on_enemy_damaged"))
+	enemy_events.enemy_damaged.connect(_on_enemy_damaged)
 	health = enemy_resource.health
 
 func hit(damage: float) -> void:

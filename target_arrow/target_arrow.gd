@@ -37,7 +37,7 @@ func select_target() -> void:
 		if result[0].collider.has_method("set_selected"):
 			if result[0].collider.selected: return
 			result[0].collider.set_selected(true)
-		effect.emit_signal("target_selected", result[0])
+		effect.target_selected.emit(result[0])
 
 func draw_arrow() -> void:
 	var start_pos = global_position

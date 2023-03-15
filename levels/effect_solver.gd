@@ -10,9 +10,9 @@ var card: Card
 var effect_index: int = 0
 
 func _ready() -> void:
-	card_events.connect("card_played",Callable(self,"_on_card_played"))
-	card_events.connect("card_returned",Callable(self,"_on_card_returned"))
-	effect_events.connect("effect_prepared",Callable(self,"_on_effect_prepared"))
+	card_events.card_played.connect(_on_card_played)
+	card_events.card_returned.connect(_on_card_returned)
+	effect_events.effect_prepared.connect(_on_effect_prepared)
 
 func _on_card_played(card: Card) -> void:
 	self.card = card
@@ -45,7 +45,7 @@ func _resolve_effects() -> void:
 		effect.resource.apply_effect({"target": effect.target})
 		remove_child(effect)
 		effect.stop()
-	card_events.emit_signal("card_resolved", card)
+	card_events.card_resolved.emit(card)
 	_reset()
 
 func _reset() -> void:

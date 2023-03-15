@@ -10,7 +10,7 @@ extends State
 @onready var animation_player: AnimationPlayer = get_node(animation_player_path)
 
 func enter(msg = {}) -> void:
-	animation_player.connect("animation_finished",Callable(self,"_on_animation_end"))
+	animation_player.animation_finished.connect(_on_animation_end)
 	animation_player.play("TakeHit")
 	sprite.visible = true
 	
@@ -19,7 +19,7 @@ func enter(msg = {}) -> void:
 func exit() -> void:
 	sprite.visible = false
 	animation_player.stop()
-	animation_player.disconnect("animation_finished",Callable(self,"_on_animation_end"))
+	animation_player.animation_finished.disconnect(_on_animation_end)
 
 func _on_animation_end(anim_name: String) -> void:
 	if (enemy.health <= 0):

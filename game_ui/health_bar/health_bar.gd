@@ -3,8 +3,8 @@ extends Control
 @export var player_resource: Resource
 
 func _ready() -> void:
-	player_resource.connect("max_health_changed",Callable(self,"_on_max_health_changed"))
-	player_resource.connect("health_changed",Callable(self,"_on_health_changed"))
+	player_resource.max_health_changed.connect(_on_max_health_changed)
+	player_resource.health_changed.connect(_on_health_changed)
 	$HealthBar.max_value = player_resource.max_health
 	$HealthBar.value = player_resource.health
 

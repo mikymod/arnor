@@ -19,7 +19,7 @@ var _num_enemies: int = 0
 var _rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
-	turn_manager_resource.connect("wave_phase_started",Callable(self,"_on_wave_phase_started"))
+	turn_manager_resource.wave_phase_started.connect(_on_wave_phase_started)
 
 func _on_wave_phase_started() -> void:
 	_current_wave += 1

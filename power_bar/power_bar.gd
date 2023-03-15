@@ -8,9 +8,9 @@ extends Node2D
 var items: Array = []
 
 func _ready() -> void:
-	card_events.connect('card_played',Callable(self,'_on_card_played'))
-	card_events.connect('card_returned',Callable(self,'_on_card_returned'))
-	turn_manager_resource.connect("restore_phase_started",Callable(self,"_on_restore_phase_started"))
+	card_events.card_played.connect(_on_card_played)
+	card_events.card_returned.connect(_on_card_returned)
+	turn_manager_resource.restore_phase_started.connect(_on_restore_phase_started)
 	
 	for i in range(power_resource.max_power):
 		var instance = power_scene.instantiate()

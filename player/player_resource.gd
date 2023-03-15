@@ -10,10 +10,10 @@ signal player_lost()
 
 func change_max_health(value: int):
 	max_health += value
-	emit_signal("max_health_changed", max_health)
+	max_health_changed.emit(max_health)
 
 func change_health(value: int):
 	health += value
-	emit_signal("health_changed", health)
+	health_changed.emit(health)
 	if health <= 0:
-		emit_signal("player_lost")
+		player_lost.emit()

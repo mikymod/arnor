@@ -37,9 +37,9 @@ var playable = true
 var selected = false;
 
 func _ready() -> void:
-	card_events.connect("card_played",Callable(self,"_on_card_played"))
-	card_events.connect("card_returned",Callable(self,"_on_card_returned"))
-	card_events.connect("card_resolved",Callable(self,"_on_card_resolved"))
+	card_events.card_played.connect(_on_card_played)
+	card_events.card_returned.connect(_on_card_returned)
+	card_events.card_resolved.connect(_on_card_resolved)
 	set_skin()
 	set_data()
 
@@ -91,6 +91,6 @@ func _on_card_resolved(card: Card) -> void:
 	selected = false
 	if self == card:
 		if resource.exhaust:
-			card_events.emit_signal("card_exhausted", card)
+			card_events.card_exhausted.emit(card)
 		else:
-			card_events.emit_signal("card_discarded", card)
+			card_events.card_discarded.emit(card)

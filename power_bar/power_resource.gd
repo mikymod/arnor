@@ -10,20 +10,20 @@ signal max_power_changed(num_power)
 
 func reset_power() -> void:
 	current_power = max_power
-	emit_signal("power_restored")
+	power_restored.emit()
 
 func decrease_power(variation: int) -> void:
 	current_power -= variation
 	if current_power <= 0:
-		emit_signal("power_depleted")
+		power_depleted.emit()
 
 func increase_power(variation: int) -> void:
 	current_power += variation
 
 func increase_max_power(variation: int) -> void:
 	max_power += variation
-	emit_signal("max_power_changed", max_power)
+	max_power_changed.emit(max_power)
 
 func decrease_max_power(variation: int) -> void:
 	max_power -= variation
-	emit_signal("max_power_changed", max_power)
+	max_power_changed.emit(max_power)

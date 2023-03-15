@@ -4,9 +4,9 @@ extends Control
 @export var effect_events: EffectEvents
 
 func _ready() -> void:
-	effect_events.connect("effect_started",Callable(self,"_on_effect_started"))
-	effect_events.connect("effect_prepared",Callable(self,"_on_effect_prepared"))
-	card_events.connect("card_returned",Callable(self,"_on_card_returned"))
+	effect_events.effect_started.connect(_on_effect_started)
+	effect_events.effect_prepared.connect(_on_effect_prepared)
+	card_events.card_returned.connect(_on_card_returned)
 	visible = false
 
 func _on_effect_started(card, effect) -> void:
