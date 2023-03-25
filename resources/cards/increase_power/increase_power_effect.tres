@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="IncreasePowerEffect" load_steps=3 format=3 uid="uid://c7heoaiifjs5m"]
+
+[ext_resource type="Resource" path="res://power_bar/power_resource.tres" id="1_3ep12"]
+[ext_resource type="Script" path="res://effect/increase_power_effect.gd" id="2_xkhl5"]
+
+[resource]
+script = ExtResource("2_xkhl5")
+num_power = 1
+power_resource = ExtResource("1_3ep12")
+collision_mask = 0
+description = ""
+hint = ""

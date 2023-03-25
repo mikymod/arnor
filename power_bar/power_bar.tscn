@@ -1,14 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5x220qs3vmrw"]
+[gd_scene load_steps=6 format=3 uid="uid://bui34t5u5ffvl"]
 
 [ext_resource type="Script" path="res://power_bar/power_bar.gd" id="1"]
 [ext_resource type="PackedScene" path="res://power_bar/power/power.tscn" id="2"]
+[ext_resource type="Resource" path="res://power_bar/power_resource.tres" id="2_geas8"]
 [ext_resource type="Resource" path="res://turn_manager/turn_manager.tres" id="3"]
 [ext_resource type="Resource" path="res://card/card_events.tres" id="4"]
-[ext_resource type="Resource" path="res://power_bar/power/power.tres" id="5"]
 
 [node name="PowerBar" type="Node2D"]
 script = ExtResource("1")
-power_resource = ExtResource("5")
+power_resource = ExtResource("2_geas8")
 card_events = ExtResource("4")
 turn_manager_resource = ExtResource("3")
 power_scene = ExtResource("2")
