@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://biawcw38nywxs"]
 
-[ext_resource type="PackedScene" path="res://game_area/game_area.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cm5m1wmdcsmsv" path="res://game_area/game_area.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://rmkd7vk4wscw" path="res://deck/deck.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://0as4r0l457wg" path="res://enemy_wave_spawner/enemy_wave_spawner.tscn" id="3"]
 [ext_resource type="Script" path="res://levels/effect_solver.gd" id="4"]

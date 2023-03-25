@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cc8knt7ggr72s"]
+[gd_scene load_steps=21 format=3 uid="uid://cc8knt7ggr72s"]
 
 [ext_resource type="Texture2D" uid="uid://bij0i4ko1fp4r" path="res://card/textures/background_frame.png" id="1"]
 [ext_resource type="Script" path="res://card/card.gd" id="2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://card/states/card_draw.gd" id="7"]
 [ext_resource type="Resource" path="res://resources/cards/tower_red/red_tower_card.tres" id="8"]
 [ext_resource type="Script" path="res://card/states/card_inactive.gd" id="9"]
+[ext_resource type="FontFile" uid="uid://dj6p0nso1gbcq" path="res://PeaberryBase.ttf" id="9_1ylnu"]
 [ext_resource type="Resource" path="res://card/card_events.tres" id="10"]
 [ext_resource type="Texture2D" uid="uid://b41bay2ovukum" path="res://card/textures/cost_frame.png" id="11"]
 [ext_resource type="Texture2D" uid="uid://bn4ml40n7dqcu" path="res://card/textures/description_frame.png" id="12"]
@@ -15,8 +16,14 @@
 [ext_resource type="Texture2D" uid="uid://d081clexolmeo" path="res://card/textures/name_frame.png" id="13"]
 [ext_resource type="Texture2D" uid="uid://cd3el6mxg2ci6" path="res://card/textures/foreground_frame.png" id="14"]
 [ext_resource type="Texture2D" uid="uid://5bgincnel8i1" path="res://card/textures/rarity_frame.png" id="15"]
-[ext_resource type="Theme" uid="uid://w7yk87i8qd5d" path="res://game_ui/game_ui_theme.tres" id="17"]
 [ext_resource type="Texture2D" uid="uid://bl5omfx1acxku" path="res://card/textures/card_selected.png" id="19"]
+
+[sub_resource type="Theme" id="Theme_fcrhx"]
+default_font_size = 12
+
+[sub_resource type="Theme" id="Theme_c8tpo"]
+default_font = ExtResource("9_1ylnu")
+default_font_size = 28
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(203.75, 287.5)
@@ -50,9 +57,9 @@ modulate = Color(0, 0, 0, 1)
 offset_left = -64.0
 offset_top = -8.0
 offset_right = 64.0
-offset_bottom = 8.0
+offset_bottom = 11.0
 mouse_filter = 2
-theme = ExtResource("17")
+theme = SubResource("Theme_fcrhx")
 text = "Name"
 visible_characters = 17
 visible_ratio = 4.25
@@ -64,11 +71,11 @@ texture = ExtResource("11")
 [node name="CostLabel" type="RichTextLabel" parent="CostFrame"]
 modulate = Color(0, 0, 0, 1)
 offset_left = -16.0
-offset_top = -8.0
+offset_top = -18.0
 offset_right = 16.0
-offset_bottom = 7.0
+offset_bottom = 12.0
 mouse_filter = 2
-theme = ExtResource("17")
+theme = SubResource("Theme_c8tpo")
 bbcode_enabled = true
 text = "5"
 
