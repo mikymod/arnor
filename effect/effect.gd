@@ -29,6 +29,8 @@ func start() -> void:
 		_prepare_effect(null)
 
 func stop() -> void:
+	if target and target.has_method("set_targetted"):
+		target.set_targetted(false)
 	queue_free()
 
 func spawn_arrow_target() -> void:
@@ -42,6 +44,8 @@ func dispose_arrow_target() -> void:
 	arrow_target = null
 
 func _on_target_selected(target) -> void:
+	if target.collider.has_method("set_targetted"):
+		target.collider.set_targetted(true)
 	dispose_arrow_target()
 	_prepare_effect(target)
 

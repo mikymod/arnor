@@ -32,10 +32,10 @@ func _on_card_returned(played_card: Card) -> void:
 	_reset()
 
 func _on_effect_prepared(card, effect, target) -> void:
-	var children = get_children()
-	children[effect_index].target = target.collider if target != null else null
+	var effects = get_children()
+	effects[effect_index].target = target.collider if target != null else null
 	effect_index += 1
-	if effect_index >= children.size():
+	if effect_index >= effects.size():
 		_resolve_effects()
 	else:
 		_start_next_effect()
