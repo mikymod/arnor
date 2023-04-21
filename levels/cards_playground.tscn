@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://biawcw38nywxs"]
+[gd_scene load_steps=14 format=3 uid="uid://biawcw38nywxs"]
 
 [ext_resource type="PackedScene" uid="uid://cm5m1wmdcsmsv" path="res://game_area/game_area.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://rmkd7vk4wscw" path="res://deck/deck.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://0as4r0l457wg" path="res://enemy_wave_spawner/enemy_wave_spawner.tscn" id="3"]
-[ext_resource type="Script" path="res://levels/effect_solver.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://dsq5taw5yxpe3" path="res://turn_manager/turn_manager.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://c7klec1u15hn6" path="res://game_ui/game_ui.tscn" id="6"]
 [ext_resource type="Script" path="res://levels/level.gd" id="7"]
@@ -11,9 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c48ykq38b02wc" path="res://enemy/enemy.tscn" id="8_jr501"]
 [ext_resource type="Resource" path="res://game_ui/reward_area/reward_area.tres" id="9"]
 [ext_resource type="PackedScene" uid="uid://bnpl2ygal2jst" path="res://player/player.tscn" id="10"]
-[ext_resource type="Resource" path="res://card/card_events.tres" id="11"]
-[ext_resource type="PackedScene" uid="uid://dxqmfxw6ecvpy" path="res://effect/effect.tscn" id="12"]
-[ext_resource type="Resource" path="res://effect/effect_events.tres" id="13"]
+[ext_resource type="PackedScene" uid="uid://cmt68sbsvbnl0" path="res://effect_solver.tscn" id="13_h5fov"]
 [ext_resource type="PackedScene" uid="uid://c3tlfcy8psgla" path="res://hand/hand.tscn" id="14"]
 [ext_resource type="PackedScene" uid="uid://bui34t5u5ffvl" path="res://power_bar/power_bar.tscn" id="15"]
 
@@ -65,10 +62,6 @@ offset_top = 8.0
 offset_right = 1922.0
 offset_bottom = 1088.0
 
-[node name="EffectSolver" type="Node" parent="."]
-script = ExtResource("4")
-card_events = ExtResource("11")
-effect_events = ExtResource("13")
-effect_scene = ExtResource("12")
+[node name="EffectSolver" parent="." instance=ExtResource("13_h5fov")]
 
 [editable path="EnemyWaveSpawner"]
