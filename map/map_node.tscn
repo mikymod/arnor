@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvg2m6qb0prgv"]
+
+[ext_resource type="Script" path="res://map/map_node.gd" id="1_lxpip"]
+[ext_resource type="Texture2D" uid="uid://dau2t2hrb6gnu" path="res://map/textures/combat.png" id="2_0oom5"]
+
+[node name="Node" type="Node2D"]
+script = ExtResource("1_lxpip")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0oom5")
