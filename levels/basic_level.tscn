@@ -1,17 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://dtopvty5tjxka"]
+[gd_scene load_steps=13 format=3 uid="uid://dtopvty5tjxka"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_caw2j"]
 [ext_resource type="Resource" path="res://turn_manager/turn_manager.tres" id="2_olaom"]
 [ext_resource type="Resource" path="res://game_ui/reward_area/reward_area.tres" id="3_8pvf0"]
 [ext_resource type="PackedScene" uid="uid://rmkd7vk4wscw" path="res://deck/deck.tscn" id="4_s5ibe"]
-[ext_resource type="PackedScene" uid="uid://bui34t5u5ffvl" path="res://power_bar/power_bar.tscn" id="5_teqwf"]
-[ext_resource type="PackedScene" uid="uid://cm5m1wmdcsmsv" path="res://game_area/game_area.tscn" id="6_re06d"]
 [ext_resource type="PackedScene" uid="uid://0as4r0l457wg" path="res://enemy_wave_spawner/enemy_wave_spawner.tscn" id="7_touhi"]
 [ext_resource type="PackedScene" uid="uid://c48ykq38b02wc" path="res://enemy/enemy.tscn" id="8_n60pp"]
 [ext_resource type="PackedScene" uid="uid://c3tlfcy8psgla" path="res://hand/hand.tscn" id="9_n8cdh"]
 [ext_resource type="PackedScene" uid="uid://dsq5taw5yxpe3" path="res://turn_manager/turn_manager.tscn" id="10_bx131"]
 [ext_resource type="PackedScene" uid="uid://bnpl2ygal2jst" path="res://player/player.tscn" id="11_4yrbc"]
 [ext_resource type="PackedScene" uid="uid://c7klec1u15hn6" path="res://game_ui/game_ui.tscn" id="12_5dd3g"]
+[ext_resource type="PackedScene" uid="uid://5fpwk1amc68x" path="res://place/place.tscn" id="13_1ficf"]
 [ext_resource type="PackedScene" uid="uid://cmt68sbsvbnl0" path="res://effect_solver.tscn" id="13_6cmd2"]
 
 [node name="Level" type="Node2D"]
@@ -22,14 +21,16 @@ reward_area_resource = ExtResource("3_8pvf0")
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(960, 540)
 
+[node name="TurnManager" parent="." instance=ExtResource("10_bx131")]
+position = Vector2(1744, 816)
+
+[node name="EffectSolver" parent="." instance=ExtResource("13_6cmd2")]
+
 [node name="Deck" parent="." instance=ExtResource("4_s5ibe")]
 position = Vector2(1514, -6)
 
-[node name="PowerBar" parent="." instance=ExtResource("5_teqwf")]
-position = Vector2(138, 854)
-
-[node name="GameArea" parent="." instance=ExtResource("6_re06d")]
-position = Vector2(88, 152)
+[node name="Hand" parent="." instance=ExtResource("9_n8cdh")]
+position = Vector2(979, 932)
 
 [node name="EnemyWaveSpawner" parent="." instance=ExtResource("7_touhi")]
 position = Vector2(1984, -96)
@@ -37,22 +38,7 @@ enemy_list = Array[PackedScene]([ExtResource("8_n60pp")])
 waves = Array[int]([2, 3, 5, 7, 9, 10])
 
 [node name="Node2D" type="Node2D" parent="EnemyWaveSpawner/SpawnPoints" index="0"]
-position = Vector2(0, 296)
-
-[node name="Node2D2" type="Node2D" parent="EnemyWaveSpawner/SpawnPoints" index="1"]
-position = Vector2(0, 454)
-
-[node name="Node2D3" type="Node2D" parent="EnemyWaveSpawner/SpawnPoints" index="2"]
-position = Vector2(0, 615)
-
-[node name="Node2D4" type="Node2D" parent="EnemyWaveSpawner/SpawnPoints" index="3"]
-position = Vector2(0, 776)
-
-[node name="Hand" parent="." instance=ExtResource("9_n8cdh")]
-position = Vector2(979, 932)
-
-[node name="TurnManager" parent="." instance=ExtResource("10_bx131")]
-position = Vector2(1744, 816)
+position = Vector2(0, 543)
 
 [node name="Player" parent="." instance=ExtResource("11_4yrbc")]
 
@@ -62,6 +48,7 @@ offset_top = 8.0
 offset_right = 1922.0
 offset_bottom = 1088.0
 
-[node name="EffectSolver" parent="." instance=ExtResource("13_6cmd2")]
+[node name="Place" parent="." instance=ExtResource("13_1ficf")]
+position = Vector2(224, 480)
 
 [editable path="EnemyWaveSpawner"]

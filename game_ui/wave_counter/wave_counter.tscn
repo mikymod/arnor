@@ -7,10 +7,10 @@
 
 [node name="WaveCounter" type="Control"]
 layout_mode = 3
-anchor_right = 0.1
-anchor_bottom = 0.1
-offset_right = 0.159973
-offset_bottom = 0.519997
+anchor_right = 0.133
+anchor_bottom = 0.119
+offset_right = 0.639999
+offset_bottom = -0.520004
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

@@ -7,9 +7,10 @@
 
 [node name="DeadEnemyCounter" type="Control"]
 layout_mode = 3
-anchor_right = 0.1
-anchor_bottom = 0.1
-offset_bottom = 0.279995
+anchor_right = 0.133
+anchor_bottom = 0.118
+offset_right = -0.360001
+offset_bottom = 0.55999
 script = ExtResource("4")
 enemy_events = ExtResource("2")
 metadata/_edit_group_ = true
