@@ -16,14 +16,14 @@ func generate(plane_len: int, node_count: int, path_count: int) -> MapData:
 # Generates random points
 func _generate_random_points(plane_len: int, node_count: int) -> Array[Vector2]:
 	var points: Array[Vector2] = []
-	points.append(Vector2(plane_len / 2, plane_len))
-	points.append(Vector2(plane_len / 2, 0))
+	points.append(Vector2(0, plane_len / 2))
+	points.append(Vector2(plane_len, plane_len / 2))
 	var center: Vector2 = Vector2(plane_len / 2, plane_len / 2)
 	for i in range(node_count):
 		while true:
 			var point = Vector2(randi() % plane_len, randi() % plane_len)
 			var dist_from_center = (point - center).length_squared()
-			# only accept points insode of a circle
+			# only accept points inside of a circle
 			var in_circle = dist_from_center <= plane_len * plane_len / 4
 			if not points.has(point) and in_circle:
 				points.append(point)
@@ -35,7 +35,6 @@ func _generate_paths(points: Array[Vector2], path_count: int) -> Array[PackedInt
 	# Connects all the points into a graph without intersecting edges
 	var pool: PackedVector2Array = PackedVector2Array(points)
 	var triangles: PackedInt32Array = Geometry2D.triangulate_delaunay(pool)
-	
 	
 	var astar: AStar2D = AStar2D.new()
 	for i in range(points.size()):

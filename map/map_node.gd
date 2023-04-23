@@ -3,6 +3,7 @@ extends Node2D
 
 enum NodeType { COMBAT, MARKET, MINIBOSS, PUZZLE, REST, STORY }
 
+@export var map_events: MapEvents
 @export var nodes_dict: Dictionary = {
 	NodeType.COMBAT: {
 		'texture': preload("res://map/textures/combat.png"),
@@ -30,8 +31,9 @@ enum NodeType { COMBAT, MARKET, MINIBOSS, PUZZLE, REST, STORY }
 	},
 }
 
-var children: Array[Node] = []
+var children: Array[MapNode] = []
 const margin = 10
+var _highlight: bool = false
 
 func _ready() -> void:
 	var type = nodes_dict[randi_range(0, len(NodeType) - 1)]
@@ -40,15 +42,15 @@ func _ready() -> void:
 func add_child_node(child):
 	if !children.has(child):
 		children.append(child)
-		queue_redraw()
 
-func _draw():
-	draw_circle(Vector2.ZERO, 4, Color.WHITE_SMOKE)
-	
-	for child in children:
-		var line = child.position - position
-		var normal = line.normalized()
-		line -= margin * normal
-		var color = Color.GRAY
-		draw_line(normal * margin, line, color, 2, true)
+func set_highlight(value: bool) -> void:
+	_highlight = value
 
+func _process(delta: float) -> void:
+	if (_highlight):
+		scale = Vector2(1.5, 1.5)
+	else:
+		scale = Vector2(1, 1)
+
+func _on_area_2d_mouse_entered():
+	map_events.map_node_highlight.emit(self)
