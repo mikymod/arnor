@@ -32,22 +32,32 @@ enum NodeType { COMBAT, MARKET, MINIBOSS, PUZZLE, REST, STORY }
 }
 
 var children: Array[MapNode] = []
-const margin = 10
+const margin: int = 10
 var _highlight: bool = false
+var _selectable: bool = false
 
 func _ready() -> void:
 	var type = nodes_dict[randi_range(0, len(NodeType) - 1)]
 	$Sprite2D.texture = type['texture']
 
+func _input(event: InputEvent) -> void:
+	if (!_highlight): return
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			map_events.map_node_selected.emit(self)
+
 func add_child_node(child):
 	if !children.has(child):
 		children.append(child)
+
+func set_selectable(value: bool) -> void:
+	_selectable = value
 
 func set_highlight(value: bool) -> void:
 	_highlight = value
 
 func _process(delta: float) -> void:
-	if (_highlight):
+	if (_highlight && _selectable):
 		scale = Vector2(1.5, 1.5)
 	else:
 		scale = Vector2(1, 1)

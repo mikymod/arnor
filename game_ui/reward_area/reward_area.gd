@@ -1,7 +1,6 @@
 extends Control
 
-@export var turn_manager_resource: Resource
-
+@export var turn_manager_resource: TurnManagerResource
 @export var cards: Array[CardResource]
 
 @onready var slots = [

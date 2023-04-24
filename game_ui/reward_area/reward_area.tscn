@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cnwwiqsistdnc"]
 
-[ext_resource type="PackedScene" path="res://game_ui/reward_area/reward_card/reward_card.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://t6ogjr7kvofh" path="res://game_ui/reward_area/reward_card/reward_card.tscn" id="1"]
 [ext_resource type="Script" path="res://game_ui/reward_area/reward_area.gd" id="2"]
 [ext_resource type="Resource" path="res://resources/cards/shoot_faster/shoot_faster_card.tres" id="3"]
 [ext_resource type="Resource" path="res://turn_manager/turn_manager.tres" id="4"]

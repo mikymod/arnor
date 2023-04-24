@@ -8,9 +8,10 @@ var nodes = {}
 
 func _ready() -> void:
 	map_events.map_node_highlight.connect(_on_map_node_highlight)
+	map_events.map_node_selected.connect(_on_map_node_selected)
 	
 	var generator = MapGenerator.new()
-	var map_data: MapData = generator.generate(50, 15, 5)
+	var map_data: MapGeneratorData = generator.generate(50, 15, 5)
 	
 	for k in map_data.nodes.keys():
 		var point = map_data.nodes[k]
@@ -25,13 +26,24 @@ func _ready() -> void:
 			var index2 = path[i + 1]
 			nodes[index1].add_child_node(nodes[index2])
 	
-	nodes[0].set_highlight(true)
+	nodes[0].set_selectable(true)
 
-func _on_map_node_highlight(map_node):
+func _on_map_node_highlight(map_node: MapNode) -> void:
 	for node in nodes.values():
 		node.set_highlight(false)
 	map_node.set_highlight(true)
-	
+
+func _on_map_node_selected(map_node: MapNode) -> void:
+	# TODO: refactor this after scene_manager implementation
+	print("Change scene %s" % map_node)
+	var level = load("res://levels/cards_playground.tscn").instantiate()
+	var root = get_tree().get_root()
+	var map = root.get_node("Map")
+	root.remove_child(map)
+	root.add_child(level)
+	# mark current map node as completed
+	# set new selectables
+
 func _draw() -> void:
 	# draw paths
 	for node in nodes.values():

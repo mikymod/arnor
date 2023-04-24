@@ -1,7 +1,8 @@
 extends Control
 
-@export var reward_area_resource: Resource
-@export var card_resource: Resource
+@export var reward_area_resource: RewardAreaResource
+@export var card_resource: CardResource
+@export var map_events: MapEvents
 
 # The sprite in background
 @onready var _background_frame: TextureRect = $BackgroundFrame
@@ -31,6 +32,7 @@ func _on_RewardCard_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			reward_area_resource.reward_selected.emit(card_resource)
+			map_events.map_node_completed.emit()
 
 func set_skin() -> void:
 	_background_frame.texture = card_resource.background_frame
