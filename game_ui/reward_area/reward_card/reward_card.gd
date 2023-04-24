@@ -33,6 +33,7 @@ func _on_RewardCard_gui_input(event):
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			reward_area_resource.reward_selected.emit(card_resource)
 			map_events.map_node_completed.emit()
+			SceneManager.pop_scene()
 
 func set_skin() -> void:
 	_background_frame.texture = card_resource.background_frame

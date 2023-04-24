@@ -5,10 +5,12 @@ extends Node2D
 @export var map_scale = 20.0
 
 var nodes = {}
+var _current_map_node: MapNode = null
 
 func _ready() -> void:
 	map_events.map_node_highlight.connect(_on_map_node_highlight)
 	map_events.map_node_selected.connect(_on_map_node_selected)
+	map_events.map_node_completed.connect(_on_map_node_completed)
 	
 	var generator = MapGenerator.new()
 	var map_data: MapGeneratorData = generator.generate(50, 15, 5)
@@ -34,15 +36,16 @@ func _on_map_node_highlight(map_node: MapNode) -> void:
 	map_node.set_highlight(true)
 
 func _on_map_node_selected(map_node: MapNode) -> void:
-	# TODO: refactor this after scene_manager implementation
 	print("Change scene %s" % map_node)
-	var level = load("res://levels/cards_playground.tscn").instantiate()
-	var root = get_tree().get_root()
-	var map = root.get_node("Map")
-	root.remove_child(map)
-	root.add_child(level)
-	# mark current map node as completed
-	# set new selectables
+	var level = map_node.scene().instantiate()
+	SceneManager.push_scene(level)
+	_current_map_node = map_node
+	
+
+func _on_map_node_completed() -> void:
+	_current_map_node.set_selectable(false)
+	for child in _current_map_node.children:
+		child.set_selectable(true)
 
 func _draw() -> void:
 	# draw paths

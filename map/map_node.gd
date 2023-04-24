@@ -7,38 +7,48 @@ enum NodeType { COMBAT, MARKET, MINIBOSS, PUZZLE, REST, STORY }
 @export var nodes_dict: Dictionary = {
 	NodeType.COMBAT: {
 		'texture': preload("res://map/textures/combat.png"),
+		'scene': preload("res://levels/cards_playground.tscn"),
 		'probability': 0.8,
 	},
 	NodeType.MARKET: {
 		'texture': preload("res://map/textures/market.png"),
+		'scene': preload("res://levels/cards_playground.tscn"),
 		'probability': 0.3,
 	},
 	NodeType.MINIBOSS: {
 		'texture': preload("res://map/textures/miniboss.png"),
+		'scene': preload("res://levels/cards_playground.tscn"),
 		'probability': 0.1,
 	},
 	NodeType.PUZZLE: {
 		'texture': preload("res://map/textures/puzzle.png"),
+		'scene': preload("res://levels/cards_playground.tscn"),
 		'probability': 0.2,
 	},
 	NodeType.REST: {
 		'texture': preload("res://map/textures/rest.png"),
+		'scene': preload("res://levels/cards_playground.tscn"),
 		'probability': 0.2,
 	},
 	NodeType.STORY: {
 		'texture': preload("res://map/textures/story.png"),
+		'scene': preload("res://levels/cards_playground.tscn"),
 		'probability': 0.2,
 	},
 }
 
+var type: NodeType
 var children: Array[MapNode] = []
 const margin: int = 10
 var _highlight: bool = false
 var _selectable: bool = false
 
+func scene() -> Resource:
+	return nodes_dict[type]['scene']
+
 func _ready() -> void:
-	var type = nodes_dict[randi_range(0, len(NodeType) - 1)]
-	$Sprite2D.texture = type['texture']
+	type = randi_range(0, len(NodeType) - 1)
+	$Sprite2D.texture = nodes_dict[type]['texture']
 
 func _input(event: InputEvent) -> void:
 	if (!_highlight): return

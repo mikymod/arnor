@@ -1,5 +1,7 @@
-class_name SceneManager
 extends Node
+
+signal scene_loaded
+signal scene_unloaded
 
 @export var first_scene: PackedScene = preload("res://map/map.tscn")
 
@@ -9,7 +11,6 @@ var _root: Window
 func _ready() -> void:
 	_root = get_tree().get_root()
 	await _root.ready # await that all children are initialized
-	
 	var scene = first_scene.instantiate()
 	_add_first_scene(scene)
 
