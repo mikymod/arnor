@@ -1,4 +1,4 @@
-class_name MapData
+class_name MapGeneratorData
 extends Node
 
 var paths: Array[PackedInt64Array] = []
