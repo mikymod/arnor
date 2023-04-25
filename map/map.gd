@@ -40,10 +40,10 @@ func _on_map_node_selected(map_node: MapNode) -> void:
 	var level = map_node.scene().instantiate()
 	SceneManager.push_scene(level)
 	_current_map_node = map_node
-	
 
 func _on_map_node_completed() -> void:
-	_current_map_node.set_selectable(false)
+	for node in nodes.values():
+		node.set_selectable(false)
 	for child in _current_map_node.children:
 		child.set_selectable(true)
 

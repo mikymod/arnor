@@ -46,16 +46,6 @@ var _selectable: bool = false
 func scene() -> Resource:
 	return nodes_dict[type]['scene']
 
-func _ready() -> void:
-	type = randi_range(0, len(NodeType) - 1)
-	$Sprite2D.texture = nodes_dict[type]['texture']
-
-func _input(event: InputEvent) -> void:
-	if (!_highlight): return
-	if event is InputEventMouseButton:
-		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			map_events.map_node_selected.emit(self)
-
 func add_child_node(child):
 	if !children.has(child):
 		children.append(child)
@@ -66,6 +56,10 @@ func set_selectable(value: bool) -> void:
 func set_highlight(value: bool) -> void:
 	_highlight = value
 
+func _ready() -> void:
+	type = randi_range(0, len(NodeType) - 1)
+	$Sprite2D.texture = nodes_dict[type]['texture']
+
 func _process(delta: float) -> void:
 	if (_highlight && _selectable):
 		scale = Vector2(1.5, 1.5)
@@ -74,3 +68,9 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_mouse_entered():
 	map_events.map_node_highlight.emit(self)
+
+func _on_area_2d_input_event(viewport, event, shape_idx):
+	if (!_highlight): return
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			map_events.map_node_selected.emit(self)
