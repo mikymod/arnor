@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="IncreasePowerEffect" load_steps=3 format=3]
 
-[ext_resource type="Resource" path="res://game_ui/power/power_resource.tres" id="1_3ep12"]
-[ext_resource type="Script" path="res://effect/increase_power_effect.gd" id="2_xkhl5"]
+[ext_resource type="Resource" path="res://encounter/game_ui/power/power_resource.tres" id="1_3ep12"]
+[ext_resource type="Script" path="res://card_framework/effect/increase_power_effect.gd" id="2_xkhl5"]
 
 
 [resource]

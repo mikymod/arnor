@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://encounter/game_ui/info_box/info_box.gd" id="1"]
+[ext_resource type="Resource" path="res://card_framework/card/card_events.tres" id="2"]
+[ext_resource type="Resource" path="res://card_framework/effect/effect_events.tres" id="4"]
+
+
+[node name="InfoBox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource("1")
+card_events = ExtResource("2")
+effect_events = ExtResource("4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_left = 0.304167
+anchor_top = 0.377778
+anchor_right = 0.695833
+anchor_bottom = 0.414815
+color = Color(0, 0, 0, 0.501961)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+bbcode_enabled = true
+text = "Placeholder"

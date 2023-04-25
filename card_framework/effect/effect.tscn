@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://card_framework/target_arrow/target_arrow.tscn" id="1"]
+[ext_resource type="Resource" path="res://resources/cards/tower/build_tower_effect.tres" id="2"]
+[ext_resource type="Script" path="res://card_framework/effect/effect.gd" id="5"]
+
+
+[node name="Effect" type="Node"]
+script = ExtResource("5")
+resource = ExtResource("2")
+target_arrow_scene = ExtResource("1")

@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="DrawEffectResource" load_steps=3 format=3 uid="uid://dyt6ku6kiq6tg"]
+[gd_resource type="Resource" script_class="DrawEffectResource" load_steps=3 format=3]
 
-[ext_resource type="Resource" path="res://deck/deck_events.tres" id="1_yeu71"]
-[ext_resource type="Script" path="res://effect/draw_effect_resource.gd" id="2_ndj3i"]
+[ext_resource type="Resource" path="res://card_framework/deck/deck_events.tres" id="1_yeu71"]
+[ext_resource type="Script" path="res://card_framework/effect/draw_effect_resource.gd" id="2_ndj3i"]
+
 
 [resource]
 script = ExtResource("2_ndj3i")

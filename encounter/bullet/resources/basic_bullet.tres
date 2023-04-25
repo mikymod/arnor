@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://encounter/bullet/bullet_resource.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://n84a0q4njvug" path="res://encounter/bullet/textures/bullet_1.png" id="2"]
+
+
+[resource]
+script = ExtResource( 1 )
+texture = ExtResource( 2 )
+velocity = 600.0
+damage = 1.0

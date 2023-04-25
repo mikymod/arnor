@@ -1,14 +1,15 @@
-[gd_resource type="Resource" load_steps=10 format=2]
+[gd_resource type="Resource" load_steps=10 format=3]
 
-[ext_resource path="res://card/card_resource.gd" type="Script" id=1]
-[ext_resource path="res://card/textures/name_frame.png" type="Texture2D" id=2]
-[ext_resource path="res://card/textures/rarity_frame.png" type="Texture2D" id=3]
-[ext_resource path="res://card/textures/foreground_frame.png" type="Texture2D" id=4]
-[ext_resource path="res://card/textures/cost_frame.png" type="Texture2D" id=5]
-[ext_resource path="res://card/textures/description_frame.png" type="Texture2D" id=6]
-[ext_resource path="res://card/textures/background_frame.png" type="Texture2D" id=7]
-[ext_resource path="res://resources/cards/tower_red/tower_red_effect.tres" type="Resource" id=8]
-[ext_resource path="res://resources/cards/tower_red/tower_red_discard_cost.tres" type="Resource" id=9]
+[ext_resource type="Script" path="res://card_framework/card/card_resource.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://d081clexolmeo" path="res://card_framework/card/textures/name_frame.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://5bgincnel8i1" path="res://card_framework/card/textures/rarity_frame.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cd3el6mxg2ci6" path="res://card_framework/card/textures/foreground_frame.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://b41bay2ovukum" path="res://card_framework/card/textures/cost_frame.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://bn4ml40n7dqcu" path="res://card_framework/card/textures/description_frame.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://bij0i4ko1fp4r" path="res://card_framework/card/textures/background_frame.png" id="7"]
+[ext_resource type="Resource" path="res://resources/cards/tower_red/tower_red_effect.tres" id="8"]
+[ext_resource type="Resource" path="res://resources/cards/tower_red/tower_red_discard_cost.tres" id="9"]
+
 
 [resource]
 script = ExtResource( 1 )

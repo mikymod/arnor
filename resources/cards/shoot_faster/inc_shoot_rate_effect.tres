@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=3 format=3]
 
-[ext_resource path="res://tower/textures/tower_36.png" type="Texture2D" id=1]
-[ext_resource path="res://effect/buff_effect_resource.gd" type="Script" id=2]
+[ext_resource type="Texture2D" uid="uid://cilo5d7c3gkij" path="res://encounter/tower/textures/tower_36.png" id="1"]
+[ext_resource type="Script" path="res://card_framework/effect/buff_effect_resource.gd" id="2"]
+
 
 [resource]
 script = ExtResource( 2 )

@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="CardResource" load_steps=9 format=3 uid="uid://dgvb7c14tggix"]
+[gd_resource type="Resource" script_class="CardResource" load_steps=9 format=3 uid="uid://cle51cohw0igg"]
 
-[ext_resource type="Script" path="res://card/card_resource.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://d081clexolmeo" path="res://card/textures/name_frame.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://5bgincnel8i1" path="res://card/textures/rarity_frame.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://cd3el6mxg2ci6" path="res://card/textures/foreground_frame.png" id="4"]
-[ext_resource type="Texture2D" uid="uid://b41bay2ovukum" path="res://card/textures/cost_frame.png" id="5"]
-[ext_resource type="Texture2D" uid="uid://bn4ml40n7dqcu" path="res://card/textures/description_frame.png" id="6"]
-[ext_resource type="Texture2D" uid="uid://bij0i4ko1fp4r" path="res://card/textures/background_frame.png" id="7"]
-[ext_resource type="Resource" uid="uid://b6rqhjksm38o4" path="res://resources/cards/draw/draw_three_effect.tres" id="8"]
+[ext_resource type="Script" path="res://card_framework/card/card_resource.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://d081clexolmeo" path="res://card_framework/card/textures/name_frame.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://5bgincnel8i1" path="res://card_framework/card/textures/rarity_frame.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cd3el6mxg2ci6" path="res://card_framework/card/textures/foreground_frame.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://b41bay2ovukum" path="res://card_framework/card/textures/cost_frame.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://bn4ml40n7dqcu" path="res://card_framework/card/textures/description_frame.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://bij0i4ko1fp4r" path="res://card_framework/card/textures/background_frame.png" id="7"]
+[ext_resource type="Resource" path="res://resources/cards/draw/draw_three_effect.tres" id="8"]
 
 [resource]
 script = ExtResource("1")
@@ -25,5 +25,5 @@ description_frame = ExtResource("6")
 description_frame_color = Color(1, 0.909804, 0.631373, 1)
 rarity_frame = ExtResource("3")
 rarity_frame_color = Color(0.517647, 0.517647, 0.517647, 1)
-effect_resources = Array[Resource("res://effect/effect_resource.gd")]([ExtResource("8")])
+effect_resources = Array[Resource("res://card_framework/effect/effect_resource.gd")]([ExtResource("8")])
 exhaust = false

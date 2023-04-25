@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=3 format=3]
 
-[ext_resource path="res://player/player_resource.tres" type="Resource" id=1]
-[ext_resource path="res://effect/lose_life_effect_resource.gd" type="Script" id=2]
+[ext_resource type="Resource" path="res://encounter/player/player_resource.tres" id="1"]
+[ext_resource type="Script" path="res://card_framework/effect/lose_life_effect_resource.gd" id="2"]
+
 
 [resource]
 script = ExtResource( 2 )

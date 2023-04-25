@@ -1,8 +1,9 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=4 format=3]
 
-[ext_resource path="res://effect/build_tower_effect_resource.gd" type="Script" id=1]
-[ext_resource path="res://tower/resources/basic_tower.tres" type="Resource" id=2]
-[ext_resource path="res://tower/tower.tscn" type="PackedScene" id=3]
+[ext_resource type="Script" path="res://card_framework/effect/build_tower_effect_resource.gd" id="1"]
+[ext_resource type="Resource" path="res://encounter/tower/resources/basic_tower.tres" id="2"]
+[ext_resource type="PackedScene" path="res://encounter/tower/tower.tscn" id="3"]
+
 
 [resource]
 script = ExtResource( 1 )

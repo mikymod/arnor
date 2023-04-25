@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://encounter/tower/resources/tower_resource.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dk8dgyp1mjgfo" path="res://encounter/tower/textures/basic_tower_body1.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://defqfp56o07ws" path="res://encounter/tower/textures/basic_tower_base.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dkpmed8g7xtv" path="res://encounter/tower/textures/tower_21.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://b58os53ibxkix" path="res://encounter/tower/textures/basic_tower_body2.png" id="5"]
+[ext_resource type="Resource" path="res://encounter/bullet/resources/basic_bullet.tres" id="6"]
+
+
+[resource]
+script = ExtResource( 1 )
+damage = 2.0
+health = 1.0
+shoot_rate = 0.3
+armor = 0.0
+bullet_resource = ExtResource( 6 )
+base = ExtResource( 3 )
+body1 = ExtResource( 2 )
+body2 = ExtResource( 5 )
+roof = ExtResource( 4 )

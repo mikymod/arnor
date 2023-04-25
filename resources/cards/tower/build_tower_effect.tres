@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="BuildTowerEffectResource" load_steps=4 format=3 uid="uid://ca1jqu17t824t"]
+[gd_resource type="Resource" script_class="BuildTowerEffectResource" load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://effect/build_tower_effect_resource.gd" id="1"]
-[ext_resource type="Resource" path="res://tower/resources/basic_tower.tres" id="2"]
-[ext_resource type="PackedScene" path="res://tower/tower.tscn" id="3"]
+[ext_resource type="Script" path="res://card_framework/effect/build_tower_effect_resource.gd" id="1"]
+[ext_resource type="Resource" path="res://encounter/tower/resources/basic_tower.tres" id="2"]
+[ext_resource type="PackedScene" path="res://encounter/tower/tower.tscn" id="3"]
+
 
 [resource]
 script = ExtResource("1")

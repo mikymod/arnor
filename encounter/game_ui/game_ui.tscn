@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="PackedScene" path="res://encounter/game_ui/wave_counter/wave_counter.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://encounter/game_ui/dead_enemies_counter/dead_enemies_counter.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://encounter/game_ui/power/power.tscn" id="6_pmbil"]
+[ext_resource type="PackedScene" path="res://encounter/game_ui/info_box/info_box.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://encounter/game_ui/reward_area/reward_area.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://encounter/game_ui/health_bar/health_bar.tscn" id="9"]
+
+[node name="GameUI" type="Control"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RewardArea" parent="." instance=ExtResource("8")]
+visible = false
+layout_mode = 1
+anchor_left = 0.283
+anchor_top = 0.267
+anchor_right = 0.717
+anchor_bottom = 0.741
+offset_left = 0.639954
+offset_top = -0.360016
+offset_right = -0.640015
+offset_bottom = -0.28009
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" parent="." instance=ExtResource("9")]
+layout_mode = 1
+offset_right = -704.64
+offset_bottom = -63.72
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="InfoBox" parent="." instance=ExtResource("7")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+
+[node name="WaveCounter" parent="." instance=ExtResource("1")]
+layout_mode = 1
+anchor_left = 0.392
+anchor_right = 0.467
+anchor_bottom = 0.061
+offset_left = 4.36005
+offset_top = -2.0
+offset_right = -0.640015
+offset_bottom = 0.120003
+
+[node name="DeadEnemyCounter" parent="." instance=ExtResource("2")]
+layout_mode = 1
+anchor_left = 0.467
+anchor_right = 0.533
+anchor_bottom = 0.06
+offset_left = -0.640015
+offset_top = 1.0
+offset_right = 0.639893
+offset_bottom = 0.199997
+
+[node name="Power" parent="." instance=ExtResource("6_pmbil")]
+layout_mode = 1

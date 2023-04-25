@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://encounter/game_ui/power/power_resource.gd" id="1"]
+
+
+[resource]
+script = ExtResource( 1 )
+current_power = 5
+max_power = 5
