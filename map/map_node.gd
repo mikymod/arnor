@@ -42,6 +42,7 @@ var children: Array[MapNode] = []
 const margin: int = 10
 var _highlight: bool = false
 var _selectable: bool = false
+var completed: bool = false
 
 func scene() -> Resource:
 	return nodes_dict[type]['scene']
@@ -61,6 +62,9 @@ func _ready() -> void:
 	$Sprite2D.texture = nodes_dict[type]['texture']
 
 func _process(delta: float) -> void:
+	if (completed):
+		$Sprite2D.modulate = Color.BLACK
+		return
 	if (_highlight && _selectable):
 		scale = Vector2(1.5, 1.5)
 	else:

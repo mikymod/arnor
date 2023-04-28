@@ -4,11 +4,16 @@ extends Node2D
 @export var reward_area_resource: RewardAreaResource
 
 @onready var _reward_area: Control = $GameUI/RewardArea
-#onready var _reward_area_pos: Vector2 = $RewardArea.global_position
 
-func _ready() -> void:
+func _enter_tree() -> void:
 	turn_manager_resource.reward_phase_started.connect(_on_reward_phase_started)
 	reward_area_resource.reward_selected.connect(_on_reward_selected)
+
+func _exit_tree():
+	turn_manager_resource.reward_phase_started.disconnect(_on_reward_phase_started)
+	reward_area_resource.reward_selected.disconnect(_on_reward_selected)
+
+func _ready() -> void:
 	# Disable reward area
 	# The easiest way to stop processing a node is to remove it from the tree
 	# (call remove_child() from its parent). This will make it invisible and stop

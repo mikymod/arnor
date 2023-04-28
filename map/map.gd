@@ -11,7 +11,6 @@ func _ready() -> void:
 	map_events.map_node_highlight.connect(_on_map_node_highlight)
 	map_events.map_node_selected.connect(_on_map_node_selected)
 	map_events.map_node_completed.connect(_on_map_node_completed)
-	
 	var generator = MapGenerator.new()
 	var map_data: MapGeneratorData = generator.generate(50, 15, 5)
 	
@@ -42,6 +41,7 @@ func _on_map_node_selected(map_node: MapNode) -> void:
 	_current_map_node = map_node
 
 func _on_map_node_completed() -> void:
+	_current_map_node.completed = true
 	for node in nodes.values():
 		node.set_selectable(false)
 	for child in _current_map_node.children:
