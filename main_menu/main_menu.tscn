@@ -28,11 +28,13 @@ metadata/_edit_use_anchors_ = true
 
 [node name="NewGameButton" type="Button" parent="CenterContainer/ButtonsContainer"]
 layout_mode = 2
-text = "prova"
+text = "New Game
+"
 
 [node name="ExitButton" type="Button" parent="CenterContainer/ButtonsContainer"]
 layout_mode = 2
-text = "prova"
+text = "Quit To Desktop
+"
 
 [node name="ColdBoot" parent="." instance=ExtResource("2_ou1o7")]
 
