@@ -3,8 +3,6 @@ extends Node
 signal scene_loaded
 signal scene_unloaded
 
-@export var first_scene: PackedScene = preload("res://map/map.tscn")
-
 var scenes_stack: Array[Node] = []
 var _root: Window
 var _cold_boot: bool = false
@@ -28,9 +26,19 @@ func pop_scene() -> Node:
 	_root.add_child(scenes_stack.front())
 	return scene
 
-func _add_first_scene(scene: Node) -> void:
+# Clear the stack and go to a new scene
+func go_scene(new_scene: Node) -> void:
+	_clear()
+	_add_scene(new_scene)
+
+func _add_scene(scene: Node) -> void:
 	_root.add_child(scene)
 	scenes_stack.push_front(scene)
+
+func _clear() -> void:
+	for scene in scenes_stack:
+		_root.remove_child(scene)
+	scenes_stack.clear()
 
 func add_cold_boot_scene(scene: Node) -> void:
 	scenes_stack.push_front(scene)

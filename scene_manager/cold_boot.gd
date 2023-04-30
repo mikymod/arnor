@@ -5,6 +5,3 @@ extends Node
 
 func _ready() -> void:
 	SceneManager.add_cold_boot_scene(get_parent())
-
-
-
