@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Arnor"
-run/main_scene="res://levels/cards_playground.tscn"
+run/main_scene="res://encounter/cards_playground.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"
 

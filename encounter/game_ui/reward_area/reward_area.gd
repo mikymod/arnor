@@ -1,6 +1,6 @@
 extends Control
 
-@export var turn_manager_resource: TurnManagerResource
+@export var encounter_events: EncounterEvents
 @export var cards: Array[CardResource]
 
 @onready var slots = [
@@ -12,7 +12,7 @@ extends Control
 var _rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
-	turn_manager_resource.reward_phase_started.connect(_on_reward_phase_started)
+	encounter_events.reward_phase_started.connect(_on_reward_phase_started)
 
 func _on_reward_phase_started() -> void:
 	for slot in slots:

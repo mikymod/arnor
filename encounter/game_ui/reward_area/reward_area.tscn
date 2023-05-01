@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://buwn26bqo5ro1"]
 
 [ext_resource type="PackedScene" path="res://encounter/game_ui/reward_area/reward_card/reward_card.tscn" id="1"]
 [ext_resource type="Script" path="res://encounter/game_ui/reward_area/reward_area.gd" id="2"]
+[ext_resource type="Resource" uid="uid://brk05tih7005s" path="res://encounter/encounter_events.tres" id="2_t3ye1"]
 [ext_resource type="Resource" path="res://resources/cards/shoot_faster/shoot_faster_card.tres" id="3"]
-[ext_resource type="Resource" path="res://encounter/turn_manager/turn_manager.tres" id="4"]
 [ext_resource type="Resource" path="res://resources/cards/tower_red/red_tower_card.tres" id="5"]
 [ext_resource type="Resource" path="res://resources/cards/tower/tower_card.tres" id="7"]
 
@@ -12,7 +12,7 @@ layout_mode = 3
 anchor_right = 0.5
 anchor_bottom = 0.5
 script = ExtResource("2")
-turn_manager_resource = ExtResource("4")
+encounter_events = ExtResource("2_t3ye1")
 cards = Array[Resource("res://card_framework/card/card_resource.gd")]([ExtResource("7"), ExtResource("3"), ExtResource("5")])
 
 [node name="CenterContainer" type="CenterContainer" parent="."]

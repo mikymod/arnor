@@ -1,0 +1,121 @@
+[gd_scene load_steps=12 format=3 uid="uid://duh51tdo8wsmu"]
+
+[ext_resource type="Script" path="res://encounter/encounter.gd" id="1_m4732"]
+[ext_resource type="Resource" uid="uid://brk05tih7005s" path="res://encounter/encounter_events.tres" id="2_qbnqe"]
+[ext_resource type="PackedScene" uid="uid://djere37hsj0uc" path="res://card_framework/deck/deck.tscn" id="4_y732f"]
+[ext_resource type="PackedScene" path="res://encounter/place/place.tscn" id="5_jd2mh"]
+[ext_resource type="PackedScene" uid="uid://bglljy2kuodh5" path="res://encounter/enemy_wave_spawner/enemy_wave_spawner.tscn" id="6_goyyo"]
+[ext_resource type="PackedScene" path="res://encounter/enemy/enemy.tscn" id="7_p40j6"]
+[ext_resource type="PackedScene" path="res://card_framework/hand/hand.tscn" id="8_cprg3"]
+[ext_resource type="PackedScene" path="res://card_framework/effect_solver/effect_solver.tscn" id="9_p75wf"]
+[ext_resource type="PackedScene" uid="uid://bl58oy4jot0p1" path="res://encounter/game_ui/game_ui.tscn" id="10_k3ofs"]
+[ext_resource type="PackedScene" uid="uid://c0vukfonm65gy" path="res://encounter/player/player.tscn" id="11_lslbw"]
+[ext_resource type="PackedScene" uid="uid://ytjndn4v0ejc" path="res://encounter/turn_manager/turn_manager.tscn" id="11_wdpkl"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_m4732")
+encounter_events = ExtResource("2_qbnqe")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(960, 540)
+
+[node name="Deck" parent="." instance=ExtResource("4_y732f")]
+position = Vector2(1514, -6)
+
+[node name="GameArea2" type="Node2D" parent="."]
+
+[node name="Place" parent="GameArea2" instance=ExtResource("5_jd2mh")]
+position = Vector2(127, 224)
+
+[node name="Place2" parent="GameArea2" instance=ExtResource("5_jd2mh")]
+position = Vector2(255, 224)
+
+[node name="Place3" parent="GameArea2" instance=ExtResource("5_jd2mh")]
+position = Vector2(383, 224)
+
+[node name="Place4" parent="GameArea2" instance=ExtResource("5_jd2mh")]
+position = Vector2(511, 224)
+
+[node name="Place5" parent="GameArea2" instance=ExtResource("5_jd2mh")]
+position = Vector2(639, 224)
+
+[node name="Place6" parent="GameArea2" instance=ExtResource("5_jd2mh")]
+position = Vector2(127, 385)
+
+[node name="Place7" parent="GameArea2" instance=ExtResource("5_jd2mh")]
+position = Vector2(255, 385)
+
+[node name="Place8" parent="GameArea2" instance=ExtResource("5_jd2mh")]
+position = Vector2(383, 385)
+
+[node name="Place9" parent="GameArea2" instance=ExtResource("5_jd2mh")]
+position = Vector2(511, 385)
+
+[node name="Place10" parent="GameArea2" instance=ExtResource("5_jd2mh")]
+position = Vector2(639, 385)
+
+[node name="Place11" parent="GameArea2" instance=ExtResource("5_jd2mh")]
+position = Vector2(127, 544)
+
+[node name="Place12" parent="GameArea2" instance=ExtResource("5_jd2mh")]
+position = Vector2(255, 544)
+
+[node name="Place13" parent="GameArea2" instance=ExtResource("5_jd2mh")]
+position = Vector2(383, 544)
+
+[node name="Place14" parent="GameArea2" instance=ExtResource("5_jd2mh")]
+position = Vector2(511, 544)
+
+[node name="Place15" parent="GameArea2" instance=ExtResource("5_jd2mh")]
+position = Vector2(639, 544)
+
+[node name="Place16" parent="GameArea2" instance=ExtResource("5_jd2mh")]
+position = Vector2(127, 704)
+
+[node name="Place17" parent="GameArea2" instance=ExtResource("5_jd2mh")]
+position = Vector2(255, 704)
+
+[node name="Place18" parent="GameArea2" instance=ExtResource("5_jd2mh")]
+position = Vector2(383, 704)
+
+[node name="Place19" parent="GameArea2" instance=ExtResource("5_jd2mh")]
+position = Vector2(511, 704)
+
+[node name="Place20" parent="GameArea2" instance=ExtResource("5_jd2mh")]
+position = Vector2(639, 704)
+
+[node name="EnemyWaveSpawner" parent="." instance=ExtResource("6_goyyo")]
+position = Vector2(1984, -96)
+enemy_list = Array[PackedScene]([ExtResource("7_p40j6")])
+waves = Array[int]([1, 1])
+
+[node name="Node2D" type="Node2D" parent="EnemyWaveSpawner/SpawnPoints" index="0"]
+position = Vector2(0, 296)
+
+[node name="Node2D2" type="Node2D" parent="EnemyWaveSpawner/SpawnPoints" index="1"]
+position = Vector2(0, 454)
+
+[node name="Node2D3" type="Node2D" parent="EnemyWaveSpawner/SpawnPoints" index="2"]
+position = Vector2(0, 615)
+
+[node name="Node2D4" type="Node2D" parent="EnemyWaveSpawner/SpawnPoints" index="3"]
+position = Vector2(0, 776)
+
+[node name="Hand" parent="." instance=ExtResource("8_cprg3")]
+position = Vector2(979, 932)
+
+[node name="EffectSolver" parent="." instance=ExtResource("9_p75wf")]
+
+[node name="GameUI" parent="." instance=ExtResource("10_k3ofs")]
+offset_left = 38.0
+offset_top = 1.0
+offset_right = 1958.0
+offset_bottom = 1081.0
+
+[node name="TurnManager" parent="." instance=ExtResource("11_wdpkl")]
+position = Vector2(1737, 816)
+
+[node name="Player" parent="." instance=ExtResource("11_lslbw")]
+position = Vector2(-80, 464)
+
+[editable path="EnemyWaveSpawner"]

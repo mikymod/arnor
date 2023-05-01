@@ -1,13 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://ytjndn4v0ejc"]
 
 [ext_resource type="Script" path="res://encounter/turn_manager/turn_manager.gd" id="1"]
-[ext_resource type="Resource" path="res://encounter/turn_manager/turn_manager.tres" id="2"]
+[ext_resource type="Resource" uid="uid://brk05tih7005s" path="res://encounter/encounter_events.tres" id="2_yrrmh"]
 
 [node name="TurnManager" type="Node2D"]
 script = ExtResource("1")
-turn_manager_resource = ExtResource("2")
+encounter_events = ExtResource("2_yrrmh")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -30,7 +31,12 @@ text = "Spawn Phase"
 layout_mode = 2
 text = "Reward Phase"
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="button_down" from="MarginContainer/VBoxContainer/Restore Phase" to="." method="_on_Restore_Phase_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/Draw Phase" to="." method="_on_Draw_Phase_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/Wave Phase" to="." method="_on_Wave_Phase_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/Reward Phase" to="." method="_on_Reward_Phase_button_down"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

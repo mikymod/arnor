@@ -1,13 +1,13 @@
-[gd_scene load_steps=11 format=3]
+[gd_scene load_steps=11 format=3 uid="uid://dc3qiqxdxqy3t"]
 
 [ext_resource type="Texture2D" uid="uid://cd3el6mxg2ci6" path="res://card_framework/card/textures/foreground_frame.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://b41bay2ovukum" path="res://card_framework/card/textures/cost_frame.png" id="2"]
+[ext_resource type="Resource" uid="uid://brk05tih7005s" path="res://encounter/encounter_events.tres" id="2_dnt7j"]
 [ext_resource type="Texture2D" uid="uid://d081clexolmeo" path="res://card_framework/card/textures/name_frame.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://5bgincnel8i1" path="res://card_framework/card/textures/rarity_frame.png" id="4"]
 [ext_resource type="Resource" uid="uid://cd46h582aqct5" path="res://map/map_events.tres" id="4_hn8y5"]
 [ext_resource type="Texture2D" uid="uid://bn4ml40n7dqcu" path="res://card_framework/card/textures/description_frame.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://bij0i4ko1fp4r" path="res://card_framework/card/textures/background_frame.png" id="6"]
-[ext_resource type="Resource" path="res://encounter/game_ui/reward_area/reward_area.tres" id="7"]
 [ext_resource type="Script" path="res://encounter/game_ui/reward_area/reward_card/reward_card.gd" id="8"]
 [ext_resource type="Resource" path="res://resources/cards/tower/tower_card.tres" id="9"]
 
@@ -18,7 +18,7 @@ anchor_right = 0.110937
 anchor_bottom = 0.274074
 offset_right = 1.0
 script = ExtResource("8")
-reward_area_resource = ExtResource("7")
+encounter_events = ExtResource("2_dnt7j")
 card_resource = ExtResource("9")
 map_events = ExtResource("4_hn8y5")
 

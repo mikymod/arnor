@@ -1,11 +1,11 @@
 extends Control
 
-@export var turn_manager_resource: Resource
+@export var encounter_events: EncounterEvents
 
 var counter: int = 0
 
 func _ready() -> void:
-	turn_manager_resource.wave_phase_started.connect(_on_wave_phase_started)
+	encounter_events.wave_phase_started.connect(_on_wave_phase_started)
 
 func _process(delta: float) -> void:
 	$HBoxContainer/CenterContainer/Label.text = str(counter)

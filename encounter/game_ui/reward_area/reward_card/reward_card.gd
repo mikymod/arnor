@@ -1,6 +1,6 @@
 extends Control
 
-@export var reward_area_resource: RewardAreaResource
+@export var encounter_events: EncounterEvents
 @export var card_resource: CardResource
 @export var map_events: MapEvents
 
@@ -31,9 +31,8 @@ func set_card_resource(card_res: CardResource)-> void:
 func _on_RewardCard_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			reward_area_resource.reward_selected.emit(card_resource)
+			encounter_events.reward_selected.emit(card_resource)
 			map_events.map_node_completed.emit()
-			SceneManager.pop_scene()
 
 func set_skin() -> void:
 	_background_frame.texture = card_resource.background_frame

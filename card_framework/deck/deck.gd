@@ -2,9 +2,8 @@ class_name Deck
 extends Node2D
 
 @export var deck_resource: DeckResource
-@export var turn_manager_resource: TurnManagerResource
+@export var encounter_events: EncounterEvents
 @export var hand_resource: HandResource
-@export var reward_area_resource: RewardAreaResource
 @export var deck_events: DeckEvents
 @export var card_events: CardEvents
 @export var card_scene: PackedScene
@@ -20,15 +19,15 @@ func _ready() -> void:
 
 func _enter_tree():
 	deck_events.deck_draw_triggered.connect(_on_deck_draw_triggered)
-	turn_manager_resource.draw_phase_started.connect(_on_draw_phase_started)
-	reward_area_resource.reward_selected.connect(_on_reward_selected)
+	encounter_events.draw_phase_started.connect(_on_draw_phase_started)
+	encounter_events.reward_selected.connect(_on_reward_selected)
 	card_events.card_discarded.connect(_on_card_discarded)
 	card_events.card_exhausted.connect(_on_card_exhausted)
 
 func _exit_tree():
 	deck_events.deck_draw_triggered.disconnect(_on_deck_draw_triggered)
-	turn_manager_resource.draw_phase_started.disconnect(_on_draw_phase_started)
-	reward_area_resource.reward_selected.disconnect(_on_reward_selected)
+	encounter_events.draw_phase_started.disconnect(_on_draw_phase_started)
+	encounter_events.reward_selected.disconnect(_on_reward_selected)
 	card_events.card_discarded.disconnect(_on_card_discarded)
 	card_events.card_exhausted.disconnect(_on_card_exhausted)
 
@@ -73,9 +72,6 @@ func _on_draw_phase_started() -> void:
 
 # Adds new card to deck resource
 func _on_reward_selected(card_res: CardResource):
-#	var instance = card_scene.instantiate()
-#	instance.card_resource = card_res
-#	discard.append(instance)
 	deck_resource.add_card(card_res)
 
 func _on_card_discarded(card: Card):

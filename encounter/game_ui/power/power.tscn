@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://btfbyvnf7qm48"]
 
 [ext_resource type="Script" path="res://encounter/game_ui/power/power.gd" id="1_441le"]
 [ext_resource type="Resource" path="res://encounter/game_ui/power/power_resource.tres" id="2_vyel3"]
 [ext_resource type="Resource" path="res://card_framework/card/card_events.tres" id="3_g2qhv"]
-[ext_resource type="Resource" path="res://encounter/turn_manager/turn_manager.tres" id="4_6x242"]
+[ext_resource type="Resource" uid="uid://brk05tih7005s" path="res://encounter/encounter_events.tres" id="4_nntmq"]
 [ext_resource type="Texture2D" uid="uid://dp7rxp23dfh0" path="res://encounter/game_ui/power/power_on.png" id="5_dwg7y"]
 
 [node name="Power" type="Control"]
@@ -20,7 +20,7 @@ grow_vertical = 2
 script = ExtResource("1_441le")
 power_resource = ExtResource("2_vyel3")
 card_events = ExtResource("3_g2qhv")
-turn_manager_resource = ExtResource("4_6x242")
+encounter_events = ExtResource("4_nntmq")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

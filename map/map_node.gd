@@ -7,32 +7,32 @@ enum NodeType { COMBAT, MARKET, MINIBOSS, PUZZLE, REST, STORY }
 @export var nodes_dict: Dictionary = {
 	NodeType.COMBAT: {
 		'texture': preload("res://map/textures/combat.png"),
-		'scene': preload("res://levels/cards_playground.tscn"),
+		'scene': preload("res://encounter/cards_playground.tscn"),
 		'probability': 0.8,
 	},
 	NodeType.MARKET: {
 		'texture': preload("res://map/textures/market.png"),
-		'scene': preload("res://levels/cards_playground.tscn"),
+		'scene': preload("res://encounter/cards_playground.tscn"),
 		'probability': 0.3,
 	},
 	NodeType.MINIBOSS: {
 		'texture': preload("res://map/textures/miniboss.png"),
-		'scene': preload("res://levels/cards_playground.tscn"),
+		'scene': preload("res://encounter/cards_playground.tscn"),
 		'probability': 0.1,
 	},
 	NodeType.PUZZLE: {
 		'texture': preload("res://map/textures/puzzle.png"),
-		'scene': preload("res://levels/cards_playground.tscn"),
+		'scene': preload("res://encounter/cards_playground.tscn"),
 		'probability': 0.2,
 	},
 	NodeType.REST: {
 		'texture': preload("res://map/textures/rest.png"),
-		'scene': preload("res://levels/cards_playground.tscn"),
+		'scene': preload("res://encounter/cards_playground.tscn"),
 		'probability': 0.2,
 	},
 	NodeType.STORY: {
 		'texture': preload("res://map/textures/story.png"),
-		'scene': preload("res://levels/cards_playground.tscn"),
+		'scene': preload("res://encounter/cards_playground.tscn"),
 		'probability': 0.2,
 	},
 }

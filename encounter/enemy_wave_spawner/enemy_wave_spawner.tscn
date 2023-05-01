@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://bglljy2kuodh5"]
 
 [ext_resource type="Script" path="res://encounter/enemy_wave_spawner/enemy_wave_spawner.gd" id="1"]
-[ext_resource type="Resource" path="res://encounter/turn_manager/turn_manager.tres" id="6"]
+[ext_resource type="Resource" uid="uid://brk05tih7005s" path="res://encounter/encounter_events.tres" id="2_6mj17"]
+[ext_resource type="Resource" path="res://encounter/enemy/enemy_events.tres" id="3_26jgx"]
 
 [node name="EnemyWaveSpawner" type="Node2D"]
 script = ExtResource("1")
-turn_manager_resource = ExtResource("6")
+encounter_events = ExtResource("2_6mj17")
+enemy_events = ExtResource("3_26jgx")
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 

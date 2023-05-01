@@ -1,24 +1,21 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=11 format=3 uid="uid://djere37hsj0uc"]
 
 [ext_resource type="PackedScene" path="res://card_framework/deck/scenes/exhaust_icon.tscn" id="1"]
 [ext_resource type="Script" path="res://card_framework/deck/deck.gd" id="2"]
 [ext_resource type="Resource" path="res://resources/decks/deck.tres" id="2_yekpi"]
 [ext_resource type="PackedScene" path="res://card_framework/deck/scenes/discard_icon.tscn" id="3"]
+[ext_resource type="Resource" uid="uid://brk05tih7005s" path="res://encounter/encounter_events.tres" id="3_11hy1"]
 [ext_resource type="PackedScene" path="res://card_framework/deck/scenes/deck_icon.tscn" id="4"]
 [ext_resource type="Resource" path="res://card_framework/card/card_events.tres" id="5"]
 [ext_resource type="Resource" path="res://card_framework/deck/deck_events.tres" id="6"]
 [ext_resource type="Resource" path="res://card_framework/hand/hand.tres" id="7"]
-[ext_resource type="PackedScene" path="res://card_framework/card/card.tscn" id="9"]
-[ext_resource type="Resource" path="res://encounter/game_ui/reward_area/reward_area.tres" id="10"]
-[ext_resource type="Resource" path="res://encounter/turn_manager/turn_manager.tres" id="11"]
-
+[ext_resource type="PackedScene" uid="uid://ccfj4xin4lno0" path="res://card_framework/card/card.tscn" id="9"]
 
 [node name="Deck" type="Node2D"]
 script = ExtResource("2")
 deck_resource = ExtResource("2_yekpi")
-turn_manager_resource = ExtResource("11")
+encounter_events = ExtResource("3_11hy1")
 hand_resource = ExtResource("7")
-reward_area_resource = ExtResource("10")
 deck_events = ExtResource("6")
 card_events = ExtResource("5")
 card_scene = ExtResource("9")

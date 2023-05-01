@@ -34,12 +34,19 @@ extends Area2D
 
 var mouseover = false
 var playable = true
-var selected = false;
+var selected = false
 
-func _ready() -> void:
+func _enter_tree() -> void:
 	card_events.card_played.connect(_on_card_played)
 	card_events.card_returned.connect(_on_card_returned)
 	card_events.card_resolved.connect(_on_card_resolved)
+
+func _exit_tree() -> void:
+	card_events.card_played.disconnect(_on_card_played)
+	card_events.card_returned.disconnect(_on_card_returned)
+	card_events.card_resolved.disconnect(_on_card_resolved)
+
+func _ready() -> void:
 	set_skin()
 	set_data()
 

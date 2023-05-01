@@ -2,14 +2,14 @@ extends Control
 
 @export var power_resource: PowerResource
 @export var card_events: CardEvents
-@export var turn_manager_resource: TurnManagerResource
+@export var encounter_events: EncounterEvents
 
 @onready var _label: Label = $TextureRect/CenterContainer/Label
 
 func _ready() -> void:
 	card_events.card_played.connect(_on_card_played)
 	card_events.card_returned.connect(_on_card_returned)
-	turn_manager_resource.restore_phase_started.connect(_on_restore_phase_started)
+	encounter_events.restore_phase_started.connect(_on_restore_phase_started)
 	power_resource.max_power_changed.connect(_on_max_power_changed)
 
 func _process(delta: float) -> void:

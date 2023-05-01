@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="EncounterEvents" load_steps=2 format=3 uid="uid://brk05tih7005s"]
+
+[ext_resource type="Script" path="res://encounter/encounter_events.gd" id="1_a56ga"]
+
+[resource]
+script = ExtResource("1_a56ga")

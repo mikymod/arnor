@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://bl58oy4jot0p1"]
 
 [ext_resource type="PackedScene" path="res://encounter/game_ui/wave_counter/wave_counter.tscn" id="1"]
 [ext_resource type="PackedScene" path="res://encounter/game_ui/dead_enemies_counter/dead_enemies_counter.tscn" id="2"]
+[ext_resource type="Resource" uid="uid://brk05tih7005s" path="res://encounter/encounter_events.tres" id="2_nlh54"]
 [ext_resource type="PackedScene" path="res://encounter/game_ui/power/power.tscn" id="6_pmbil"]
 [ext_resource type="PackedScene" path="res://encounter/game_ui/info_box/info_box.tscn" id="7"]
 [ext_resource type="PackedScene" path="res://encounter/game_ui/reward_area/reward_area.tscn" id="8"]
@@ -30,6 +31,7 @@ offset_right = -0.640015
 offset_bottom = -0.28009
 grow_horizontal = 2
 grow_vertical = 2
+encounter_events = ExtResource("2_nlh54")
 
 [node name="HealthBar" parent="." instance=ExtResource("9")]
 layout_mode = 1
@@ -52,6 +54,7 @@ offset_left = 4.36005
 offset_top = -2.0
 offset_right = -0.640015
 offset_bottom = 0.120003
+encounter_events = ExtResource("2_nlh54")
 
 [node name="DeadEnemyCounter" parent="." instance=ExtResource("2")]
 layout_mode = 1
@@ -65,3 +68,4 @@ offset_bottom = 0.199997
 
 [node name="Power" parent="." instance=ExtResource("6_pmbil")]
 layout_mode = 1
+encounter_events = ExtResource("2_nlh54")

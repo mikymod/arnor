@@ -1,17 +1,16 @@
 extends Node2D
 
-@export var turn_manager_resource: TurnManagerResource
-@export var reward_area_resource: RewardAreaResource
+@export var encounter_events: EncounterEvents
 
 @onready var _reward_area: Control = $GameUI/RewardArea
 
 func _enter_tree() -> void:
-	turn_manager_resource.reward_phase_started.connect(_on_reward_phase_started)
-	reward_area_resource.reward_selected.connect(_on_reward_selected)
+	encounter_events.reward_phase_started.connect(_on_reward_phase_started)
+	encounter_events.reward_selected.connect(_on_reward_selected)
 
 func _exit_tree():
-	turn_manager_resource.reward_phase_started.disconnect(_on_reward_phase_started)
-	reward_area_resource.reward_selected.disconnect(_on_reward_selected)
+	encounter_events.reward_phase_started.disconnect(_on_reward_phase_started)
+	encounter_events.reward_selected.disconnect(_on_reward_selected)
 
 func _ready() -> void:
 	# Disable reward area
