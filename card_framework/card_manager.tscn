@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpg5jdcy251hp"]
+
+[ext_resource type="Script" path="res://card_framework/card_manager.gd" id="1_hfh5v"]
+[ext_resource type="PackedScene" path="res://card_framework/effect_solver/effect_solver.tscn" id="3_8x38p"]
+
+[node name="CardManager" type="Node2D"]
+script = ExtResource("1_hfh5v")
+
+[node name="Deck" type="Marker2D" parent="."]
+position = Vector2(2143, 932)
+gizmo_extents = 50.0
+
+[node name="Hand" type="Marker2D" parent="."]
+position = Vector2(979, 932)
+gizmo_extents = 50.0
+
+[node name="Discard" type="Marker2D" parent="."]
+position = Vector2(2143, 1252)
+gizmo_extents = 50.0
+
+[node name="Exhaust" type="Marker2D" parent="."]
+position = Vector2(2497, 1252)
+gizmo_extents = 50.0
+
+[node name="EffectSolver" parent="." instance=ExtResource("3_8x38p")]

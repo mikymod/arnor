@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MapNodeResource" load_steps=4 format=3]
+
+[ext_resource type="PackedScene" uid="uid://c4embcnml8igj" path="res://encounter/encounter.tscn" id="1_rapll"]
+[ext_resource type="Script" path="res://map/map_node/map_node_resource.gd" id="2_umjqq"]
+[ext_resource type="Texture2D" uid="uid://crc8h1v7abukv" path="res://map/textures/rest.png" id="3_ysaac"]
+
+[resource]
+script = ExtResource("2_umjqq")
+texture = ExtResource("3_ysaac")
+scene = ExtResource("1_rapll")

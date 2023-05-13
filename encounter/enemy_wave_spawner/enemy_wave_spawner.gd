@@ -42,8 +42,6 @@ func spawn_enemy() -> void:
 
 func _on_enemy_dead() -> void:
 	_remaining_enemies_in_wave -= 1
-	print("remaining enemies: %s" % _remaining_enemies_in_wave)
-	print("current wave: %s / %s" % _current_wave_count, waves.size())
 	if (_current_wave_count >= waves.size() - 1):
 		encounter_events.reward_phase_started.emit()
 		return

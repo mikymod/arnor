@@ -4,9 +4,9 @@ extends Control
 @export var cards: Array[CardResource]
 
 @onready var slots = [
-	$CenterContainer/HBoxContainer/RewardSlot1,
-	$CenterContainer/HBoxContainer/RewardSlot2,
-	$CenterContainer/HBoxContainer/RewardSlot3,
+	$HBoxContainer/RewardSlot1,
+	$HBoxContainer/RewardSlot2,
+	$HBoxContainer/RewardSlot3,
 ]
 
 var _rng = RandomNumberGenerator.new()

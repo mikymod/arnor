@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" uid="uid://cn10vyayypg57" path="res://encounter/game_ui/cards/deck_icon.tscn" id="1_a5r8v"]
+[ext_resource type="PackedScene" path="res://encounter/game_ui/cards/discard_icon.tscn" id="2_mmtr3"]
+[ext_resource type="PackedScene" path="res://encounter/game_ui/cards/exhaust_icon.tscn" id="3_7rqpq"]
+
+[node name="Cards" type="Control"]
+layout_mode = 3
+anchor_left = 0.8
+anchor_top = 0.001
+anchor_right = 1.0
+anchor_bottom = 0.111
+offset_top = -1.08
+offset_right = -2.0
+offset_bottom = 15.12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9.0
+offset_right = -0.0400391
+offset_bottom = 7.48
+
+[node name="DeckIcon" parent="HBoxContainer" instance=ExtResource("1_a5r8v")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DiscardIcon" parent="HBoxContainer" instance=ExtResource("2_mmtr3")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ExhaustIcon" parent="HBoxContainer" instance=ExtResource("3_7rqpq")]
+layout_mode = 2
+size_flags_horizontal = 3

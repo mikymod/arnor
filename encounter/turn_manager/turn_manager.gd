@@ -19,7 +19,9 @@ func _on_reward_selected(_card) -> void:
 	encounter_events.encounter_finished.emit()
 
 func _on_encounter_finished() -> void:
+	# TODO: uncomment
 	SceneManager.pop_scene()
+	pass
 
 func _start_turn() -> void:
 	encounter_events.restore_phase_started.emit()

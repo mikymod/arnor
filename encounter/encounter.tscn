@@ -1,0 +1,37 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4embcnml8igj"]
+
+[ext_resource type="PackedScene" uid="uid://bl58oy4jot0p1" path="res://encounter/game_ui/game_ui.tscn" id="1_55ofy"]
+[ext_resource type="Script" path="res://encounter/encounter.gd" id="1_h0v84"]
+[ext_resource type="Resource" uid="uid://brk05tih7005s" path="res://encounter/encounter_events.tres" id="2_xocmr"]
+[ext_resource type="PackedScene" path="res://encounter/place/place.tscn" id="2_ysaif"]
+[ext_resource type="PackedScene" uid="uid://bglljy2kuodh5" path="res://encounter/enemy_wave_spawner/enemy_wave_spawner.tscn" id="3_brxc6"]
+[ext_resource type="PackedScene" path="res://encounter/enemy/enemy.tscn" id="4_s2g72"]
+[ext_resource type="PackedScene" uid="uid://ytjndn4v0ejc" path="res://encounter/turn_manager/turn_manager.tscn" id="5_sfhbt"]
+[ext_resource type="PackedScene" uid="uid://dpg5jdcy251hp" path="res://card_framework/card_manager.tscn" id="6_upshl"]
+
+[node name="Encounter" type="Node2D"]
+script = ExtResource("1_h0v84")
+encounter_events = ExtResource("2_xocmr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(965, 541)
+
+[node name="GameUI" parent="." instance=ExtResource("1_55ofy")]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="EnemyWaveSpawner" parent="." instance=ExtResource("3_brxc6")]
+enemy_list = Array[PackedScene]([ExtResource("4_s2g72")])
+waves = Array[int]([1, 1])
+
+[node name="Marker2D" type="Marker2D" parent="EnemyWaveSpawner/SpawnPoints" index="0"]
+position = Vector2(1984, 424)
+
+[node name="CardManager" parent="." instance=ExtResource("6_upshl")]
+
+[node name="TurnManager" parent="." instance=ExtResource("5_sfhbt")]
+
+[node name="Place" parent="." instance=ExtResource("2_ysaif")]
+position = Vector2(224, 480)
+
+[editable path="EnemyWaveSpawner"]

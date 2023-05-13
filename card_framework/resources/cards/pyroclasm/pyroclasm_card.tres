@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://card_framework/card/card_resource.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://d081clexolmeo" path="res://card_framework/card/textures/name_frame.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://5bgincnel8i1" path="res://card_framework/card/textures/rarity_frame.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cd3el6mxg2ci6" path="res://card_framework/card/textures/foreground_frame.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://b41bay2ovukum" path="res://card_framework/card/textures/cost_frame.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://bn4ml40n7dqcu" path="res://card_framework/card/textures/description_frame.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://bij0i4ko1fp4r" path="res://card_framework/card/textures/background_frame.png" id="7"]
+[ext_resource type="Resource" path="res://card_framework/resources/cards/pyroclasm/aoe_damage.tres" id="8"]
+[ext_resource type="Resource" path="res://card_framework/resources/cards/pyroclasm/pyroclasm_tower_cost.tres" id="9"]
+
+[resource]
+script = ExtResource("1")
+name = "Red"
+cost = 2
+rarity = 0
+background_frame = ExtResource("7")
+background_frame_color = Color(1, 0.337255, 0.337255, 1)
+foreground_frame = ExtResource("4")
+name_frame = ExtResource("2")
+name_frame_color = Color(1, 0.909804, 0.631373, 1)
+cost_frame = ExtResource("5")
+cost_frame_color = Color(0.517647, 0.517647, 0.517647, 1)
+description_frame = ExtResource("6")
+description_frame_color = Color(1, 0.909804, 0.631373, 1)
+rarity_frame = ExtResource("3")
+rarity_frame_color = Color(0.517647, 0.517647, 0.517647, 1)
+effect_resources = Array[Resource("res://card_framework/effect/effect_resource.gd")]([ExtResource("9"), ExtResource("8")])
+exhaust = false

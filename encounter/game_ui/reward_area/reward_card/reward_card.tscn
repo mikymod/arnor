@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dc3qiqxdxqy3t"]
+[gd_scene load_steps=11 format=3 uid="uid://b3vp84u7vgusd"]
 
 [ext_resource type="Texture2D" uid="uid://cd3el6mxg2ci6" path="res://card_framework/card/textures/foreground_frame.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://b41bay2ovukum" path="res://card_framework/card/textures/cost_frame.png" id="2"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bn4ml40n7dqcu" path="res://card_framework/card/textures/description_frame.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://bij0i4ko1fp4r" path="res://card_framework/card/textures/background_frame.png" id="6"]
 [ext_resource type="Script" path="res://encounter/game_ui/reward_area/reward_card/reward_card.gd" id="8"]
-[ext_resource type="Resource" path="res://resources/cards/tower/tower_card.tres" id="9"]
+[ext_resource type="Resource" path="res://card_framework/resources/cards/tower/tower_card.tres" id="9"]
 
 [node name="RewardCard" type="Control"]
 custom_minimum_size = Vector2(214, 296)

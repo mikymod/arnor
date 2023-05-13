@@ -8,7 +8,7 @@ extends Area2D
 ## - placed in discard when it's played
 ## - replaced in deck when the deck is depleted
 
-@export var card_resource: CardResource # CardResource
+@export var card_resource: CardResource
 @export var card_events: CardEvents
 
 # The sprite in background
@@ -96,8 +96,8 @@ func _on_card_returned(_card: Card) -> void:
 func _on_card_resolved(card: Card) -> void:
 	playable = true
 	selected = false
-	if self == card:
-		if card_resource.exhaust:
-			card_events.card_exhausted.emit(card)
-		else:
-			card_events.card_discarded.emit(card)
+#	if self == card:
+#		if card_resource.exhaust:
+#			card_events.card_exhausted.emit(card)
+#		else:
+#			card_events.card_discarded.emit(card)

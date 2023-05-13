@@ -20,11 +20,11 @@ func push_scene(scene: Node) -> void:
 	scenes_stack.push_front(scene)
 
 # Pop the scene contained in the head of the stack
-func pop_scene() -> Node:
+func pop_scene() -> void:
 	var scene = scenes_stack.pop_front()
 	_root.remove_child(scene)
+	scene.queue_free()
 	_root.add_child(scenes_stack.front())
-	return scene
 
 # Clear the stack and go to a new scene
 func go_scene(new_scene: Node) -> void:
