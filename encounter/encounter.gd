@@ -2,7 +2,11 @@ extends Node2D
 
 @export var encounter_events: EncounterEvents
 
+@onready var _card_manager: CardManager = $CardManager
 @onready var _reward_area: Control = $GameUI/RewardArea
+@onready var _deck_label: Control = $GameUI/Cards/HBoxContainer/DeckIcon/MarginContainer/Label
+@onready var _discard_label: Control = $GameUI/Cards/HBoxContainer/DiscardIcon/MarginContainer/Label
+@onready var _exhaust_label: Control = $GameUI/Cards/HBoxContainer/ExhaustIcon/MarginContainer/Label
 
 func _enter_tree() -> void:
 	encounter_events.reward_phase_started.connect(_on_reward_phase_started)
@@ -18,6 +22,11 @@ func _ready() -> void:
 	# (call remove_child() from its parent). This will make it invisible and stop
 	# all processing, including physics.
 	$GameUI.remove_child(_reward_area)
+
+func _process(delta: float) -> void:
+	_deck_label.text = str(_card_manager.deck.size())
+	_discard_label.text = str(_card_manager.discard.size())
+	_exhaust_label.text = str(_card_manager.exhaust.size())
 
 func _on_reward_phase_started() -> void:
 	$GameUI.add_child(_reward_area)

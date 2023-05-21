@@ -20,7 +20,8 @@ func _on_reward_selected(_card) -> void:
 
 func _on_encounter_finished() -> void:
 	# TODO: uncomment
-	SceneManager.pop_scene()
+#	SceneManager.pop_scene()
+	var root = get_tree().get_root().get_child(0)
 	pass
 
 func _start_turn() -> void:

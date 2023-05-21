@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsuofldymkcgq"]
-
-[ext_resource type="Script" path="res://scene_manager/cold_boot.gd" id="1_5vo3n"]
-
-[node name="ColdBoot" type="Node"]
-script = ExtResource("1_5vo3n")

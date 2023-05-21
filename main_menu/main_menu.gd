@@ -1,10 +1,8 @@
 extends Control
 
-@export var first_scene: PackedScene = preload("res://map/map.tscn")
-
 func _on_new_game_button_pressed():
-	var map_scene = first_scene.instantiate()
-	SceneManager.go_scene(map_scene)
+	SceneManager.load_map()
+#	SceneManager.load_map_node()
 
 func _on_exit_button_pressed():
 	get_tree().quit()

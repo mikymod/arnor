@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://mps1cyws8l0x"]
+[gd_scene load_steps=2 format=3 uid="uid://mps1cyws8l0x"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_x0xiv"]
-[ext_resource type="PackedScene" uid="uid://dsuofldymkcgq" path="res://scene_manager/cold_boot.tscn" id="2_ou1o7"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -35,8 +34,6 @@ text = "New Game
 layout_mode = 2
 text = "Quit To Desktop
 "
-
-[node name="ColdBoot" parent="." instance=ExtResource("2_ou1o7")]
 
 [connection signal="pressed" from="CenterContainer/ButtonsContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="CenterContainer/ButtonsContainer/ExitButton" to="." method="_on_exit_button_pressed"]

@@ -1,15 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cn8nkfu6p3e6x"]
+[gd_scene load_steps=3 format=3 uid="uid://cn8nkfu6p3e6x"]
 
 [ext_resource type="Script" path="res://map/map.gd" id="1_hdwnu"]
 [ext_resource type="Resource" uid="uid://cd46h582aqct5" path="res://map/map_events.tres" id="2_ekjmh"]
-[ext_resource type="PackedScene" uid="uid://dsuofldymkcgq" path="res://scene_manager/cold_boot.tscn" id="3_n0sm6"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_hdwnu")
 map_events = ExtResource("2_ekjmh")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-limit_left = 0
-limit_top = 0
-
-[node name="ColdBoot" parent="." instance=ExtResource("3_n0sm6")]

@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://dhv1qxopnsr8o"]
 
-[ext_resource type="PackedScene" uid="uid://cn10vyayypg57" path="res://encounter/game_ui/cards/deck_icon.tscn" id="1_a5r8v"]
+[ext_resource type="PackedScene" uid="uid://cndqedysn6yay" path="res://encounter/game_ui/cards/deck_icon.tscn" id="1_a5r8v"]
 [ext_resource type="PackedScene" path="res://encounter/game_ui/cards/discard_icon.tscn" id="2_mmtr3"]
 [ext_resource type="PackedScene" path="res://encounter/game_ui/cards/exhaust_icon.tscn" id="3_7rqpq"]
 
