@@ -9,20 +9,21 @@ extends Node2D
 @export var rest_resource: MapNodeResource = preload("res://map/map_node/resources/rest.tres")
 @export var miniboss_resource: MapNodeResource = preload("res://map/map_node/resources/miniboss.tres")
 
-var nodes = {}
+var nodes: Dictionary = {}
 var _current_map_node: MapNode = null
 
 func _ready() -> void:
 	map_events.map_node_selected.connect(_on_map_node_selected)
 	
 	var generator = MapGenerator.new()
-	var map_data: MapGeneratorData = generator.generate(50, 15, 5)
+	var map_data: MapData = generator.generate(50, 15, 5)
 	var map_node_resources = _random_map_node_resources(map_data.nodes.size())
 	
 	for k in map_data.nodes.keys():
-		var point = map_data.nodes[k]
+		var map_node_data = map_data.nodes[k]
 		var map_node = map_node_scene.instantiate()
-		map_node.position = point * map_scale + Vector2(200, 0)
+#		map_node.position = map_node_data.position * map_scale + Vector2(200, 0)
+		map_node.map_node_data = map_node_data
 		map_node.map_node_resource = map_node_resources.pop_front()
 		add_child(map_node)
 		nodes[k] = map_node 
@@ -65,7 +66,7 @@ func _on_map_node_selected(map_node: MapNode) -> void:
 	SceneManager.push_scene(level)
 	_current_map_node = map_node
 
-	_current_map_node.completed = true
+	_current_map_node.complete()
 	for node in nodes.values():
 		node.selectable = false
 	for child in _current_map_node.children:

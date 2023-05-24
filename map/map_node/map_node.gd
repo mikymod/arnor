@@ -5,10 +5,11 @@ extends Node2D
 
 @export var map_events: MapEvents
 
+var map_node_data: MapNodeData
+
 var children: Array[MapNode] = []
 
 var selectable: bool = false # A MapNode is selectable if the previous nodes in the path are completed
-var completed: bool = false
 
 func scene() -> PackedScene:
 	return map_node_resource.scene 
@@ -17,11 +18,15 @@ func add_child_node(child):
 	if !children.has(child):
 		children.append(child)
 
+func complete() -> void:
+	map_node_data.completed = true
+
 func _ready() -> void:
+	position = map_node_data.position * 20 + Vector2(200, 0)
 	$Sprite2D.texture = map_node_resource.texture
 
 func _process(delta: float) -> void:
-	if (completed):
+	if (map_node_data.completed):
 		$Sprite2D.modulate = Color.BLACK
 		return
 

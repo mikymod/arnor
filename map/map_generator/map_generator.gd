@@ -2,15 +2,16 @@ class_name MapGenerator
 extends Node
 
 # Generates map data procedurally
-func generate(plane_len: int, node_count: int, path_count: int) -> MapGeneratorData:
+func generate(plane_len: int, node_count: int, path_count: int) -> MapData:
 	randomize()
 	
 	var points: Array[Vector2] = _generate_random_points(plane_len, node_count)
-	
 	var paths: Array[PackedInt64Array] = _generate_paths(points, path_count)
 	
-	var data = MapGeneratorData.new()
+	var data = MapData.new()
 	data.set_paths(paths, points)
+	data.save()
+	
 	return data
 
 # Generates random points
