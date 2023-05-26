@@ -6,15 +6,14 @@ func create(plane_len: int, node_count: int, path_count: int) -> MapData:
 	randomize()
 	var points: Array[Vector2] = _generate_random_points(plane_len, node_count)
 	var paths: Array[PackedInt64Array] = _generate_paths(points, path_count)
-	var nodes: Array[MapNodeData] = _generate_nodes(points)
+	var nodes: Dictionary = _generate_nodes(points, paths)
 	return MapData.new(paths, nodes)
 
+# Loads map data from file
 func create_from_file(file: String) -> MapData:
 	if not FileAccess.file_exists(file):
 		return # Error! We don't have a save to load.
 		
-	# Load the file line by line and process that dictionary to restore
-	# the object it represents.
 	var save_game = FileAccess.open(file, FileAccess.READ)
 	var json_string = save_game.get_line()
 	
@@ -24,18 +23,17 @@ func create_from_file(file: String) -> MapData:
 		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
 		return
 	
-	# Get the data from the JSON object
 	var node_data = json.get_data()
-	print(node_data)
 	return MapData.from_json(node_data)
 
 # Generates random nodes
-func _generate_nodes(points: Array[Vector2]) -> Array[MapNodeData]:
-	var nodes: Array[MapNodeData] = []
-	for point in points:
-		var node = MapNodeData.new()
-		node.position = point
-		nodes.push_back(node)
+func _generate_nodes(points: Array[Vector2], paths: Array[PackedInt64Array]) -> Dictionary:
+	var nodes: Dictionary = {}
+	for path in paths:
+		for id in path:
+			var node = MapNodeData.new()
+			node.position = points[id]
+			nodes[id] = node
 	return nodes
 
 # Generates random points

@@ -2,33 +2,23 @@ class_name MapData
 extends Node
 
 var paths: Array[PackedInt64Array] = []
-var nodes: Dictionary = {} # <int, MapNodeData>
+var nodes: Dictionary = {}
 
-func _init(paths: Array[PackedInt64Array], nodes: Array[MapNodeData]):
+func _init(paths: Array[PackedInt64Array], nodes: Dictionary):
 	self.paths = paths
-	for path in paths:
-		for id in path:
-			self.nodes[id] = nodes[id]
-	pass
+	self.nodes = nodes
 
 func to_json() -> Dictionary:
-	var nodes_array = []
-	for key in nodes:
-		var map_node_json = nodes[key].to_json()
-		nodes_array.append(map_node_json)
-		
 	var dict: Dictionary = {
 		"paths": var_to_str(paths),
-		"nodes": nodes_array
+		"nodes": var_to_str(nodes)
 	}
+	
 	return dict
 
 static func from_json(dict: Dictionary) -> MapData:
-	var nodes: Array[MapNodeData]
 	var paths = str_to_var(dict["paths"])
-	for node_dict in str_to_var(dict["nodes"]):
-		var map_node_data = MapNodeData.from_json(node_dict)
-		nodes.push_back(map_node_data)
+	var nodes = str_to_var(dict["nodes"])
 	return MapData.new(paths, nodes)
 
 func save() -> void:
