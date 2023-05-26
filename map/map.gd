@@ -16,7 +16,9 @@ func _ready() -> void:
 	map_events.map_node_selected.connect(_on_map_node_selected)
 	
 	var generator = MapGenerator.new()
-	var map_data: MapData = generator.generate(50, 15, 5)
+	var map_data: MapData = generator.create(50, 15, 5)
+	map_data.save()
+	var tmp: MapData = generator.create_from_file("user://current_map.save")
 	var map_node_resources = _random_map_node_resources(map_data.nodes.size())
 	
 	for k in map_data.nodes.keys():
