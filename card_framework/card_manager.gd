@@ -1,9 +1,9 @@
 class_name CardManager
 extends Node2D
 
-@export var deck_resource: DeckResource = preload("res://card_framework/resources/deck.tres")
+#@export var deck_resource: DeckResource = preload("res://card_framework/resources/deck.tres")
 @export var encounter_events: EncounterEvents = preload("res://encounter/encounter_events.tres")
-@export var deck_events: DeckEvents = preload("res://card_framework/deck/deck_events.tres")
+#@export var deck_events: DeckEvents = preload("res://card_framework/deck/deck_events.tres")
 @export var card_events: CardEvents = preload("res://card_framework/card/card_events.tres")
 
 @export var card_scene: PackedScene = preload("res://card_framework/card/card.tscn")
@@ -21,56 +21,56 @@ var discard: Array[Card] = [] # The array containing cards in discard pile
 var exhaust: Array[Card] = [] # The array containing cards in exhaust pile
 
 func _ready() -> void:
-	deck_events.deck_draw_triggered.connect(_on_deck_draw_triggered)
-	encounter_events.draw_phase_started.connect(_on_draw_phase_started)
-	encounter_events.reward_selected.connect(_on_reward_selected)
+	#deck_events.deck_draw_triggered.connect(_on_deck_draw_triggered)
+	#encounter_events.draw_phase_started.connect(_on_draw_phase_started)
+	#encounter_events.reward_selected.connect(_on_reward_selected)
 	card_events.card_resolved.connect(_on_card_resolved)
 	card_events.card_discarded.connect(_on_card_discarded)
 	card_events.card_exhausted.connect(_on_card_exhausted)
-	create_deck()
+	#create_deck()
 
+##
+#func create_deck() -> void:
+	#for card in deck_resource.deck_list:
+		#var quantity = deck_resource.deck_list[card]
+		#for _i in range(quantity):
+			#var instance = card_scene.instantiate()
+			#instance.card_resource = card
+			#deck.append(instance)
+	#deck.shuffle()
+
+## Draws a card from deck and put it in hand
+#func draw_card() -> void:
+	#if deck.size() <= 0:
+		#restore_deck()
+	#
+	#var current = deck.pop_back()
+	#hand_node.add_child(current)
+	#hand.append(current)
+	#current.state_machine.transition_to("Draw")
+	#_reposition()
+	#if deck.size() <= 0:
+		#deck_events.deck_depleted.emit()
+		#restore_deck()
+
+## Move cards in discard pile to deck 
+#func restore_deck() -> void:
+	#deck.append_array(discard)
+	#deck.shuffle()
+##	for _card in deck:
+##		_card.global_position = global_position
+	#discard.clear()
+	#deck_events.deck_restored.emit()
 #
-func create_deck() -> void:
-	for card in deck_resource.deck_list:
-		var quantity = deck_resource.deck_list[card]
-		for _i in range(quantity):
-			var instance = card_scene.instantiate()
-			instance.card_resource = card
-			deck.append(instance)
-	deck.shuffle()
-
-# Draws a card from deck and put it in hand
-func draw_card() -> void:
-	if deck.size() <= 0:
-		restore_deck()
-	
-	var current = deck.pop_back()
-	hand_node.add_child(current)
-	hand.append(current)
-	current.state_machine.transition_to("Draw")
-	_reposition()
-	if deck.size() <= 0:
-		deck_events.deck_depleted.emit()
-		restore_deck()
-
-# Move cards in discard pile to deck 
-func restore_deck() -> void:
-	deck.append_array(discard)
-	deck.shuffle()
-#	for _card in deck:
-#		_card.global_position = global_position
-	discard.clear()
-	deck_events.deck_restored.emit()
-
+##
+#func _on_deck_draw_triggered() -> void:
+	#draw_card()
 #
-func _on_deck_draw_triggered() -> void:
-	draw_card()
-
-#
-func _on_draw_phase_started() -> void:
-	var num_cards_to_draw = max(min_cards_in_hand - hand.size(), 1)
-	for _i in range(num_cards_to_draw):
-		draw_card()
+##
+#func _on_draw_phase_started() -> void:
+	#var num_cards_to_draw = max(min_cards_in_hand - hand.size(), 1)
+	#for _i in range(num_cards_to_draw):
+		#draw_card()
 
 #
 func _on_card_resolved(card: Card):
@@ -98,9 +98,9 @@ func _on_card_exhausted(card: Card) -> void:
 	exhaust.append(card)
 	card.global_position = exhaust_node.global_position
 
-# Adds new card to deck resource
-func _on_reward_selected(card_res: CardResource):
-	deck_resource.add_card(card_res)
+## Adds new card to deck resource
+#func _on_reward_selected(card_res: CardResource):
+	#deck_resource.add_card(card_res)
 
 func _reposition():
 	var positions = _generate_positions(hand_node.global_position, 214, hand.size())

@@ -8,12 +8,15 @@ extends Area2D
 ## - placed in discard when it's played
 ## - replaced in deck when the deck is depleted
 
-@export var card_resource: CardResource
-@export var card_events: CardEvents
+signal hover_started(card: Card)
+signal hover_stopped(card: Card)
+signal drag_started(card: Card)
+signal drag_stopped(card: Card)
+signal drag_canceled(card: Card)
 
-# The sprite in background
+@export var card_resource: CardResource
+
 @onready var _background_frame: Sprite2D = $BackgroundFrame
-# The sprite in foreground
 @onready var _foreground_frame: Sprite2D = $ForegroundFrame
 @onready var _name_frame: Sprite2D = $NameFrame
 @onready var _cost_frame: Sprite2D = $CostFrame
@@ -21,51 +24,29 @@ extends Area2D
 @onready var _rarity_frame: Sprite2D = $RarityFrame
 @onready var _selected_frame: Sprite2D = $Selected
 
-# The label where card's name is displayed
 @onready var _name_label: RichTextLabel = $NameFrame/NameLabel
-# The label where card's cost is displayed
 @onready var _cost_label: RichTextLabel = $CostFrame/CostLabel
-# The label where card's description is displayed
 @onready var _description_label: RichTextLabel = $DescriptionFrame/DescriptionLabel
-# The initial position of this node
-@onready var init_pos: Vector2 = global_position
 
 @onready var state_machine: StateMachine = $StateMachine
 
-var mouseover = false
-var playable = true
-var selected = false
-
-func _enter_tree() -> void:
-	card_events.card_played.connect(_on_card_played)
-	card_events.card_returned.connect(_on_card_returned)
-	card_events.card_resolved.connect(_on_card_resolved)
-
-func _exit_tree() -> void:
-	card_events.card_played.disconnect(_on_card_played)
-	card_events.card_returned.disconnect(_on_card_returned)
-	card_events.card_resolved.disconnect(_on_card_resolved)
+var hovered = false
+var dragged = false
 
 func _ready() -> void:
-	set_skin()
 	set_data()
 
-func _process(_delta: float) -> void:
-	_selected_frame.visible = selected
+func _input(event: InputEvent):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed() and hovered:
+			start_drag()
+		if event.button_index == MOUSE_BUTTON_LEFT and event.is_released() and dragged:
+			stop_drag()
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed() and dragged:
+			cancel_drag()
 
-func set_skin() -> void:
-	_background_frame.texture = card_resource.background_frame
-	_background_frame.modulate = card_resource.background_frame_color
-	_foreground_frame.texture = card_resource.foreground_frame
-	_cost_frame.texture = card_resource.cost_frame
-	_cost_frame.modulate = card_resource.cost_frame_color
-	_name_frame.texture = card_resource.name_frame
-	_name_frame.modulate = card_resource.name_frame_color
-	_description_frame.texture = card_resource.description_frame
-	_description_frame.modulate = card_resource.description_frame_color
-	_rarity_frame.texture = card_resource.rarity_frame
-	_rarity_frame.modulate = card_resource.rarity_frame_color
-	_selected_frame.visible = false
+func _process(_delta: float) -> void:
+	_selected_frame.visible = hovered
 
 func set_data() -> void:
 	_name_label.text = card_resource.name
@@ -73,31 +54,46 @@ func set_data() -> void:
 	_cost_label.text = "[center]" + str(card_resource.cost) + "[/center]"
 	_description_label.bbcode_enabled = true
 	_description_label.text = "[center]"
-	for effect in card_resource.effect_resources:
-		_description_label.text += effect.description + "\n"
+	_description_label.text += card_resource.description + "\n"
 	_description_label.text += "[/center]"
 
-func set_selected(value: bool) -> void:
-	selected = value
+var _has_destination: bool = false
+var _destination: Vector2 = Vector2.ZERO
+
+func move_to_destination(destination: Vector2) -> void:
+	_has_destination = true
+	_destination = destination
+	pass
+
+func start_drag() -> void:
+	dragged = true
+	drag_started.emit(self)
+	change_opacity(0.2)
+
+func stop_drag() -> void:
+	dragged = false
+	drag_stopped.emit(self)
+	change_opacity(1)
+
+func cancel_drag() -> void:
+	dragged = false	
+	drag_canceled.emit(self)
+	change_opacity(1)
+
+func change_opacity(opacity: float) -> void:
+	$BackgroundFrame.modulate.a = opacity
+	$ForegroundFrame.modulate.a = opacity
+	$NameFrame.modulate.a = opacity
+	$CostFrame.modulate.a = opacity
+	$DescriptionFrame.modulate.a = opacity
+	$RarityFrame.modulate.a = opacity
 
 func _on_Card_mouse_entered():
-	mouseover = true
+	if hovered: return
+	hover_started.emit(self)
+	hovered = true
 
 func _on_Card_mouse_exited():
-	mouseover = false
-
-func _on_card_played(_card: Card) -> void:
-	playable = false
-	
-func _on_card_returned(_card: Card) -> void:
-	playable = true
-	selected = false
-
-func _on_card_resolved(card: Card) -> void:
-	playable = true
-	selected = false
-#	if self == card:
-#		if card_resource.exhaust:
-#			card_events.card_exhausted.emit(card)
-#		else:
-#			card_events.card_discarded.emit(card)
+	if not hovered: return
+	hover_stopped.emit(self)
+	hovered = false

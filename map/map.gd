@@ -65,7 +65,7 @@ func contains_any_rest(map_node_resource: MapNodeResource):
 func _on_map_node_selected(map_node: MapNode) -> void:
 	print("Change scene %s" % map_node)
 	var level = map_node.scene().instantiate()
-	SceneManager.push_scene(level)
+	#SceneManager.push_scene(level)
 	_current_map_node = map_node
 
 	_current_map_node.complete()

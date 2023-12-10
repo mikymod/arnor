@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://ccfj4xin4lno0"]
+[gd_scene load_steps=21 format=3 uid="uid://ccfj4xin4lno0"]
 
 [ext_resource type="Texture2D" uid="uid://bij0i4ko1fp4r" path="res://card_framework/card/textures/background_frame.png" id="1"]
 [ext_resource type="Script" path="res://card_framework/card/card.gd" id="2"]
+[ext_resource type="Resource" uid="uid://dduc3gtaplml7" path="res://card_framework/card/basic_card.tres" id="2_3kk5g"]
 [ext_resource type="Script" path="res://card_framework/card/states/card_idle.gd" id="4"]
 [ext_resource type="Script" path="res://card_framework/card/states/card_return.gd" id="5"]
 [ext_resource type="Script" path="res://card_framework/card/states/card_play.gd" id="6"]
@@ -33,7 +34,7 @@ scale = Vector2(0.8, 0.8)
 collision_layer = 256
 collision_mask = 512
 script = ExtResource("2")
-card_events = ExtResource("10")
+card_resource = ExtResource("2_3kk5g")
 
 [node name="Selected" type="Sprite2D" parent="."]
 visible = false

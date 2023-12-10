@@ -1,26 +1,24 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://c4idkaiwtpsn1"]
 
 [ext_resource type="Script" path="res://card_framework/target_arrow/target_arrow.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://cp7wjm6h5fjc2" path="res://card_framework/target_arrow/arrow.png" id="2"]
-[ext_resource type="Resource" path="res://card_framework/effect/effect_events.tres" id="3"]
 
-
-[sub_resource type="Curve" id=1]
-_data = [ Vector2( 0.00291545, 0.981818 ), 0.0, 0.0, 0, 0, Vector2( 0.991254, 0.981818 ), 0.0, 0.0, 0, 0 ]
+[sub_resource type="Curve" id="1"]
+_data = [Vector2(0.00291545, 0.981818), 0.0, 0.0, 0, 0, Vector2(0.991254, 0.981818), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="TargetArrow" type="Line2D"]
-position = Vector2( 976, 880 )
-points = PackedVector2Array( 16, 0 )
+position = Vector2(976, 880)
+points = PackedVector2Array(16, 0)
 width = 15.0
-width_curve = SubResource( 1 )
+width_curve = SubResource("1")
 antialiased = true
-script = ExtResource( 1 )
-effect_events = ExtResource( 3 )
+script = ExtResource("1")
 
 [node name="ArrowHead" type="Sprite2D" parent="."]
-texture = ExtResource( 2 )
+texture = ExtResource("2")
 
 [node name="Area2D" type="Area2D" parent="ArrowHead"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ArrowHead/Area2D"]
-polygon = PackedVector2Array( 0, 0, -32, 32, -32, -32 )
+polygon = PackedVector2Array(0, 0, -32, 32, -32, -32)

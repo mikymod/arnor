@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=2 format=3 uid="uid://dduc3gtaplml7"]
+
+[ext_resource type="Script" path="res://card_framework/card/card_resource.gd" id="1_x327t"]
+
+[resource]
+script = ExtResource("1_x327t")
+name = "Empty"
+description = "This is an empty card"
+cost = 1
+rarity = 0
+color = Color(1, 1, 1, 1)
