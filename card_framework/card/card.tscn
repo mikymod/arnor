@@ -26,7 +26,7 @@ default_font = ExtResource("9_1ylnu")
 default_font_size = 28
 
 [sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(203.75, 287.5)
+size = Vector2(203.75, 366.25)
 
 [node name="Card" type="Area2D"]
 position = Vector2(968, 497)
@@ -124,7 +124,7 @@ card_events = ExtResource("10")
 root_path = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.625, 1.25)
+position = Vector2(-0.625, 40.625)
 shape = SubResource("1")
 
 [connection signal="mouse_entered" from="." to="." method="_on_Card_mouse_entered"]

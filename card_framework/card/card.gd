@@ -57,14 +57,6 @@ func set_data() -> void:
 	_description_label.text += card_resource.description + "\n"
 	_description_label.text += "[/center]"
 
-var _has_destination: bool = false
-var _destination: Vector2 = Vector2.ZERO
-
-func move_to_destination(destination: Vector2) -> void:
-	_has_destination = true
-	_destination = destination
-	pass
-
 func start_drag() -> void:
 	dragged = true
 	drag_started.emit(self)

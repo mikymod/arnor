@@ -3,9 +3,10 @@ extends Node2D
 
 @export var card_scene: PackedScene = preload("res://card_framework/card/card.tscn")
 
-@export var interpolation_speed: float = 1000
-@export var card_angle: float = 0
+@export var interpolation_speed: float = 0.1
+@export var card_angle: float = 10
 @export var card_spacing: float = 150
+@export var arc_height: float = 0
 @export var peek_x_displacement: float = 100
 @export var peek_y_displacement: float = -100
 
@@ -14,10 +15,11 @@ extends Node2D
 var cards: Array[Card] = []
 
 var hovered_card: Card
+var hovered_card_index: int = -1
 var dragged_card: Card
 
 func _ready() -> void:
-	for i in 3:
+	for i in 5:
 		add_card()
 	_reposition()
 
@@ -41,35 +43,58 @@ func remove_card(card: Card) -> void:
 	cards.erase(card)
 
 func _reposition():
+	var tween = get_tree().create_tween()
 	var positions = _generate_positions()
 	for i in range(cards.size()):
-		cards[i].global_position = positions[i]
+		tween.tween_property(cards[i], "position", positions[i], interpolation_speed) 
+
+func _get_card_x_pos(index: int) -> float:
+	var center = $Origin.position
+	var num_cards = cards.size()
+	var x_displacement = _get_x_displacement(index)
+	return (index - num_cards / 2) * card_spacing + position.x + center.x + x_displacement
+
+func _get_card_y_pos(index: int) -> float:
+	var center = $Origin.position
+	var y_displacement = _get_y_displacement(index)
+	return center.y + index * arc_height + y_displacement
+
+func _get_x_displacement(index: int) -> float:
+	return peek_x_displacement if hovered_card_index >= 0 and index > hovered_card_index else 0
+
+func _get_y_displacement(index: int) -> float:
+	return peek_y_displacement if index == hovered_card_index else 0
 
 func _generate_positions() -> Array:
-	var center = $Origin.global_position
-	var offset = card_spacing
-	var num_card = cards.size()
 	var positions = []
-	var first_pos_x = 0.0
-	if num_card % 2 == 0:
-		first_pos_x = center.x - offset * 0.5 - offset * (num_card - 1) / 2.0
-	if num_card % 2 == 1:
-		first_pos_x = center.x - (offset * (num_card - 1) / 2.0)
-	for i in range(num_card):
-		positions.append(Vector2(first_pos_x + offset * i, center.y))
+	for i in range(cards.size()):
+		var pos_x = _get_card_x_pos(i)
+		var pos_y = _get_card_y_pos(i)
+		positions.append(Vector2(pos_x, pos_y))
 	return positions
+		
 
 func _on_card_hover_started(card: Card) -> void:
 	hovered_card = card
-	var pos = Vector2(card.position.x, card.position.y + peek_y_displacement)
-	var tween = get_tree().create_tween()
-	tween.tween_property(card, "position", pos, abs(peek_y_displacement / interpolation_speed))
+	hovered_card_index = cards.find(hovered_card)
+	_reposition()
 	
 func _on_card_hover_stopped(card: Card) -> void:
-	var pos = Vector2(card.position.x, origin_y)
-	var tween = get_tree().create_tween()
-	tween.tween_property(card, "position", pos, abs(peek_y_displacement / interpolation_speed))
 	hovered_card = null
+	hovered_card_index = -1
+	_reposition()
+	
+func _displace_unhovered() -> void:
+	var others = cards.filter(func(card): return card != hovered_card)
+	var tween = get_tree().create_tween()
+	for other in others:
+		var pos = other.position
+		if other.position.x > hovered_card.position.x:
+			pos.x += peek_x_displacement
+		else: 
+			pos.x -= peek_x_displacement
+			
+		tween.tween_property(other, "position", pos, interpolation_speed)
 
 func _on_card_drag_started(card: Card) -> void:
 	print("card drag started")
