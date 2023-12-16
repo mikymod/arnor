@@ -45,8 +45,8 @@ func _input(event: InputEvent):
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed() and dragged:
 			cancel_drag()
 
-func _process(_delta: float) -> void:
-	_selected_frame.visible = hovered
+#func _process(_delta: float) -> void:
+	#_selected_frame.visible = hovered
 
 func set_data() -> void:
 	_name_label.text = card_resource.name
@@ -56,6 +56,20 @@ func set_data() -> void:
 	_description_label.text = "[center]"
 	_description_label.text += card_resource.description + "\n"
 	_description_label.text += "[/center]"
+
+func hover() -> void:
+	_selected_frame.visible = true
+
+func unhover() -> void:
+	_selected_frame.visible = false
+
+func _on_Card_mouse_entered():
+	#if hovered: return
+	hover_started.emit(self)
+
+func _on_Card_mouse_exited():
+	#if not hovered: return
+	hover_stopped.emit(self)
 
 func start_drag() -> void:
 	dragged = true
@@ -80,12 +94,3 @@ func change_opacity(opacity: float) -> void:
 	$DescriptionFrame.modulate.a = opacity
 	$RarityFrame.modulate.a = opacity
 
-func _on_Card_mouse_entered():
-	if hovered: return
-	hover_started.emit(self)
-	hovered = true
-
-func _on_Card_mouse_exited():
-	if not hovered: return
-	hover_stopped.emit(self)
-	hovered = false
