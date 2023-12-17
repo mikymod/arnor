@@ -2,19 +2,13 @@ class_name Card
 extends Area2D
 
 ## A Card instance
-##
-## - instanciated in the deck,
-## - placed in hand when it's drawed
-## - placed in discard when it's played
-## - replaced in deck when the deck is depleted
 
 signal hover_started(card: Card)
 signal hover_stopped(card: Card)
-signal drag_started(card: Card)
-signal drag_stopped(card: Card)
-signal drag_canceled(card: Card)
 
 @export var card_resource: CardResource
+
+@export var preview_scene: PackedScene
 
 @onready var _background_frame: Sprite2D = $BackgroundFrame
 @onready var _foreground_frame: Sprite2D = $ForegroundFrame
@@ -30,23 +24,11 @@ signal drag_canceled(card: Card)
 
 @onready var state_machine: StateMachine = $StateMachine
 
-var hovered = false
+var _hovered = false
 var dragged = false
 
 func _ready() -> void:
 	set_data()
-
-func _input(event: InputEvent):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed() and hovered:
-			start_drag()
-		if event.button_index == MOUSE_BUTTON_LEFT and event.is_released() and dragged:
-			stop_drag()
-		if event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed() and dragged:
-			cancel_drag()
-
-#func _process(_delta: float) -> void:
-	#_selected_frame.visible = hovered
 
 func set_data() -> void:
 	_name_label.text = card_resource.name
@@ -64,27 +46,24 @@ func unhover() -> void:
 	_selected_frame.visible = false
 
 func _on_Card_mouse_entered():
-	#if hovered: return
+	_hovered = true
 	hover_started.emit(self)
 
 func _on_Card_mouse_exited():
-	#if not hovered: return
+	_hovered = false
 	hover_stopped.emit(self)
 
-func start_drag() -> void:
-	dragged = true
-	drag_started.emit(self)
-	change_opacity(0.2)
-
-func stop_drag() -> void:
-	dragged = false
-	drag_stopped.emit(self)
-	change_opacity(1)
-
-func cancel_drag() -> void:
-	dragged = false	
-	drag_canceled.emit(self)
-	change_opacity(1)
+#func start_drag() -> void:
+	#dragged = true
+	#change_opacity(0.2)
+#
+#func stop_drag() -> void:
+	#dragged = false
+	#change_opacity(1)
+#
+#func cancel_drag() -> void:
+	#dragged = false
+	#change_opacity(1)
 
 func change_opacity(opacity: float) -> void:
 	$BackgroundFrame.modulate.a = opacity
@@ -93,4 +72,5 @@ func change_opacity(opacity: float) -> void:
 	$CostFrame.modulate.a = opacity
 	$DescriptionFrame.modulate.a = opacity
 	$RarityFrame.modulate.a = opacity
+	$Selected.modulate.a = opacity
 
