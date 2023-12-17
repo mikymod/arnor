@@ -8,7 +8,7 @@ signal hover_stopped(card: Card)
 
 @export var card_resource: CardResource
 
-@export var preview_scene: PackedScene
+@export var unit_scene: PackedScene
 
 @onready var _background_frame: Sprite2D = $BackgroundFrame
 @onready var _foreground_frame: Sprite2D = $ForegroundFrame
