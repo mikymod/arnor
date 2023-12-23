@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpg5jdcy251hp"]
+[gd_scene load_steps=2 format=3 uid="uid://dpg5jdcy251hp"]
 
 [ext_resource type="Script" path="res://card_framework/card_manager.gd" id="1_hfh5v"]
 
@@ -20,4 +20,3 @@ gizmo_extents = 50.0
 [node name="Exhaust" type="Marker2D" parent="."]
 position = Vector2(2497, 1252)
 gizmo_extents = 50.0
-

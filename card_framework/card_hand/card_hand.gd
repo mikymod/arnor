@@ -48,9 +48,10 @@ var _unit_instance: Node = null
 
 
 func _ready() -> void:
-	for i in 5:
-		add_card()
-	_reposition()
+	#for i in 5:
+		#add_card()
+	#_reposition()
+	pass
 
 
 func _input(event: InputEvent) -> void:
@@ -196,3 +197,13 @@ func _on_hand_area_exited(area: Area2D) -> void:
 	card.change_opacity(0)
 	_unit_instance = card.unit_scene.instantiate()
 	call_deferred("add_child", _unit_instance)
+
+
+## Callback invoked when cards are drawed
+func _on_cards_drawed(drawed_cards: Array[Card]) -> void:
+	for new_card in drawed_cards:
+		new_card.hover_started.connect(_on_card_hover_started)
+		new_card.hover_stopped.connect(_on_card_hover_stopped)
+		add_child(new_card)
+		cards.append(new_card)
+	_reposition()
