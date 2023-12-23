@@ -10,9 +10,11 @@
 
 [node name="CardHand" parent="." instance=ExtResource("2_2n4ik")]
 
-[node name="DeckDebugPanel" parent="." instance=ExtResource("3_vm188")]
+[node name="DeckDebugPanel" parent="CardHand" instance=ExtResource("3_vm188")]
+offset_right = 0.0
+offset_bottom = 0.0
 
 [connection signal="cards_drawed" from="Deck" to="CardHand" method="_on_cards_drawed"]
-[connection signal="pressed" from="DeckDebugPanel/VBoxContainer/Button" to="Deck" method="draw_card"]
+[connection signal="pressed" from="CardHand/DeckDebugPanel/VBoxContainer/Button" to="Deck" method="draw_cards" binds= [1]]
 
-[editable path="DeckDebugPanel"]
+[editable path="CardHand/DeckDebugPanel"]
