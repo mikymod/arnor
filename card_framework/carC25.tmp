@@ -9,17 +9,17 @@
 
 [node name="Deck" parent="." instance=ExtResource("1_tf3eb")]
 
+[node name="DeckDebugPanel" parent="Deck" instance=ExtResource("3_vm188")]
+offset_right = -1165.0
+offset_bottom = -611.0
+
 [node name="CardHand" parent="." instance=ExtResource("2_2n4ik")]
 
 [node name="Discard" parent="." instance=ExtResource("4_pj8ie")]
 
-[node name="DeckDebugPanel" parent="." instance=ExtResource("3_vm188")]
-offset_right = -1165.0
-offset_bottom = -611.0
-
 [connection signal="cards_drawed" from="Deck" to="CardHand" method="_on_cards_drawed"]
 [connection signal="deck_exhausted" from="Deck" to="Discard" method="restore_all"]
+[connection signal="pressed" from="Deck/DeckDebugPanel/VBoxContainer/Button" to="Deck" method="draw_cards" binds= [1]]
 [connection signal="card_played" from="CardHand" to="Discard" method="discard_card"]
-[connection signal="pressed" from="DeckDebugPanel/VBoxContainer/Button" to="Deck" method="draw_cards" binds= [1]]
 
-[editable path="DeckDebugPanel"]
+[editable path="Deck/DeckDebugPanel"]

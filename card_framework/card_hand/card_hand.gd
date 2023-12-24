@@ -27,6 +27,8 @@ extends Node2D
 ## If the drag is cancelled, the card becomes visible again and returns
 ## to the right position in hand.
 
+signal card_played(card: Card)
+
 @export var card_scene: PackedScene = preload("res://card_framework/card/card.tscn")
 
 @export var interpolation_speed: float = 0.1
@@ -45,6 +47,8 @@ var _hovered_card_index: int = -1
 var _dragged_card: Card
 var _dragging: bool = false
 var _unit_instance: Node = null
+
+var _playable_card: Card
 
 
 func _ready() -> void:
@@ -175,6 +179,8 @@ func _start_drag() -> void:
 
 ## 
 func _stop_drag() -> void:
+	if _playable_card != null:
+		_play()
 	_dragged_card = null
 	_dragging = false
 
@@ -182,6 +188,16 @@ func _stop_drag() -> void:
 func _cancel_drag() -> void:
 	_dragged_card = null
 	_dragging = false
+	_reposition()
+
+
+##
+func _play() -> void:
+	remove_card(_playable_card)
+	card_played.emit(_playable_card)
+	_unit_instance.queue_free() # TODO: place _unit_instance on map
+	_playable_card = null
+	_hover_queue.clear()
 	_reposition()
 
 ## Callback invoked when a card enters the hand area
@@ -197,6 +213,8 @@ func _on_hand_area_exited(area: Area2D) -> void:
 	card.change_opacity(0)
 	_unit_instance = card.unit_scene.instantiate()
 	call_deferred("add_child", _unit_instance)
+	_playable_card = card
+	
 
 
 ## Callback invoked when cards are drawed
