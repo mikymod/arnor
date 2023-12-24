@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhv1qxopnsr8o"]
+
+[ext_resource type="PackedScene" uid="uid://cndqedysn6yay" path="res://card_framework/cards_ui/deck_icon/deck_icon.tscn" id="1_wugpp"]
+[ext_resource type="PackedScene" uid="uid://cesnjhluaygmp" path="res://card_framework/cards_ui/discard_icon/discard_icon.tscn" id="2_uj4ol"]
+[ext_resource type="PackedScene" uid="uid://cl0upebtbm4y5" path="res://card_framework/cards_ui/exhaust_icon.tscn" id="3_djpe4"]
+
+[node name="CardsUI" type="Control"]
+layout_mode = 3
+anchor_left = 0.725
+anchor_top = 0.001
+anchor_right = 1.0
+anchor_bottom = 0.132
+offset_left = -3.0
+offset_top = -0.72
+offset_right = -2.0
+offset_bottom = -3.04
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="DeckIcon" parent="HBoxContainer" instance=ExtResource("1_wugpp")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DiscardIcon" parent="HBoxContainer" instance=ExtResource("2_uj4ol")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ExhaustIcon" parent="HBoxContainer" instance=ExtResource("3_djpe4")]
+layout_mode = 2
+size_flags_horizontal = 3

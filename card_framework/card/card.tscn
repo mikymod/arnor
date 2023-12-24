@@ -1,23 +1,204 @@
-[gd_scene load_steps=22 format=3 uid="uid://ccfj4xin4lno0"]
+[gd_scene load_steps=33 format=3 uid="uid://ccfj4xin4lno0"]
 
 [ext_resource type="Texture2D" uid="uid://bij0i4ko1fp4r" path="res://card_framework/card/textures/background_frame.png" id="1"]
 [ext_resource type="Script" path="res://card_framework/card/card.gd" id="2"]
-[ext_resource type="Resource" uid="uid://dduc3gtaplml7" path="res://card_framework/card/basic_card.tres" id="2_3kk5g"]
-[ext_resource type="PackedScene" path="res://encounter/tower/tower.tscn" id="3_1it1m"]
-[ext_resource type="Script" path="res://card_framework/card/states/card_idle.gd" id="4"]
-[ext_resource type="Script" path="res://card_framework/card/states/card_return.gd" id="5"]
-[ext_resource type="Script" path="res://card_framework/card/states/card_play.gd" id="6"]
-[ext_resource type="Script" path="res://card_framework/card/states/card_draw.gd" id="7"]
-[ext_resource type="Script" path="res://card_framework/card/states/card_inactive.gd" id="9"]
+[ext_resource type="Resource" uid="uid://dduc3gtaplml7" path="res://card_framework/card/resources/basic_card.tres" id="2_4ktmc"]
+[ext_resource type="Resource" path="res://encounter/bullet/resources/basic_bullet.tres" id="3_8m7mh"]
+[ext_resource type="PackedScene" path="res://encounter/bullet/bullet.tscn" id="4_qcoi3"]
+[ext_resource type="Theme" uid="uid://w7yk87i8qd5d" path="res://encounter/game_ui/game_ui_theme.tres" id="5_5prwl"]
 [ext_resource type="FontFile" uid="uid://dj6p0nso1gbcq" path="res://PeaberryBase.ttf" id="9_1ylnu"]
-[ext_resource type="Resource" path="res://card_framework/card/card_events.tres" id="10"]
 [ext_resource type="Texture2D" uid="uid://b41bay2ovukum" path="res://card_framework/card/textures/cost_frame.png" id="11"]
 [ext_resource type="Texture2D" uid="uid://bn4ml40n7dqcu" path="res://card_framework/card/textures/description_frame.png" id="12"]
-[ext_resource type="Script" path="res://utils/state_machine.gd" id="12_u0ixi"]
 [ext_resource type="Texture2D" uid="uid://d081clexolmeo" path="res://card_framework/card/textures/name_frame.png" id="13"]
 [ext_resource type="Texture2D" uid="uid://cd3el6mxg2ci6" path="res://card_framework/card/textures/foreground_frame.png" id="14"]
 [ext_resource type="Texture2D" uid="uid://5bgincnel8i1" path="res://card_framework/card/textures/rarity_frame.png" id="15"]
 [ext_resource type="Texture2D" uid="uid://bl5omfx1acxku" path="res://card_framework/card/textures/card_selected.png" id="19"]
+
+[sub_resource type="GDScript" id="GDScript_1lwpi"]
+script/source = "class_name Tower
+extends StaticBody2D
+
+@export var resource: Resource # TowerResource
+@export var bullet_scene: PackedScene
+
+var _effects: Array = []
+
+@onready var _timer: Timer = $ShootTimer
+@onready var _shoot_area: Area2D = $ShootTriggerArea
+@onready var _stats_damage_label: Label = $StatsPanel/MarginContainer/HBoxContainer/DamageContainer/DamageHBox/Label
+@onready var _stats_shoot_rate_label: Label = $StatsPanel/MarginContainer/HBoxContainer/ShootRateContainer/ShootRateHBox/Label
+@onready var _stats_armor_label: Label = $StatsPanel/MarginContainer/HBoxContainer/ArmorContainer/ArmorHBox/Label
+
+var _damage: float = 0
+var _health: float = 0
+var _shoot_rate: float = 0
+var _armor: float = 0
+
+func _ready() -> void:
+	change_stats(resource.damage, resource.health, resource.shoot_rate, resource.armor)
+	change_skin(resource.base, resource.body1, resource.body2, resource.roof)
+	_timer.wait_time = 1 / _shoot_rate
+	_timer.paused = true
+
+func _process(delta: float) -> void:
+	_stats_damage_label.text = str(_damage)
+	_stats_shoot_rate_label.text = str(_shoot_rate)
+	_stats_armor_label.text = str(_armor)
+	
+func _fire_bullet() -> void:
+	var bullet = bullet_scene.instantiate()
+	bullet.resource = resource.bullet_resource
+	add_child(bullet)
+	
+	bullet.global_position = $ShootPoint.global_position
+	bullet.damage = _damage
+
+func _on_ShootArea_body_entered(_body: Node):
+	_timer.wait_time = 1 / _shoot_rate
+	if _timer.paused:
+		_timer.paused = false
+
+func _on_ShootTimer_timeout():
+	var bodies = _shoot_area.get_overlapping_bodies()
+	if (bodies.size() == 0):
+		_timer.paused = true
+	else:
+		_fire_bullet()
+		_timer.wait_time = 1 / _shoot_rate
+
+func add_effect(effect: Resource) -> void:
+	if effect == null:
+		return
+		
+	_effects.append(effect)
+	if effect.damage > 0:
+		_damage += effect.damage
+	if effect.health > 0:
+		_health += effect.health
+	if effect.shoot_rate > 0:
+		_shoot_rate += effect.shoot_rate
+	if effect.armor > 0:
+		_armor += effect.armor
+
+func change_stats(damage, health, shoot_rate, armor) -> void:
+	_damage = damage
+	_health = health
+	_shoot_rate = shoot_rate
+	_armor = armor
+
+func change_skin(base: Texture2D, body1: Texture2D, body2: Texture2D, roof: Texture2D) -> void:
+	if base != null: $Base.texture = base 
+	if body1 != null: $Base/Body1.texture = body1
+	if body2 != null: $Base/Body1/Body2.texture = body2
+	if roof != null: $Base/Body1/Body2/Roof.texture = roof
+
+func take_damage(damage: float) -> void:
+	_health -= damage
+	if (_health <= 0):
+		queue_free()
+		# TODO: state machine
+
+func _on_Tower_mouse_entered() -> void:
+	$StatsPanel.visible = true
+
+
+func _on_Tower_mouse_exited() -> void:
+	$StatsPanel.visible = false
+"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rjl0l"]
+load_path = "res://.godot/imported/basic_tower_base.png-166a0db49ecad1482bc7773a848bb738.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ok23d"]
+load_path = "res://.godot/imported/basic_tower_body1.png-9ffc54a8201ee17f06a0c39e95e2c4d1.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3pea6"]
+load_path = "res://.godot/imported/basic_tower_body2.png-3f11ba18f96df74d5ef4326238534c4b.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iqwpe"]
+load_path = "res://.godot/imported/tower_53.png-a681dac37d8b24cb3ca7ff9fd535e85f.ctex"
+
+[sub_resource type="GDScript" id="GDScript_48dp7"]
+script/source = "class_name TowerResource
+extends Resource
+
+@export var damage: float = 1
+@export var health: float = 1
+@export var shoot_rate: float = 1
+@export var armor: float = 0
+
+@export var bullet_resource: Resource
+
+@export var base: Texture2D
+@export var body1: Texture2D
+@export var body2: Texture2D
+@export var roof: Texture2D
+"
+
+[sub_resource type="Resource" id="Resource_d1wxe"]
+script = SubResource("GDScript_48dp7")
+damage = 1.0
+health = 2.0
+shoot_rate = 0.3
+armor = 0.0
+bullet_resource = ExtResource("3_8m7mh")
+base = SubResource("CompressedTexture2D_rjl0l")
+body1 = SubResource("CompressedTexture2D_ok23d")
+body2 = SubResource("CompressedTexture2D_3pea6")
+roof = SubResource("CompressedTexture2D_iqwpe")
+
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(59.25, 113)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a5d02"]
+load_path = "res://.godot/imported/basic_tower_roof.png-91f6dd68e12ff0653fd05252e0526d5e.ctex"
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(1276.38, 60)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nj7mg"]
+load_path = "res://.godot/imported/sword_icon.png-12370122cc24b2918933bb6aab13e499.ctex"
+
+[sub_resource type="FontFile" id="FontFile_n2fr6"]
+fallbacks = Array[Font]([ExtResource("9_1ylnu")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bpyid"]
+load_path = "res://.godot/imported/shoot_rate_icon.png-da658b18369b431ee30d48d541f8387d.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y4dj7"]
+load_path = "res://.godot/imported/shield_icon.png-e70467d168afa7c29c473442d082ee83.ctex"
+
+[sub_resource type="PackedScene" id="PackedScene_0b5uy"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("StatsPanel", "Control", "anchor_right", "anchor_bottom", "offset_left", "offset_right", "offset_bottom", "NinePatchRect", "NinePatchRect", "anchor_right", "anchor_bottom", "texture", "patch_margin_left", "patch_margin_top", "patch_margin_right", "patch_margin_bottom", "MarginContainer", "MarginContainer", "anchor_right", "anchor_bottom", "HBoxContainer", "HBoxContainer", "offset_right", "offset_bottom", "alignment", "DamageContainer", "CenterContainer", "offset_left", "offset_right", "offset_bottom", "DamageHBox", "HBoxContainer", "offset_top", "offset_right", "offset_bottom", "TextureRect", "TextureRect", "offset_right", "offset_bottom", "texture", "Label", "Label", "offset_left", "offset_top", "offset_right", "offset_bottom", "theme", "custom_fonts/font", "text", "ShootRateContainer", "CenterContainer", "offset_left", "offset_right", "offset_bottom", "ShootRateHBox", "HBoxContainer", "offset_top", "offset_right", "offset_bottom", "TextureRect", "TextureRect", "offset_right", "offset_bottom", "texture", "Label", "Label", "offset_left", "offset_top", "offset_right", "offset_bottom", "theme", "custom_fonts/font", "text", "ArmorContainer", "CenterContainer", "offset_left", "offset_right", "offset_bottom", "ArmorHBox", "HBoxContainer", "offset_top", "offset_right", "offset_bottom", "grow_horizontal", "TextureRect", "TextureRect", "offset_right", "offset_bottom", "texture", "Label", "Label", "offset_left", "offset_top", "offset_right", "offset_bottom", "theme", "custom_fonts/font", "text"),
+"node_count": 16,
+"node_paths": [NodePath("."), NodePath("."), NodePath("./MarginContainer"), NodePath("./MarginContainer/HBoxContainer"), NodePath("./MarginContainer/HBoxContainer/DamageContainer"), NodePath("./MarginContainer/HBoxContainer/DamageContainer/DamageHBox"), NodePath("./MarginContainer/HBoxContainer/DamageContainer/DamageHBox"), NodePath("./MarginContainer/HBoxContainer"), NodePath("./MarginContainer/HBoxContainer/ShootRateContainer"), NodePath("./MarginContainer/HBoxContainer/ShootRateContainer/ShootRateHBox"), NodePath("./MarginContainer/HBoxContainer/ShootRateContainer/ShootRateHBox"), NodePath("./MarginContainer/HBoxContainer"), NodePath("./MarginContainer/HBoxContainer/ArmorContainer"), NodePath("./MarginContainer/HBoxContainer/ArmorContainer/ArmorHBox"), NodePath("./MarginContainer/HBoxContainer/ArmorContainer/ArmorHBox")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 5, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 0, 1073741824, 0, 8, 7, -1, 7, 9, 5, 10, 6, 11, 7, 12, 8, 13, 9, 14, 10, 15, 11, 0, 1073741825, 0, 17, 16, -1, 2, 18, 12, 19, 13, 0, 1073741826, 0, 21, 20, -1, 3, 22, 14, 23, 15, 24, 16, 0, 1073741827, 0, 26, 25, -1, 3, 27, 17, 28, 18, 29, 19, 0, 1073741828, 0, 31, 30, -1, 3, 32, 20, 33, 21, 34, 22, 0, 1073741829, 0, 36, 35, -1, 3, 37, 23, 38, 24, 39, 25, 0, 1073741830, 0, 41, 40, -1, 7, 42, 26, 43, 27, 44, 28, 45, 29, 46, 30, 47, 31, 48, 32, 0, 1073741831, 0, 50, 49, -1, 3, 51, 33, 52, 34, 53, 35, 0, 1073741832, 0, 55, 54, -1, 3, 56, 36, 57, 37, 58, 38, 0, 1073741833, 0, 60, 59, -1, 3, 61, 39, 62, 40, 63, 41, 0, 1073741834, 0, 65, 64, -1, 7, 66, 42, 67, 43, 68, 44, 69, 45, 70, 46, 71, 47, 72, 48, 0, 1073741835, 0, 74, 73, -1, 3, 75, 49, 76, 50, 77, 51, 0, 1073741836, 0, 79, 78, -1, 4, 80, 52, 81, 53, 82, 54, 83, 55, 0, 1073741837, 0, 85, 84, -1, 3, 86, 56, 87, 57, 88, 58, 0, 1073741838, 0, 90, 89, -1, 7, 91, 59, 92, 60, 93, 61, 94, 62, 95, 63, 96, 64, 97, 65, 0),
+"variants": [0.108, 0.074, 1.0, 0.639999, 0.0800018, 1.0, 1.0, null, 8, 8, 8, 8, 1.0, 1.0, 207.0, 80.0, 1, 21.0, 73.0, 80.0, 24.0, 52.0, 56.0, 32.0, 32.0, SubResource("CompressedTexture2D_nj7mg"), 36.0, 3.0, 52.0, 29.0, ExtResource("5_5prwl"), SubResource("FontFile_n2fr6"), "0", 77.0, 129.0, 80.0, 24.0, 52.0, 56.0, 32.0, 32.0, SubResource("CompressedTexture2D_bpyid"), 36.0, 3.0, 52.0, 29.0, ExtResource("5_5prwl"), SubResource("FontFile_n2fr6"), "0", 133.0, 185.0, 80.0, 24.0, 52.0, 56.0, 2, 32.0, 32.0, SubResource("CompressedTexture2D_y4dj7"), 36.0, 3.0, 52.0, 29.0, ExtResource("5_5prwl"), SubResource("FontFile_n2fr6"), "0"],
+"version": 3
+}
+
+[sub_resource type="PackedScene" id="PackedScene_i00hu"]
+_bundled = {
+"conn_count": 4,
+"conns": PackedInt32Array(1073741835, 1073741834, 52, 51, 2, 0, 0, 1073741837, 1073741836, 54, 53, 2, 0, 0, 1073741839, 1073741838, 56, 55, 2, 0, 0, 1073741841, 1073741840, 58, 57, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("Tower", "StaticBody2D", "position", "collision_mask", "input_pickable", "script", "resource", "bullet_scene", "CollisionShape2D", "CollisionShape2D", "position", "shape", "Base", "Sprite2D", "scale", "texture", "Body1", "Sprite2D", "position", "texture", "Body2", "Sprite2D", "position", "texture", "Roof", "Sprite2D", "position", "texture", "ShootTriggerArea", "Area2D", "collision_layer", "collision_mask", "monitorable", "linear_damp", "CollisionShape2D", "CollisionShape2D", "position", "shape", "ShootTimer", "Timer", "autostart", "ShootPoint", "Node2D", "position", "StatsPanel", "visible", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "_on_Tower_mouse_entered", "mouse_entered", "_on_Tower_mouse_exited", "mouse_exited", "_on_ShootArea_body_entered", "body_entered", "_on_ShootTimer_timeout", "timeout"),
+"node_count": 11,
+"node_paths": [NodePath("."), NodePath("."), NodePath("./Base"), NodePath("./Base/Body1"), NodePath("./Base/Body1/Body2"), NodePath("."), NodePath("./ShootTriggerArea"), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("ShootTriggerArea"), NodePath("."), NodePath("ShootTimer")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 6, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 0, 1073741824, 0, 9, 8, -1, 2, 10, 6, 11, 7, 0, 1073741825, 0, 13, 12, -1, 2, 14, 8, 15, 9, 0, 1073741826, 0, 17, 16, -1, 2, 18, 10, 19, 11, 0, 1073741827, 0, 21, 20, -1, 2, 22, 12, 23, 13, 0, 1073741828, 0, 25, 24, -1, 2, 26, 14, 27, 15, 0, 1073741829, 0, 29, 28, -1, 4, 30, 16, 31, 17, 32, 18, 33, 19, 0, 1073741830, 0, 35, 34, -1, 2, 36, 20, 37, 21, 0, 1073741831, 0, 39, 38, -1, 1, 40, 22, 0, 1073741832, 0, 42, 41, -1, 1, 43, 23, 0, 1073741833, 0, 2147483647, 44, 24, 6, 45, 25, 46, 26, 47, 27, 48, 28, 49, 29, 50, 30, 0),
+"variants": [Vector2(-1, 1), 4, true, SubResource("GDScript_1lwpi"), SubResource("Resource_d1wxe"), ExtResource("4_qcoi3"), Vector2(-0.625, -34.5), SubResource("2"), Vector2(0.6, 0.6), SubResource("CompressedTexture2D_rjl0l"), Vector2(0, -31), SubResource("CompressedTexture2D_3pea6"), Vector2(0, -30.332), SubResource("CompressedTexture2D_ok23d"), Vector2(0, -45), SubResource("CompressedTexture2D_a5d02"), 0, 4, false, 0.0, Vector2(726.188, -37), SubResource("1"), true, Vector2(64, -64), SubResource("PackedScene_0b5uy"), false, 3, -95.0, 23.0, 97.0, 87.0],
+"version": 3
+}
 
 [sub_resource type="Theme" id="Theme_fcrhx"]
 default_font_size = 12
@@ -26,7 +207,7 @@ default_font_size = 12
 default_font = ExtResource("9_1ylnu")
 default_font_size = 28
 
-[sub_resource type="RectangleShape2D" id="1"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jnpi"]
 size = Vector2(203.75, 287.5)
 
 [node name="Card" type="Area2D"]
@@ -35,8 +216,8 @@ scale = Vector2(0.8, 0.8)
 collision_layer = 256
 collision_mask = 512
 script = ExtResource("2")
-card_resource = ExtResource("2_3kk5g")
-unit_scene = ExtResource("3_1it1m")
+card_resource = ExtResource("2_4ktmc")
+unit_scene = SubResource("PackedScene_i00hu")
 
 [node name="Selected" type="Sprite2D" parent="."]
 visible = false
@@ -98,36 +279,9 @@ text = "Description"
 position = Vector2(0, 15)
 texture = ExtResource("15")
 
-[node name="StateMachine" type="Node" parent="."]
-script = ExtResource("12_u0ixi")
-initial_state = NodePath("Inactive")
-
-[node name="Inactive" type="Node" parent="StateMachine"]
-script = ExtResource("9")
-
-[node name="Draw" type="Node" parent="StateMachine"]
-script = ExtResource("7")
-card_events = ExtResource("10")
-card_path = NodePath("../..")
-
-[node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("4")
-card_events = ExtResource("10")
-card_path = NodePath("../..")
-
-[node name="Return" type="Node" parent="StateMachine"]
-script = ExtResource("5")
-card_events = ExtResource("10")
-card_path = NodePath("../..")
-
-[node name="Play" type="Node" parent="StateMachine"]
-script = ExtResource("6")
-card_events = ExtResource("10")
-root_path = NodePath("../..")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.625, 1.25)
-shape = SubResource("1")
+shape = SubResource("RectangleShape2D_2jnpi")
 
 [connection signal="mouse_entered" from="." to="." method="_on_Card_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_Card_mouse_exited"]

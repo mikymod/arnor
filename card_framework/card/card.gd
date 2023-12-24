@@ -17,12 +17,10 @@ signal hover_stopped(card: Card)
 @onready var _description_frame: Sprite2D = $DescriptionFrame
 @onready var _rarity_frame: Sprite2D = $RarityFrame
 @onready var _selected_frame: Sprite2D = $Selected
-
 @onready var _name_label: RichTextLabel = $NameFrame/NameLabel
 @onready var _cost_label: RichTextLabel = $CostFrame/CostLabel
 @onready var _description_label: RichTextLabel = $DescriptionFrame/DescriptionLabel
 
-@onready var state_machine: StateMachine = $StateMachine
 
 var _hovered = false
 var dragged = false

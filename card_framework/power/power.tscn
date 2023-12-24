@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://btfbyvnf7qm48"]
+
+[ext_resource type="Script" path="res://card_framework/power/power.gd" id="1_441le"]
+[ext_resource type="Texture2D" uid="uid://dp7rxp23dfh0" path="res://card_framework/power/power_on.png" id="5_dwg7y"]
+
+[node name="Power" type="Control"]
+layout_mode = 3
+anchor_left = 0.033
+anchor_top = 0.77
+anchor_right = 0.1
+anchor_bottom = 0.889
+offset_left = 0.639999
+offset_top = 0.399963
+offset_bottom = -0.120056
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_441le")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_dwg7y")
+
+[node name="CenterContainer" type="CenterContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TextureRect/CenterContainer"]
+layout_mode = 2
+text = "5/5"

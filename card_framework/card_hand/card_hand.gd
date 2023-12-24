@@ -29,6 +29,7 @@ extends Node2D
 
 signal card_played(card: Card)
 
+@export var state: CardBoardState = preload("res://card_framework/card_board_state.tres")
 @export var card_scene: PackedScene = preload("res://card_framework/card/card.tscn")
 
 @export var interpolation_speed: float = 0.1
@@ -38,7 +39,6 @@ signal card_played(card: Card)
 @export var peek_x_displacement: float = 50
 @export var peek_y_displacement: float = -100
 
-var cards: Array[Card] = []
 
 var _hover_queue: Array[Card]
 var _hovered_card: Card
@@ -82,27 +82,27 @@ func add_card() -> void:
 	new_card.hover_started.connect(_on_card_hover_started)
 	new_card.hover_stopped.connect(_on_card_hover_stopped)
 	add_child(new_card)
-	cards.append(new_card)
+	state.hand_cards.append(new_card)
 
 ## Removes a card from hand
 func remove_card(card: Card) -> void:
 	card.hover_started.disconnect(_on_card_hover_started)
 	card.hover_stopped.disconnect(_on_card_hover_stopped)
 	remove_child(card)
-	cards.erase(card)
+	state.hand_cards.erase(card)
 
 ## Reposition all cards in hand
 func _reposition():
 	var tween = get_tree().create_tween()
 	var positions = _generate_positions()
-	for i in range(cards.size()):
-		tween.tween_property(cards[i], "position", positions[i], interpolation_speed) 
-		cards[i].rotation_degrees = _get_card_angle(i)
+	for i in range(state.hand_cards.size()):
+		tween.tween_property(state.hand_cards[i], "position", positions[i], interpolation_speed) 
+		state.hand_cards[i].rotation_degrees = _get_card_angle(i)
 
 ## Retrieves the card x position 
 func _get_card_x_pos(index: int) -> float:
 	var center = _get_center()
-	var num_cards = cards.size()
+	var num_cards = state.hand_cards.size()
 	var x_displacement = _get_x_displacement(index)
 	return (index - num_cards / 2) * card_spacing + position.x + center.x + x_displacement
 
@@ -122,7 +122,7 @@ func _get_card_angle(index: int) -> float:
 
 ## Retrieves the index starting from center
 func _get_index_from_center(index: int) -> int:
-	var index_from_center: float = index - (cards.size() - 1) / 2
+	var index_from_center: float = index - (state.hand_cards.size() - 1) / 2
 	if (index_from_center < 0):
 		index_from_center -= 0.5
 	return round(index_from_center)
@@ -135,7 +135,7 @@ func _get_y_displacement(index: int) -> float:
 
 func _generate_positions() -> Array:
 	var positions = []
-	for i in range(cards.size()):
+	for i in range(state.hand_cards.size()):
 		var pos_x = _get_card_x_pos(i)
 		var pos_y = _get_card_y_pos(i)
 		positions.append(Vector2(pos_x, pos_y))
@@ -159,7 +159,7 @@ func _on_card_hover_stopped(card: Card) -> void:
 func _set_hovered_card() -> void:
 	# TODO: investigate this below
 	#cards.all(func (element): element.unhover())
-	for card in cards:
+	for card in state.hand_cards:
 		card.unhover()
 	
 	if (_hover_queue.size() <= 0):
@@ -168,7 +168,7 @@ func _set_hovered_card() -> void:
 		return
 		
 	_hovered_card = _hover_queue.front()
-	_hovered_card_index = cards.find(_hovered_card)
+	_hovered_card_index = state.hand_cards.find(_hovered_card)
 	_hovered_card.hover()
 
 ## Start card dragging
@@ -214,7 +214,6 @@ func _on_hand_area_exited(area: Area2D) -> void:
 	_unit_instance = card.unit_scene.instantiate()
 	call_deferred("add_child", _unit_instance)
 	_playable_card = card
-	
 
 
 ## Callback invoked when cards are drawed
@@ -223,5 +222,5 @@ func _on_cards_drawed(drawed_cards: Array[Card]) -> void:
 		new_card.hover_started.connect(_on_card_hover_started)
 		new_card.hover_stopped.connect(_on_card_hover_stopped)
 		add_child(new_card)
-		cards.append(new_card)
+		state.hand_cards.append(new_card)
 	_reposition()

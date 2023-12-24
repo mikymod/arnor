@@ -2,11 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://djd0p5so15d04" path="res://encounter/game_ui/wave_counter/wave_counter.tscn" id="1"]
 [ext_resource type="PackedScene" path="res://encounter/game_ui/dead_enemies_counter/dead_enemies_counter.tscn" id="2"]
-[ext_resource type="PackedScene" uid="uid://btfbyvnf7qm48" path="res://encounter/game_ui/power/power.tscn" id="6_pmbil"]
+[ext_resource type="PackedScene" uid="uid://btfbyvnf7qm48" path="res://card_framework/power/power.tscn" id="6_pmbil"]
 [ext_resource type="PackedScene" path="res://encounter/game_ui/info_box/info_box.tscn" id="7"]
-[ext_resource type="PackedScene" uid="uid://dhv1qxopnsr8o" path="res://encounter/game_ui/cards/cards.tscn" id="7_0f31k"]
-[ext_resource type="PackedScene" uid="uid://8qwi2axknot3" path="res://encounter/game_ui/reward_area/reward_area.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://dhv1qxopnsr8o" path="res://card_framework/cards_ui/cards_ui.tscn" id="7_0f31k"]
+[ext_resource type="PackedScene" path="res://encounter/game_ui/reward_area/reward_area.tscn" id="8"]
 [ext_resource type="PackedScene" path="res://encounter/game_ui/health_bar/health_bar.tscn" id="9"]
+
 
 [node name="GameUI" type="Control"]
 custom_minimum_size = Vector2(1920, 1080)

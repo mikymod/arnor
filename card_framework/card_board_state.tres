@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="CardBoardState" load_steps=2 format=3 uid="uid://bqj2agvb1xvrn"]
+
+[ext_resource type="Script" path="res://card_framework/card_board_state.gd" id="1_ru118"]
+
+[resource]
+script = ExtResource("1_ru118")
