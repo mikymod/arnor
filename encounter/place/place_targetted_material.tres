@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3]
-
-[ext_resource type="Shader" path="res://encounter/place/place.gdshader" id="1_qtplm"]
-
-[resource]
-shader = ExtResource("1_qtplm")
-shader_parameter/line_color = Color(1, 0, 0.0156863, 1)
-shader_parameter/line_thickness = 3.036

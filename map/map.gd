@@ -4,10 +4,10 @@ extends Node2D
 @export var map_node_scene: PackedScene = preload("res://map/map_node/map_node.tscn")
 @export var map_scale = 20.0
 
-@export var encounter_resource: MapNodeResource = preload("res://map/map_node/resources/encounter.tres")
-@export var market_resource: MapNodeResource = preload("res://map/map_node/resources/market.tres")
-@export var rest_resource: MapNodeResource = preload("res://map/map_node/resources/rest.tres")
-@export var miniboss_resource: MapNodeResource = preload("res://map/map_node/resources/miniboss.tres")
+@export var encounter_resource: MapNodeResource 
+@export var market_resource: MapNodeResource
+@export var rest_resource: MapNodeResource
+@export var miniboss_resource: MapNodeResource
 
 var nodes: Dictionary = {}
 var _current_map_node: MapNode = null

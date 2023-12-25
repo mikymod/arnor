@@ -1,7 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dduknsag247ho"]
 
 [ext_resource type="Script" path="res://map/map_node/map_node.gd" id="1_h0l20"]
-[ext_resource type="Resource" path="res://map/map_node/resources/encounter.tres" id="2_1vsyu"]
 [ext_resource type="Resource" uid="uid://cd46h582aqct5" path="res://map/map_events.tres" id="2_xsw4d"]
 [ext_resource type="Texture2D" uid="uid://dd8unksh6f3xq" path="res://map/textures/market.png" id="4_j8ftk"]
 
