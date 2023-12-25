@@ -9,3 +9,8 @@ func _process(delta: float) -> void:
 
 func restore_power() -> void:
 	state.reset_power()
+
+func _on_card_played(card: Card) -> void:
+	var cost = card.card_resource.cost
+	state.decrease_power(cost)
+

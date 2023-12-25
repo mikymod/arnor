@@ -183,6 +183,7 @@ func _stop_drag() -> void:
 		_play()
 	_dragged_card = null
 	_dragging = false
+	_reposition()
 
 ##
 func _cancel_drag() -> void:
@@ -193,6 +194,8 @@ func _cancel_drag() -> void:
 
 ##
 func _play() -> void:
+	if state.current_power < _playable_card.card_resource.cost:
+		return
 	remove_card(_playable_card)
 	card_played.emit(_playable_card)
 	_unit_instance.queue_free() # TODO: place _unit_instance on map
