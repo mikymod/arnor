@@ -11,7 +11,7 @@ signal hover_stopped(card: Card)
 @export var unit_scene: PackedScene
 
 @onready var _background_frame: Sprite2D = $BackgroundFrame
-@onready var _foreground_frame: Sprite2D = $ForegroundFrame
+#@onready var _foreground_frame: Sprite2D = $ForegroundFrame
 @onready var _name_frame: Sprite2D = $NameFrame
 @onready var _cost_frame: Sprite2D = $CostFrame
 @onready var _description_frame: Sprite2D = $DescriptionFrame
@@ -36,6 +36,7 @@ func set_data() -> void:
 	_description_label.text = "[center]"
 	_description_label.text += card_resource.description + "\n"
 	_description_label.text += "[/center]"
+	pass
 
 func hover() -> void:
 	_selected_frame.visible = true
@@ -46,10 +47,12 @@ func unhover() -> void:
 func _on_Card_mouse_entered():
 	_hovered = true
 	hover_started.emit(self)
+	hover()
 
 func _on_Card_mouse_exited():
 	_hovered = false
 	hover_stopped.emit(self)
+	unhover()
 
 #func start_drag() -> void:
 	#dragged = true
@@ -65,7 +68,7 @@ func _on_Card_mouse_exited():
 
 func change_opacity(opacity: float) -> void:
 	$BackgroundFrame.modulate.a = opacity
-	$ForegroundFrame.modulate.a = opacity
+	#$ForegroundFrame.modulate.a = opacity
 	$NameFrame.modulate.a = opacity
 	$CostFrame.modulate.a = opacity
 	$DescriptionFrame.modulate.a = opacity

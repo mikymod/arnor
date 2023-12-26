@@ -181,12 +181,16 @@ func _start_drag() -> void:
 func _stop_drag() -> void:
 	if _playable_card != null:
 		_play()
+	_hover_queue.clear()
+	_set_hovered_card()
 	_dragged_card = null
 	_dragging = false
 	_reposition()
 
 ##
 func _cancel_drag() -> void:
+	_hover_queue.clear()
+	_set_hovered_card()
 	_dragged_card = null
 	_dragging = false
 	_reposition()
@@ -209,6 +213,7 @@ func _on_hand_area_entered(area: Area2D) -> void:
 	card.change_opacity(1)
 	if _unit_instance != null:
 		_unit_instance.queue_free()
+	_playable_card = null
 
 ## Callback invoked when a card leaves the hand area
 func _on_hand_area_exited(area: Area2D) -> void:

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckijaob7m7yx4"]
+[gd_scene load_steps=8 format=3 uid="uid://ckijaob7m7yx4"]
 
 [ext_resource type="PackedScene" uid="uid://c5v7e6p62ymc5" path="res://card_framework/deck/deck.tscn" id="1_tf3eb"]
 [ext_resource type="PackedScene" uid="uid://df8to81yp88gw" path="res://card_framework/card_hand/card_hand.tscn" id="2_2n4ik"]
+[ext_resource type="PackedScene" uid="uid://dhpr8xqtrhlf" path="res://card_framework/card/card.tscn" id="2_8433w"]
 [ext_resource type="PackedScene" uid="uid://stg1s4723q0d" path="res://card_framework/card_board_debug.tscn" id="3_vm188"]
 [ext_resource type="PackedScene" uid="uid://btfbyvnf7qm48" path="res://card_framework/power/power.tscn" id="4_a36og"]
 [ext_resource type="PackedScene" uid="uid://dcaeke6xag722" path="res://card_framework/discard_pile/discard.tscn" id="4_pj8ie"]
@@ -10,6 +11,7 @@
 [node name="CardFramework" type="Node"]
 
 [node name="Deck" parent="." instance=ExtResource("1_tf3eb")]
+card_scene = ExtResource("2_8433w")
 
 [node name="CardHand" parent="." instance=ExtResource("2_2n4ik")]
 
