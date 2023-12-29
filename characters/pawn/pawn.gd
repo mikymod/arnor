@@ -1,3 +1,4 @@
+class_name Pawn
 extends CharacterBody2D
 
 @onready var _sprite: Sprite2D = $Sprite2D
@@ -29,5 +30,4 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * _agent.max_speed
 	_agent.set_velocity_forced(velocity)
 	move_and_slide()
-
 

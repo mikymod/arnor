@@ -2,12 +2,12 @@ extends Node2D
 
 @onready var _tile_map: TileMap = $TileMap
 @onready var _agent: NavigationAgent2D = $Pawn/NavigationAgent2D
+@onready var _camera: Camera2D = $Camera2D
 
-var tile_map_layer_floor_level : int = 2
-var tile_map_layer_first_level : int = 5
-var tile_map_layer_second_level : int = 8
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+			#_agent.target_position = event.position
+			_agent.target_position = get_global_mouse_position()
 
-func enable_level(layer: int) -> void:
-	var nav_map = _tile_map.get_navigation_map(layer)
-	_agent.set_navigation_map(nav_map)
 
