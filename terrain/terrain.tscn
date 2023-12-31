@@ -1,11 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqdgrrerlbc67"]
 
-[ext_resource type="Script" path="res://terrain/terrain.gd" id="1_brbbk"]
 [ext_resource type="TileSet" uid="uid://gwls54ddpum0" path="res://terrain/tileset_terrain.tres" id="1_vwapa"]
 [ext_resource type="PackedScene" uid="uid://dxordleb10cxn" path="res://characters/pawn/pawn.tscn" id="2_pe8tk"]
+[ext_resource type="PackedScene" uid="uid://c1f3cs2ptukon" path="res://resources/tree/tree.tscn" id="4_2k6dn"]
 
 [node name="Terrain" type="Node2D"]
-script = ExtResource("1_brbbk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(0.8, 0.8)
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -40,11 +43,12 @@ layer_6/y_sort_enabled = true
 layer_6/navigation_enabled = false
 layer_6/tile_data = PackedInt32Array(262153, 131073, 2, 196617, 65537, 1, 131081, 65537, 1, 262152, 1, 2, 196616, 1, 1, 131080, 1, 1, 196623, 131073, 1, 131087, 131073, 1, 196622, 65537, 1, 131086, 65537, 1, 196621, 65537, 1, 131085, 65537, 1, 196620, 65537, 1, 131084, 65537, 1, 196619, 65537, 2, 131083, 65537, 1, 196618, 65537, 2, 131082, 65537, 1, 262159, 131073, 1, 262158, 65537, 1, 262157, 65537, 1, 262156, 1, 2, 327695, 131073, 2, 327694, 65537, 2, 327693, 1, 2, 65551, 131073, 0, 65550, 65537, 0, 65549, 65537, 0, 65548, 65537, 0, 65547, 65537, 0, 65546, 65537, 0, 65545, 65537, 0, 65544, 1, 0)
 
-[node name="Pawn" parent="." instance=ExtResource("2_pe8tk")]
+[node name="Entities" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(220, 658)
+
+[node name="Pawn" parent="Entities" instance=ExtResource("2_pe8tk")]
+position = Vector2(1074, 669)
 platform_on_leave = 2
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-zoom = Vector2(0.8, 0.8)
+[node name="Tree" parent="Entities" instance=ExtResource("4_2k6dn")]
+position = Vector2(1199, 669)
