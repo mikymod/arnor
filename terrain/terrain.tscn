@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqdgrrerlbc67"]
 
 [ext_resource type="Script" path="res://terrain/terrain.gd" id="1_brbbk"]
-[ext_resource type="TileSet" uid="uid://gwls54ddpum0" path="res://terrain/terrain.tres" id="1_vwapa"]
+[ext_resource type="TileSet" uid="uid://gwls54ddpum0" path="res://terrain/tileset_terrain.tres" id="1_vwapa"]
 [ext_resource type="PackedScene" uid="uid://dxordleb10cxn" path="res://characters/pawn/pawn.tscn" id="2_pe8tk"]
 
 [node name="Terrain" type="Node2D"]

@@ -1,10 +1,11 @@
-# Virtual base class for all states.
 class_name State
 extends Node
 
-var state_machine = null
+# Virtual base class for all states.
 
-func enter(_msg := {}) -> void:
+signal transitioned(new_state_name: String)
+
+func enter() -> void:
 	pass
 
 func handle_input(_event: InputEvent) -> void:

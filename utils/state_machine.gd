@@ -10,15 +10,21 @@ signal transitioned(state_name)
 
 var previous_state: State
 
+var states: Dictionary = {}
+
 func _ready() -> void:
 	# Wait untill the parent emits ready signal
 	# The states are children of the owner node so their `_ready()` callback will execute first.
 	await owner.ready
-
-	var children = get_children()
-	for child in children:
-		child.state_machine = self
+	for child in get_children():
+		if child is State:
+			states[child.name] = child
+			child.transitioned.connect(_on_state_transitioned)
+		else:
+			push_warning("State machine contains child which is not State")
 	state.enter()
+
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	state.handle_input(event)
@@ -29,18 +35,28 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	state.physics_update(delta)
 
-func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
-	if not has_node(target_state_name):
-		return
+func _on_state_transitioned(new_state_name: String) -> void:
+	var new_state = states.get(new_state_name)
+	if new_state != null:
+		if new_state != state:
+			state.exit()
+			new_state.enter()
+			state = new_state
+	else:
+		push_warning("Called transition on a state that does not exist")
 
-	state.exit()
-	previous_state = state
-	state = get_node(target_state_name)
-	state.enter(msg)
-	self.transitioned.emit(state.name)
-
-func back_to_previous_state(msg: Dictionary = {}) -> void:
-	state.exit()
-	state = previous_state
-	state.enter(msg)
-	self.transitioned.emit(state.name)
+#func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
+	#if not has_node(target_state_name):
+		#return
+#
+	#state.exit()
+	#previous_state = state
+	#state = get_node(target_state_name)
+	#state.enter(msg)
+	#self.transitioned.emit(state.name)
+#
+#func back_to_previous_state(msg: Dictionary = {}) -> void:
+	#state.exit()
+	#state = previous_state
+	#state.enter(msg)
+	#self.transitioned.emit(state.name)
