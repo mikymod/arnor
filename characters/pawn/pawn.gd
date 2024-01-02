@@ -4,6 +4,7 @@ extends Character
 #@onready var _sprite: Sprite2D = $Sprite2D
 #@onready var _anim_player: AnimationPlayer = $AnimationPlayer
 #@onready var _agent: NavigationAgent2D = $NavigationAgent2D
+@onready var _state_machine: StateMachine = $StateMachine
 
 #func _ready() -> void:
 	#_anim_player.play("idle")
@@ -17,13 +18,7 @@ func _process(delta: float) -> void:
 	if velocity != Vector2.ZERO:
 		_sprite.flip_h = velocity.x < 0
 
-#func _physics_process(delta: float) -> void:
-	#if _agent.is_navigation_finished():
-		#return
-#
-	#var target_position = _agent.get_next_path_position()
-	#var direction = global_position.direction_to(target_position)
-	#velocity = direction * _agent.max_speed
-	#_agent.set_velocity_forced(velocity)
-	#move_and_slide()
+func cut() -> void:
+	_state_machine.transition_to("PawnCutState")
+
 

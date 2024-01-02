@@ -1,7 +1,7 @@
 class_name StateMachine
 extends Node
 
-signal transitioned(state_name)
+#signal transitioned(state_name)
 
 # Path3D to the initial active state. We export it to be able to pick the initial state in the inspector.
 @export var initial_state := NodePath()
@@ -36,6 +36,9 @@ func _physics_process(delta: float) -> void:
 	state.physics_update(delta)
 
 func _on_state_transitioned(new_state_name: String) -> void:
+	transition_to(new_state_name)
+
+func transition_to(new_state_name: String) -> void:
 	var new_state = states.get(new_state_name)
 	if new_state != null:
 		if new_state != state:
@@ -44,16 +47,6 @@ func _on_state_transitioned(new_state_name: String) -> void:
 			state = new_state
 	else:
 		push_warning("Called transition on a state that does not exist")
-
-#func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
-	#if not has_node(target_state_name):
-		#return
-#
-	#state.exit()
-	#previous_state = state
-	#state = get_node(target_state_name)
-	#state.enter(msg)
-	#self.transitioned.emit(state.name)
 #
 #func back_to_previous_state(msg: Dictionary = {}) -> void:
 	#state.exit()

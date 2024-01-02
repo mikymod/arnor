@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://dxordleb10cxn"]
+[gd_scene load_steps=16 format=3 uid="uid://dxordleb10cxn"]
 
 [ext_resource type="Script" path="res://characters/pawn/pawn.gd" id="1_k4jhf"]
 [ext_resource type="Texture2D" uid="uid://cemyqvsdrqidd" path="res://characters/pawn/Pawn_Purple.png" id="1_y2dvd"]
 [ext_resource type="Script" path="res://utils/state_machine.gd" id="3_1q4n3"]
 [ext_resource type="Script" path="res://characters/pawn/pawn_idle_state.gd" id="4_eppkp"]
 [ext_resource type="Script" path="res://characters/pawn/pawn_walk_state.gd" id="5_wq1hl"]
+[ext_resource type="Script" path="res://characters/pawn/pawn_cut_state.gd" id="6_5ypc2"]
 
 [sub_resource type="Animation" id="Animation_qcfbh"]
 length = 0.001
@@ -155,6 +156,7 @@ libraries = {
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_max_distance = 200.0
 avoidance_enabled = true
+avoidance_mask = 3
 debug_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -174,4 +176,8 @@ nav_agent = NodePath("../../NavigationAgent2D")
 script = ExtResource("5_wq1hl")
 character_body = NodePath("../..")
 nav_agent = NodePath("../../NavigationAgent2D")
+animation_player = NodePath("../../AnimationPlayer")
+
+[node name="PawnCutState" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("6_5ypc2")
 animation_player = NodePath("../../AnimationPlayer")
