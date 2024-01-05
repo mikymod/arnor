@@ -1,18 +1,8 @@
 class_name Pawn
 extends Character
 
-#@onready var _sprite: Sprite2D = $Sprite2D
-#@onready var _anim_player: AnimationPlayer = $AnimationPlayer
-#@onready var _agent: NavigationAgent2D = $NavigationAgent2D
 @onready var _state_machine: StateMachine = $StateMachine
 
-#func _ready() -> void:
-	#_anim_player.play("idle")
-
-#func _input(event: InputEvent) -> void:
-	#if event is InputEventMouseButton:
-		#if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-			#_agent.target_position = event.position
 
 func _process(delta: float) -> void:
 	if velocity != Vector2.ZERO:
@@ -21,4 +11,14 @@ func _process(delta: float) -> void:
 func cut() -> void:
 	_state_machine.transition_to("PawnCutState")
 
+func _on_resource_body_entered(body: Node2D) -> void:
+	if body is PineTree:
+		var pine_tree = body as PineTree
+		var cut_pos = pine_tree.get_cut_position()
+		_agent.target_position = cut_pos.global_position
+		_agent.navigation_finished.connect(_on_pine_tree_reached)
+
+func _on_pine_tree_reached() -> void:
+	_agent.navigation_finished.disconnect(_on_pine_tree_reached)
+	cut()
 

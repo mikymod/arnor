@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dxordleb10cxn"]
+[gd_scene load_steps=18 format=3 uid="uid://dxordleb10cxn"]
 
 [ext_resource type="Script" path="res://characters/pawn/pawn.gd" id="1_k4jhf"]
 [ext_resource type="Texture2D" uid="uid://cemyqvsdrqidd" path="res://characters/pawn/Pawn_Purple.png" id="1_y2dvd"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://characters/pawn/pawn_idle_state.gd" id="4_eppkp"]
 [ext_resource type="Script" path="res://characters/pawn/pawn_walk_state.gd" id="5_wq1hl"]
 [ext_resource type="Script" path="res://characters/pawn/pawn_cut_state.gd" id="6_5ypc2"]
+[ext_resource type="Script" path="res://characters/pawn/gathering_progress.gd" id="7_d0src"]
 
 [sub_resource type="Animation" id="Animation_qcfbh"]
 length = 0.001
@@ -138,6 +139,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhv3q"]
 size = Vector2(26, 36)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyyah"]
+size = Vector2(170, 165)
+
 [node name="Pawn" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_k4jhf")
@@ -163,6 +167,13 @@ debug_enabled = true
 position = Vector2(0, -18)
 shape = SubResource("RectangleShape2D_dhv3q")
 
+[node name="ResourceArea2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResourceArea2D"]
+position = Vector2(-3, -27.5)
+shape = SubResource("RectangleShape2D_oyyah")
+
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_1q4n3")
 initial_state = NodePath("PawnIdleState")
@@ -178,6 +189,33 @@ character_body = NodePath("../..")
 nav_agent = NodePath("../../NavigationAgent2D")
 animation_player = NodePath("../../AnimationPlayer")
 
-[node name="PawnCutState" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player")]
+[node name="PawnCutState" type="Node" parent="StateMachine" node_paths=PackedStringArray("_animation_player", "_gathering_progress")]
 script = ExtResource("6_5ypc2")
-animation_player = NodePath("../../AnimationPlayer")
+_animation_player = NodePath("../../AnimationPlayer")
+_gathering_progress = NodePath("../../GatheringProgress")
+
+[node name="GatheringProgress" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -88.0
+offset_top = -109.0
+offset_right = 82.0
+offset_bottom = -79.0
+script = ExtResource("7_d0src")
+
+[node name="ProgressBar" type="ProgressBar" parent="GatheringProgress"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 28.1
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="GatheringProgress"]
+
+[connection signal="body_entered" from="ResourceArea2D" to="." method="_on_resource_body_entered"]
+[connection signal="timeout" from="GatheringProgress/Timer" to="StateMachine/PawnCutState" method="_on_timer_timeout"]
+[connection signal="timeout" from="GatheringProgress/Timer" to="GatheringProgress" method="_on_timer_timeout"]
