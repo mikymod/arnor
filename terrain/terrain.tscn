@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqdgrrerlbc67"]
+[gd_scene load_steps=5 format=3 uid="uid://dqdgrrerlbc67"]
 
 [ext_resource type="TileSet" uid="uid://gwls54ddpum0" path="res://terrain/tileset_terrain.tres" id="1_vwapa"]
 [ext_resource type="PackedScene" uid="uid://dxordleb10cxn" path="res://characters/pawn/pawn.tscn" id="2_pe8tk"]
-[ext_resource type="PackedScene" uid="uid://c1f3cs2ptukon" path="res://resources/tree/tree.tscn" id="4_2k6dn"]
+[ext_resource type="PackedScene" uid="uid://c1f3cs2ptukon" path="res://resources/tree/pine_tree.tscn" id="4_2k6dn"]
+[ext_resource type="PackedScene" uid="uid://dq0hve3xn83nl" path="res://resources/gold_mine/gold_mine.tscn" id="4_sgih2"]
 
 [node name="Terrain" type="Node2D"]
 
@@ -50,5 +51,9 @@ y_sort_enabled = true
 position = Vector2(1074, 669)
 platform_on_leave = 2
 
-[node name="Tree" parent="Entities" instance=ExtResource("4_2k6dn")]
+[node name="PineTree" parent="Entities" instance=ExtResource("4_2k6dn")]
 position = Vector2(1199, 669)
+
+[node name="GoldMine" parent="Entities" instance=ExtResource("4_sgih2")]
+y_sort_enabled = true
+position = Vector2(1196, 372)

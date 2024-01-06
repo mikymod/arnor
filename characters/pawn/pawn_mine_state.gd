@@ -5,7 +5,7 @@ extends State
 
 func enter() -> void:
 	_gathering_progress.start()
-	_animation_player.play("cut")
+	_animation_player.play("gather")
 
 func _on_timer_timeout():
 	transitioned.emit("PawnIdleState")

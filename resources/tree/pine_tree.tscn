@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c1f3cs2ptukon"]
 
-[ext_resource type="Script" path="res://resources/tree/tree.gd" id="1_njpyv"]
+[ext_resource type="Script" path="res://resources/tree/pine_tree.gd" id="1_njpyv"]
 [ext_resource type="Texture2D" uid="uid://bhjine7a1jtqk" path="res://resources/tree/Tree.png" id="1_w8n71"]
 
 [sub_resource type="Animation" id="Animation_hpfhr"]
@@ -61,7 +61,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogmbn"]
 size = Vector2(56, 54)
 
-[node name="Tree" type="StaticBody2D"]
+[node name="PineTree" type="StaticBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_njpyv")
 

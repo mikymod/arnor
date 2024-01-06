@@ -1,8 +1,6 @@
 class_name StateMachine
 extends Node
 
-#signal transitioned(state_name)
-
 # Path3D to the initial active state. We export it to be able to pick the initial state in the inspector.
 @export var initial_state := NodePath()
 

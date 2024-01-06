@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dxordleb10cxn"]
+[gd_scene load_steps=19 format=3 uid="uid://dxordleb10cxn"]
 
 [ext_resource type="Script" path="res://characters/pawn/pawn.gd" id="1_k4jhf"]
 [ext_resource type="Texture2D" uid="uid://cemyqvsdrqidd" path="res://characters/pawn/Pawn_Purple.png" id="1_y2dvd"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://characters/pawn/pawn_walk_state.gd" id="5_wq1hl"]
 [ext_resource type="Script" path="res://characters/pawn/pawn_cut_state.gd" id="6_5ypc2"]
 [ext_resource type="Script" path="res://characters/pawn/gathering_progress.gd" id="7_d0src"]
+[ext_resource type="Script" path="res://characters/pawn/pawn_mine_state.gd" id="7_n4hc8"]
 
 [sub_resource type="Animation" id="Animation_qcfbh"]
 length = 0.001
@@ -194,6 +195,11 @@ script = ExtResource("6_5ypc2")
 _animation_player = NodePath("../../AnimationPlayer")
 _gathering_progress = NodePath("../../GatheringProgress")
 
+[node name="PawnMineState" type="Node" parent="StateMachine" node_paths=PackedStringArray("_animation_player", "_gathering_progress")]
+script = ExtResource("7_n4hc8")
+_animation_player = NodePath("../../AnimationPlayer")
+_gathering_progress = NodePath("../../GatheringProgress")
+
 [node name="GatheringProgress" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -205,6 +211,7 @@ offset_bottom = -79.0
 script = ExtResource("7_d0src")
 
 [node name="ProgressBar" type="ProgressBar" parent="GatheringProgress"]
+z_index = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
