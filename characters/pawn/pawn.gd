@@ -3,6 +3,9 @@ extends Character
 
 @onready var _state_machine: StateMachine = $StateMachine
 
+var _pine_tree: PineTree
+var _gold_mine: GoldMine
+
 
 func _process(delta: float) -> void:
 	if velocity != Vector2.ZERO:
@@ -16,13 +19,13 @@ func mine() -> void:
 
 func _on_resource_body_entered(body: Node2D) -> void:
 	if body is PineTree:
-		var pine_tree = body as PineTree
-		var cut_pos = pine_tree.get_cut_position()
+		_pine_tree = body as PineTree
+		var cut_pos = _pine_tree.get_cut_position()
 		_agent.target_position = cut_pos.global_position
 		_agent.navigation_finished.connect(_on_pine_tree_reached)
 	elif body is GoldMine:
-		var gold_mine = body as GoldMine
-		var gather_pos = gold_mine.get_gather_position()
+		_gold_mine = body as GoldMine
+		var gather_pos = _gold_mine.get_gather_position()
 		_agent.target_position = gather_pos.global_position
 		_agent.navigation_finished.connect(_on_gold_mine_reached)
 

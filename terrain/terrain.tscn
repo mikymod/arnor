@@ -54,6 +54,9 @@ platform_on_leave = 2
 [node name="PineTree" parent="Entities" instance=ExtResource("4_2k6dn")]
 position = Vector2(1199, 669)
 
+[node name="PineTree2" parent="Entities" instance=ExtResource("4_2k6dn")]
+position = Vector2(897, 263)
+
 [node name="GoldMine" parent="Entities" instance=ExtResource("4_sgih2")]
 y_sort_enabled = true
 position = Vector2(1196, 372)
