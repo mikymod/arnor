@@ -195,10 +195,9 @@ _pawn = NodePath("../..")
 _animation_player = NodePath("../../AnimationPlayer")
 _gathering_progress = NodePath("../../GatheringProgress")
 
-[node name="Timer" type="Timer" parent="StateMachine/PawnCutState"]
-
-[node name="PawnMineState" type="Node" parent="StateMachine" node_paths=PackedStringArray("_animation_player", "_gathering_progress")]
+[node name="PawnMineState" type="Node" parent="StateMachine" node_paths=PackedStringArray("_pawn", "_animation_player", "_gathering_progress")]
 script = ExtResource("7_n4hc8")
+_pawn = NodePath("../..")
 _animation_player = NodePath("../../AnimationPlayer")
 _gathering_progress = NodePath("../../GatheringProgress")
 
@@ -226,5 +225,4 @@ show_percentage = false
 [node name="Timer" type="Timer" parent="GatheringProgress"]
 
 [connection signal="body_entered" from="ResourceArea2D" to="." method="_on_resource_body_entered"]
-[connection signal="timeout" from="GatheringProgress/Timer" to="StateMachine/PawnCutState" method="_on_timer_timeout"]
 [connection signal="timeout" from="GatheringProgress/Timer" to="GatheringProgress" method="_on_timer_timeout"]

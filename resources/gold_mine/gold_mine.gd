@@ -1,5 +1,10 @@
 class_name GoldMine
-extends StaticBody2D
+extends Supply
+
+@export var gold_resource: GatherResource = preload("res://resources/gold.tres")
+
+func pop_resource() -> void:
+	gold_resource.add(amount)
 
 func activate() -> void:
 	$InactiveSprite.visible = false
@@ -19,3 +24,4 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	deactivate()
+
