@@ -167,10 +167,11 @@ debug_enabled = true
 position = Vector2(0, -18)
 shape = SubResource("RectangleShape2D_dhv3q")
 
-[node name="ResourceArea2D" type="Area2D" parent="."]
+[node name="SupplyArea2D" type="Area2D" parent="."]
 visible = false
+collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ResourceArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SupplyArea2D"]
 position = Vector2(-3, -27.5)
 shape = SubResource("RectangleShape2D_oyyah")
 
@@ -224,5 +225,5 @@ show_percentage = false
 
 [node name="Timer" type="Timer" parent="GatheringProgress"]
 
-[connection signal="body_entered" from="ResourceArea2D" to="." method="_on_resource_body_entered"]
+[connection signal="body_entered" from="SupplyArea2D" to="." method="_on_supply_body_entered"]
 [connection signal="timeout" from="GatheringProgress/Timer" to="GatheringProgress" method="_on_timer_timeout"]

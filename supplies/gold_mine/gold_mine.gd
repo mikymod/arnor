@@ -1,7 +1,7 @@
 class_name GoldMine
 extends Supply
 
-@export var gold_resource: GatherResource = preload("res://resources/gold.tres")
+@export var gold_resource: GatherResource = preload("res://supplies/gold.tres")
 
 func pop_resource() -> void:
 	gold_resource.add(amount)

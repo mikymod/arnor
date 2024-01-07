@@ -1,7 +1,7 @@
 class_name PineTree
 extends Supply
 
-@export var wood_resource: GatherResource = preload("res://resources/wood.tres")
+@export var wood_resource: GatherResource = preload("res://supplies/wood.tres")
 
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 

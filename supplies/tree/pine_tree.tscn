@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c1f3cs2ptukon"]
 
-[ext_resource type="Script" path="res://resources/tree/pine_tree.gd" id="1_njpyv"]
-[ext_resource type="Texture2D" uid="uid://bhjine7a1jtqk" path="res://resources/tree/Tree.png" id="1_w8n71"]
+[ext_resource type="Script" path="res://supplies/tree/pine_tree.gd" id="1_njpyv"]
+[ext_resource type="Texture2D" uid="uid://bhjine7a1jtqk" path="res://supplies/tree/Tree.png" id="1_w8n71"]
 
 [sub_resource type="Animation" id="Animation_hpfhr"]
 length = 0.001
@@ -63,6 +63,7 @@ size = Vector2(56, 54)
 
 [node name="PineTree" type="StaticBody2D"]
 y_sort_enabled = true
+collision_layer = 4
 script = ExtResource("1_njpyv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

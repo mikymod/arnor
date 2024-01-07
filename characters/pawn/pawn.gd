@@ -18,7 +18,7 @@ func cut() -> void:
 func mine() -> void:
 	_state_machine.transition_to("PawnMineState")
 
-func _on_resource_body_entered(body: Node2D) -> void:
+func _on_supply_body_entered(body: Node2D) -> void:
 	if body is PineTree:
 		pine_tree = body as PineTree
 		var cut_pos = pine_tree.get_cut_position()
@@ -37,4 +37,3 @@ func _on_pine_tree_reached() -> void:
 func _on_gold_mine_reached() -> void:
 	_agent.navigation_finished.disconnect(_on_gold_mine_reached)
 	mine()
-

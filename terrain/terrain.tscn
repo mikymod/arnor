@@ -2,8 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://gwls54ddpum0" path="res://terrain/tileset_terrain.tres" id="1_vwapa"]
 [ext_resource type="PackedScene" uid="uid://dxordleb10cxn" path="res://characters/pawn/pawn.tscn" id="2_pe8tk"]
-[ext_resource type="PackedScene" uid="uid://c1f3cs2ptukon" path="res://resources/tree/pine_tree.tscn" id="4_2k6dn"]
-[ext_resource type="PackedScene" uid="uid://dq0hve3xn83nl" path="res://resources/gold_mine/gold_mine.tscn" id="4_sgih2"]
+[ext_resource type="PackedScene" uid="uid://c1f3cs2ptukon" path="res://supplies/tree/pine_tree.tscn" id="4_2k6dn"]
+[ext_resource type="PackedScene" uid="uid://dq0hve3xn83nl" path="res://supplies/gold_mine/gold_mine.tscn" id="4_sgih2"]
 
 [node name="Terrain" type="Node2D"]
 
@@ -58,5 +58,7 @@ position = Vector2(1199, 669)
 position = Vector2(897, 263)
 
 [node name="GoldMine" parent="Entities" instance=ExtResource("4_sgih2")]
-y_sort_enabled = true
 position = Vector2(1196, 372)
+
+[node name="GoldMine2" parent="Entities" instance=ExtResource("4_sgih2")]
+position = Vector2(341, 257)

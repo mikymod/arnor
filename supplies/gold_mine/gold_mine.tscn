@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://dq0hve3xn83nl"]
 
-[ext_resource type="Script" path="res://resources/gold_mine/gold_mine.gd" id="1_fhxx5"]
-[ext_resource type="Texture2D" uid="uid://qn0rey6nfou2" path="res://resources/gold_mine/GoldMine_Inactive.png" id="1_ubblb"]
-[ext_resource type="Texture2D" uid="uid://6eqb15b527fm" path="res://resources/gold_mine/GoldMine_Active.png" id="2_p7lfs"]
-[ext_resource type="Texture2D" uid="uid://ddhdu080340vt" path="res://resources/gold_mine/GoldMine_Destroyed.png" id="3_7rjab"]
+[ext_resource type="Script" path="res://supplies/gold_mine/gold_mine.gd" id="1_fhxx5"]
+[ext_resource type="Texture2D" uid="uid://qn0rey6nfou2" path="res://supplies/gold_mine/GoldMine_Inactive.png" id="1_ubblb"]
+[ext_resource type="Texture2D" uid="uid://6eqb15b527fm" path="res://supplies/gold_mine/GoldMine_Active.png" id="2_p7lfs"]
+[ext_resource type="Texture2D" uid="uid://ddhdu080340vt" path="res://supplies/gold_mine/GoldMine_Destroyed.png" id="3_7rjab"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mshjr"]
 size = Vector2(97, 47)
@@ -12,6 +12,8 @@ size = Vector2(97, 47)
 size = Vector2(154, 84)
 
 [node name="GoldMine" type="StaticBody2D"]
+y_sort_enabled = true
+collision_layer = 4
 script = ExtResource("1_fhxx5")
 
 [node name="InactiveSprite" type="Sprite2D" parent="."]
@@ -36,6 +38,7 @@ shape = SubResource("RectangleShape2D_mshjr")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, -42)
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_s827y")
