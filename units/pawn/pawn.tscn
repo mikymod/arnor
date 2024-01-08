@@ -1,13 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://dxordleb10cxn"]
+[gd_scene load_steps=20 format=3 uid="uid://dxordleb10cxn"]
 
-[ext_resource type="Script" path="res://characters/pawn/pawn.gd" id="1_k4jhf"]
-[ext_resource type="Texture2D" uid="uid://cemyqvsdrqidd" path="res://characters/pawn/Pawn_Purple.png" id="1_y2dvd"]
+[ext_resource type="Script" path="res://units/pawn/pawn.gd" id="1_k4jhf"]
+[ext_resource type="Texture2D" uid="uid://cemyqvsdrqidd" path="res://units/pawn/Pawn_Purple.png" id="1_y2dvd"]
 [ext_resource type="Script" path="res://utils/state_machine.gd" id="3_1q4n3"]
-[ext_resource type="Script" path="res://characters/pawn/pawn_idle_state.gd" id="4_eppkp"]
-[ext_resource type="Script" path="res://characters/pawn/pawn_walk_state.gd" id="5_wq1hl"]
-[ext_resource type="Script" path="res://characters/pawn/pawn_cut_state.gd" id="6_5ypc2"]
-[ext_resource type="Script" path="res://characters/pawn/gathering_progress.gd" id="7_d0src"]
-[ext_resource type="Script" path="res://characters/pawn/pawn_mine_state.gd" id="7_n4hc8"]
+[ext_resource type="Script" path="res://units/pawn/pawn_idle_state.gd" id="4_eppkp"]
+[ext_resource type="Script" path="res://units/pawn/pawn_walk_state.gd" id="5_wq1hl"]
+[ext_resource type="Script" path="res://units/pawn/pawn_cut_state.gd" id="6_5ypc2"]
+[ext_resource type="Script" path="res://units/pawn/gathering_progress.gd" id="7_d0src"]
+[ext_resource type="Script" path="res://units/pawn/pawn_mine_state.gd" id="7_n4hc8"]
+[ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://units/health_bar.tscn" id="9_bb7oo"]
 
 [sub_resource type="Animation" id="Animation_qcfbh"]
 length = 0.001
@@ -224,6 +225,12 @@ value = 28.1
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="GatheringProgress"]
+
+[node name="HealthBar" parent="." instance=ExtResource("9_bb7oo")]
+offset_left = -74.0
+offset_top = -137.0
+offset_right = 74.0
+offset_bottom = -110.0
 
 [connection signal="body_entered" from="SupplyArea2D" to="." method="_on_supply_body_entered"]
 [connection signal="timeout" from="GatheringProgress/Timer" to="GatheringProgress" method="_on_timer_timeout"]

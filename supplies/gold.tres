@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GatherResource" load_steps=2 format=3 uid="uid://dgn0lagk0tnxq"]
+[gd_resource type="Resource" script_class="Supply" load_steps=2 format=3 uid="uid://dgn0lagk0tnxq"]
 
 [ext_resource type="Script" path="res://supplies/supply.gd" id="1_7fqu2"]
 

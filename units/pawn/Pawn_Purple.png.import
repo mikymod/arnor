@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cemyqvsdrqidd"
-path="res://.godot/imported/Pawn_Purple.png-6b39b80d1b8cc6ff6be2420861424a5d.ctex"
+path="res://.godot/imported/Pawn_Purple.png-3369ce1e3ca1d663be008eb54752d925.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/pawn/Pawn_Purple.png"
-dest_files=["res://.godot/imported/Pawn_Purple.png-6b39b80d1b8cc6ff6be2420861424a5d.ctex"]
+source_file="res://units/pawn/Pawn_Purple.png"
+dest_files=["res://.godot/imported/Pawn_Purple.png-3369ce1e3ca1d663be008eb54752d925.ctex"]
 
 [params]
 

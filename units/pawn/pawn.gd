@@ -1,5 +1,5 @@
 class_name Pawn
-extends Character
+extends Unit
 
 @onready var _state_machine: StateMachine = $StateMachine
 @onready var _gathering_progress: GatheringProgress = $GatheringProgress
@@ -7,6 +7,8 @@ extends Character
 var pine_tree: PineTree
 var gold_mine: GoldMine
 
+func _ready() -> void:
+	setup()
 
 func _process(delta: float) -> void:
 	if velocity != Vector2.ZERO:
