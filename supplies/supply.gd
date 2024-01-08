@@ -1,8 +1,13 @@
 class_name Supply
-extends Node2D
+extends Resource
 
-## Base class for Supply.
-## GoldMine and PineTree extends from this.
+## A supply resource.
 
-@export var amount: int = 10
-@export var pop_amount: int = 2
+signal resource_changed()
+
+@export var value: int = 0
+
+## Adds the amount to the supply
+func add(amount: int) -> void:
+	value += amount
+	resource_changed.emit()

@@ -1,27 +1,27 @@
 class_name GoldMine
-extends Supply
+extends SupplySource
 
-@export var gold_resource: GatherResource = preload("res://supplies/gold.tres")
+## A source for gold.
 
-func pop_resource() -> void:
-	gold_resource.add(amount)
-
+## Activates the gold mine
 func activate() -> void:
 	$InactiveSprite.visible = false
 	$ActiveSprite.visible = true
 
+## Deactivates the gold mine
 func deactivate() -> void:
 	$InactiveSprite.visible = true
 	$ActiveSprite.visible = false
 
+## Returns the position to place a pawn
 func get_gather_position() -> Node2D:
 	return $GatherPosition
 
-
+## A callback invoked when a pawn entered the supply Area
 func _on_area_2d_body_entered(body):
 	activate()
 
-
+## A callback invoked when a pawn exited the supply area
 func _on_area_2d_body_exited(body):
 	deactivate()
 
