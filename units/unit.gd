@@ -1,10 +1,12 @@
 class_name Unit
 extends CharacterBody2D
 
+signal target_changed(target: Node2D)
+
 enum UnitSpeed {
-	SLOW,
-	MEDIUM,
-	FAST,
+	SLOW = 50,
+	MEDIUM = 100,
+	FAST = 200,
 }
 
 @export var health: float = 1000
@@ -16,10 +18,24 @@ enum UnitSpeed {
 @onready var _sprite: Sprite2D = $Sprite2D
 @onready var _anim_player: AnimationPlayer = $AnimationPlayer
 @onready var _agent: NavigationAgent2D = $NavigationAgent2D
-@onready var _health_bar: HealthBar = $HealthBar
+@onready var _health_bar: ProgressBar = $HealthBar
+
+var _target: Node2D
 
 func dps() -> float:
 	return damage / attack_speed
 
-func setup() -> void:
-	_health_bar.init(health)
+func _ready() -> void:
+	_health_bar.min_value = 0
+	_health_bar.max_value = health
+	_health_bar.value = health
+	set_target()
+
+func _process(delta: float) -> void:
+	if velocity != Vector2.ZERO:
+		_sprite.flip_h = velocity.x < 0
+
+func set_target() -> void:
+	_target = get_tree().get_first_node_in_group("targets")
+	_agent.max_speed = speed
+	

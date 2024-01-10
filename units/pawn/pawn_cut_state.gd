@@ -10,11 +10,13 @@ func enter() -> void:
 	_animation_player.animation_finished.connect(_on_cut_finished)
 	_gathering_progress.gathering_stopped.connect(on_gathering_timeout)
 
+
 func on_gathering_timeout():
-	transitioned.emit("PawnIdleState")
 	_animation_player.animation_finished.disconnect(_on_cut_finished)
 	_gathering_progress.gathering_stopped.disconnect(on_gathering_timeout)
 	_pawn.pine_tree.pop_resource()
+	transitioned.emit("PawnWalkState")
+
 
 func _on_cut_finished(name: String) -> void:
 	_pawn.pine_tree.hit()

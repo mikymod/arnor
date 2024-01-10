@@ -49,9 +49,10 @@ layer_6/tile_data = PackedInt32Array(262153, 131073, 2, 196617, 65537, 1, 131081
 [node name="Entities" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Pawn" parent="Entities" instance=ExtResource("2_pe8tk")]
+[node name="Pawn" parent="Entities" groups=["allies"] instance=ExtResource("2_pe8tk")]
 position = Vector2(1074, 669)
 platform_on_leave = 2
+speed = 50
 
 [node name="PineTree" parent="Entities" instance=ExtResource("4_2k6dn")]
 position = Vector2(1199, 669)
@@ -68,3 +69,6 @@ supply = ExtResource("6_tewuw")
 [node name="GoldMine2" parent="Entities" instance=ExtResource("4_sgih2")]
 position = Vector2(341, 257)
 supply = ExtResource("6_tewuw")
+
+[node name="Target" type="Marker2D" parent="Entities" groups=["targets"]]
+position = Vector2(1300, 156)

@@ -180,14 +180,15 @@ shape = SubResource("RectangleShape2D_oyyah")
 script = ExtResource("3_1q4n3")
 initial_state = NodePath("PawnIdleState")
 
-[node name="PawnIdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player", "nav_agent")]
+[node name="PawnIdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("pawn", "animation_player", "nav_agent")]
 script = ExtResource("4_eppkp")
+pawn = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
 nav_agent = NodePath("../../NavigationAgent2D")
 
-[node name="PawnWalkState" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_body", "nav_agent", "animation_player")]
+[node name="PawnWalkState" type="Node" parent="StateMachine" node_paths=PackedStringArray("pawn", "nav_agent", "animation_player")]
 script = ExtResource("5_wq1hl")
-character_body = NodePath("../..")
+pawn = NodePath("../..")
 nav_agent = NodePath("../../NavigationAgent2D")
 animation_player = NodePath("../../AnimationPlayer")
 

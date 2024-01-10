@@ -8,11 +8,7 @@ var pine_tree: PineTree
 var gold_mine: GoldMine
 
 func _ready() -> void:
-	setup()
-
-func _process(delta: float) -> void:
-	if velocity != Vector2.ZERO:
-		_sprite.flip_h = velocity.x < 0
+	super._ready()
 
 func cut() -> void:
 	_state_machine.transition_to("PawnCutState")

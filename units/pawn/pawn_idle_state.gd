@@ -1,11 +1,15 @@
 extends State
 
+@export var pawn: Pawn
 @export var animation_player: AnimationPlayer
 @export var nav_agent: NavigationAgent2D
 
 func enter() -> void:
 	animation_player.play("idle")
-
+	
+func update(_delta: float) -> void:
+	if pawn._target != null:
+		transitioned.emit("PawnWalkState")
 
 func handle_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
