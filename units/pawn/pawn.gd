@@ -16,7 +16,7 @@ func cut() -> void:
 func mine() -> void:
 	_state_machine.transition_to("PawnMineState")
 
-func _on_supply_body_entered(body: Node2D) -> void:
+func _on_interaction_body_entered(body: Node2D) -> void:
 	if body is PineTree:
 		pine_tree = body as PineTree
 		var cut_pos = pine_tree.get_cut_position()

@@ -140,8 +140,8 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhv3q"]
 size = Vector2(26, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyyah"]
-size = Vector2(170, 165)
+[sub_resource type="CircleShape2D" id="CircleShape2D_0am5w"]
+radius = 82.4924
 
 [node name="Pawn" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -170,13 +170,12 @@ debug_enabled = true
 position = Vector2(0, -18)
 shape = SubResource("RectangleShape2D_dhv3q")
 
-[node name="SupplyArea2D" type="Area2D" parent="."]
-visible = false
+[node name="InteractionArea2D" type="Area2D" parent="."]
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SupplyArea2D"]
-position = Vector2(-3, -27.5)
-shape = SubResource("RectangleShape2D_oyyah")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea2D"]
+position = Vector2(0, -28)
+shape = SubResource("CircleShape2D_0am5w")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_1q4n3")
@@ -235,5 +234,5 @@ offset_top = -137.0
 offset_right = 74.0
 offset_bottom = -110.0
 
-[connection signal="body_entered" from="SupplyArea2D" to="." method="_on_supply_body_entered"]
+[connection signal="body_entered" from="InteractionArea2D" to="." method="_on_interaction_body_entered"]
 [connection signal="timeout" from="GatheringProgress/Timer" to="GatheringProgress" method="_on_timer_timeout"]

@@ -6,15 +6,14 @@ extends State
 
 func enter() -> void:
 	animation_player.play("walk")
-	#pawn.set_target()
-	var target = get_tree().get_first_node_in_group("targets")
+	pawn.target = get_tree().get_first_node_in_group("targets")
 	nav_agent.max_speed = 100
-	#nav_agent.target_position = pawn._target.global_position
-	nav_agent.target_position = target.global_position
+	nav_agent.target_position = pawn.target.global_position
 	nav_agent.navigation_finished.connect(_on_navigation_finished)
 	nav_agent.velocity_computed.connect(_on_velocity_computed)
 
 func physics_update(_delta: float) -> void:
+	#nav_agent.target_position = pawn.target.global_position
 	var target_position = nav_agent.get_next_path_position()
 	var direction = pawn.global_position.direction_to(target_position)
 	var new_velocity = direction * 100
@@ -25,14 +24,13 @@ func physics_update(_delta: float) -> void:
 		_on_velocity_computed(new_velocity)
 
 func exit() -> void:
-		nav_agent.velocity_computed.disconnect(_on_velocity_computed)
+	nav_agent.velocity_computed.disconnect(_on_velocity_computed)
 	
 func _on_navigation_finished() -> void:
 	transitioned.emit("PawnIdleState")
 	nav_agent.navigation_finished.disconnect(_on_navigation_finished)
 
 func _on_velocity_computed(safe_velocity: Vector2) -> void:
-	print(safe_velocity)
 	pawn.velocity = safe_velocity
 	var collided = pawn.move_and_slide()
 	if collided:

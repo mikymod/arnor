@@ -8,8 +8,10 @@ func enter() -> void:
 	animation_player.play("idle")
 	
 func update(_delta: float) -> void:
-	if pawn._target != null:
-		transitioned.emit("PawnWalkState")
+	if pawn.target != null:
+		var distance = absf(pawn.global_position.distance_to(pawn.target.global_position))
+		if distance > 0.5:
+			transitioned.emit("PawnWalkState")
 
 func handle_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
