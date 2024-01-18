@@ -15,7 +15,7 @@ func on_gathering_timeout():
 	_animation_player.animation_finished.disconnect(_on_cut_finished)
 	_gathering_progress.gathering_stopped.disconnect(on_gathering_timeout)
 	_pawn.pine_tree.pop_resource()
-	transitioned.emit("PawnWalkState")
+	transitioned.emit("Walk")
 
 
 func _on_cut_finished(name: String) -> void:

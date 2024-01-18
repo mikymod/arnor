@@ -6,9 +6,9 @@ extends State
 
 func enter() -> void:
 	animation_player.play("walk")
-	#pawn.target = get_tree().get_first_node_in_group("targets")
-	nav_agent.max_speed = 100
-	nav_agent.target_position = pawn.target.global_position
+	nav_agent.max_speed = 350
+	nav_agent.target_position = pawn.target.global_position + Vector2(randf_range(-40, 40), randf_range(-40, 40))
+
 	nav_agent.navigation_finished.connect(_on_navigation_finished)
 	nav_agent.velocity_computed.connect(_on_velocity_computed)
 
@@ -28,12 +28,10 @@ func exit() -> void:
 	nav_agent.navigation_finished.disconnect(_on_navigation_finished)
 		
 func _on_navigation_finished() -> void:
-	transitioned.emit("PawnIdleState")
+	transitioned.emit("Idle")
 	nav_agent.navigation_finished.disconnect(_on_navigation_finished)
 
 func _on_velocity_computed(safe_velocity: Vector2) -> void:
 	pawn.velocity = safe_velocity
 	var collided = pawn.move_and_slide()
-	if collided:
-		var collision = pawn.get_last_slide_collision()
 

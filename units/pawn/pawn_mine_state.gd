@@ -10,6 +10,6 @@ func enter() -> void:
 	_gathering_progress.gathering_stopped.connect(on_gathering_timeout)
 
 func on_gathering_timeout():
-	transitioned.emit("PawnWalkState")
+	transitioned.emit("Walk")
 	_pawn.gold_mine.pop_resource()
 	_gathering_progress.gathering_stopped.disconnect(on_gathering_timeout)

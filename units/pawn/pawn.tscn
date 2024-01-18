@@ -164,9 +164,15 @@ libraries = {
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_max_distance = 200.0
 avoidance_enabled = true
+radius = 40.0
 neighbor_distance = 1000.0
+max_speed = 300.0
 avoidance_mask = 3
 debug_enabled = true
+
+[node name="PathUpdateTimer" type="Timer" parent="NavigationAgent2D"]
+wait_time = 0.25
+autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -23)
@@ -182,27 +188,27 @@ shape = SubResource("CircleShape2D_11oan")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_1q4n3")
-initial_state = NodePath("PawnIdleState")
+initial_state = NodePath("Idle")
 
-[node name="PawnIdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("pawn", "animation_player", "nav_agent")]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("pawn", "animation_player", "nav_agent")]
 script = ExtResource("4_eppkp")
 pawn = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
 nav_agent = NodePath("../../NavigationAgent2D")
 
-[node name="PawnWalkState" type="Node" parent="StateMachine" node_paths=PackedStringArray("pawn", "nav_agent", "animation_player")]
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("pawn", "nav_agent", "animation_player")]
 script = ExtResource("5_wq1hl")
 pawn = NodePath("../..")
 nav_agent = NodePath("../../NavigationAgent2D")
 animation_player = NodePath("../../AnimationPlayer")
 
-[node name="PawnCutState" type="Node" parent="StateMachine" node_paths=PackedStringArray("_pawn", "_animation_player", "_gathering_progress")]
+[node name="Cut" type="Node" parent="StateMachine" node_paths=PackedStringArray("_pawn", "_animation_player", "_gathering_progress")]
 script = ExtResource("6_5ypc2")
 _pawn = NodePath("../..")
 _animation_player = NodePath("../../AnimationPlayer")
 _gathering_progress = NodePath("../../GatheringProgress")
 
-[node name="PawnMineState" type="Node" parent="StateMachine" node_paths=PackedStringArray("_pawn", "_animation_player", "_gathering_progress")]
+[node name="Mine" type="Node" parent="StateMachine" node_paths=PackedStringArray("_pawn", "_animation_player", "_gathering_progress")]
 script = ExtResource("7_n4hc8")
 _pawn = NodePath("../..")
 _animation_player = NodePath("../../AnimationPlayer")

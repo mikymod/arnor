@@ -166,9 +166,10 @@ animation_player = NodePath("../../AnimationPlayer")
 script = ExtResource("6_j8htv")
 animation_player = NodePath("../../AnimationPlayer")
 
-[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player")]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player", "goblin")]
 script = ExtResource("7_tx86a")
 animation_player = NodePath("../../AnimationPlayer")
+goblin = NodePath("../..")
 
 [node name="HealthBar" parent="." instance=ExtResource("3_epvrc")]
 offset_left = -73.0
@@ -177,5 +178,5 @@ offset_right = 74.0
 offset_bottom = -101.0
 metadata/_edit_use_anchors_ = true
 
-[connection signal="body_entered" from="CollisionShape2D/InteractionArea2D" to="StateMachine/Idle" method="_on_interaction_area_2d_body_entered"]
-[connection signal="body_entered" from="CollisionShape2D/InteractionArea2D" to="StateMachine/Walk" method="_on_interaction_area_2d_body_entered"]
+[connection signal="body_entered" from="CollisionShape2D/InteractionArea2D" to="." method="_on_interaction_area_2d_body_entered"]
+[connection signal="body_exited" from="CollisionShape2D/InteractionArea2D" to="." method="_on_interaction_area_2d_body_exited"]

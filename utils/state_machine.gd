@@ -4,7 +4,7 @@ extends Node
 # Path3D to the initial active state. We export it to be able to pick the initial state in the inspector.
 @export var initial_state := NodePath()
 
-@onready var state = get_node(initial_state)
+@onready var state: State = get_node(initial_state)
 
 var previous_state: State
 

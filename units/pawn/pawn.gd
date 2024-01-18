@@ -1,6 +1,7 @@
 class_name Pawn
 extends Unit
 
+
 @onready var _state_machine: StateMachine = $StateMachine
 @onready var _gathering_progress: GatheringProgress = $GatheringProgress
 
@@ -13,11 +14,11 @@ func _ready() -> void:
 
 
 func cut() -> void:
-	_state_machine.transition_to("PawnCutState")
+	_state_machine.transition_to("Cut")
 
 
 func mine() -> void:
-	_state_machine.transition_to("PawnMineState")
+	_state_machine.transition_to("Mine")
 
 
 func _on_interaction_body_entered(body: Node2D) -> void:
