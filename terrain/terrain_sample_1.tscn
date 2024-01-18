@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqdmhpfw035kq"]
+[gd_scene load_steps=10 format=3 uid="uid://cqdmhpfw035kq"]
 
 [ext_resource type="TileSet" uid="uid://gwls54ddpum0" path="res://terrain/tileset_terrain.tres" id="1_7mhop"]
 [ext_resource type="Script" path="res://terrain/terrain.gd" id="1_n2iem"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dq0hve3xn83nl" path="res://supplies/gold_mine/gold_mine.tscn" id="4_hnv7m"]
 [ext_resource type="Resource" uid="uid://dgn0lagk0tnxq" path="res://supplies/gold.tres" id="5_q5hec"]
 [ext_resource type="PackedScene" uid="uid://dxordleb10cxn" path="res://units/pawn/pawn.tscn" id="6_4db73"]
+[ext_resource type="PackedScene" uid="uid://bvmn3d0p758g4" path="res://units/enemy/goblin.tscn" id="8_d7ej2"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kr55t"]
 vertices = PackedVector2Array(1392, -619, 1387, 884, 1366, -4, 1366, -64, 1237, 451, 1237, 377, 419, -11, 419, -71, 497, -74, 500, 523, 370, 432, 370, 358, 1161, 451, 810, 877, 1033, 460, 1200, -4, 1161, 377, 721, 528, 811, 882, 209, 882, 253, -11, 294, 358, 1034, -17, 1200, -64, 792, 463, 792, 465, 792, -625, 806, -11, 205, -625, 805, -10, 711, -12, 713, -76, 792, -630, 721, 465, 294, 432, 253, -71)
@@ -61,7 +62,7 @@ supply = ExtResource("5_q5hec")
 [node name="Pawn" parent="Entities" node_paths=PackedStringArray("target") groups=["allies"] instance=ExtResource("6_4db73")]
 position = Vector2(782, 686)
 speed = 50
-target = NodePath("../Target")
+target = NodePath("../Goblin")
 
-[node name="Target" type="Marker2D" parent="Entities" groups=["targets"]]
-position = Vector2(783, -462)
+[node name="Goblin" parent="Entities" instance=ExtResource("8_d7ej2")]
+position = Vector2(777, -420)

@@ -67,10 +67,10 @@ supply = ExtResource("6_tewuw")
 position = Vector2(897, 263)
 supply = ExtResource("4_yitcp")
 
-[node name="Pawn" parent="Entities" node_paths=PackedStringArray("target") groups=["allies"] instance=ExtResource("2_pe8tk")]
+[node name="Pawn" parent="Entities" node_paths=PackedStringArray("target") instance=ExtResource("2_pe8tk")]
 position = Vector2(935, 554)
 speed = 50
 target = NodePath("../Target")
 
-[node name="Target" type="Marker2D" parent="Entities" groups=["targets"]]
+[node name="Target" type="Marker2D" parent="Entities"]
 position = Vector2(1286, 262)

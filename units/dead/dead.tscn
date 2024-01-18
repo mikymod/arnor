@@ -1,0 +1,125 @@
+[gd_scene load_steps=18 format=3 uid="uid://bvycq218q60ql"]
+
+[ext_resource type="Texture2D" uid="uid://ccx6fh2e7lvqv" path="res://units/dead/Dead.png" id="1_gmbxi"]
+[ext_resource type="Script" path="res://units/dead/dead.gd" id="1_mgv8d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_466aa"]
+atlas = ExtResource("1_gmbxi")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pb4fr"]
+atlas = ExtResource("1_gmbxi")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phxqh"]
+atlas = ExtResource("1_gmbxi")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhviv"]
+atlas = ExtResource("1_gmbxi")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txbuo"]
+atlas = ExtResource("1_gmbxi")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmsoi"]
+atlas = ExtResource("1_gmbxi")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8d7r"]
+atlas = ExtResource("1_gmbxi")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fkrh"]
+atlas = ExtResource("1_gmbxi")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18o3i"]
+atlas = ExtResource("1_gmbxi")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebd5s"]
+atlas = ExtResource("1_gmbxi")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2bll"]
+atlas = ExtResource("1_gmbxi")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bscjs"]
+atlas = ExtResource("1_gmbxi")
+region = Rect2(512, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uug4o"]
+atlas = ExtResource("1_gmbxi")
+region = Rect2(640, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j4bb"]
+atlas = ExtResource("1_gmbxi")
+region = Rect2(768, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kajv8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_466aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pb4fr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phxqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhviv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txbuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmsoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8d7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fkrh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18o3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebd5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2bll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bscjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uug4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j4bb")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 10.0
+}]
+
+[node name="Dead" type="Node2D"]
+position = Vector2(592, 336)
+script = ExtResource("1_mgv8d")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kajv8")
+animation = &"dead"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_dead_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_fade_timer_timeout"]

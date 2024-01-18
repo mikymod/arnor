@@ -6,7 +6,7 @@ extends State
 
 func enter() -> void:
 	animation_player.play("walk")
-	pawn.target = get_tree().get_first_node_in_group("targets")
+	#pawn.target = get_tree().get_first_node_in_group("targets")
 	nav_agent.max_speed = 100
 	nav_agent.target_position = pawn.target.global_position
 	nav_agent.navigation_finished.connect(_on_navigation_finished)
