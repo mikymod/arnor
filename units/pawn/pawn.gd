@@ -33,7 +33,7 @@ func _on_interaction_body_entered(body: Node2D) -> void:
 		_agent.navigation_finished.connect(_on_gold_mine_reached)
 	elif body is Enemy:
 		enemy = body as Enemy
-		_agent.navigation_finished.connect(_on_enemy_reached)
+		_state_machine.transition_to("Hammer")
 
 
 func _on_pine_tree_reached() -> void:
@@ -43,6 +43,3 @@ func _on_pine_tree_reached() -> void:
 func _on_gold_mine_reached() -> void:
 	_agent.navigation_finished.disconnect(_on_gold_mine_reached)
 	mine()
-
-func _on_enemy_reached() -> void:
-	_state_machine.transition_to("PawnIdleState")

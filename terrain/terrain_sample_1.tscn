@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bvmn3d0p758g4" path="res://units/enemy/goblin.tscn" id="8_d7ej2"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kr55t"]
-vertices = PackedVector2Array(1392, -619, 1387, 884, 1366, -4, 1366, -64, 1237, 451, 1237, 377, 419, -11, 419, -71, 497, -74, 500, 523, 370, 432, 370, 358, 1161, 451, 810, 877, 1033, 460, 1200, -4, 1161, 377, 721, 528, 811, 882, 209, 882, 253, -11, 294, 358, 1034, -17, 1200, -64, 792, 463, 792, 465, 792, -625, 806, -11, 205, -625, 805, -10, 711, -12, 713, -76, 792, -630, 721, 465, 294, 432, 253, -71)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(6, 9, 10, 11), PackedInt32Array(12, 4, 1, 13, 14), PackedInt32Array(15, 2, 5, 16), PackedInt32Array(17, 13, 18, 19, 9), PackedInt32Array(20, 6, 11, 21), PackedInt32Array(14, 22, 23, 15, 16), PackedInt32Array(14, 16, 12), PackedInt32Array(24, 14, 13, 25), PackedInt32Array(26, 0, 3, 23), PackedInt32Array(26, 23, 22, 27, 28), PackedInt32Array(29, 30, 31), PackedInt32Array(28, 32, 26), PackedInt32Array(17, 33, 25, 13), PackedInt32Array(10, 9, 19, 34), PackedInt32Array(28, 27, 29, 31), PackedInt32Array(28, 31, 8), PackedInt32Array(28, 8, 7, 35), PackedInt32Array(19, 28, 35, 20), PackedInt32Array(34, 19, 20, 21)])
+vertices = PackedVector2Array(1392, -619, 1387, 884, 1366, -4, 1366, -64, 1237, 451, 1237, 377, 448, -18, 448, -78, 497, -74, 500, 523, 370, 432, 370, 358, 1161, 451, 810, 877, 1033, 460, 1200, -4, 1161, 377, 282, -18, 294, 358, 721, 528, 811, 882, 209, 882, 1034, -17, 1200, -64, 792, 463, 792, 465, 792, -625, 806, -11, 713, -76, 805, -10, 711, -12, 282, -78, 205, -625, 792, -630, 721, 465, 294, 432)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(6, 9, 10, 11), PackedInt32Array(12, 4, 1, 13, 14), PackedInt32Array(15, 2, 5, 16), PackedInt32Array(17, 6, 11, 18), PackedInt32Array(19, 13, 20, 21, 9), PackedInt32Array(14, 22, 23, 15, 16), PackedInt32Array(14, 16, 12), PackedInt32Array(24, 14, 13, 25), PackedInt32Array(26, 0, 3, 23), PackedInt32Array(26, 23, 22, 27, 28), PackedInt32Array(29, 30, 28, 27), PackedInt32Array(31, 32, 33, 26, 7), PackedInt32Array(19, 34, 25, 13), PackedInt32Array(10, 9, 21, 35), PackedInt32Array(18, 35, 21, 32, 17), PackedInt32Array(31, 17, 32), PackedInt32Array(8, 7, 26, 28)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(195, -635, 199, 892, 823, 892, 810, 455, 711, 455, 711, 518, 510, 513, 507, -64, 703, -66, 701, -3, 814, 0, 802, -641), PackedVector2Array(1397, 895, 1403, -629, 791, -636, 792, -1, 1024, -7, 1023, 450, 782, 454, 794, 887)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
@@ -56,11 +56,21 @@ position = Vector2(1282, 7)
 supply = ExtResource("5_q5hec")
 
 [node name="GoldMine2" parent="Entities/NavigationRegion2D" instance=ExtResource("4_hnv7m")]
-position = Vector2(335, 0)
+position = Vector2(364, -7)
 supply = ExtResource("5_q5hec")
 
 [node name="Pawn" parent="Entities" node_paths=PackedStringArray("target") groups=["allies"] instance=ExtResource("6_4db73")]
 position = Vector2(782, 686)
+speed = 50
+target = NodePath("../Goblin")
+
+[node name="Pawn2" parent="Entities" node_paths=PackedStringArray("target") groups=["allies"] instance=ExtResource("6_4db73")]
+position = Vector2(1177, 666)
+speed = 50
+target = NodePath("../Goblin")
+
+[node name="Pawn3" parent="Entities" node_paths=PackedStringArray("target") groups=["allies"] instance=ExtResource("6_4db73")]
+position = Vector2(437, 624)
 speed = 50
 target = NodePath("../Goblin")
 

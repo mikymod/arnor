@@ -25,7 +25,8 @@ func physics_update(_delta: float) -> void:
 
 func exit() -> void:
 	nav_agent.velocity_computed.disconnect(_on_velocity_computed)
-	
+	nav_agent.navigation_finished.disconnect(_on_navigation_finished)
+		
 func _on_navigation_finished() -> void:
 	transitioned.emit("PawnIdleState")
 	nav_agent.navigation_finished.disconnect(_on_navigation_finished)

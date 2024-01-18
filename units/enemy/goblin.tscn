@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bvmn3d0p758g4"]
+[gd_scene load_steps=17 format=3 uid="uid://bvmn3d0p758g4"]
 
 [ext_resource type="Script" path="res://units/enemy/enemy.gd" id="1_c8vbl"]
 [ext_resource type="Texture2D" uid="uid://l504sw08nqb5" path="res://units/enemy/Torch_Red.png" id="1_qshxj"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://utils/state_machine.gd" id="4_mlxjd"]
 [ext_resource type="Script" path="res://units/enemy/goblin_idle_state.gd" id="5_h8cyt"]
 [ext_resource type="Script" path="res://units/enemy/goblin_walk_state.gd" id="6_j8htv"]
-[ext_resource type="Script" path="res://units/unit_die_state.gd" id="7_fg7d3"]
 [ext_resource type="Script" path="res://units/enemy/goblin_attack_state.gd" id="7_tx86a"]
 
 [sub_resource type="Animation" id="Animation_34en5"]
@@ -128,6 +127,7 @@ radius = 79.511
 [node name="Goblin" type="CharacterBody2D"]
 position = Vector2(641, 352)
 collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_c8vbl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -145,9 +145,11 @@ libraries = {
 position = Vector2(0, -25)
 shape = SubResource("CircleShape2D_g24hp")
 
-[node name="Area2D" type="Area2D" parent="CollisionShape2D"]
+[node name="InteractionArea2D" type="Area2D" parent="CollisionShape2D"]
+collision_layer = 0
+monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/InteractionArea2D"]
 shape = SubResource("CircleShape2D_l2oln")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -168,13 +170,12 @@ animation_player = NodePath("../../AnimationPlayer")
 script = ExtResource("7_tx86a")
 animation_player = NodePath("../../AnimationPlayer")
 
-[node name="Die" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("7_fg7d3")
-animation_player = NodePath("../../AnimationPlayer")
-
 [node name="HealthBar" parent="." instance=ExtResource("3_epvrc")]
 offset_left = -73.0
 offset_top = -128.0
 offset_right = 74.0
 offset_bottom = -101.0
 metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="CollisionShape2D/InteractionArea2D" to="StateMachine/Idle" method="_on_interaction_area_2d_body_entered"]
+[connection signal="body_entered" from="CollisionShape2D/InteractionArea2D" to="StateMachine/Walk" method="_on_interaction_area_2d_body_entered"]
