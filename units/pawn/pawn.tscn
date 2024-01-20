@@ -145,7 +145,7 @@ radius = 24.1868
 [sub_resource type="CircleShape2D" id="CircleShape2D_11oan"]
 radius = 79.511
 
-[node name="Pawn" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent")]
+[node name="Pawn" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent", "attack_timer")]
 y_sort_enabled = true
 collision_mask = 3
 motion_mode = 1
@@ -154,6 +154,7 @@ health = 200.0
 sprite = NodePath("Sprite2D")
 anim_player = NodePath("AnimationPlayer")
 agent = NodePath("NavigationAgent2D")
+attack_timer = NodePath("AttackTimer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -26)

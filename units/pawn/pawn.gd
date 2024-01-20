@@ -53,6 +53,3 @@ func _on_pine_tree_reached() -> void:
 func _on_gold_mine_reached() -> void:
 	agent.navigation_finished.disconnect(_on_gold_mine_reached)
 	mine()
-
-
-

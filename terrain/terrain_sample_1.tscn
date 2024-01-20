@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqdmhpfw035kq"]
+[gd_scene load_steps=11 format=3 uid="uid://cqdmhpfw035kq"]
 
 [ext_resource type="TileSet" uid="uid://gwls54ddpum0" path="res://terrain/tileset_terrain.tres" id="1_7mhop"]
 [ext_resource type="Script" path="res://terrain/terrain.gd" id="1_n2iem"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://dgn0lagk0tnxq" path="res://supplies/gold.tres" id="5_q5hec"]
 [ext_resource type="PackedScene" uid="uid://dxordleb10cxn" path="res://units/pawn/pawn.tscn" id="6_4db73"]
 [ext_resource type="PackedScene" uid="uid://bvmn3d0p758g4" path="res://units/enemy/goblin.tscn" id="8_d7ej2"]
+[ext_resource type="PackedScene" uid="uid://bww3godgplh8r" path="res://units/warrior/warrior.tscn" id="9_26vx6"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kr55t"]
 vertices = PackedVector2Array(1392, -619, 1387, 884, 1316, -4, 1316, -64, 1277, 450, 1277, 376, 563, -76, 561, 523, 493, -28, 493, -88, 312, 428, 209, 882, 312, 354, 327, -28, 1201, 450, 810, 877, 1033, 460, 811, 882, 792, -625, 1150, -64, 1034, -17, 1150, -4, 806, -11, 205, -625, 1201, 376, 792, 463, 793, 496, 772, 526, 236, 428, 236, 354, 805, -10, 711, -12, 713, -76, 792, -630, 327, -88)
@@ -71,14 +72,11 @@ target = NodePath("../Goblin")
 position = Vector2(1280, 714)
 target = NodePath("../Goblin")
 
-[node name="Pawn3" parent="Entities" node_paths=PackedStringArray("sprite", "anim_player", "agent", "target") instance=ExtResource("6_4db73")]
-position = Vector2(814, 704)
-sprite = NodePath("../Pawn2/Sprite2D")
-anim_player = NodePath("../Pawn2/AnimationPlayer")
-agent = NodePath("../Pawn2/NavigationAgent2D")
+[node name="Warrior" parent="Entities" node_paths=PackedStringArray("target") instance=ExtResource("9_26vx6")]
+position = Vector2(798, -522)
 target = NodePath("../Goblin")
 
 [node name="Goblin" parent="Entities" instance=ExtResource("8_d7ej2")]
-position = Vector2(790, -424)
+position = Vector2(806, -224)
 
 [editable path="Entities/NavigationRegion2D/PineTree2"]
