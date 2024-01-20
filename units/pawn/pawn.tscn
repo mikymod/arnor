@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dxordleb10cxn"]
+[gd_scene load_steps=22 format=3 uid="uid://dxordleb10cxn"]
 
 [ext_resource type="Script" path="res://units/pawn/pawn.gd" id="1_k4jhf"]
 [ext_resource type="Texture2D" uid="uid://cemyqvsdrqidd" path="res://units/pawn/Pawn_Purple.png" id="1_y2dvd"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://units/pawn/pawn_mine_state.gd" id="7_n4hc8"]
 [ext_resource type="Script" path="res://units/pawn/pawn_hammer_state.gd" id="8_vw6ee"]
 [ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://units/health_bar.tscn" id="9_bb7oo"]
+[ext_resource type="Script" path="res://units/pawn/pawn_attack_state.gd" id="9_xdy6t"]
 
 [sub_resource type="Animation" id="Animation_qcfbh"]
 length = 0.001
@@ -149,6 +150,7 @@ y_sort_enabled = true
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_k4jhf")
+health = 200.0
 sprite = NodePath("Sprite2D")
 anim_player = NodePath("AnimationPlayer")
 agent = NodePath("NavigationAgent2D")
@@ -222,10 +224,14 @@ script = ExtResource("8_vw6ee")
 _pawn = NodePath("../..")
 _animation_player = NodePath("../../AnimationPlayer")
 
-[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("_pawn", "_animation_player")]
-script = ExtResource("8_vw6ee")
-_pawn = NodePath("../..")
-_animation_player = NodePath("../../AnimationPlayer")
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("pawn", "animation_player", "sprite", "attack_timer")]
+script = ExtResource("9_xdy6t")
+pawn = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
+sprite = NodePath("../../Sprite2D")
+attack_timer = NodePath("../../AttackTimer")
+
+[node name="AttackTimer" type="Timer" parent="."]
 
 [node name="GatheringProgress" type="Control" parent="."]
 visible = false
@@ -256,8 +262,6 @@ offset_top = -137.0
 offset_right = 74.0
 offset_bottom = -110.0
 unit = NodePath("..")
-
-[node name="AttackTimer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="CollisionShape2D/InteractionArea2D" to="." method="_on_interaction_body_entered"]
 [connection signal="body_exited" from="CollisionShape2D/InteractionArea2D" to="." method="_on_interaction_area_2d_body_exited"]

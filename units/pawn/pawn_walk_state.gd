@@ -29,7 +29,7 @@ func exit() -> void:
 		
 func _on_navigation_finished() -> void:
 	transitioned.emit("Idle")
-	nav_agent.navigation_finished.disconnect(_on_navigation_finished)
+	#nav_agent.navigation_finished.disconnect(_on_navigation_finished)
 
 func _on_velocity_computed(safe_velocity: Vector2) -> void:
 	pawn.velocity = safe_velocity
