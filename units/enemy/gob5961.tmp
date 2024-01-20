@@ -124,7 +124,7 @@ radius = 24.1868
 [sub_resource type="CircleShape2D" id="CircleShape2D_l2oln"]
 radius = 79.511
 
-[node name="Goblin" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent", "attack_timer")]
+[node name="Goblin" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent", "attack_timer", "health_bar")]
 position = Vector2(641, 352)
 collision_layer = 2
 collision_mask = 3
@@ -133,6 +133,7 @@ sprite = NodePath("Sprite2D")
 anim_player = NodePath("AnimationPlayer")
 agent = NodePath("NavigationAgent2D")
 attack_timer = NodePath("AttackTimer")
+health_bar = NodePath("HealthBar")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
@@ -177,12 +178,11 @@ animation_player = NodePath("../../AnimationPlayer")
 sprite = NodePath("../../Sprite2D")
 attack_timer = NodePath("../../AttackTimer")
 
-[node name="HealthBar" parent="." node_paths=PackedStringArray("unit") instance=ExtResource("3_epvrc")]
+[node name="HealthBar" parent="." instance=ExtResource("3_epvrc")]
 offset_left = -73.0
 offset_top = -128.0
 offset_right = 74.0
 offset_bottom = -101.0
-unit = NodePath("..")
 metadata/_edit_use_anchors_ = true
 
 [node name="AttackTimer" type="Timer" parent="."]

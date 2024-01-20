@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://duu6eri66nrec"]
+[gd_scene load_steps=5 format=3 uid="uid://duu6eri66nrec"]
+
+[ext_resource type="Script" path="res://units/health_bar.gd" id="1_mt0fk"]
 
 [sub_resource type="Theme" id="Theme_w4y3a"]
 
@@ -31,3 +33,4 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_yluhi")
 value = 87.68
 rounded = true
 show_percentage = false
+script = ExtResource("1_mt0fk")

@@ -63,11 +63,19 @@ position = Vector2(409, -17)
 supply = ExtResource("5_q5hec")
 
 [node name="Pawn" parent="Entities" node_paths=PackedStringArray("target") groups=["allies"] instance=ExtResource("6_4db73")]
-position = Vector2(953, -449)
+position = Vector2(1252, -277)
 speed = 50
 target = NodePath("../Goblin")
 
+[node name="Pawn2" parent="Entities" node_paths=PackedStringArray("sprite", "anim_player", "agent", "target") groups=["allies"] instance=ExtResource("6_4db73")]
+position = Vector2(342, -446)
+speed = 50
+sprite = NodePath("../Pawn/Sprite2D")
+anim_player = NodePath("../Pawn/AnimationPlayer")
+agent = NodePath("../Pawn/NavigationAgent2D")
+target = NodePath("../Goblin")
+
 [node name="Goblin" parent="Entities" instance=ExtResource("8_d7ej2")]
-position = Vector2(946, -149)
+position = Vector2(790, -260)
 
 [editable path="Entities/NavigationRegion2D/PineTree2"]
