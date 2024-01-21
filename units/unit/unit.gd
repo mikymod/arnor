@@ -9,19 +9,27 @@ enum UnitSpeed {
 	FAST = 200,
 }
 
+enum UnitGroup {
+	ALLIES,
+	ENEMIES,
+}
+
 @export_group("Stats")
 @export var health: float = 1000
 @export var damage: float = 100
 @export var attack_speed: float = 1
 @export var speed: UnitSpeed = UnitSpeed.MEDIUM
 @export var range: float = 0
+@export var group: UnitGroup = UnitGroup.ALLIES
 
 @export_group("Nodes")
 @export var sprite: Sprite2D
 @export var anim_player: AnimationPlayer
 @export var agent: NavigationAgent2D
+@export var state_machine: StateMachine
 @export var attack_timer: Timer
 @export var dead_scene: PackedScene = preload("res://units/dead/dead.tscn")
+
 
 
 @export_group("Runtime")
@@ -32,12 +40,16 @@ enum UnitSpeed {
 		return target
 		
 var _units_in_range: Array[Unit] = []
-#var _hostile_unit: Unit = null
 
+func _ready() -> void:
+	add_to_group(UnitGroup.keys()[group])
 
 func _process(delta: float) -> void:
 	if velocity != Vector2.ZERO:
 		sprite.flip_h = velocity.x < 0
+	
+	if has_nearby_units():
+		state_machine.transition_to("Attack")
 
 
 func dps() -> float:
@@ -69,6 +81,15 @@ func get_hostile_unit() -> Unit:
 
 func has_nearby_units() -> bool:
 	return not _units_in_range.is_empty()
+
+##
+func add_to_units_in_range(unit: Unit, group: UnitGroup) -> void:
+	if unit.is_in_group(UnitGroup.keys()[group]):
+		_units_in_range.append(unit)
+
+##
+func remove_from_units_in_range(unit: Unit) -> void:
+		_units_in_range.erase(unit)
 
 
 func get_attack_direction() -> Vector2:

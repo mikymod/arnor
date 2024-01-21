@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://units/enemy/enemy.gd" id="1_c8vbl"]
 [ext_resource type="Texture2D" uid="uid://l504sw08nqb5" path="res://units/enemy/Torch_Red.png" id="1_qshxj"]
-[ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://units/health_bar.tscn" id="3_epvrc"]
+[ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://units/unit/health_bar.tscn" id="3_epvrc"]
+[ext_resource type="Script" path="res://units/unit/unit_idle_state.gd" id="4_lc21c"]
 [ext_resource type="Script" path="res://utils/state_machine.gd" id="4_mlxjd"]
-[ext_resource type="Script" path="res://units/enemy/goblin_idle_state.gd" id="5_h8cyt"]
-[ext_resource type="Script" path="res://units/enemy/goblin_walk_state.gd" id="6_j8htv"]
-[ext_resource type="Script" path="res://units/enemy/goblin_attack_state.gd" id="7_tx86a"]
+[ext_resource type="Script" path="res://units/unit/unit_walk_state.gd" id="5_dp4wk"]
+[ext_resource type="Script" path="res://units/unit/unit_attack_state.gd" id="6_2ukvd"]
 
 [sub_resource type="Animation" id="Animation_34en5"]
 length = 0.001
@@ -124,14 +124,16 @@ radius = 24.1868
 [sub_resource type="CircleShape2D" id="CircleShape2D_l2oln"]
 radius = 79.511
 
-[node name="Goblin" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent", "attack_timer")]
+[node name="Goblin" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent", "state_machine", "attack_timer")]
 position = Vector2(641, 352)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_c8vbl")
+group = 1
 sprite = NodePath("Sprite2D")
 anim_player = NodePath("AnimationPlayer")
 agent = NodePath("NavigationAgent2D")
+state_machine = NodePath("StateMachine")
 attack_timer = NodePath("AttackTimer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -162,17 +164,20 @@ shape = SubResource("CircleShape2D_l2oln")
 script = ExtResource("4_mlxjd")
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("5_h8cyt")
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("unit", "animation_player")]
+script = ExtResource("4_lc21c")
+unit = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
 
-[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("6_j8htv")
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("unit", "animation_player", "nav_agent")]
+script = ExtResource("5_dp4wk")
+unit = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
+nav_agent = NodePath("../../NavigationAgent2D")
 
-[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("goblin", "animation_player", "sprite", "attack_timer")]
-script = ExtResource("7_tx86a")
-goblin = NodePath("../..")
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("unit", "animation_player", "sprite", "attack_timer")]
+script = ExtResource("6_2ukvd")
+unit = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
 sprite = NodePath("../../Sprite2D")
 attack_timer = NodePath("../../AttackTimer")

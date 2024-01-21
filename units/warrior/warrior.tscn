@@ -3,10 +3,26 @@
 [ext_resource type="Script" path="res://units/warrior/warrior.gd" id="1_ahs53"]
 [ext_resource type="Texture2D" uid="uid://v8m4bjnuqsw3" path="res://units/warrior/Warrior_Purple.png" id="1_is0i7"]
 [ext_resource type="Script" path="res://utils/state_machine.gd" id="2_370df"]
-[ext_resource type="Script" path="res://units/warrior/warrior_idle_state.gd" id="4_us6ky"]
-[ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://units/health_bar.tscn" id="4_xrbuf"]
-[ext_resource type="Script" path="res://units/warrior/warrior_walk_state.gd" id="5_iiswa"]
-[ext_resource type="Script" path="res://units/warrior/warrior_attack_state.gd" id="6_p1ais"]
+[ext_resource type="Script" path="res://units/unit/unit_idle_state.gd" id="4_nd5n8"]
+[ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://units/unit/health_bar.tscn" id="4_xrbuf"]
+[ext_resource type="Script" path="res://units/unit/unit_walk_state.gd" id="5_kthca"]
+[ext_resource type="Script" path="res://units/unit/unit_attack_state.gd" id="6_8nm8e"]
+
+[sub_resource type="Animation" id="Animation_ojyko"]
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17]
+}
 
 [sub_resource type="Animation" id="Animation_0jcgw"]
 resource_name = "idle"
@@ -23,22 +39,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
-}
-
-[sub_resource type="Animation" id="Animation_ojyko"]
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [12, 13, 14, 15, 16, 17]
 }
 
 [sub_resource type="Animation" id="Animation_kfvso"]
@@ -163,12 +163,12 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tq6qo"]
 _data = {
 "RESET": SubResource("Animation_ojyko"),
-"attack_down_1": SubResource("Animation_hs4be"),
-"attack_down_2": SubResource("Animation_5uwqu"),
-"attack_h_1": SubResource("Animation_8x7pf"),
-"attack_h_2": SubResource("Animation_ttcn5"),
-"attack_up_1": SubResource("Animation_htd3i"),
-"attack_up_2": SubResource("Animation_o8vrj"),
+"attack": SubResource("Animation_8x7pf"),
+"attack_1": SubResource("Animation_ttcn5"),
+"attack_down": SubResource("Animation_hs4be"),
+"attack_down_1": SubResource("Animation_5uwqu"),
+"attack_up": SubResource("Animation_htd3i"),
+"attack_up_1": SubResource("Animation_o8vrj"),
 "idle": SubResource("Animation_0jcgw"),
 "walk": SubResource("Animation_kfvso")
 }
@@ -179,12 +179,13 @@ radius = 24.1868
 [sub_resource type="CircleShape2D" id="CircleShape2D_3ad0t"]
 radius = 79.511
 
-[node name="Warrior" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent", "attack_timer")]
+[node name="Warrior" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent", "state_machine", "attack_timer")]
 position = Vector2(641, 380)
 script = ExtResource("1_ahs53")
 sprite = NodePath("Sprite2D")
 anim_player = NodePath("AnimationPlayer")
 agent = NodePath("NavigationAgent2D")
+state_machine = NodePath("StateMachine")
 attack_timer = NodePath("AttackTimer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -218,20 +219,20 @@ shape = SubResource("CircleShape2D_3ad0t")
 script = ExtResource("2_370df")
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("warrior", "animation_player")]
-script = ExtResource("4_us6ky")
-warrior = NodePath("../..")
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("unit", "animation_player")]
+script = ExtResource("4_nd5n8")
+unit = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
 
-[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("warrior", "animation_player", "nav_agent")]
-script = ExtResource("5_iiswa")
-warrior = NodePath("../..")
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("unit", "animation_player", "nav_agent")]
+script = ExtResource("5_kthca")
+unit = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
 nav_agent = NodePath("../../NavigationAgent2D")
 
-[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("warrior", "animation_player", "sprite", "attack_timer")]
-script = ExtResource("6_p1ais")
-warrior = NodePath("../..")
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("unit", "animation_player", "sprite", "attack_timer")]
+script = ExtResource("6_8nm8e")
+unit = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
 sprite = NodePath("../../Sprite2D")
 attack_timer = NodePath("../../AttackTimer")
