@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cphxj75ashbu"]
+
+[ext_resource type="PackedScene" uid="uid://cbebw1y1uphy" path="res://units/archer/arrow.tscn" id="1_kyavi"]
+[ext_resource type="PackedScene" uid="uid://bvmn3d0p758g4" path="res://units/enemy/goblin.tscn" id="2_m1dya"]
+
+[node name="TestArrow" type="Node2D"]
+
+[node name="Arrow" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_kyavi")]
+position = Vector2(957, 197)
+target = NodePath("../Goblin")
+
+[node name="Goblin" parent="." instance=ExtResource("2_m1dya")]
+position = Vector2(629, 486)

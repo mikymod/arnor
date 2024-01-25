@@ -81,7 +81,7 @@ target = NodePath("../Goblin")
 position = Vector2(812, -248)
 
 [node name="Archer" parent="Entities" node_paths=PackedStringArray("target") instance=ExtResource("10_o2usw")]
-position = Vector2(1044, -506)
+position = Vector2(486, 500)
 target = NodePath("../Goblin")
 
 [editable path="Entities/NavigationRegion2D/PineTree2"]
