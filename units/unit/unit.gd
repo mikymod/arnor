@@ -102,6 +102,10 @@ func get_attack_direction() -> Vector2:
 		Vector2.LEFT,
 		Vector2.UP,
 		Vector2.DOWN,
+		Vector2(1, 1), # up-right
+		Vector2(-1, 1), # up-left
+		Vector2(1, -1), # down-right
+		Vector2(-1, -1), # down-left
 	]
 	
 	var direction = global_position.direction_to(hostile_unit.global_position)

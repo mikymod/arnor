@@ -18,16 +18,16 @@ func start_attack() -> void:
 	match attack_direction:
 		Vector2.RIGHT:
 			sprite.flip_h = false
-		Vector2.LEFT:
-			sprite.flip_h = true
 		Vector2.UP:
 			animation_name = "attack_up"
+		Vector2.LEFT:
+			sprite.flip_h = true
 		Vector2.DOWN:
 			animation_name = "attack_down"
+
 	animation_player.play(animation_name)
 	attack_timer.wait_time = unit.attack_speed
 	attack_timer.start()
-
 
 func _on_attack_timer_timout() -> void:
 	unit.attack()
@@ -35,3 +35,4 @@ func _on_attack_timer_timout() -> void:
 		transitioned.emit("Idle")
 	else:
 		start_attack()
+
