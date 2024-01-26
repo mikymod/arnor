@@ -1,0 +1,157 @@
+[gd_scene load_steps=15 format=3 uid="uid://xf6fk0gkarw3"]
+
+[ext_resource type="Script" path="res://units/enemy/enemy.gd" id="1_mwrwa"]
+[ext_resource type="Texture2D" uid="uid://xemvgyrdbtl" path="res://units/enemy/TNT_Red.png" id="1_naatq"]
+[ext_resource type="Script" path="res://utils/state_machine.gd" id="2_erpbo"]
+[ext_resource type="Script" path="res://units/unit/unit_idle_state.gd" id="3_ergxk"]
+[ext_resource type="Script" path="res://units/unit/unit_walk_state.gd" id="4_rmcsm"]
+[ext_resource type="Script" path="res://units/unit/unit_attack_state.gd" id="5_ba54e"]
+[ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://units/unit/health_bar.tscn" id="6_q8hpc"]
+
+[sub_resource type="Animation" id="Animation_nsgrv"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_kvgag"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_pjvf8"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10, 11, 12]
+}
+
+[sub_resource type="Animation" id="Animation_i5gqn"]
+resource_name = "attack"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 15, 16, 17, 18, 19, 20]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gjs8g"]
+_data = {
+"RESET": SubResource("Animation_kvgag"),
+"attack": SubResource("Animation_i5gqn"),
+"idle": SubResource("Animation_nsgrv"),
+"walk": SubResource("Animation_pjvf8")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_64ksx"]
+radius = 24.1868
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ywm3w"]
+radius = 300.0
+
+[node name="Tnt" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent", "state_machine", "attack_timer")]
+script = ExtResource("1_mwrwa")
+sprite = NodePath("Sprite2D")
+anim_player = NodePath("AnimationPlayer")
+agent = NodePath("NavigationAgent2D")
+state_machine = NodePath("StateMachine")
+attack_timer = NodePath("AttackTimer")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_naatq")
+hframes = 7
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gjs8g")
+}
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_64ksx")
+metadata/_edit_group_ = true
+
+[node name="InteractionArea2D" type="Area2D" parent="CollisionShape2D"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/InteractionArea2D"]
+shape = SubResource("CircleShape2D_ywm3w")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_erpbo")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("unit", "animation_player")]
+script = ExtResource("3_ergxk")
+unit = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
+
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("unit", "animation_player", "nav_agent")]
+script = ExtResource("4_rmcsm")
+unit = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
+nav_agent = NodePath("../../NavigationAgent2D")
+
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("unit", "animation_player", "sprite", "attack_timer")]
+script = ExtResource("5_ba54e")
+unit = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
+sprite = NodePath("../../Sprite2D")
+attack_timer = NodePath("../../AttackTimer")
+
+[node name="HealthBar" parent="." node_paths=PackedStringArray("unit") instance=ExtResource("6_q8hpc")]
+offset_left = -73.0
+offset_top = -128.0
+offset_right = 74.0
+offset_bottom = -101.0
+value = 88.0
+unit = NodePath("..")
+metadata/_edit_use_anchors_ = true
+
+[node name="AttackTimer" type="Timer" parent="."]
