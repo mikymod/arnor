@@ -25,9 +25,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Arrow" type="Node2D" node_paths=PackedStringArray("target")]
+[node name="Arrow" type="Node2D"]
 script = ExtResource("1_kerkk")
-target = NodePath("")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7w11n")
