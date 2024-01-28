@@ -65,6 +65,13 @@ func attack() -> void:
 		_units_in_range.erase(hostile_unit)
 		hostile_unit.die()
 
+func aoe_attack() -> void:
+	for unit in _units_in_range:
+		unit.health -= damage
+		if unit.health <= 0:
+			_units_in_range.erase(unit)
+			unit.die()
+
 
 func die() -> void:
 	var dead = dead_scene.instantiate()

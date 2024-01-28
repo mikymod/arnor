@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://b2f1tjogpk550"]
+[gd_scene load_steps=13 format=3 uid="uid://b2f1tjogpk550"]
 
+[ext_resource type="Script" path="res://units/enemy/explosion.gd" id="1_1ktmb"]
 [ext_resource type="Texture2D" uid="uid://bgy7scv3b8plg" path="res://units/enemy/Explosions.png" id="1_t4i25"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4pjcs"]
@@ -68,13 +69,17 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_x3txu")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 10.0
 }]
 
 [node name="Explosion" type="Node2D"]
+script = ExtResource("1_1ktmb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pl0pf")
-frame_progress = 0.673441
+frame = 8
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

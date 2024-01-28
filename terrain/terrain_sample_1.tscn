@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqdmhpfw035kq"]
+[gd_scene load_steps=14 format=3 uid="uid://cqdmhpfw035kq"]
 
 [ext_resource type="TileSet" uid="uid://gwls54ddpum0" path="res://terrain/tileset_terrain.tres" id="1_7mhop"]
 [ext_resource type="Script" path="res://terrain/terrain.gd" id="1_n2iem"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bvmn3d0p758g4" path="res://units/enemy/goblin.tscn" id="8_d7ej2"]
 [ext_resource type="PackedScene" uid="uid://bww3godgplh8r" path="res://units/warrior/warrior.tscn" id="9_26vx6"]
 [ext_resource type="PackedScene" uid="uid://cl02ntwxlr5lm" path="res://units/archer/archer.tscn" id="10_o2usw"]
+[ext_resource type="PackedScene" uid="uid://dj0n1tl5yeckk" path="res://units/enemy/barrel.tscn" id="12_fl23t"]
 [ext_resource type="PackedScene" uid="uid://xf6fk0gkarw3" path="res://units/enemy/tnt.tscn" id="12_yhhht"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kr55t"]
@@ -86,6 +87,9 @@ position = Vector2(479, 501)
 target = NodePath("../Tnt")
 
 [node name="Tnt" parent="Entities" instance=ExtResource("12_yhhht")]
-position = Vector2(817, -158)
+position = Vector2(615, -163)
+
+[node name="Barrel" parent="Entities" instance=ExtResource("12_fl23t")]
+position = Vector2(1088, 175)
 
 [editable path="Entities/NavigationRegion2D/PineTree2"]
