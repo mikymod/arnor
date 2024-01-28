@@ -23,9 +23,10 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_ygq8w"]
-resource_name = "walk"
-length = 0.6
+[sub_resource type="Animation" id="Animation_nipa2"]
+resource_name = "attack"
+length = 0.3
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -33,26 +34,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [6, 7, 8, 9, 10, 11]
-}
-
-[sub_resource type="Animation" id="Animation_4jeya"]
-resource_name = "idle"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"values": [30, 31, 32]
 }
 
 [sub_resource type="Animation" id="Animation_ok40m"]
@@ -72,6 +57,22 @@ tracks/0/keys = {
 "values": [18, 19, 20, 21, 22, 23]
 }
 
+[sub_resource type="Animation" id="Animation_4jeya"]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_o28i8"]
 resource_name = "idle_open"
 length = 0.1
@@ -86,6 +87,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [12]
+}
+
+[sub_resource type="Animation" id="Animation_ygq8w"]
+resource_name = "walk"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
 }
 
 [sub_resource type="Animation" id="Animation_5peye"]
@@ -105,23 +122,6 @@ tracks/0/keys = {
 "values": [24, 25, 26]
 }
 
-[sub_resource type="Animation" id="Animation_nipa2"]
-resource_name = "attack"
-length = 0.3
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [30, 31, 32]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_agqcl"]
 _data = {
 "RESET": SubResource("Animation_a03pn"),
@@ -139,9 +139,17 @@ radius = 24.1868
 [sub_resource type="CircleShape2D" id="CircleShape2D_hj4rr"]
 radius = 150.0
 
-[node name="Barrel" type="CharacterBody2D"]
+[node name="Barrel" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent", "state_machine", "attack_timer")]
 position = Vector2(677, 349)
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_q3ti7")
+group = 1
+sprite = NodePath("Sprite2D")
+anim_player = NodePath("AnimationPlayer")
+agent = NodePath("NavigationAgent2D")
+state_machine = NodePath("StateMachine")
+attack_timer = NodePath("AttackTimer")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -164,7 +172,6 @@ metadata/_edit_group_ = true
 
 [node name="InteractionArea2D" type="Area2D" parent="CollisionShape2D"]
 collision_layer = 0
-collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/InteractionArea2D"]
@@ -202,3 +209,6 @@ unit = NodePath("..")
 metadata/_edit_use_anchors_ = true
 
 [node name="AttackTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="CollisionShape2D/InteractionArea2D" to="." method="_on_interaction_area_2d_body_entered"]
+[connection signal="body_exited" from="CollisionShape2D/InteractionArea2D" to="." method="_on_interaction_area_2d_body_exited"]

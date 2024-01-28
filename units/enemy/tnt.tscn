@@ -8,23 +8,6 @@
 [ext_resource type="Script" path="res://units/unit/unit_attack_state.gd" id="5_ba54e"]
 [ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://units/unit/health_bar.tscn" id="6_q8hpc"]
 
-[sub_resource type="Animation" id="Animation_nsgrv"]
-resource_name = "idle"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-
 [sub_resource type="Animation" id="Animation_kvgag"]
 length = 0.001
 tracks/0/type = "value"
@@ -38,23 +21,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_pjvf8"]
-resource_name = "walk"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [7, 8, 9, 10, 11, 12]
 }
 
 [sub_resource type="Animation" id="Animation_i5gqn"]
@@ -74,6 +40,40 @@ tracks/0/keys = {
 "values": [14, 15, 16, 17, 18, 19, 20]
 }
 
+[sub_resource type="Animation" id="Animation_nsgrv"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_pjvf8"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10, 11, 12]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gjs8g"]
 _data = {
 "RESET": SubResource("Animation_kvgag"),
@@ -89,7 +89,11 @@ radius = 24.1868
 radius = 300.0
 
 [node name="Tnt" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent", "state_machine", "attack_timer")]
+position = Vector2(589, 352)
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_mwrwa")
+group = 1
 sprite = NodePath("Sprite2D")
 anim_player = NodePath("AnimationPlayer")
 agent = NodePath("NavigationAgent2D")
@@ -117,7 +121,6 @@ metadata/_edit_group_ = true
 
 [node name="InteractionArea2D" type="Area2D" parent="CollisionShape2D"]
 collision_layer = 0
-collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/InteractionArea2D"]
@@ -155,3 +158,6 @@ unit = NodePath("..")
 metadata/_edit_use_anchors_ = true
 
 [node name="AttackTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="CollisionShape2D/InteractionArea2D" to="." method="_on_interaction_area_2d_body_entered"]
+[connection signal="body_exited" from="CollisionShape2D/InteractionArea2D" to="." method="_on_interaction_area_2d_body_exited"]

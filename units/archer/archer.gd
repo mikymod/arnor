@@ -6,7 +6,7 @@ extends Unit
 func attack() -> void:
 	super.attack()
 	var arrow = arrow_scene.instantiate()
-	arrow.target = target
+	arrow.target = get_hostile_unit()
 	add_child(arrow)
 
 func _on_interaction_body_entered(body: Node2D) -> void:
