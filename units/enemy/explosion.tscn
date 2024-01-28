@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://b2f1tjogpk550"]
+
+[ext_resource type="Texture2D" uid="uid://bgy7scv3b8plg" path="res://units/enemy/Explosions.png" id="1_t4i25"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pjcs"]
+atlas = ExtResource("1_t4i25")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgrs6"]
+atlas = ExtResource("1_t4i25")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oowad"]
+atlas = ExtResource("1_t4i25")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aglwp"]
+atlas = ExtResource("1_t4i25")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo6yy"]
+atlas = ExtResource("1_t4i25")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0au3"]
+atlas = ExtResource("1_t4i25")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tq44"]
+atlas = ExtResource("1_t4i25")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tsne"]
+atlas = ExtResource("1_t4i25")
+region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3txu"]
+atlas = ExtResource("1_t4i25")
+region = Rect2(1536, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pl0pf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pjcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgrs6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oowad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aglwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bo6yy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0au3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tq44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tsne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3txu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Explosion" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pl0pf")
+frame_progress = 0.673441

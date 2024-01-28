@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://h33thqgmaoql"]
+
+[ext_resource type="Texture2D" uid="uid://88k3yahsj1fc" path="res://units/enemy/Dynamite.png" id="1_3713y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_am1nv"]
+atlas = ExtResource("1_3713y")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i57q6"]
+atlas = ExtResource("1_3713y")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ueu6y"]
+atlas = ExtResource("1_3713y")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcxgk"]
+atlas = ExtResource("1_3713y")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o73h"]
+atlas = ExtResource("1_3713y")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xrfg"]
+atlas = ExtResource("1_3713y")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6uumq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_am1nv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i57q6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ueu6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcxgk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o73h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xrfg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Dynamite" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6uumq")
