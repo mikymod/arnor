@@ -90,6 +90,6 @@ target = NodePath("../Tnt")
 position = Vector2(615, -163)
 
 [node name="Barrel" parent="Entities" instance=ExtResource("12_fl23t")]
-position = Vector2(1088, 175)
+position = Vector2(1089, 71)
 
 [editable path="Entities/NavigationRegion2D/PineTree2"]
