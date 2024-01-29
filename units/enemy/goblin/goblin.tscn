@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://bvmn3d0p758g4"]
 
 [ext_resource type="Script" path="res://units/enemy/enemy.gd" id="1_c8vbl"]
-[ext_resource type="Texture2D" uid="uid://l504sw08nqb5" path="res://units/enemy/Torch_Red.png" id="1_qshxj"]
+[ext_resource type="Texture2D" uid="uid://l504sw08nqb5" path="res://units/enemy/goblin/Torch_Red.png" id="1_qshxj"]
 [ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://units/unit/health_bar.tscn" id="3_epvrc"]
 [ext_resource type="Script" path="res://units/unit/unit_idle_state.gd" id="4_lc21c"]
 [ext_resource type="Script" path="res://utils/state_machine.gd" id="4_mlxjd"]

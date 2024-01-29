@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://xf6fk0gkarw3"]
 
 [ext_resource type="Script" path="res://units/enemy/enemy.gd" id="1_mwrwa"]
-[ext_resource type="Texture2D" uid="uid://xemvgyrdbtl" path="res://units/enemy/TNT_Red.png" id="1_naatq"]
+[ext_resource type="Texture2D" uid="uid://xemvgyrdbtl" path="res://units/enemy/tnt/TNT_Red.png" id="1_naatq"]
 [ext_resource type="Script" path="res://utils/state_machine.gd" id="2_erpbo"]
 [ext_resource type="Script" path="res://units/unit/unit_idle_state.gd" id="3_ergxk"]
 [ext_resource type="Script" path="res://units/unit/unit_walk_state.gd" id="4_rmcsm"]

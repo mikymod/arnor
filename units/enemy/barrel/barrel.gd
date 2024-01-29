@@ -1,7 +1,7 @@
 class_name Barrel
 extends Unit
 
-@export var explosion_scene: PackedScene = preload("res://units/enemy/explosion.tscn")
+@export var explosion_scene: PackedScene = preload("res://units/enemy/explosion/explosion.tscn")
 @export var explosion_time: float = 3.0
 
 func aoe_attack() -> void:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://88k3yahsj1fc"
-path="res://.godot/imported/Dynamite.png-8ed0b9b632f17fec9e819fcfcef62cd6.ctex"
+uid="uid://bgy7scv3b8plg"
+path="res://.godot/imported/Explosions.png-ccf29e552e2b9abecdf39a5bfef2c19b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://units/enemy/Dynamite.png"
-dest_files=["res://.godot/imported/Dynamite.png-8ed0b9b632f17fec9e819fcfcef62cd6.ctex"]
+source_file="res://units/enemy/explosion/Explosions.png"
+dest_files=["res://.godot/imported/Explosions.png-ccf29e552e2b9abecdf39a5bfef2c19b.ctex"]
 
 [params]
 

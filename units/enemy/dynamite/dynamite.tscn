@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://h33thqgmaoql"]
 
-[ext_resource type="Texture2D" uid="uid://88k3yahsj1fc" path="res://units/enemy/Dynamite.png" id="1_3713y"]
+[ext_resource type="Texture2D" uid="uid://88k3yahsj1fc" path="res://units/enemy/dynamite/Dynamite.png" id="1_3713y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_am1nv"]
 atlas = ExtResource("1_3713y")

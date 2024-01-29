@@ -13,7 +13,7 @@ func enter() -> void:
 func physics_update(_delta: float) -> void:
 	var target_position = nav_agent.get_next_path_position()
 	var direction = unit.global_position.direction_to(target_position)
-	var new_velocity = direction * 100
+	var new_velocity = direction * unit.speed
 	if nav_agent.avoidance_enabled:
 		nav_agent.velocity = new_velocity
 		unit.velocity = new_velocity

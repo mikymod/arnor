@@ -1,11 +1,11 @@
 [gd_scene load_steps=19 format=3 uid="uid://dj0n1tl5yeckk"]
 
-[ext_resource type="Texture2D" uid="uid://bk7hwt44w1g8g" path="res://units/enemy/Barrel_Red.png" id="1_1pgmi"]
-[ext_resource type="Script" path="res://units/enemy/barrel.gd" id="1_u6lad"]
+[ext_resource type="Texture2D" uid="uid://bk7hwt44w1g8g" path="res://units/enemy/barrel/Barrel_Red.png" id="1_1pgmi"]
+[ext_resource type="Script" path="res://units/enemy/barrel/barrel.gd" id="1_u6lad"]
 [ext_resource type="Script" path="res://utils/state_machine.gd" id="2_dm74v"]
-[ext_resource type="Script" path="res://units/enemy/barrel_idle_state.gd" id="4_5g7mo"]
-[ext_resource type="Script" path="res://units/enemy/barrel_walk_state.gd" id="5_d6r5g"]
-[ext_resource type="Script" path="res://units/enemy/barrel_attack_state.gd" id="6_03trb"]
+[ext_resource type="Script" path="res://units/enemy/barrel/barrel_idle_state.gd" id="4_5g7mo"]
+[ext_resource type="Script" path="res://units/enemy/barrel/barrel_walk_state.gd" id="5_d6r5g"]
+[ext_resource type="Script" path="res://units/enemy/barrel/barrel_attack_state.gd" id="6_03trb"]
 [ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://units/unit/health_bar.tscn" id="6_ppp58"]
 
 [sub_resource type="Animation" id="Animation_a03pn"]

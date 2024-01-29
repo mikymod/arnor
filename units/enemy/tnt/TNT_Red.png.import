@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgy7scv3b8plg"
-path="res://.godot/imported/Explosions.png-277eedc356182d42f8e0428a58e27a94.ctex"
+uid="uid://xemvgyrdbtl"
+path="res://.godot/imported/TNT_Red.png-ad4cc6b84c25c38504c1b3a95ee9ae0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://units/enemy/Explosions.png"
-dest_files=["res://.godot/imported/Explosions.png-277eedc356182d42f8e0428a58e27a94.ctex"]
+source_file="res://units/enemy/tnt/TNT_Red.png"
+dest_files=["res://.godot/imported/TNT_Red.png-ad4cc6b84c25c38504c1b3a95ee9ae0f.ctex"]
 
 [params]
 

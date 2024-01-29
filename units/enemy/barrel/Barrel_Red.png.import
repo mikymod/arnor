@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l504sw08nqb5"
-path="res://.godot/imported/Torch_Red.png-f6f291f0227ec9f98145fde015268c31.ctex"
+uid="uid://bk7hwt44w1g8g"
+path="res://.godot/imported/Barrel_Red.png-72c4c40b04f85533766ddaede1c072f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://units/enemy/Torch_Red.png"
-dest_files=["res://.godot/imported/Torch_Red.png-f6f291f0227ec9f98145fde015268c31.ctex"]
+source_file="res://units/enemy/barrel/Barrel_Red.png"
+dest_files=["res://.godot/imported/Barrel_Red.png-72c4c40b04f85533766ddaede1c072f3.ctex"]
 
 [params]
 
