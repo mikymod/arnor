@@ -230,5 +230,5 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AttackTimer" type="Timer" parent="."]
 
-[connection signal="body_entered" from="CollisionShape2D/InteractionArea2D" to="." method="_on_interaction_body_entered"]
-[connection signal="body_exited" from="CollisionShape2D/InteractionArea2D" to="." method="_on_interaction_body_exited"]
+[connection signal="body_entered" from="CollisionShape2D/InteractionArea2D" to="." method="add_to_units_in_range"]
+[connection signal="body_exited" from="CollisionShape2D/InteractionArea2D" to="." method="remove_from_units_in_range"]

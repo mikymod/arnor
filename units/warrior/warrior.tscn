@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://bww3godgplh8r"]
 
-[ext_resource type="Script" path="res://units/warrior/warrior.gd" id="1_ahs53"]
 [ext_resource type="Texture2D" uid="uid://v8m4bjnuqsw3" path="res://units/warrior/Warrior_Purple.png" id="1_is0i7"]
+[ext_resource type="Script" path="res://units/unit/unit.gd" id="1_pehos"]
 [ext_resource type="Script" path="res://utils/state_machine.gd" id="2_370df"]
 [ext_resource type="Script" path="res://units/unit/unit_idle_state.gd" id="4_nd5n8"]
 [ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://units/unit/health_bar.tscn" id="4_xrbuf"]
@@ -181,7 +181,7 @@ radius = 75.0
 
 [node name="Warrior" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent", "state_machine", "attack_timer")]
 position = Vector2(641, 380)
-script = ExtResource("1_ahs53")
+script = ExtResource("1_pehos")
 sprite = NodePath("Sprite2D")
 anim_player = NodePath("AnimationPlayer")
 agent = NodePath("NavigationAgent2D")
@@ -248,5 +248,5 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AttackTimer" type="Timer" parent="."]
 
-[connection signal="body_entered" from="CollisionShape2D/InteractionArea2D" to="." method="_on_interaction_body_entered"]
-[connection signal="body_exited" from="CollisionShape2D/InteractionArea2D" to="." method="_on_interaction_body_exited"]
+[connection signal="body_entered" from="CollisionShape2D/InteractionArea2D" to="." method="add_to_units_in_range"]
+[connection signal="body_exited" from="CollisionShape2D/InteractionArea2D" to="." method="remove_from_units_in_range"]

@@ -102,13 +102,12 @@ func has_nearby_units() -> bool:
 	return not _units_in_range.is_empty()
 
 ## Adds a unit to the list of those in the current unit's range
-func add_to_units_in_range(unit: Unit, group: UnitGroup) -> void:
-	if unit.is_in_group(UnitGroup.keys()[group]):
-		_units_in_range.append(unit)
+func add_to_units_in_range(unit: Unit) -> void:
+	_units_in_range.append(unit)
 
 ## Removes a unit to the list of those in the current unit's range
 func remove_from_units_in_range(unit: Unit) -> void:
-		_units_in_range.erase(unit)
+	_units_in_range.erase(unit)
 
 ## Returns the attack direction of the current unit
 func get_attack_direction() -> Vector2:

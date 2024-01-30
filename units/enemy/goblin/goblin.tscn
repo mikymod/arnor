@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bvmn3d0p758g4"]
 
-[ext_resource type="Script" path="res://units/enemy/enemy.gd" id="1_c8vbl"]
+[ext_resource type="Script" path="res://units/unit/unit.gd" id="1_p3gf3"]
 [ext_resource type="Texture2D" uid="uid://l504sw08nqb5" path="res://units/enemy/goblin/Torch_Red.png" id="1_qshxj"]
 [ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://units/unit/health_bar.tscn" id="3_epvrc"]
 [ext_resource type="Script" path="res://units/unit/unit_idle_state.gd" id="4_lc21c"]
@@ -128,7 +128,7 @@ radius = 79.511
 position = Vector2(641, 352)
 collision_layer = 2
 collision_mask = 3
-script = ExtResource("1_c8vbl")
+script = ExtResource("1_p3gf3")
 group = 1
 sprite = NodePath("Sprite2D")
 anim_player = NodePath("AnimationPlayer")
@@ -192,5 +192,5 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AttackTimer" type="Timer" parent="."]
 
-[connection signal="body_entered" from="CollisionShape2D/InteractionArea2D" to="." method="_on_interaction_area_2d_body_entered"]
-[connection signal="body_exited" from="CollisionShape2D/InteractionArea2D" to="." method="_on_interaction_area_2d_body_exited"]
+[connection signal="body_entered" from="CollisionShape2D/InteractionArea2D" to="." method="add_to_units_in_range"]
+[connection signal="body_exited" from="CollisionShape2D/InteractionArea2D" to="." method="remove_from_units_in_range"]

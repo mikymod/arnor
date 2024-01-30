@@ -5,7 +5,7 @@ extends Unit
 
 var pine_tree: PineTree
 var gold_mine: GoldMine
-var enemy: Enemy
+
 
 
 func cut() -> void:
@@ -18,8 +18,7 @@ func mine() -> void:
 
 func _on_interaction_body_entered(body: Node2D) -> void:
 	if body.is_in_group(UnitGroup.keys()[UnitGroup.ENEMIES]):
-		enemy = body as Enemy
-		_units_in_range.append(enemy)
+		_units_in_range.append(body)
 	elif body is PineTree:
 		pine_tree = body as PineTree
 		var cut_pos = pine_tree.get_cut_position()
@@ -33,8 +32,7 @@ func _on_interaction_body_entered(body: Node2D) -> void:
 
 func _on_interaction_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group(UnitGroup.keys()[UnitGroup.ENEMIES]):
-		enemy = body as Enemy
-		_units_in_range.erase(enemy)
+		_units_in_range.erase(body)
 
 func _on_pine_tree_reached() -> void:
 	agent.navigation_finished.disconnect(_on_pine_tree_reached)
