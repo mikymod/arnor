@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqdmhpfw035kq"]
+[gd_scene load_steps=16 format=3 uid="uid://cqdmhpfw035kq"]
 
 [ext_resource type="TileSet" uid="uid://gwls54ddpum0" path="res://terrain/tileset_terrain.tres" id="1_7mhop"]
 [ext_resource type="Script" path="res://terrain/terrain.gd" id="1_n2iem"]
@@ -7,15 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://dq0hve3xn83nl" path="res://supplies/gold_mine/gold_mine.tscn" id="4_hnv7m"]
 [ext_resource type="Resource" uid="uid://dgn0lagk0tnxq" path="res://supplies/gold.tres" id="5_q5hec"]
 [ext_resource type="PackedScene" uid="uid://dxordleb10cxn" path="res://units/pawn/pawn.tscn" id="6_4db73"]
+[ext_resource type="PackedScene" uid="uid://de36aplg7bs3u" path="res://buildings/castle/castle.tscn" id="7_04fhg"]
 [ext_resource type="PackedScene" uid="uid://bvmn3d0p758g4" path="res://units/enemy/goblin/goblin.tscn" id="8_d7ej2"]
+[ext_resource type="PackedScene" uid="uid://cxy42xjpo5o3n" path="res://buildings/wood_tower/wood_tower.tscn" id="8_dlw53"]
 [ext_resource type="PackedScene" uid="uid://bww3godgplh8r" path="res://units/warrior/warrior.tscn" id="9_26vx6"]
 [ext_resource type="PackedScene" uid="uid://cl02ntwxlr5lm" path="res://units/archer/archer.tscn" id="10_o2usw"]
 [ext_resource type="PackedScene" uid="uid://dj0n1tl5yeckk" path="res://units/enemy/barrel/barrel.tscn" id="12_fl23t"]
 [ext_resource type="PackedScene" uid="uid://xf6fk0gkarw3" path="res://units/enemy/tnt/tnt.tscn" id="12_yhhht"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kr55t"]
-vertices = PackedVector2Array(1392, -619, 1387, 884, 1316, -4, 1316, -64, 1277, 450, 1277, 376, 563, -76, 561, 523, 493, -28, 493, -88, 312, 428, 209, 882, 312, 354, 327, -28, 1201, 450, 810, 877, 1033, 460, 811, 882, 792, -625, 1150, -64, 1034, -17, 1150, -4, 806, -11, 205, -625, 1201, 376, 792, 463, 793, 496, 772, 526, 236, 428, 236, 354, 805, -10, 711, -12, 713, -76, 792, -630, 327, -88)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(10, 8, 7, 11), PackedInt32Array(8, 10, 12, 13), PackedInt32Array(14, 4, 1, 15, 16), PackedInt32Array(15, 17, 11), PackedInt32Array(18, 0, 3, 19), PackedInt32Array(20, 19, 21, 16), PackedInt32Array(18, 19, 20, 22, 23), PackedInt32Array(21, 2, 5, 24), PackedInt32Array(16, 21, 24, 14), PackedInt32Array(25, 16, 15, 26), PackedInt32Array(27, 26, 15), PackedInt32Array(27, 15, 11, 7), PackedInt32Array(28, 10, 11), PackedInt32Array(28, 11, 23, 29), PackedInt32Array(30, 31, 32), PackedInt32Array(23, 33, 18), PackedInt32Array(23, 22, 30, 32), PackedInt32Array(23, 32, 6, 9), PackedInt32Array(23, 9, 34), PackedInt32Array(29, 23, 34, 13, 12)])
+vertices = PackedVector2Array(1392, -619, 1387, 884, 1316, -4, 1316, -64, 1277, 450, 1277, 376, 933, 795, 810, 877, 677, 795, 563, -76, 561, 523, 493, -28, 493, -88, 847, -378, 847, -441, 1150, -64, 312, 428, 209, 882, 312, 354, 327, -28, 1201, 450, 933, 703, 1033, 460, 792, -625, 748, -441, 205, -625, 811, 882, 1034, -17, 1150, -4, 748, -378, 806, -11, 713, -76, 1201, 376, 792, 463, 793, 496, 677, 703, 772, 526, 805, -10, 711, -12, 792, -630, 236, 354, 327, -88, 236, 428)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(6, 1, 7, 8), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(13, 14, 0, 3, 15), PackedInt32Array(16, 11, 10, 17), PackedInt32Array(11, 16, 18, 19), PackedInt32Array(20, 4, 1, 6, 21, 22), PackedInt32Array(23, 0, 14, 24, 25), PackedInt32Array(7, 26, 17, 8), PackedInt32Array(27, 15, 28, 22), PackedInt32Array(29, 13, 15, 27, 30, 31), PackedInt32Array(28, 2, 5, 32), PackedInt32Array(22, 28, 32, 20), PackedInt32Array(33, 22, 21, 34), PackedInt32Array(34, 21, 35, 36), PackedInt32Array(10, 36, 35, 17), PackedInt32Array(37, 38, 31, 30), PackedInt32Array(25, 39, 23), PackedInt32Array(19, 18, 40, 25, 41), PackedInt32Array(29, 31, 9, 12, 24), PackedInt32Array(35, 8, 17), PackedInt32Array(42, 16, 17), PackedInt32Array(42, 17, 25, 40), PackedInt32Array(41, 25, 24, 12)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(195, -635, 199, 892, 823, 892, 811, 455, 767, 516, 571, 513, 573, -66, 703, -66, 701, -3, 814, 0, 802, -641), PackedVector2Array(1397, 895, 1403, -629, 791, -636, 792, -1, 1024, -7, 1023, 450, 782, 454, 794, 887)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
@@ -46,6 +48,7 @@ y_sort_enabled = true
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Entities"]
 y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_kr55t")
+navigation_layers = 9
 
 [node name="PineTree" parent="Entities/NavigationRegion2D" instance=ExtResource("2_5qbpe")]
 position = Vector2(1239, 468)
@@ -66,31 +69,42 @@ supply = ExtResource("5_q5hec")
 position = Vector2(409, -17)
 supply = ExtResource("5_q5hec")
 
+[node name="Castle" parent="Entities/NavigationRegion2D" instance=ExtResource("7_04fhg")]
+y_sort_enabled = true
+position = Vector2(805, 805)
+
+[node name="WoodTower" parent="Entities/NavigationRegion2D" instance=ExtResource("8_dlw53")]
+y_sort_enabled = true
+position = Vector2(797, -354)
+
 [node name="Pawn" parent="Entities" node_paths=PackedStringArray("target") instance=ExtResource("6_4db73")]
 position = Vector2(456, 685)
 speed = 50
-target = NodePath("../Goblin")
+target = NodePath("../NavigationRegion2D/WoodTower")
 
 [node name="Pawn2" parent="Entities" node_paths=PackedStringArray("target") instance=ExtResource("6_4db73")]
 position = Vector2(1280, 714)
-target = NodePath("../Goblin")
+target = NodePath("../NavigationRegion2D/WoodTower")
 
 [node name="Warrior" parent="Entities" node_paths=PackedStringArray("target") instance=ExtResource("9_26vx6")]
-position = Vector2(816, 704)
-target = NodePath("../Goblin")
-
-[node name="Goblin" parent="Entities" instance=ExtResource("8_d7ej2")]
-position = Vector2(947, -167)
+position = Vector2(1079, 568)
+target = NodePath("../NavigationRegion2D/WoodTower")
 
 [node name="Archer" parent="Entities" node_paths=PackedStringArray("target") instance=ExtResource("10_o2usw")]
 position = Vector2(479, 501)
-target = NodePath("../Tnt")
+target = NodePath("../NavigationRegion2D/WoodTower")
 
-[node name="Tnt" parent="Entities" instance=ExtResource("12_yhhht")]
+[node name="Goblin" parent="Entities" node_paths=PackedStringArray("target") instance=ExtResource("8_d7ej2")]
+position = Vector2(947, -167)
+target = NodePath("../NavigationRegion2D/Castle")
+
+[node name="Tnt" parent="Entities" node_paths=PackedStringArray("target") instance=ExtResource("12_yhhht")]
 position = Vector2(615, -163)
 speed = 50
+target = NodePath("../NavigationRegion2D/Castle")
 
-[node name="Barrel" parent="Entities" instance=ExtResource("12_fl23t")]
+[node name="Barrel" parent="Entities" node_paths=PackedStringArray("target") instance=ExtResource("12_fl23t")]
 position = Vector2(1103, 69)
+target = NodePath("../NavigationRegion2D/Castle")
 
 [editable path="Entities/NavigationRegion2D/PineTree2"]

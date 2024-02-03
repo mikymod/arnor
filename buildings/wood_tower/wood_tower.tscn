@@ -1,0 +1,101 @@
+[gd_scene load_steps=12 format=3 uid="uid://cxy42xjpo5o3n"]
+
+[ext_resource type="Texture2D" uid="uid://xv2eludo3acv" path="res://buildings/wood_tower/Wood_Tower_Red.png" id="1_0oq8i"]
+[ext_resource type="Script" path="res://buildings/wood_tower/wood_tower.gd" id="1_30c7q"]
+[ext_resource type="Texture2D" uid="uid://bf3aq7g6dtps2" path="res://buildings/castle/Carved_9Slides.png" id="1_oc4iq"]
+[ext_resource type="PackedScene" uid="uid://wxpx3lxg3ldv" path="res://buildings/fire/fire.tscn" id="3_p5ghb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77fjm"]
+size = Vector2(200, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0aot"]
+atlas = ExtResource("1_0oq8i")
+region = Rect2(0, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1hfg"]
+atlas = ExtResource("1_0oq8i")
+region = Rect2(256, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3jdi"]
+atlas = ExtResource("1_0oq8i")
+region = Rect2(512, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcblh"]
+atlas = ExtResource("1_0oq8i")
+region = Rect2(768, 0, 256, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6gigu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0aot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1hfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3jdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcblh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwkx4"]
+size = Vector2(79, 42.5)
+
+[node name="WoodTower" type="StaticBody2D"]
+position = Vector2(466, 287)
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_30c7q")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -43)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_77fjm")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Area2D"]
+visible = false
+offset_left = -101.0
+offset_top = -150.0
+offset_right = 100.0
+offset_bottom = 150.0
+texture = ExtResource("1_oc4iq")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -75)
+sprite_frames = SubResource("SpriteFrames_6gigu")
+frame_progress = 0.023258
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -55.25)
+shape = SubResource("RectangleShape2D_wwkx4")
+
+[node name="Fires" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Fire" parent="Fires" instance=ExtResource("3_p5ghb")]
+visible = false
+position = Vector2(-36, -1)
+
+[node name="Fire2" parent="Fires" instance=ExtResource("3_p5ghb")]
+visible = false
+position = Vector2(37, -43)
+
+[node name="Fire3" parent="Fires" instance=ExtResource("3_p5ghb")]
+visible = false
+position = Vector2(3, -104)

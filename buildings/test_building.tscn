@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://v2kkv7ponuoc"]
+
+[ext_resource type="PackedScene" uid="uid://cxy42xjpo5o3n" path="res://buildings/wood_tower/wood_tower.tscn" id="1_1uiuf"]
+[ext_resource type="PackedScene" uid="uid://de36aplg7bs3u" path="res://buildings/castle/castle.tscn" id="2_wpkq4"]
+
+[node name="TestBuilding" type="Control"]
+layout_mode = 3
+anchor_right = 0.14
+anchor_bottom = 1.0
+offset_right = -179.2
+offset_bottom = -720.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="DamageButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 53.0
+offset_right = 142.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Damage"
+
+[node name="RepairButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 98.0
+offset_right = 142.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Repair"
+
+[node name="WoodTower" parent="." instance=ExtResource("1_1uiuf")]
+position = Vector2(499, 377)
+
+[node name="Castle" parent="." instance=ExtResource("2_wpkq4")]
+position = Vector2(871, 413)
+
+[connection signal="pressed" from="DamageButton" to="WoodTower" method="spawn_fire"]
+[connection signal="pressed" from="DamageButton" to="Castle" method="spawn_fire"]
+[connection signal="pressed" from="RepairButton" to="WoodTower" method="extinguish_fire"]
+[connection signal="pressed" from="RepairButton" to="Castle" method="extinguish_fire"]
