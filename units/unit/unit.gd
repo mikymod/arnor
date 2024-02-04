@@ -2,19 +2,6 @@ class_name Unit
 extends CharacterBody2D
 
 
-## The possible values of unit's speed.
-enum UnitSpeed {
-	SLOW = 50,
-	MEDIUM = 100,
-	FAST = 200,
-}
-
-## The possible groups to which the unit belongs.
-enum UnitGroup {
-	ALLIES,
-	ENEMIES,
-}
-
 @export_group("Stats")
 ## The health of the unit.
 @export var health: float = 1000
@@ -26,13 +13,11 @@ enum UnitGroup {
 @export var attack_speed: float = 1
 
 ## The speed of the unit.
+enum UnitSpeed { SLOW = 50, MEDIUM = 100, FAST = 200 }
 @export var speed: UnitSpeed = UnitSpeed.MEDIUM
 
 ## The range of interaction area.
 @export var range: float = 0
-
-## The possible groups to which the unit belongs.
-@export var group: UnitGroup = UnitGroup.ALLIES
 
 @export_group("Nodes")
 @export var sprite: Sprite2D
@@ -52,15 +37,15 @@ enum UnitGroup {
 ## The other units in interaction range.
 var _units_in_range: Array[Unit] = []
 
-func _ready() -> void:
-	add_to_group(UnitGroup.keys()[group])
+#func _ready() -> void:
+	#add_to_group(UnitGroup.keys()[group])
 
-func _process(delta: float) -> void:
-	if velocity != Vector2.ZERO:
-		sprite.flip_h = velocity.x < 0
-	
-	if has_nearby_units():
-		state_machine.transition_to("Attack")
+#func _process(delta: float) -> void:
+	#if velocity != Vector2.ZERO:
+		#sprite.flip_h = velocity.x < 0
+	#
+	#if has_nearby_units():
+		#state_machine.transition_to("Attack")
 
 ## Returns Damage Per Second dealt by the unit.
 func dps() -> float:
@@ -103,11 +88,21 @@ func has_nearby_units() -> bool:
 
 ## Adds a unit to the list of those in the current unit's range
 func add_to_units_in_range(unit: Unit) -> void:
+	if unit == null: return
+	if unit == self: return
+	if get_parent() == unit.get_parent(): return
 	_units_in_range.append(unit)
+	state_machine.transition_to("Attack")
+
 
 ## Removes a unit to the list of those in the current unit's range
 func remove_from_units_in_range(unit: Unit) -> void:
-	_units_in_range.erase(unit)
+	if unit != null:
+		_units_in_range.erase(unit)
+	else:
+		_units_in_range = _units_in_range.filter(func(u): return u != null)
+	if not has_nearby_units():
+		state_machine.transition_to("Idle")
 
 ## Returns the attack direction of the current unit
 func get_attack_direction() -> Vector2:
@@ -117,22 +112,26 @@ func get_attack_direction() -> Vector2:
 
 	var directions: Array[Vector2] = [
 		Vector2.RIGHT,
-		Vector2.LEFT,
-		Vector2.UP,
-		Vector2.DOWN,
 		Vector2(1, 1), # up-right
+		Vector2.UP,
 		Vector2(-1, 1), # up-left
-		Vector2(1, -1), # down-right
+		Vector2.LEFT,
 		Vector2(-1, -1), # down-left
+		Vector2.DOWN,
+		Vector2(1, -1), # down-right
 	]
 	
 	var direction = global_position.direction_to(hostile_unit.global_position)
 	
 	var distances: Array[float] = [
 		direction.distance_squared_to(Vector2.RIGHT),
-		direction.distance_squared_to(Vector2.LEFT),
+		direction.distance_squared_to(Vector2(1, 1)),
 		direction.distance_squared_to(Vector2.UP),
+		direction.distance_squared_to(Vector2(-1, 1)),
+		direction.distance_squared_to(Vector2.LEFT),
+		direction.distance_squared_to(Vector2(-1, -1)),
 		direction.distance_squared_to(Vector2.DOWN),
+		direction.distance_squared_to(Vector2(1, -1))
 	]
 	
 	# Find index

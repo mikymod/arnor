@@ -8,5 +8,6 @@ func enter() -> void:
 
 
 func _on_walk_area_body_entered(body: Node2D) -> void:
-	unit.target = body
-	transitioned.emit("Walk")
+	if unit != null:
+		unit.target = body
+		transitioned.emit("Walk")

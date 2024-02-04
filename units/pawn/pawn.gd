@@ -17,9 +17,9 @@ func mine() -> void:
 
 
 func _on_interaction_body_entered(body: Node2D) -> void:
-	if body.is_in_group(UnitGroup.keys()[UnitGroup.ENEMIES]):
-		_units_in_range.append(body)
-	elif body is PineTree:
+	#if body.is_in_group(UnitGroup.keys()[UnitGroup.ENEMIES]):
+		#_units_in_range.append(body)
+	if body is PineTree:
 		pine_tree = body as PineTree
 		var cut_pos = pine_tree.get_cut_position()
 		agent.target_position = cut_pos.global_position
@@ -30,9 +30,9 @@ func _on_interaction_body_entered(body: Node2D) -> void:
 		agent.target_position = gather_pos.global_position
 		agent.navigation_finished.connect(_on_gold_mine_reached)
 
-func _on_interaction_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group(UnitGroup.keys()[UnitGroup.ENEMIES]):
-		_units_in_range.erase(body)
+#func _on_interaction_area_2d_body_exited(body: Node2D) -> void:
+	#if body.is_in_group(UnitGroup.keys()[UnitGroup.ENEMIES]):
+		#_units_in_range.erase(body)
 
 func _on_pine_tree_reached() -> void:
 	agent.navigation_finished.disconnect(_on_pine_tree_reached)

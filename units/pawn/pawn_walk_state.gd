@@ -13,7 +13,6 @@ func enter() -> void:
 	nav_agent.velocity_computed.connect(_on_velocity_computed)
 
 func physics_update(_delta: float) -> void:
-	#nav_agent.target_position = pawn.target.global_position
 	var target_position = nav_agent.get_next_path_position()
 	var direction = pawn.global_position.direction_to(target_position)
 	var new_velocity = direction * pawn.speed

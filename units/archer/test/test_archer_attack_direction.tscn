@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu4q4cq6lsr84"]
+
+[ext_resource type="PackedScene" uid="uid://bvmn3d0p758g4" path="res://units/enemy/goblin/goblin.tscn" id="2_4vucc"]
+[ext_resource type="PackedScene" uid="uid://cl02ntwxlr5lm" path="res://units/archer/archer.tscn" id="2_jnewt"]
+
+[node name="TestArrow" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(736, 271)
+metadata/_edit_group_ = true
+
+[node name="Goblin" parent="Node2D" instance=ExtResource("2_4vucc")]
+position = Vector2(0, 0)
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(950, 454)
+metadata/_edit_group_ = true
+
+[node name="Archer" parent="Node2D2" instance=ExtResource("2_jnewt")]
+position = Vector2(0, 0)

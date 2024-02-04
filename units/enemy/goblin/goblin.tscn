@@ -8,6 +8,12 @@
 [ext_resource type="Script" path="res://units/unit/unit_walk_state.gd" id="5_dp4wk"]
 [ext_resource type="Script" path="res://units/unit/unit_attack_state.gd" id="6_2ukvd"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g24hp"]
+radius = 24.1868
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l2oln"]
+radius = 79.511
+
 [sub_resource type="Animation" id="Animation_34en5"]
 length = 0.001
 tracks/0/type = "value"
@@ -118,23 +124,26 @@ _data = {
 "walk": SubResource("Animation_smynu")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g24hp"]
-radius = 24.1868
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_l2oln"]
-radius = 79.511
-
-[node name="Goblin" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent", "state_machine", "attack_timer")]
+[node name="Goblin" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "agent", "state_machine", "attack_timer")]
 position = Vector2(641, 352)
-collision_layer = 2
-collision_mask = 3
+collision_mask = 9
 script = ExtResource("1_p3gf3")
-group = 1
 sprite = NodePath("Sprite2D")
-anim_player = NodePath("AnimationPlayer")
 agent = NodePath("NavigationAgent2D")
 state_machine = NodePath("StateMachine")
 attack_timer = NodePath("AttackTimer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -25)
+shape = SubResource("CircleShape2D_g24hp")
+
+[node name="InteractionArea2D" type="Area2D" parent="CollisionShape2D"]
+collision_layer = 0
+collision_mask = 9
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/InteractionArea2D"]
+shape = SubResource("CircleShape2D_l2oln")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
@@ -147,17 +156,6 @@ libraries = {
 "": SubResource("AnimationLibrary_4d8qx")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -25)
-shape = SubResource("CircleShape2D_g24hp")
-
-[node name="InteractionArea2D" type="Area2D" parent="CollisionShape2D"]
-collision_layer = 0
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/InteractionArea2D"]
-shape = SubResource("CircleShape2D_l2oln")
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="StateMachine" type="Node" parent="."]
@@ -169,11 +167,12 @@ script = ExtResource("4_lc21c")
 unit = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
 
-[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("unit", "animation_player", "nav_agent")]
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("unit", "animation_player", "nav_agent", "sprite")]
 script = ExtResource("5_dp4wk")
 unit = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
 nav_agent = NodePath("../../NavigationAgent2D")
+sprite = NodePath("../../Sprite2D")
 
 [node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("unit", "animation_player", "sprite", "attack_timer")]
 script = ExtResource("6_2ukvd")

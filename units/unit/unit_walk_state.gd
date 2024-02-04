@@ -4,17 +4,21 @@ extends State
 @export var unit: Unit
 @export var animation_player: AnimationPlayer
 @export var nav_agent: NavigationAgent2D
+@export var sprite: Sprite2D
 
 
 func enter() -> void:
 	animation_player.play("walk")
-	nav_agent.max_speed = 350
+	nav_agent.max_speed = unit.speed
 	nav_agent.target_position = unit.target.global_position + Vector2(randf_range(-40, 40), randf_range(-40, 40))
 	nav_agent.navigation_finished.connect(_on_navigation_finished)
 	nav_agent.velocity_computed.connect(_on_velocity_computed)
 
 
 func physics_update(_delta: float) -> void:
+	if unit.velocity != Vector2.ZERO:
+		sprite.flip_h = unit.velocity.x < 0
+		
 	var target_position = nav_agent.get_next_path_position()
 	var direction = unit.global_position.direction_to(target_position)
 	var new_velocity = direction * 100

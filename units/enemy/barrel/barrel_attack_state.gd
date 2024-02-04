@@ -9,7 +9,8 @@ func enter() -> void:
 	animation_player.play("attack")
 	timer.wait_time = barrel.explosion_time
 	timer.start()
-	timer.timeout.connect(_on_timer_timeout)
+	if timer.timeout.get_connections().size() == 0:
+		timer.timeout.connect(_on_timer_timeout)
 
 func _on_timer_timeout() -> void:
 	barrel.aoe_attack()

@@ -4,13 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://cemyqvsdrqidd" path="res://units/pawn/Pawn_Purple.png" id="1_y2dvd"]
 [ext_resource type="Script" path="res://utils/state_machine.gd" id="3_1q4n3"]
 [ext_resource type="Script" path="res://units/pawn/pawn_idle_state.gd" id="4_eppkp"]
-[ext_resource type="Script" path="res://units/pawn/pawn_walk_state.gd" id="5_wq1hl"]
+[ext_resource type="Script" path="res://units/unit/unit_walk_state.gd" id="5_v437n"]
 [ext_resource type="Script" path="res://units/pawn/pawn_cut_state.gd" id="6_5ypc2"]
 [ext_resource type="Script" path="res://units/pawn/gathering_progress.gd" id="7_d0src"]
 [ext_resource type="Script" path="res://units/pawn/pawn_mine_state.gd" id="7_n4hc8"]
 [ext_resource type="Script" path="res://units/pawn/pawn_hammer_state.gd" id="8_vw6ee"]
 [ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://units/unit/health_bar.tscn" id="9_bb7oo"]
 [ext_resource type="Script" path="res://units/pawn/pawn_attack_state.gd" id="9_xdy6t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p80o4"]
+radius = 24.1868
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_11oan"]
+radius = 79.511
 
 [sub_resource type="Animation" id="Animation_qcfbh"]
 length = 0.001
@@ -139,15 +145,9 @@ _data = {
 "walk": SubResource("Animation_3fg2o")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_p80o4"]
-radius = 24.1868
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_11oan"]
-radius = 79.511
-
 [node name="Pawn" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent", "state_machine", "attack_timer")]
 y_sort_enabled = true
-collision_mask = 3
+collision_mask = 13
 motion_mode = 1
 script = ExtResource("1_k4jhf")
 health = 200.0
@@ -156,6 +156,18 @@ anim_player = NodePath("AnimationPlayer")
 agent = NodePath("NavigationAgent2D")
 state_machine = NodePath("StateMachine")
 attack_timer = NodePath("AttackTimer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -23)
+shape = SubResource("CircleShape2D_p80o4")
+metadata/_edit_group_ = true
+
+[node name="InteractionArea2D" type="Area2D" parent="CollisionShape2D"]
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/InteractionArea2D"]
+shape = SubResource("CircleShape2D_11oan")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -26)
@@ -181,18 +193,6 @@ debug_enabled = true
 wait_time = 0.25
 autostart = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -23)
-shape = SubResource("CircleShape2D_p80o4")
-metadata/_edit_group_ = true
-
-[node name="InteractionArea2D" type="Area2D" parent="CollisionShape2D"]
-collision_layer = 0
-collision_mask = 6
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/InteractionArea2D"]
-shape = SubResource("CircleShape2D_11oan")
-
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_1q4n3")
 initial_state = NodePath("Idle")
@@ -203,11 +203,12 @@ pawn = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
 nav_agent = NodePath("../../NavigationAgent2D")
 
-[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("pawn", "nav_agent", "animation_player")]
-script = ExtResource("5_wq1hl")
-pawn = NodePath("../..")
-nav_agent = NodePath("../../NavigationAgent2D")
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("unit", "animation_player", "nav_agent", "sprite")]
+script = ExtResource("5_v437n")
+unit = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
+nav_agent = NodePath("../../NavigationAgent2D")
+sprite = NodePath("../../Sprite2D")
 
 [node name="Cut" type="Node" parent="StateMachine" node_paths=PackedStringArray("_pawn", "_animation_player", "_gathering_progress")]
 script = ExtResource("6_5ypc2")
@@ -266,5 +267,4 @@ offset_bottom = -110.0
 unit = NodePath("..")
 
 [connection signal="body_entered" from="CollisionShape2D/InteractionArea2D" to="." method="_on_interaction_body_entered"]
-[connection signal="body_exited" from="CollisionShape2D/InteractionArea2D" to="." method="_on_interaction_area_2d_body_exited"]
 [connection signal="timeout" from="GatheringProgress/Timer" to="GatheringProgress" method="_on_timer_timeout"]

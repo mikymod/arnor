@@ -8,6 +8,15 @@
 [ext_resource type="Script" path="res://units/enemy/barrel/barrel_attack_state.gd" id="6_03trb"]
 [ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://units/unit/health_bar.tscn" id="6_ppp58"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_njvl7"]
+radius = 24.1868
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hj4rr"]
+radius = 150.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5mfct"]
+radius = 300.0
+
 [sub_resource type="Animation" id="Animation_a03pn"]
 length = 0.001
 tracks/0/type = "value"
@@ -134,40 +143,15 @@ _data = {
 "walk": SubResource("Animation_5peye")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_njvl7"]
-radius = 24.1868
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_hj4rr"]
-radius = 150.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_5mfct"]
-radius = 300.0
-
-[node name="Barrel" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent", "state_machine", "attack_timer")]
+[node name="Barrel" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "agent", "state_machine", "attack_timer")]
 position = Vector2(677, 349)
-collision_layer = 2
-collision_mask = 3
+collision_mask = 9
 script = ExtResource("1_u6lad")
-group = 1
 sprite = NodePath("Sprite2D")
-anim_player = NodePath("AnimationPlayer")
 agent = NodePath("NavigationAgent2D")
 state_machine = NodePath("StateMachine")
 attack_timer = NodePath("AttackTimer")
 metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_1pgmi")
-hframes = 6
-vframes = 6
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_agqcl")
-}
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
@@ -186,6 +170,19 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/WalkArea2D"]
 shape = SubResource("CircleShape2D_5mfct")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1pgmi")
+hframes = 6
+vframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_agqcl")
+}
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_dm74v")

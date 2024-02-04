@@ -6,7 +6,7 @@ extends State
 @export var attack_timer: Timer
 
 func enter() -> void:
-	attack_timer.timeout.connect(_on_attack_timer_timout)	
+	attack_timer.timeout.connect(_on_attack_timer_timout)
 	start_attack()
 
 func exit() -> void:
@@ -18,13 +18,24 @@ func start_attack() -> void:
 	match attack_direction:
 		Vector2.RIGHT:
 			sprite.flip_h = false
+		Vector2(1, 1): # UP_RIGHT
+			sprite.flip_h = false
+			animation_name = "attack_up"
 		Vector2.UP:
+			animation_name = "attack_up"
+		Vector2(-1, 1): # UP_LEFT
+			sprite.flip_h = true
 			animation_name = "attack_up"
 		Vector2.LEFT:
 			sprite.flip_h = true
+		Vector2(-1, -1): # DOWN_LEFT
+			sprite.flip_h = true
+			animation_name = "attack_down"
 		Vector2.DOWN:
 			animation_name = "attack_down"
-
+		Vector2(1, -1): # DOWN_RIGHT
+			sprite.flip_h = false
+			animation_name = "attack_down"
 	animation_player.play(animation_name)
 	attack_timer.wait_time = unit.attack_speed
 	attack_timer.start()
