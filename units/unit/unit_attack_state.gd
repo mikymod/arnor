@@ -18,22 +18,22 @@ func start_attack() -> void:
 	match attack_direction:
 		Vector2.RIGHT:
 			sprite.flip_h = false
-		Vector2(1, 1): # UP_RIGHT
+		Vector2(1, -1): # UP_RIGHT
 			sprite.flip_h = false
 			animation_name = "attack_up"
 		Vector2.UP:
 			animation_name = "attack_up"
-		Vector2(-1, 1): # UP_LEFT
+		Vector2(-1, -1): # UP_LEFT
 			sprite.flip_h = true
 			animation_name = "attack_up"
 		Vector2.LEFT:
 			sprite.flip_h = true
-		Vector2(-1, -1): # DOWN_LEFT
+		Vector2(-1, 1): # DOWN_LEFT
 			sprite.flip_h = true
 			animation_name = "attack_down"
 		Vector2.DOWN:
 			animation_name = "attack_down"
-		Vector2(1, -1): # DOWN_RIGHT
+		Vector2(1, 1): # DOWN_RIGHT
 			sprite.flip_h = false
 			animation_name = "attack_down"
 	animation_player.play(animation_name)

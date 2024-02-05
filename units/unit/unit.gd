@@ -110,36 +110,8 @@ func get_attack_direction() -> Vector2:
 	if hostile_unit == null:
 		return Vector2.ZERO;
 
-	var directions: Array[Vector2] = [
-		Vector2.RIGHT,
-		Vector2(1, 1), # up-right
-		Vector2.UP,
-		Vector2(-1, 1), # up-left
-		Vector2.LEFT,
-		Vector2(-1, -1), # down-left
-		Vector2.DOWN,
-		Vector2(1, -1), # down-right
-	]
-	
 	var direction = global_position.direction_to(hostile_unit.global_position)
+
+	var rounded = direction.round()
 	
-	var distances: Array[float] = [
-		direction.distance_squared_to(Vector2.RIGHT),
-		direction.distance_squared_to(Vector2(1, 1)),
-		direction.distance_squared_to(Vector2.UP),
-		direction.distance_squared_to(Vector2(-1, 1)),
-		direction.distance_squared_to(Vector2.LEFT),
-		direction.distance_squared_to(Vector2(-1, -1)),
-		direction.distance_squared_to(Vector2.DOWN),
-		direction.distance_squared_to(Vector2(1, -1))
-	]
-	
-	# Find index
-	var min_distance = distances.min()
-	var index = -1
-	for v in distances:
-		index += 1
-		if v == min_distance:
-			break
-	
-	return directions[index];
+	return rounded;

@@ -6,14 +6,14 @@
 [node name="TestArrow" type="Node2D"]
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(736, 271)
+position = Vector2(433, 456)
 metadata/_edit_group_ = true
 
 [node name="Goblin" parent="Node2D" instance=ExtResource("2_4vucc")]
 position = Vector2(0, 0)
 
 [node name="Node2D2" type="Node2D" parent="."]
-position = Vector2(950, 454)
+position = Vector2(592, 184)
 metadata/_edit_group_ = true
 
 [node name="Archer" parent="Node2D2" instance=ExtResource("2_jnewt")]
