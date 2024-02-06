@@ -37,19 +37,25 @@ enum UnitSpeed { SLOW = 50, MEDIUM = 100, FAST = 200 }
 ## The other units in interaction range.
 var _units_in_range: Array[Unit] = []
 
+## The building in interaction range
+var _building: Building
+
 ## Returns Damage Per Second dealt by the unit.
 func dps() -> float:
 	return damage / attack_speed
 
 ## Performs an attack to the hostile unit.
 func attack() -> void:
-	var hostile_unit = get_hostile_unit()
+	var hostile_unit = get_hostile_unit() if not _units_in_range.is_empty() else _building
 	if hostile_unit == null:
 		return
-	hostile_unit.health -= damage
-	if hostile_unit.health <= 0:
-		_units_in_range.erase(hostile_unit)
-		hostile_unit.die()
+	if hostile_unit is Unit:
+		hostile_unit.health -= damage
+		if hostile_unit.health <= 0:
+			_units_in_range.erase(hostile_unit)
+			hostile_unit.die()
+	else: # if building
+		attack_building()
 
 ## Performs an attack to all the units in range.
 func aoe_attack() -> void:
@@ -58,6 +64,14 @@ func aoe_attack() -> void:
 		if unit.health <= 0:
 			_units_in_range.erase(unit)
 			unit.die()
+	attack_building()
+
+##
+func attack_building() -> void:
+	if _building == null: return
+	_building.harm(damage)
+	if _building.health <= 0:
+		_building = null
 
 ## Die.
 func die() -> void:
@@ -74,7 +88,7 @@ func get_hostile_unit() -> Unit:
 
 ## Returns true if the unit has some other units nearby. False otherwise.
 func has_nearby_units() -> bool:
-	return not _units_in_range.is_empty()
+	return not _units_in_range.is_empty() or _building != null
 
 ## Adds a unit to the list of those in the current unit's range
 func add_to_units_in_range(unit: Unit) -> void:
@@ -93,6 +107,20 @@ func remove_from_units_in_range(unit: Unit) -> void:
 		_units_in_range = _units_in_range.filter(func(u): return u != null)
 	if not has_nearby_units():
 		state_machine.transition_to("Idle")
+
+
+##
+func add_building_in_range(building: Building) -> void:
+	if building == null: return
+	if get_parent() == building.get_parent(): return
+	_building = building
+	state_machine.transition_to("Attack")
+
+##
+func remove_building_in_range(building: Building) -> void:
+	if building == null: return
+	_building = null
+
 
 ## Returns the attack direction of the current unit
 func get_attack_direction() -> Vector2:

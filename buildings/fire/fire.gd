@@ -1,6 +1,9 @@
 class_name Fire
 extends Node2D
 
+var active: bool:
+	get:
+		return visible == true
 
 func start() -> void:
 	visible = true

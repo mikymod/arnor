@@ -181,6 +181,7 @@ _data = {
 
 [node name="Warrior" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "agent", "state_machine", "attack_timer")]
 position = Vector2(641, 380)
+collision_mask = 9
 script = ExtResource("1_pehos")
 sprite = NodePath("Sprite2D")
 agent = NodePath("NavigationAgent2D")
@@ -249,5 +250,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AttackTimer" type="Timer" parent="."]
 
+[connection signal="area_entered" from="InteractionArea2D" to="." method="add_building_in_range"]
+[connection signal="area_exited" from="InteractionArea2D" to="." method="remove_building_in_range"]
 [connection signal="body_entered" from="InteractionArea2D" to="." method="add_to_units_in_range"]
 [connection signal="body_exited" from="InteractionArea2D" to="." method="remove_from_units_in_range"]
