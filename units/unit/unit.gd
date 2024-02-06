@@ -37,16 +37,6 @@ enum UnitSpeed { SLOW = 50, MEDIUM = 100, FAST = 200 }
 ## The other units in interaction range.
 var _units_in_range: Array[Unit] = []
 
-#func _ready() -> void:
-	#add_to_group(UnitGroup.keys()[group])
-
-#func _process(delta: float) -> void:
-	#if velocity != Vector2.ZERO:
-		#sprite.flip_h = velocity.x < 0
-	#
-	#if has_nearby_units():
-		#state_machine.transition_to("Attack")
-
 ## Returns Damage Per Second dealt by the unit.
 func dps() -> float:
 	return damage / attack_speed

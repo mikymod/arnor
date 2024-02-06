@@ -192,12 +192,13 @@ position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_npoes")
 metadata/_edit_group_ = true
 
-[node name="InteractionArea2D" type="Area2D" parent="CollisionShape2D"]
+[node name="InteractionArea2D" type="Area2D" parent="."]
+position = Vector2(0, 8)
 collision_layer = 0
 collision_mask = 9
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/InteractionArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea2D"]
 shape = SubResource("CircleShape2D_3ad0t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -248,5 +249,5 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AttackTimer" type="Timer" parent="."]
 
-[connection signal="body_entered" from="CollisionShape2D/InteractionArea2D" to="." method="add_to_units_in_range"]
-[connection signal="body_exited" from="CollisionShape2D/InteractionArea2D" to="." method="remove_from_units_in_range"]
+[connection signal="body_entered" from="InteractionArea2D" to="." method="add_to_units_in_range"]
+[connection signal="body_exited" from="InteractionArea2D" to="." method="remove_from_units_in_range"]
