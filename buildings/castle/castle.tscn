@@ -2,20 +2,23 @@
 
 [ext_resource type="Texture2D" uid="uid://bf3aq7g6dtps2" path="res://buildings/castle/Carved_9Slides.png" id="1_gmarb"]
 [ext_resource type="Texture2D" uid="uid://dbvu403xynh1k" path="res://buildings/castle/Castle_Purple.png" id="1_h16xk"]
-[ext_resource type="Script" path="res://buildings/building.gd" id="1_wb6ao"]
+[ext_resource type="Script" path="res://buildings/castle/castle.gd" id="1_r4po8"]
 [ext_resource type="Texture2D" uid="uid://5wfengovp4fl" path="res://buildings/castle/Castle_Destroyed.png" id="2_oui3m"]
 [ext_resource type="PackedScene" uid="uid://wxpx3lxg3ldv" path="res://buildings/fire/fire.tscn" id="5_l7orm"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni5gg"]
-size = Vector2(500, 400)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mk1v"]
 size = Vector2(236, 72)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni5gg"]
+size = Vector2(500, 400)
+
 [node name="Castle" type="Area2D"]
 collision_layer = 8
-collision_mask = 3
-script = ExtResource("1_wb6ao")
+script = ExtResource("1_r4po8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -56)
+shape = SubResource("RectangleShape2D_8mk1v")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, -129)
@@ -52,30 +55,47 @@ y_sort_enabled = true
 position = Vector2(0, -129)
 texture = ExtResource("2_oui3m")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -56)
-shape = SubResource("RectangleShape2D_8mk1v")
-
 [node name="Fires" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Fire" parent="Fires" instance=ExtResource("5_l7orm")]
+[node name="Fire" parent="Fires" node_paths=PackedStringArray("building") instance=ExtResource("5_l7orm")]
 visible = false
 position = Vector2(-76, -17)
+building = NodePath("../..")
+threshold = 800
 
-[node name="Fire2" parent="Fires" instance=ExtResource("5_l7orm")]
+[node name="Fire2" parent="Fires" node_paths=PackedStringArray("building") instance=ExtResource("5_l7orm")]
 visible = false
 position = Vector2(112, -30)
+building = NodePath("../..")
+threshold = 600
 
-[node name="Fire3" parent="Fires" instance=ExtResource("5_l7orm")]
+[node name="Fire3" parent="Fires" node_paths=PackedStringArray("building") instance=ExtResource("5_l7orm")]
 visible = false
 position = Vector2(-7, -132)
+building = NodePath("../..")
+threshold = 400
 
-[node name="Fire4" parent="Fires" instance=ExtResource("5_l7orm")]
+[node name="Fire4" parent="Fires" node_paths=PackedStringArray("building") instance=ExtResource("5_l7orm")]
 visible = false
 position = Vector2(-92, -157)
+building = NodePath("../..")
+threshold = 200
 
-[node name="Fire5" parent="Fires" instance=ExtResource("5_l7orm")]
+[node name="Fire5" parent="Fires" node_paths=PackedStringArray("building") instance=ExtResource("5_l7orm")]
 visible = false
 z_index = -1
 position = Vector2(-128, -76)
+building = NodePath("../..")
+threshold = 100
+
+[connection signal="destroyed" from="." to="Fires/Fire" method="_on_building_destroyed"]
+[connection signal="destroyed" from="." to="Fires/Fire2" method="_on_building_destroyed"]
+[connection signal="destroyed" from="." to="Fires/Fire3" method="_on_building_destroyed"]
+[connection signal="destroyed" from="." to="Fires/Fire4" method="_on_building_destroyed"]
+[connection signal="destroyed" from="." to="Fires/Fire5" method="_on_building_destroyed"]
+[connection signal="health_changed" from="." to="Fires/Fire" method="_on_building_health_changed"]
+[connection signal="health_changed" from="." to="Fires/Fire2" method="_on_building_health_changed"]
+[connection signal="health_changed" from="." to="Fires/Fire3" method="_on_building_health_changed"]
+[connection signal="health_changed" from="." to="Fires/Fire4" method="_on_building_health_changed"]
+[connection signal="health_changed" from="." to="Fires/Fire5" method="_on_building_health_changed"]

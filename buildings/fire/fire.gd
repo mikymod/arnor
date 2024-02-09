@@ -30,3 +30,7 @@ func stop() -> void:
 	$AnimatedSprite2D.stop()
 	visible = false
 
+
+
+func _on_castle_destroyed():
+	pass # Replace with function body.

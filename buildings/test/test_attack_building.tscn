@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkkjdsfximogl"]
+[gd_scene load_steps=8 format=3 uid="uid://bkkjdsfximogl"]
 
 [ext_resource type="Script" path="res://terrain/terrain.gd" id="1_d58bt"]
 [ext_resource type="TileSet" uid="uid://gwls54ddpum0" path="res://terrain/tileset_terrain.tres" id="1_n17v2"]
 [ext_resource type="PackedScene" uid="uid://bww3godgplh8r" path="res://units/warrior/warrior.tscn" id="3_fxd2p"]
+[ext_resource type="PackedScene" uid="uid://de36aplg7bs3u" path="res://buildings/castle/castle.tscn" id="4_rvmij"]
+[ext_resource type="PackedScene" uid="uid://bvmn3d0p758g4" path="res://units/enemy/goblin/goblin.tscn" id="6_nv2nc"]
 [ext_resource type="PackedScene" uid="uid://cxy42xjpo5o3n" path="res://buildings/wood_tower/wood_tower.tscn" id="6_yrdi6"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_x8krk"]
@@ -43,6 +45,9 @@ navigation_layers = 9
 [node name="Player1" type="Node2D" parent="Entities/NavigationRegion2D"]
 y_sort_enabled = true
 
+[node name="Castle" parent="Entities/NavigationRegion2D/Player1" instance=ExtResource("4_rvmij")]
+position = Vector2(824, 867)
+
 [node name="Warrior" parent="Entities/NavigationRegion2D/Player1" node_paths=PackedStringArray("target") instance=ExtResource("3_fxd2p")]
 position = Vector2(576, -402)
 target = NodePath("../../Player2/WoodTower")
@@ -53,3 +58,7 @@ y_sort_enabled = true
 [node name="WoodTower" parent="Entities/NavigationRegion2D/Player2" instance=ExtResource("6_yrdi6")]
 y_sort_enabled = true
 position = Vector2(797, -354)
+
+[node name="Goblin" parent="Entities/NavigationRegion2D/Player2" node_paths=PackedStringArray("target") instance=ExtResource("6_nv2nc")]
+position = Vector2(528, 793)
+target = NodePath("../../Player1/Castle")
