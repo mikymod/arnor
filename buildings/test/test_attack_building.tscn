@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkkjdsfximogl"]
+[gd_scene load_steps=6 format=3 uid="uid://bkkjdsfximogl"]
 
 [ext_resource type="Script" path="res://terrain/terrain.gd" id="1_d58bt"]
 [ext_resource type="TileSet" uid="uid://gwls54ddpum0" path="res://terrain/tileset_terrain.tres" id="1_n17v2"]
 [ext_resource type="PackedScene" uid="uid://bww3godgplh8r" path="res://units/warrior/warrior.tscn" id="3_fxd2p"]
-[ext_resource type="PackedScene" uid="uid://de36aplg7bs3u" path="res://buildings/castle/castle.tscn" id="4_408hs"]
 [ext_resource type="PackedScene" uid="uid://cxy42xjpo5o3n" path="res://buildings/wood_tower/wood_tower.tscn" id="6_yrdi6"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_x8krk"]
@@ -43,10 +42,6 @@ navigation_layers = 9
 
 [node name="Player1" type="Node2D" parent="Entities/NavigationRegion2D"]
 y_sort_enabled = true
-
-[node name="Castle" parent="Entities/NavigationRegion2D/Player1" instance=ExtResource("4_408hs")]
-y_sort_enabled = true
-position = Vector2(805, 805)
 
 [node name="Warrior" parent="Entities/NavigationRegion2D/Player1" node_paths=PackedStringArray("target") instance=ExtResource("3_fxd2p")]
 position = Vector2(576, -402)

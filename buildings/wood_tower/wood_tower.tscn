@@ -96,14 +96,27 @@ texture = ExtResource("4_xk273")
 [node name="Fires" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Fire" parent="Fires" instance=ExtResource("3_p5ghb")]
+[node name="Fire" parent="Fires" node_paths=PackedStringArray("building") instance=ExtResource("3_p5ghb")]
 visible = false
 position = Vector2(-36, -1)
+building = NodePath("../..")
+threshold = 750
 
-[node name="Fire2" parent="Fires" instance=ExtResource("3_p5ghb")]
+[node name="Fire2" parent="Fires" node_paths=PackedStringArray("building") instance=ExtResource("3_p5ghb")]
 visible = false
 position = Vector2(37, -43)
+building = NodePath("../..")
+threshold = 500
 
-[node name="Fire3" parent="Fires" instance=ExtResource("3_p5ghb")]
+[node name="Fire3" parent="Fires" node_paths=PackedStringArray("building") instance=ExtResource("3_p5ghb")]
 visible = false
 position = Vector2(3, -104)
+building = NodePath("../..")
+threshold = 250
+
+[connection signal="destroyed" from="." to="Fires/Fire" method="_on_building_destroyed"]
+[connection signal="destroyed" from="." to="Fires/Fire2" method="_on_building_destroyed"]
+[connection signal="destroyed" from="." to="Fires/Fire3" method="_on_building_destroyed"]
+[connection signal="health_changed" from="." to="Fires/Fire" method="_on_building_health_changed"]
+[connection signal="health_changed" from="." to="Fires/Fire2" method="_on_building_health_changed"]
+[connection signal="health_changed" from="." to="Fires/Fire3" method="_on_building_health_changed"]
