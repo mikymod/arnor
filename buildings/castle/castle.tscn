@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://de36aplg7bs3u"]
+[gd_scene load_steps=9 format=3 uid="uid://de36aplg7bs3u"]
 
 [ext_resource type="Texture2D" uid="uid://bf3aq7g6dtps2" path="res://buildings/castle/Carved_9Slides.png" id="1_gmarb"]
 [ext_resource type="Texture2D" uid="uid://dbvu403xynh1k" path="res://buildings/castle/Castle_Purple.png" id="1_h16xk"]
 [ext_resource type="Script" path="res://buildings/castle/castle.gd" id="1_r4po8"]
 [ext_resource type="Texture2D" uid="uid://5wfengovp4fl" path="res://buildings/castle/Castle_Destroyed.png" id="2_oui3m"]
 [ext_resource type="PackedScene" uid="uid://wxpx3lxg3ldv" path="res://buildings/fire/fire.tscn" id="5_l7orm"]
+[ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://health_bar/health_bar.tscn" id="6_nhsni"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mk1v"]
 size = Vector2(236, 72)
@@ -90,6 +91,12 @@ position = Vector2(-128, -76)
 building = NodePath("../..")
 threshold = 100
 
+[node name="HealthBar" parent="." instance=ExtResource("6_nhsni")]
+offset_left = -74.0
+offset_top = -260.0
+offset_right = 73.0
+offset_bottom = -233.0
+
 [connection signal="destroyed" from="." to="Fires/Fire" method="_on_building_destroyed"]
 [connection signal="destroyed" from="." to="Fires/Fire2" method="_on_building_destroyed"]
 [connection signal="destroyed" from="." to="Fires/Fire3" method="_on_building_destroyed"]
@@ -100,3 +107,5 @@ threshold = 100
 [connection signal="health_changed" from="." to="Fires/Fire3" method="_on_building_health_changed"]
 [connection signal="health_changed" from="." to="Fires/Fire4" method="_on_building_health_changed"]
 [connection signal="health_changed" from="." to="Fires/Fire5" method="_on_building_health_changed"]
+[connection signal="health_changed" from="." to="HealthBar" method="on_health_changed"]
+[connection signal="spawned" from="." to="HealthBar" method="on_health_init"]

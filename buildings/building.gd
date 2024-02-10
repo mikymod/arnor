@@ -3,6 +3,8 @@ extends Area2D
 
 ## Represents a faction's building.
 
+## Emits when building is spawned
+signal spawned(building: Building)
 ## Emits when building's health changed
 signal health_changed(health)
 ## Emits when building is destroyed
@@ -11,11 +13,14 @@ signal destroyed()
 @export_group("Stats")
 ## The maximum amount of health of the building.
 @export var max_health: float = 1000
+
 ## The current health of the building
-@export var health: float = max_health
+@onready var health: float = max_health
 
 @onready var fires = $Fires.get_children()
-var fires_index = 0
+
+func _ready() -> void:
+	spawned.emit(self)
 
 ## Applies damage to building
 func harm(amount: float) -> void:

@@ -3,6 +3,7 @@ extends Building
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	super._ready()
 	$BuildingSprite2D.play("default")
 
 func destroy() -> void:
@@ -13,6 +14,5 @@ func destroy() -> void:
 func harm(amount: float) -> void:
 	super.harm(amount)
 	if health <= 0:
-		$DestroyedSprite2D.visible = true
-		$BuildingSprite2D.visible = false
+		destroy()
 

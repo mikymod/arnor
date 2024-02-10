@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://units/unit/unit.gd" id="1_pehos"]
 [ext_resource type="Script" path="res://utils/state_machine.gd" id="2_370df"]
 [ext_resource type="Script" path="res://units/unit/unit_idle_state.gd" id="4_nd5n8"]
-[ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://units/unit/health_bar.tscn" id="4_xrbuf"]
+[ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://health_bar/health_bar.tscn" id="4_xrbuf"]
 [ext_resource type="Script" path="res://units/unit/unit_walk_state.gd" id="5_kthca"]
 [ext_resource type="Script" path="res://units/unit/unit_attack_state.gd" id="6_8nm8e"]
 
