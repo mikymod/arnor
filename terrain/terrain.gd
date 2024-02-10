@@ -7,5 +7,6 @@ func _input(event: InputEvent) -> void:
 		_camera.get_target_position()
 		_camera.global_position.y = roundi(_camera.global_position.y - event.relative.y)
 
+## Sets input process
 func set_input(enable: bool) -> void:
 	set_process_input(enable)

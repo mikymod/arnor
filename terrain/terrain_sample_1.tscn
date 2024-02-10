@@ -46,7 +46,6 @@ y_sort_enabled = true
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Entities"]
 y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_kr55t")
-navigation_layers = 9
 
 [node name="PineTree" parent="Entities/NavigationRegion2D" instance=ExtResource("2_5qbpe")]
 position = Vector2(1239, 468)

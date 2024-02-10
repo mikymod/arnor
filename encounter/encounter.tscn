@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhearmqka24oc"]
+[gd_scene load_steps=5 format=3 uid="uid://dhearmqka24oc"]
 
 [ext_resource type="PackedScene" uid="uid://cqdmhpfw035kq" path="res://terrain/terrain_sample_1.tscn" id="1_xkkfu"]
 [ext_resource type="PackedScene" uid="uid://ckijaob7m7yx4" path="res://card_framework/card_framework.tscn" id="2_hl1iq"]
+[ext_resource type="PackedScene" uid="uid://dj0n1tl5yeckk" path="res://units/enemy/barrel/barrel.tscn" id="3_dwq3e"]
+[ext_resource type="PackedScene" uid="uid://xf6fk0gkarw3" path="res://units/enemy/tnt/tnt.tscn" id="3_y5g2t"]
 
 [node name="Encounter" type="Node"]
 
@@ -9,6 +11,26 @@
 
 [node name="PlayerArea" parent="Terrain/Entities/NavigationRegion2D" index="4" node_paths=PackedStringArray("target")]
 target = NodePath("../PlayerArea2/WoodTower")
+
+[node name="Archer" parent="Terrain/Entities/NavigationRegion2D/PlayerArea" index="0"]
+position = Vector2(382, 247)
+
+[node name="Warrior" parent="Terrain/Entities/NavigationRegion2D/PlayerArea" index="1"]
+position = Vector2(336, 523)
+
+[node name="Archer2" parent="Terrain/Entities/NavigationRegion2D/PlayerArea" index="2"]
+position = Vector2(1403, 387)
+
+[node name="Goblin2" parent="Terrain/Entities/NavigationRegion2D/PlayerArea2" index="1"]
+position = Vector2(1054, -108)
+
+[node name="Tnt" parent="Terrain/Entities/NavigationRegion2D/PlayerArea2" index="4" node_paths=PackedStringArray("target") instance=ExtResource("3_y5g2t")]
+position = Vector2(241, 840)
+target = NodePath("../../PlayerArea/Castle")
+
+[node name="Barrel" parent="Terrain/Entities/NavigationRegion2D/PlayerArea2" index="5" node_paths=PackedStringArray("target") instance=ExtResource("3_dwq3e")]
+position = Vector2(1313, 834)
+target = NodePath("../../PlayerArea/Castle")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
