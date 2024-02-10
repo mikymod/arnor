@@ -180,6 +180,7 @@ _data = {
 }
 
 [node name="Warrior" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "agent", "state_machine", "attack_timer")]
+y_sort_enabled = true
 collision_mask = 9
 script = ExtResource("1_pehos")
 sprite = NodePath("Sprite2D")

@@ -147,3 +147,8 @@ func get_attack_direction() -> Vector2:
 	var rounded = direction.round()
 	
 	return rounded;
+
+
+func encounter_finished() -> void:
+	state_machine.transition_to("Idle")
+	target = null
