@@ -9,7 +9,8 @@ extends Node2D
 ## This function must be connected to a signal
 func on_card_played(card: Card) -> void:
 	var unit = card.unit_scene.instantiate()
-	unit.global_position = card.global_position
+	print(card.global_position)
+	unit.global_position = get_global_mouse_position()
 	unit.target = target
 	add_child(unit)
 

@@ -20,5 +20,6 @@
 
 [connection signal="cards_drawed" from="Deck" to="CardHand" method="_on_cards_drawed"]
 [connection signal="deck_exhausted" from="Deck" to="Discard" method="restore_all"]
-[connection signal="card_played" from="CardHand" to="Discard" method="discard_card"]
-[connection signal="card_played" from="CardHand" to="Power" method="_on_card_played"]
+[connection signal="played" from="CardHand" to="Discard" method="discard_card"]
+[connection signal="played" from="CardHand" to="Power" method="_on_card_played"]
+[connection signal="played" from="CardHand" to="Deck" method="draw_cards" unbinds=1]

@@ -1,11 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://bkkjdsfximogl"]
 
-[ext_resource type="Script" path="res://terrain/terrain.gd" id="1_d58bt"]
+[ext_resource type="Script" path="res://camera/camera.gd" id="1_d58bt"]
 [ext_resource type="TileSet" uid="uid://gwls54ddpum0" path="res://terrain/tileset_terrain.tres" id="1_n17v2"]
 [ext_resource type="PackedScene" uid="uid://bww3godgplh8r" path="res://units/warrior/warrior.tscn" id="3_fxd2p"]
 [ext_resource type="PackedScene" uid="uid://de36aplg7bs3u" path="res://buildings/castle/castle.tscn" id="4_rvmij"]
 [ext_resource type="PackedScene" uid="uid://bvmn3d0p758g4" path="res://units/enemy/goblin/goblin.tscn" id="6_nv2nc"]
 [ext_resource type="PackedScene" uid="uid://cxy42xjpo5o3n" path="res://buildings/wood_tower/wood_tower.tscn" id="6_yrdi6"]
+
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_x8krk"]
 vertices = PackedVector2Array(1034, -17, 1392, -619, 1387, 884, 1033, 460, 792, 463, 810, 877, 793, 496, 713, -76, 792, -625, 806, -11, 711, -12, 772, 526, 811, 882, 209, 882, 561, 523, 205, -625, 563, -76, 792, -630, 805, -10)

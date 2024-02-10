@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhearmqka24oc"]
+[gd_scene load_steps=6 format=3 uid="uid://dhearmqka24oc"]
 
-[ext_resource type="PackedScene" uid="uid://cqdmhpfw035kq" path="res://terrain/terrain_sample_1.tscn" id="1_xkkfu"]
+[ext_resource type="PackedScene" uid="uid://dkpnn5025kmn0" path="res://camera/camera.tscn" id="1_dtugg"]
+[ext_resource type="PackedScene" uid="uid://cqdmhpfw035kq" path="res://terrain/test/test_terrain_sample_1.tscn" id="1_xkkfu"]
 [ext_resource type="PackedScene" uid="uid://ckijaob7m7yx4" path="res://card_framework/card_framework.tscn" id="2_hl1iq"]
 [ext_resource type="PackedScene" uid="uid://dj0n1tl5yeckk" path="res://units/enemy/barrel/barrel.tscn" id="3_dwq3e"]
 [ext_resource type="PackedScene" uid="uid://xf6fk0gkarw3" path="res://units/enemy/tnt/tnt.tscn" id="3_y5g2t"]
 
 [node name="Encounter" type="Node"]
+
+[node name="Camera" parent="." instance=ExtResource("1_dtugg")]
+offset = Vector2(800, 450)
+zoom = Vector2(0.8, 0.8)
 
 [node name="Terrain" parent="." instance=ExtResource("1_xkkfu")]
 
@@ -36,11 +41,10 @@ target = NodePath("../../PlayerArea/Castle")
 
 [node name="CardFramework" parent="CanvasLayer" instance=ExtResource("2_hl1iq")]
 
-[connection signal="card_drag_canceled" from="CanvasLayer/CardFramework/CardHand" to="Terrain" method="set_input" binds= [true]]
-[connection signal="card_drag_started" from="CanvasLayer/CardFramework/CardHand" to="Terrain" method="set_input" binds= [false]]
-[connection signal="card_drag_stopped" from="CanvasLayer/CardFramework/CardHand" to="Terrain" method="set_input" binds= [true]]
-[connection signal="card_played" from="CanvasLayer/CardFramework/CardHand" to="Terrain/Entities/NavigationRegion2D/PlayerArea" method="on_card_played"]
-[connection signal="card_played" from="CanvasLayer/CardFramework/CardHand" to="CanvasLayer/CardFramework/Deck" method="draw_cards" unbinds=1]
+[connection signal="drag_canceled" from="CanvasLayer/CardFramework/CardHand" to="Camera" method="set_input" binds= [true]]
+[connection signal="drag_started" from="CanvasLayer/CardFramework/CardHand" to="Camera" method="set_input" binds= [false]]
+[connection signal="drag_stopped" from="CanvasLayer/CardFramework/CardHand" to="Camera" method="set_input" binds= [true]]
+[connection signal="played" from="CanvasLayer/CardFramework/CardHand" to="Terrain/Entities/NavigationRegion2D/PlayerArea" method="on_card_played"]
 
 [editable path="Terrain"]
 [editable path="Terrain/Entities/NavigationRegion2D/PineTree2"]

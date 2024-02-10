@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqdmhpfw035kq"]
+[gd_scene load_steps=13 format=3 uid="uid://cqdmhpfw035kq"]
 
 [ext_resource type="TileSet" uid="uid://gwls54ddpum0" path="res://terrain/tileset_terrain.tres" id="1_7mhop"]
-[ext_resource type="Script" path="res://terrain/terrain.gd" id="1_n2iem"]
 [ext_resource type="PackedScene" uid="uid://c1f3cs2ptukon" path="res://supplies/tree/pine_tree.tscn" id="2_5qbpe"]
 [ext_resource type="Resource" uid="uid://ds0mwwc7xt3ha" path="res://supplies/wood.tres" id="3_66k47"]
 [ext_resource type="PackedScene" uid="uid://dq0hve3xn83nl" path="res://supplies/gold_mine/gold_mine.tscn" id="4_hnv7m"]
@@ -20,14 +19,6 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(195, -635, 199, 892, 82
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Terrain" type="Node2D"]
-script = ExtResource("1_n2iem")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-zoom = Vector2(0.8, 0.8)
-position_smoothing_enabled = true
-position_smoothing_speed = 100.0
-editor_draw_drag_margin = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_7mhop")

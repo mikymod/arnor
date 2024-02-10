@@ -27,10 +27,10 @@ extends Node2D
 ## If the drag is cancelled, the card becomes visible again and returns
 ## to the right position in hand.
 
-signal card_played(card: Card)
-signal card_drag_started()
-signal card_drag_stopped()
-signal card_drag_canceled()
+signal played(card: Card)
+signal drag_started()
+signal drag_stopped()
+signal drag_canceled()
 
 @export var state: CardBoardState = preload("res://card_framework/card_board_state.tres")
 @export var card_scene: PackedScene = preload("res://card_framework/card/card.tscn")
@@ -179,7 +179,7 @@ func _start_drag() -> void:
 	_dragged_card = _hovered_card
 	_dragged_card.rotation_degrees = 0
 	_dragging = true
-	card_drag_started.emit()
+	drag_started.emit()
 
 ## 
 func _stop_drag() -> void:
@@ -190,7 +190,7 @@ func _stop_drag() -> void:
 	_dragged_card = null
 	_dragging = false
 	_reposition()
-	card_drag_stopped.emit()
+	drag_stopped.emit()
 
 ##
 func _cancel_drag() -> void:
@@ -199,7 +199,7 @@ func _cancel_drag() -> void:
 	_dragged_card = null
 	_dragging = false
 	_reposition()
-	card_drag_canceled.emit()
+	drag_canceled.emit()
 
 
 ##
@@ -207,7 +207,7 @@ func _play() -> void:
 	if state.current_power < _playable_card.card_resource.cost:
 		return
 	remove_card(_playable_card)
-	card_played.emit(_playable_card)
+	played.emit(_playable_card)
 	_unit_instance.queue_free() # TODO: place _unit_instance on map
 	_playable_card = null
 	_hover_queue.clear()
