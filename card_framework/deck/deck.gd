@@ -24,7 +24,7 @@ func _ready() -> void:
 
 
 ## Pops an amount of cards from top of deck
-func draw_cards(amount: int) -> void:
+func draw_cards(amount: int = 1) -> void:
 	var drawed_cards: Array[Card] = []
 	for i in range(amount):
 		if state.deck_cards.size() <= 0:

@@ -7,6 +7,9 @@
 
 [node name="Terrain" parent="." instance=ExtResource("1_xkkfu")]
 
+[node name="PlayerArea" parent="Terrain/Entities/NavigationRegion2D" index="4" node_paths=PackedStringArray("target")]
+target = NodePath("../PlayerArea2/WoodTower")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CardFramework" parent="CanvasLayer" instance=ExtResource("2_hl1iq")]
@@ -14,8 +17,9 @@
 [connection signal="card_drag_canceled" from="CanvasLayer/CardFramework/CardHand" to="Terrain" method="set_input" binds= [true]]
 [connection signal="card_drag_started" from="CanvasLayer/CardFramework/CardHand" to="Terrain" method="set_input" binds= [false]]
 [connection signal="card_drag_stopped" from="CanvasLayer/CardFramework/CardHand" to="Terrain" method="set_input" binds= [true]]
-[connection signal="pressed" from="CanvasLayer/CardFramework/CardBoardDebug/VBoxContainer/DrawCardButton" to="CanvasLayer/CardFramework/Deck" method="draw_cards" binds= [1]]
-[connection signal="pressed" from="CanvasLayer/CardFramework/CardBoardDebug/VBoxContainer/RestorePowerButton" to="CanvasLayer/CardFramework/Power" method="restore_power"]
+[connection signal="card_played" from="CanvasLayer/CardFramework/CardHand" to="Terrain/Entities/NavigationRegion2D/PlayerArea" method="on_card_played"]
+[connection signal="card_played" from="CanvasLayer/CardFramework/CardHand" to="CanvasLayer/CardFramework/Deck" method="draw_cards" unbinds=1]
 
+[editable path="Terrain"]
+[editable path="Terrain/Entities/NavigationRegion2D/PineTree2"]
 [editable path="CanvasLayer/CardFramework"]
-[editable path="CanvasLayer/CardFramework/CardBoardDebug"]

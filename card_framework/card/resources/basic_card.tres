@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="CardResource" load_steps=2 format=3 uid="uid://dduc3gtaplml7"]
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://dduc3gtaplml7"]
 
 [ext_resource type="Script" path="res://card_framework/card/resources/card_resource.gd" id="1_x327t"]
+[ext_resource type="PackedScene" uid="uid://bww3godgplh8r" path="res://units/warrior/warrior.tscn" id="2_4lfpa"]
 
 [resource]
 script = ExtResource("1_x327t")
@@ -9,3 +10,4 @@ description = "This is an empty card"
 cost = 1
 rarity = 0
 color = Color(0, 0.576471, 0.72549, 1)
+unit_scene = ExtResource("2_4lfpa")

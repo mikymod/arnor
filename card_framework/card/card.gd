@@ -36,6 +36,7 @@ func set_data() -> void:
 	_description_label.text = "[center]"
 	_description_label.text += card_resource.description + "\n"
 	_description_label.text += "[/center]"
+	unit_scene = card_resource.unit_scene
 	pass
 
 func hover() -> void:

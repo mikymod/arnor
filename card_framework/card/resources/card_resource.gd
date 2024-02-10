@@ -16,4 +16,5 @@ enum Rarity {
 @export var cost: int = 0
 @export var rarity: Rarity = Rarity.common
 @export var color: Color = Color.WHITE
+@export var unit_scene: PackedScene
 
