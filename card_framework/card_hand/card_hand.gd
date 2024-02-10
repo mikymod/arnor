@@ -28,6 +28,9 @@ extends Node2D
 ## to the right position in hand.
 
 signal card_played(card: Card)
+signal card_drag_started()
+signal card_drag_stopped()
+signal card_drag_canceled()
 
 @export var state: CardBoardState = preload("res://card_framework/card_board_state.tres")
 @export var card_scene: PackedScene = preload("res://card_framework/card/card.tscn")
@@ -176,6 +179,7 @@ func _start_drag() -> void:
 	_dragged_card = _hovered_card
 	_dragged_card.rotation_degrees = 0
 	_dragging = true
+	card_drag_started.emit()
 
 ## 
 func _stop_drag() -> void:
@@ -186,6 +190,7 @@ func _stop_drag() -> void:
 	_dragged_card = null
 	_dragging = false
 	_reposition()
+	card_drag_stopped.emit()
 
 ##
 func _cancel_drag() -> void:
@@ -194,6 +199,7 @@ func _cancel_drag() -> void:
 	_dragged_card = null
 	_dragging = false
 	_reposition()
+	card_drag_canceled.emit()
 
 
 ##

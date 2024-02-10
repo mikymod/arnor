@@ -21,6 +21,13 @@
 
 [node name="CardBoardDebug" parent="." instance=ExtResource("3_vm188")]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(0.8, 0.8)
+position_smoothing_enabled = true
+position_smoothing_speed = 100.0
+editor_draw_drag_margin = true
+
 [connection signal="cards_drawed" from="Deck" to="CardHand" method="_on_cards_drawed"]
 [connection signal="deck_exhausted" from="Deck" to="Discard" method="restore_all"]
 [connection signal="card_played" from="CardHand" to="Discard" method="discard_card"]
