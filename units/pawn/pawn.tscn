@@ -259,12 +259,13 @@ show_percentage = false
 
 [node name="Timer" type="Timer" parent="GatheringProgress"]
 
-[node name="HealthBar" parent="." node_paths=PackedStringArray("unit") instance=ExtResource("9_bb7oo")]
+[node name="HealthBar" parent="." instance=ExtResource("9_bb7oo")]
 offset_left = -74.0
 offset_top = -137.0
 offset_right = 74.0
 offset_bottom = -110.0
-unit = NodePath("..")
 
+[connection signal="health_changed" from="." to="HealthBar" method="on_health_changed"]
+[connection signal="spawned" from="." to="HealthBar" method="on_health_init"]
 [connection signal="body_entered" from="CollisionShape2D/InteractionArea2D" to="." method="_on_interaction_body_entered"]
 [connection signal="timeout" from="GatheringProgress/Timer" to="GatheringProgress" method="_on_timer_timeout"]

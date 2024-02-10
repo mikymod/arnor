@@ -205,18 +205,19 @@ barrel = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
 timer = NodePath("../../AttackTimer")
 
-[node name="HealthBar" parent="." node_paths=PackedStringArray("unit") instance=ExtResource("6_ppp58")]
+[node name="HealthBar" parent="." instance=ExtResource("6_ppp58")]
 offset_left = -73.0
 offset_top = -128.0
 offset_right = 74.0
 offset_bottom = -101.0
 value = 88.0
-unit = NodePath("..")
 metadata/_edit_use_anchors_ = true
 
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="health_changed" from="." to="HealthBar" method="on_health_changed"]
+[connection signal="spawned" from="." to="HealthBar" method="on_health_init"]
 [connection signal="area_entered" from="CollisionShape2D/InteractionArea2D" to="." method="add_building_in_range"]
 [connection signal="area_entered" from="CollisionShape2D/InteractionArea2D" to="StateMachine/Walk" method="_on_interaction_body_entered"]
 [connection signal="area_exited" from="CollisionShape2D/InteractionArea2D" to="." method="remove_building_in_range"]

@@ -1,6 +1,10 @@
 class_name Unit
 extends CharacterBody2D
 
+signal spawned(unit: Unit)
+signal health_changed(health: float)
+signal died()
+
 
 @export_group("Stats")
 ## The health of the unit.
@@ -40,6 +44,9 @@ var _units_in_range: Array[Unit] = []
 ## The building in interaction range
 var _building: Building
 
+func _ready() -> void:
+	spawned.emit(self)
+
 ## Returns Damage Per Second dealt by the unit.
 func dps() -> float:
 	return damage / attack_speed
@@ -50,20 +57,18 @@ func attack() -> void:
 	if hostile_unit == null:
 		return
 	if hostile_unit is Unit:
-		hostile_unit.health -= damage
+		hostile_unit.take_damage(damage)
 		if hostile_unit.health <= 0:
 			_units_in_range.erase(hostile_unit)
-			hostile_unit.die()
 	else: # if building
 		attack_building()
 
 ## Performs an attack to all the units in range.
 func aoe_attack() -> void:
 	for unit in _units_in_range:
-		unit.health -= damage
+		unit.take_damage(damage)
 		if unit.health <= 0:
 			_units_in_range.erase(unit)
-			unit.die()
 	attack_building()
 
 ##
@@ -73,8 +78,17 @@ func attack_building() -> void:
 	if _building.health <= 0:
 		_building = null
 
+##
+func take_damage(amount: float) -> void:
+	health -= amount
+	health_changed.emit(health)
+	if health <= 0:
+		die()
+
+
 ## Die.
 func die() -> void:
+	died.emit()
 	var dead = dead_scene.instantiate()
 	dead.global_position = global_position
 	get_tree().root.add_child(dead)
