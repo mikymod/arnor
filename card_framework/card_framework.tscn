@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckijaob7m7yx4"]
+[gd_scene load_steps=7 format=3 uid="uid://ckijaob7m7yx4"]
 
 [ext_resource type="PackedScene" uid="uid://c5v7e6p62ymc5" path="res://card_framework/deck/deck.tscn" id="1_tf3eb"]
 [ext_resource type="PackedScene" uid="uid://df8to81yp88gw" path="res://card_framework/card_hand/card_hand.tscn" id="2_2n4ik"]
 [ext_resource type="PackedScene" uid="uid://btfbyvnf7qm48" path="res://card_framework/power/power.tscn" id="4_a36og"]
 [ext_resource type="PackedScene" uid="uid://dcaeke6xag722" path="res://card_framework/discard_pile/discard.tscn" id="4_pj8ie"]
 [ext_resource type="PackedScene" uid="uid://dhv1qxopnsr8o" path="res://card_framework/cards_ui/cards_ui.tscn" id="5_rprjo"]
+[ext_resource type="PackedScene" uid="uid://vc7x1xl80ihh" path="res://card_framework/power/power_bar/power_bar.tscn" id="6_n1pu8"]
 
 [node name="CardFramework" type="Node"]
 
@@ -15,11 +16,14 @@
 [node name="Discard" parent="." instance=ExtResource("4_pj8ie")]
 
 [node name="Power" parent="." instance=ExtResource("4_a36og")]
+visible = false
 
 [node name="CardsUI" parent="." instance=ExtResource("5_rprjo")]
+
+[node name="PowerBar" parent="." instance=ExtResource("6_n1pu8")]
 
 [connection signal="cards_drawed" from="Deck" to="CardHand" method="_on_cards_drawed"]
 [connection signal="deck_exhausted" from="Deck" to="Discard" method="restore_all"]
 [connection signal="played" from="CardHand" to="Discard" method="discard_card"]
-[connection signal="played" from="CardHand" to="Power" method="_on_card_played"]
+[connection signal="played" from="CardHand" to="PowerBar" method="_on_card_played"]
 [connection signal="played" from="CardHand" to="Deck" method="draw_cards" unbinds=1]
