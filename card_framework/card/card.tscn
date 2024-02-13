@@ -1,18 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhpr8xqtrhlf"]
+[gd_scene load_steps=11 format=3 uid="uid://dhpr8xqtrhlf"]
 
 [ext_resource type="Script" path="res://card_framework/card/card.gd" id="1_2nfhv"]
-[ext_resource type="Texture2D" uid="uid://bij0i4ko1fp4r" path="res://card_framework/card/textures/background_frame.png" id="1_jw55p"]
 [ext_resource type="Resource" uid="uid://dduc3gtaplml7" path="res://card_framework/card/resources/basic_card.tres" id="2_3ncma"]
-[ext_resource type="Texture2D" uid="uid://d081clexolmeo" path="res://card_framework/card/textures/name_frame.png" id="3_dng6d"]
 [ext_resource type="PackedScene" uid="uid://b4g3b16mfk5fq" path="res://card_framework/card/unit_sample.tscn" id="3_o1rcp"]
-[ext_resource type="Texture2D" uid="uid://b41bay2ovukum" path="res://card_framework/card/textures/cost_frame.png" id="4_ewot2"]
-[ext_resource type="Texture2D" uid="uid://bn4ml40n7dqcu" path="res://card_framework/card/textures/description_frame.png" id="5_7t8cv"]
-[ext_resource type="Texture2D" uid="uid://bl5omfx1acxku" path="res://card_framework/card/textures/card_selected.png" id="6_xhnc4"]
+[ext_resource type="Texture2D" uid="uid://ddkbsodsxnu4v" path="res://user_interface/textures/buttons/Button_Hover_9Slides.png" id="4_ipy1g"]
+[ext_resource type="Texture2D" uid="uid://d2y5t01mwt2mg" path="res://user_interface/textures/buttons/Button_Blue_9Slides.png" id="5_5ny7b"]
+[ext_resource type="Texture2D" uid="uid://v8m4bjnuqsw3" path="res://units/warrior/Warrior_Purple.png" id="6_ys8e2"]
 [ext_resource type="Theme" uid="uid://dtrv8a5pv0ub" path="res://card_framework/card/card_theme.tres" id="7_qpin3"]
 [ext_resource type="FontFile" uid="uid://dj6p0nso1gbcq" path="res://PeaberryBase.ttf" id="9_8jdq7"]
+[ext_resource type="Texture2D" uid="uid://v3c1o8102kew" path="res://user_interface/textures/buttons/Button_Hover.png" id="10_8tdbi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02mqx"]
-size = Vector2(206, 286)
+size = Vector2(162.667, 228)
 
 [node name="Card" type="Area2D"]
 position = Vector2(638, 348)
@@ -25,39 +24,27 @@ unit_scene = ExtResource("3_o1rcp")
 
 [node name="Selected" type="Sprite2D" parent="."]
 visible = false
-scale = Vector2(0.97, 0.97)
-texture = ExtResource("6_xhnc4")
+position = Vector2(6.19888e-06, 2)
+scale = Vector2(1.08333, 1.11806)
+texture = ExtResource("4_ipy1g")
 
 [node name="BackgroundFrame" type="Sprite2D" parent="."]
-texture = ExtResource("1_jw55p")
+texture = ExtResource("5_5ny7b")
 
-[node name="NameFrame" type="Sprite2D" parent="."]
-position = Vector2(-19, -121)
-texture = ExtResource("3_dng6d")
-
-[node name="NameLabel" type="RichTextLabel" parent="NameFrame"]
-offset_left = -70.0
-offset_top = -7.0
-offset_right = 70.0
-offset_bottom = 9.0
-mouse_filter = 2
-theme = ExtResource("7_qpin3")
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("9_8jdq7")
-theme_override_font_sizes/normal_font_size = 12
-bbcode_enabled = true
-fit_content = true
-scroll_active = false
+[node name="ForegroundFrame" type="Sprite2D" parent="BackgroundFrame"]
+texture = ExtResource("6_ys8e2")
+hframes = 6
+vframes = 8
 
 [node name="CostFrame" type="Sprite2D" parent="."]
-position = Vector2(87, -138)
-texture = ExtResource("4_ewot2")
+position = Vector2(78.6667, -84)
+texture = ExtResource("10_8tdbi")
 
 [node name="CostLabel" type="RichTextLabel" parent="CostFrame"]
 offset_left = -18.0
-offset_top = -16.0
+offset_top = -19.0
 offset_right = 19.0
-offset_bottom = 15.0
+offset_bottom = 11.0
 mouse_filter = 2
 theme = ExtResource("7_qpin3")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -67,27 +54,8 @@ bbcode_enabled = true
 fit_content = true
 scroll_active = false
 
-[node name="DescriptionFrame" type="Sprite2D" parent="."]
-position = Vector2(0, 23)
-texture = ExtResource("5_7t8cv")
-
-[node name="DescriptionLabel" type="RichTextLabel" parent="DescriptionFrame"]
-offset_left = -78.0
-offset_top = -39.0
-offset_right = 77.0
-offset_bottom = 40.0
-mouse_filter = 2
-theme = ExtResource("7_qpin3")
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("9_8jdq7")
-theme_override_font_sizes/normal_font_size = 12
-bbcode_enabled = true
-fit_content = true
-
-[node name="RarityFrame" type="Sprite2D" parent="."]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 1)
+position = Vector2(0, 26)
 shape = SubResource("RectangleShape2D_02mqx")
 
 [connection signal="mouse_entered" from="." to="." method="_on_Card_mouse_entered"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lv1n7qhrgp67"
-path="res://.godot/imported/G_Idle_(NoShadow).png-0acd007e688475361a2703e2c1d8faaa.ctex"
+uid="uid://bij0i4ko1fp4r"
+path="res://.godot/imported/background_frame.png-3243846e9561dbbf98253d403f3f5ab0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_ui/power_bar/G_Idle_(NoShadow).png"
-dest_files=["res://.godot/imported/G_Idle_(NoShadow).png-0acd007e688475361a2703e2c1d8faaa.ctex"]
+source_file="res://card_framework/card/textures_old/background_frame.png"
+dest_files=["res://.godot/imported/background_frame.png-3243846e9561dbbf98253d403f3f5ab0.ctex"]
 
 [params]
 

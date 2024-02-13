@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5bgincnel8i1"
-path="res://.godot/imported/rarity_frame.png-b3254102eb0a70773a84f2e69f511889.ctex"
+uid="uid://cd3el6mxg2ci6"
+path="res://.godot/imported/foreground_frame.png-3542361e5084ab4c1069606f465e8882.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://card_framework/card/textures/rarity_frame.png"
-dest_files=["res://.godot/imported/rarity_frame.png-b3254102eb0a70773a84f2e69f511889.ctex"]
+source_file="res://card_framework/card/textures_old/foreground_frame.png"
+dest_files=["res://.godot/imported/foreground_frame.png-3542361e5084ab4c1069606f465e8882.ctex"]
 
 [params]
 
