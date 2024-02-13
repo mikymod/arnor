@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jaob021a0q0"
-path="res://.godot/imported/progress_bar_fill.png-5fa96fb3c0c8044f1d07ff835385e887.ctex"
+uid="uid://bp7wmvd78rx1i"
+path="res://.godot/imported/progress_bar_over.png-73af4cf72ed008ff51f82f18f2a2272f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://card_framework/power/power_bar/progress_bar_fill.png"
-dest_files=["res://.godot/imported/progress_bar_fill.png-5fa96fb3c0c8044f1d07ff835385e887.ctex"]
+source_file="res://game_ui/power_bar/progress_bar_over.png"
+dest_files=["res://.godot/imported/progress_bar_over.png-73af4cf72ed008ff51f82f18f2a2272f.ctex"]
 
 [params]
 

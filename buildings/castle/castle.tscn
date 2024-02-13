@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://buildings/castle/castle.gd" id="1_r4po8"]
 [ext_resource type="Texture2D" uid="uid://5wfengovp4fl" path="res://buildings/castle/Castle_Destroyed.png" id="2_oui3m"]
 [ext_resource type="PackedScene" uid="uid://wxpx3lxg3ldv" path="res://buildings/fire/fire.tscn" id="5_l7orm"]
-[ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://health_bar/health_bar.tscn" id="6_nhsni"]
+[ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://game_ui/health_bar/health_bar.tscn" id="6_nhsni"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mk1v"]
 size = Vector2(236, 72)

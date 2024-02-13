@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bf3aq7g6dtps2" path="res://buildings/castle/Carved_9Slides.png" id="1_oc4iq"]
 [ext_resource type="PackedScene" uid="uid://wxpx3lxg3ldv" path="res://buildings/fire/fire.tscn" id="3_p5ghb"]
 [ext_resource type="Texture2D" uid="uid://gllaiaygy3ao" path="res://buildings/wood_tower/Wood_Tower_Destroyed.png" id="4_xk273"]
-[ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://health_bar/health_bar.tscn" id="6_08cjv"]
+[ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://game_ui/health_bar/health_bar.tscn" id="6_4ogvo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wwkx4"]
 size = Vector2(79, 42.5)
@@ -115,7 +115,7 @@ position = Vector2(3, -104)
 building = NodePath("../..")
 threshold = 250
 
-[node name="HealthBar" parent="." instance=ExtResource("6_08cjv")]
+[node name="HealthBar" parent="." instance=ExtResource("6_4ogvo")]
 offset_left = -74.0
 offset_top = -223.0
 offset_right = 73.0

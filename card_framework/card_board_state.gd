@@ -9,7 +9,7 @@ signal max_power_changed(num_power)
 @export var current_power: int = 5
 
 ## The maximum value of power
-@export var max_power: int = 5
+@export var max_power: int = 10
 
 ## The cards in deck
 var deck_cards: Array[Card] = []

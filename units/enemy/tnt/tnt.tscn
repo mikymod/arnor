@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://units/unit/unit_idle_state.gd" id="3_ergxk"]
 [ext_resource type="Script" path="res://units/unit/unit_walk_state.gd" id="4_rmcsm"]
 [ext_resource type="Script" path="res://units/unit/unit_attack_state.gd" id="5_ba54e"]
-[ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://health_bar/health_bar.tscn" id="6_q8hpc"]
+[ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://game_ui/health_bar/health_bar.tscn" id="6_q8hpc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_64ksx"]
 radius = 24.1868
