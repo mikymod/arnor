@@ -15,10 +15,11 @@ func _process(_delta: float) -> void:
 	update_ui()
 
 func update_ui() -> void:
-	for rect in _rects:
-		rect.modulate = rect.modulate.darkened(0.5)
-	for i in range(state.current_power):
-		_rects[i].modulate = _rects[i].modulate.lightened(0.5)
+	#for rect in _rects:
+		#rect.modulate = rect.modulate.darkened(0.5)
+	#for i in range(state.current_power):
+		#_rects[i].modulate = _rects[i].modulate.lightened(0.5)
+	pass
 
 func _on_card_played(card: Card) -> void:
 	var cost = card.card_resource.cost

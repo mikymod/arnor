@@ -29,6 +29,12 @@ position = Vector2(1054, -108)
 
 [node name="CardFramework" parent="CanvasLayer" instance=ExtResource("2_hl1iq")]
 
+[node name="Power" parent="CanvasLayer/CardFramework" index="3"]
+visible = true
+
+[node name="PowerBar" parent="CanvasLayer/CardFramework" index="5"]
+visible = false
+
 [connection signal="destroyed" from="Terrain/Entities/NavigationRegion2D/PlayerArea/Castle" to="." method="game_over"]
 [connection signal="destroyed" from="Terrain/Entities/NavigationRegion2D/PlayerArea2/WoodTower" to="." method="finish"]
 [connection signal="drag_canceled" from="CanvasLayer/CardFramework/CardHand" to="Camera" method="set_input" binds= [true]]

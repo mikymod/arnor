@@ -1,81 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://vc7x1xl80ihh"]
+[gd_scene load_steps=5 format=3 uid="uid://vc7x1xl80ihh"]
 
 [ext_resource type="Script" path="res://card_framework/power/power_bar/power_bar.gd" id="1_0o8i5"]
-[ext_resource type="Texture2D" uid="uid://lv1n7qhrgp67" path="res://card_framework/power/power_bar/G_Idle_(NoShadow).png" id="1_p22in"]
+[ext_resource type="Texture2D" uid="uid://dyrf5s8wf5gms" path="res://card_framework/power/power_bar/progress_bar_under.png" id="2_3j416"]
+[ext_resource type="Texture2D" uid="uid://bp7wmvd78rx1i" path="res://card_framework/power/power_bar/progress_bar_over.png" id="3_6tnac"]
+[ext_resource type="Texture2D" uid="uid://jaob021a0q0" path="res://card_framework/power/power_bar/progress_bar_fill.png" id="4_lnu8s"]
 
 [node name="PowerBar" type="Control"]
 layout_mode = 3
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -60.0
-offset_top = -463.0
-grow_horizontal = 0
+offset_left = -222.5
+offset_top = -39.0
+offset_right = 222.5
+grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_0o8i5")
 
-[node name="HBoxContainer" type="VBoxContainer" parent="."]
-layout_direction = 2
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.033
-anchor_top = 0.24
-anchor_right = 1.033
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -0.02
-offset_top = -0.120003
-offset_right = 0.0200005
+offset_left = -288.0
+offset_top = -64.0
+offset_right = 288.0
 grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-size_flags_stretch_ratio = 0.0
-texture = ExtResource("1_p22in")
-expand_mode = 1
-stretch_mode = 3
-
-[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 0
-size_flags_stretch_ratio = 0.0
-texture = ExtResource("1_p22in")
-expand_mode = 1
-stretch_mode = 3
-
-[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 0
-size_flags_stretch_ratio = 0.0
-texture = ExtResource("1_p22in")
-expand_mode = 1
-stretch_mode = 3
-
-[node name="TextureRect4" type="TextureRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 0
-size_flags_stretch_ratio = 0.0
-texture = ExtResource("1_p22in")
-expand_mode = 1
-stretch_mode = 3
-
-[node name="TextureRect5" type="TextureRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 0
-size_flags_stretch_ratio = 0.0
-texture = ExtResource("1_p22in")
-expand_mode = 1
-stretch_mode = 3
+grow_vertical = 0
+texture_under = ExtResource("2_3j416")
+texture_over = ExtResource("3_6tnac")
+texture_progress = ExtResource("4_lnu8s")
