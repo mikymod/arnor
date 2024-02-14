@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhpr8xqtrhlf"]
+[gd_scene load_steps=10 format=3 uid="uid://dhpr8xqtrhlf"]
 
 [ext_resource type="Script" path="res://card_framework/card/card.gd" id="1_2nfhv"]
-[ext_resource type="Resource" uid="uid://dduc3gtaplml7" path="res://card_framework/card/resources/basic_card.tres" id="2_3ncma"]
-[ext_resource type="PackedScene" uid="uid://b4g3b16mfk5fq" path="res://card_framework/card/unit_sample.tscn" id="3_o1rcp"]
+[ext_resource type="Resource" uid="uid://dduc3gtaplml7" path="res://card_framework/card/resources/warrior_card.tres" id="2_1loiv"]
 [ext_resource type="Texture2D" uid="uid://ddkbsodsxnu4v" path="res://user_interface/textures/buttons/Button_Hover_9Slides.png" id="4_ipy1g"]
 [ext_resource type="Texture2D" uid="uid://d2y5t01mwt2mg" path="res://user_interface/textures/buttons/Button_Blue_9Slides.png" id="5_5ny7b"]
 [ext_resource type="Texture2D" uid="uid://v8m4bjnuqsw3" path="res://units/warrior/Warrior_Purple.png" id="6_ys8e2"]
@@ -19,8 +18,7 @@ scale = Vector2(0.75, 0.75)
 collision_layer = 256
 collision_mask = 512
 script = ExtResource("1_2nfhv")
-card_resource = ExtResource("2_3ncma")
-unit_scene = ExtResource("3_o1rcp")
+card_resource = ExtResource("2_1loiv")
 
 [node name="Selected" type="Sprite2D" parent="."]
 visible = false
@@ -32,6 +30,7 @@ texture = ExtResource("4_ipy1g")
 texture = ExtResource("5_5ny7b")
 
 [node name="ForegroundFrame" type="Sprite2D" parent="BackgroundFrame"]
+visible = false
 texture = ExtResource("6_ys8e2")
 hframes = 6
 vframes = 8

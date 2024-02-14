@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfu7puw5v6xte"]
+
+[ext_resource type="Texture2D" uid="uid://v8m4bjnuqsw3" path="res://units/warrior/Warrior_Purple.png" id="1_4tybx"]
+
+[node name="WarriorThumb" type="Sprite2D"]
+texture = ExtResource("1_4tybx")
+hframes = 6
+vframes = 8

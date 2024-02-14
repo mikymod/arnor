@@ -7,30 +7,25 @@ signal hover_started(card: Card)
 signal hover_stopped(card: Card)
 
 @export var card_resource: CardResource
-@export var unit_scene: PackedScene
 
 @onready var _background_frame: Sprite2D = $BackgroundFrame
 @onready var _foreground_frame: Sprite2D = $BackgroundFrame/ForegroundFrame
-#@onready var _name_frame: Sprite2D = $NameFrame
 @onready var _cost_frame: Sprite2D = $CostFrame
-#@onready var _description_frame: Sprite2D = $DescriptionFrame
-#@onready var _rarity_frame: Sprite2D = $RarityFrame
 @onready var _selected_frame: Sprite2D = $Selected
-#@onready var _name_label: RichTextLabel = $NameFrame/NameLabel
 @onready var _cost_label: RichTextLabel = $CostFrame/CostLabel
-#@onready var _description_label: RichTextLabel = $DescriptionFrame/DescriptionLabel
-
 
 var _hovered = false
 var dragged = false
 
 func _ready() -> void:
+	var foreground = card_resource.unit_thumb.instantiate()
+	_background_frame.add_child(foreground)
 	set_data()
 
 func set_data() -> void:
 	_cost_label.bbcode_enabled = true
 	_cost_label.text = "[center]" + str(card_resource.cost) + "[/center]"
-	unit_scene = card_resource.unit_scene
+
 
 func hover() -> void:
 	_selected_frame.visible = true

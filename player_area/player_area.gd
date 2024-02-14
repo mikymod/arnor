@@ -9,7 +9,7 @@ extends Node2D
 ## Spawn a unit when a card is played.
 ## This function must be connected to a signal
 func on_card_played(card: Card) -> void:
-	var unit = card.unit_scene.instantiate()
+	var unit = card.card_resource.unit_scene.instantiate()
 	print(card.global_position)
 	unit.global_position = get_global_mouse_position()
 	unit.target = target

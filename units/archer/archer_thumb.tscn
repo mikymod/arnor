@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw2arlt80dv2q"]
+
+[ext_resource type="Texture2D" uid="uid://dft7f4xx05b5v" path="res://units/archer/Archer_Purple.png" id="1_de20w"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_de20w")
+hframes = 8
+vframes = 7

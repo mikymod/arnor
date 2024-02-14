@@ -14,6 +14,12 @@ zoom = Vector2(0.8, 0.8)
 
 [node name="Terrain" parent="." instance=ExtResource("1_xkkfu")]
 
+[node name="PineTree" parent="Terrain/Entities/NavigationRegion2D" index="0"]
+position = Vector2(1231, -22)
+
+[node name="GoldMine" parent="Terrain/Entities/NavigationRegion2D" index="2"]
+position = Vector2(1206, 449)
+
 [node name="PlayerArea" parent="Terrain/Entities/NavigationRegion2D" index="4" node_paths=PackedStringArray("target", "encounter")]
 target = NodePath("../PlayerArea2/WoodTower")
 encounter = NodePath("../../../..")

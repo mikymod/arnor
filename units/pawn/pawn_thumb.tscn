@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwa1vvk086pey"]
+
+[ext_resource type="Texture2D" uid="uid://cemyqvsdrqidd" path="res://units/pawn/Pawn_Purple.png" id="1_ok6kg"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_ok6kg")
+hframes = 6
+vframes = 6

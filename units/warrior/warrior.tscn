@@ -179,11 +179,12 @@ _data = {
 "walk": SubResource("Animation_kfvso")
 }
 
-[node name="Warrior" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "agent", "state_machine", "attack_timer")]
+[node name="Warrior" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent", "state_machine", "attack_timer")]
 y_sort_enabled = true
 collision_mask = 9
 script = ExtResource("1_pehos")
 sprite = NodePath("Sprite2D")
+anim_player = NodePath("AnimationPlayer")
 agent = NodePath("NavigationAgent2D")
 state_machine = NodePath("StateMachine")
 attack_timer = NodePath("AttackTimer")
