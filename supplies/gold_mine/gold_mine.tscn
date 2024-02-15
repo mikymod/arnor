@@ -21,25 +21,28 @@ position = Vector2(-0.5, -48)
 shape = SubResource("RectangleShape2D_mshjr")
 
 [node name="InactiveSprite" type="Sprite2D" parent="."]
-position = Vector2(0, -57)
+y_sort_enabled = true
+position = Vector2(0, -44)
 texture = ExtResource("1_ubblb")
 
 [node name="ActiveSprite" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, -57)
+y_sort_enabled = true
+position = Vector2(0, -44)
 texture = ExtResource("2_p7lfs")
 
 [node name="DestroyedSprite" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, -57)
+y_sort_enabled = true
+position = Vector2(0, -44)
 texture = ExtResource("3_7rjab")
 
 [node name="GatherPosition" type="Marker2D" parent="."]
+position = Vector2(0, 21)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(0, -42)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1, -14)
 shape = SubResource("RectangleShape2D_s827y")
