@@ -8,7 +8,10 @@ extends State
 
 
 func enter() -> void:
+	if (unit == null): return
+	
 	animation_player.play("walk")
+	
 	nav_agent.max_speed = unit.speed
 	nav_agent.target_position = unit.target.global_position + Vector2(randf_range(-40, 40), randf_range(-40, 40))
 	nav_agent.navigation_finished.connect(_on_navigation_finished)

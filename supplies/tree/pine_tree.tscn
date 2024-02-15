@@ -59,9 +59,9 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogmbn"]
-size = Vector2(56, 54)
+size = Vector2(136, 91)
 
-[node name="PineTree" type="StaticBody2D"]
+[node name="PineTree" type="Area2D"]
 y_sort_enabled = true
 collision_layer = 4
 script = ExtResource("1_njpyv")
@@ -79,7 +79,7 @@ libraries = {
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -55)
+position = Vector2(5, -27.5)
 shape = SubResource("RectangleShape2D_ogmbn")
 
 [node name="CutPosition" type="Marker2D" parent="."]

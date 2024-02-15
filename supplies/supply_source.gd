@@ -1,5 +1,5 @@
 class_name SupplySource
-extends Node2D
+extends Area2D
 
 ## Base class for a source of supplies.
 ## GoldMine and PineTree extends from this.
