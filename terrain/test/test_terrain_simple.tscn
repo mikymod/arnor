@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqdgrrerlbc67"]
+[gd_scene load_steps=7 format=3 uid="uid://dqdgrrerlbc67"]
 
 [ext_resource type="TileSet" uid="uid://gwls54ddpum0" path="res://terrain/tileset_terrain.tres" id="1_vwapa"]
 [ext_resource type="PackedScene" uid="uid://dxordleb10cxn" path="res://units/pawn/pawn.tscn" id="2_pe8tk"]
 [ext_resource type="PackedScene" uid="uid://c1f3cs2ptukon" path="res://supplies/tree/pine_tree.tscn" id="4_2k6dn"]
 [ext_resource type="PackedScene" uid="uid://dq0hve3xn83nl" path="res://supplies/gold_mine/gold_mine.tscn" id="4_sgih2"]
-[ext_resource type="Resource" uid="uid://ds0mwwc7xt3ha" path="res://supplies/wood.tres" id="4_yitcp"]
 [ext_resource type="Resource" uid="uid://dgn0lagk0tnxq" path="res://supplies/gold.tres" id="6_tewuw"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_l7lm8"]
@@ -51,7 +50,6 @@ navigation_polygon = SubResource("NavigationPolygon_l7lm8")
 
 [node name="PineTree" parent="Entities/NavigationRegion2D" instance=ExtResource("4_2k6dn")]
 position = Vector2(1199, 669)
-supply = ExtResource("4_yitcp")
 
 [node name="GoldMine" parent="Entities/NavigationRegion2D" instance=ExtResource("4_sgih2")]
 position = Vector2(1196, 372)
@@ -63,7 +61,6 @@ supply = ExtResource("6_tewuw")
 
 [node name="PineTree2" parent="Entities/NavigationRegion2D" instance=ExtResource("4_2k6dn")]
 position = Vector2(897, 263)
-supply = ExtResource("4_yitcp")
 
 [node name="Pawn" parent="Entities" node_paths=PackedStringArray("target") instance=ExtResource("2_pe8tk")]
 position = Vector2(935, 554)
