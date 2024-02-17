@@ -99,8 +99,10 @@ wait_time = 10.0
 
 [connection signal="failed" from="Encounter" to="Encounter/Terrain/Entities/NavigationRegion2D/PlayerArea2/Spawner" method="stop"]
 [connection signal="failed" from="Encounter" to="Encounter/Terrain/Entities/NavigationRegion2D/PlayerArea2/Spawner2" method="stop"]
+[connection signal="failed" from="Encounter" to="Encounter/CanvasLayer/CardFramework/PowerBar" method="stop"]
 [connection signal="finished" from="Encounter" to="Encounter/Terrain/Entities/NavigationRegion2D/PlayerArea2/Spawner" method="stop"]
 [connection signal="finished" from="Encounter" to="Encounter/Terrain/Entities/NavigationRegion2D/PlayerArea2/Spawner2" method="stop"]
+[connection signal="finished" from="Encounter" to="Encounter/CanvasLayer/CardFramework/PowerBar" method="stop"]
 [connection signal="started" from="Encounter" to="Encounter/Terrain/Entities/NavigationRegion2D/PlayerArea2/Spawner" method="start"]
 [connection signal="started" from="Encounter" to="Encounter/Terrain/Entities/NavigationRegion2D/PlayerArea2/Spawner2" method="start"]
 [connection signal="destroyed" from="Encounter/Terrain/Entities/NavigationRegion2D/PlayerArea/Castle" to="Encounter" method="game_over"]
