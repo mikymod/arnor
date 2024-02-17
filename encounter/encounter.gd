@@ -5,6 +5,8 @@ signal started()
 signal finished()
 signal failed()
 
+func _ready() -> void:
+	started.emit()
 
 func finish() -> void:
 	finished.emit()
