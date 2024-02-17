@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://gwls54ddpum0" path="res://terrain/tileset_terrain.tres" id="1_vwapa"]
 [ext_resource type="PackedScene" uid="uid://dxordleb10cxn" path="res://units/pawn/pawn.tscn" id="2_pe8tk"]
-[ext_resource type="PackedScene" uid="uid://c1f3cs2ptukon" path="res://supplies/tree/pine_tree.tscn" id="4_2k6dn"]
+[ext_resource type="PackedScene" uid="uid://c1f3cs2ptukon" path="res://deco/pine_tree/pine_tree.tscn" id="4_2k6dn"]
 [ext_resource type="PackedScene" uid="uid://dq0hve3xn83nl" path="res://supplies/gold_mine/gold_mine.tscn" id="4_sgih2"]
 [ext_resource type="Resource" uid="uid://dgn0lagk0tnxq" path="res://supplies/gold.tres" id="6_tewuw"]
 

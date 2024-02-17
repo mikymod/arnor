@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cakj30pyx0o4w"]
+
+[ext_resource type="Texture2D" uid="uid://ce0polbwp180c" path="res://deco/signage/18.png" id="1_m0c0h"]
+
+[node name="Scarecrow" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_m0c0h")
+offset = Vector2(0, -73)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://de3ugljrnpf8c"]
+
+[ext_resource type="Texture2D" uid="uid://do773h567m4mg" path="res://deco/grass/10.png" id="1_u62gp"]
+
+[node name="GrassLittle" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_u62gp")
+offset = Vector2(0, -14)

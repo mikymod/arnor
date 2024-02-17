@@ -22,19 +22,19 @@ shape = SubResource("RectangleShape2D_mshjr")
 
 [node name="InactiveSprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, -44)
 texture = ExtResource("1_ubblb")
+offset = Vector2(0, -56)
 
 [node name="ActiveSprite" type="Sprite2D" parent="."]
 visible = false
 y_sort_enabled = true
-position = Vector2(0, -44)
+position = Vector2(0, -56)
 texture = ExtResource("2_p7lfs")
 
 [node name="DestroyedSprite" type="Sprite2D" parent="."]
 visible = false
 y_sort_enabled = true
-position = Vector2(0, -44)
+position = Vector2(0, -56)
 texture = ExtResource("3_7rjab")
 
 [node name="GatherPosition" type="Marker2D" parent="."]

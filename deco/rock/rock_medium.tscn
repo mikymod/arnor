@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccwquwrngyb4f"]
+
+[ext_resource type="Texture2D" uid="uid://5w3t1853ywcv" path="res://deco/rock/05.png" id="1_r7k55"]
+
+[node name="RockMedium" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_r7k55")
+offset = Vector2(0, -8)

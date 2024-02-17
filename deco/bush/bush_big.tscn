@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://drgxxjeiqi4x7"]
+
+[ext_resource type="Texture2D" uid="uid://byadjpwbjfvht" path="res://deco/bush/09.png" id="1_6uypb"]
+
+[node name="BushBig" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6uypb")
+offset = Vector2(0, -22)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c1f3cs2ptukon"]
 
-[ext_resource type="Texture2D" uid="uid://bhjine7a1jtqk" path="res://supplies/tree/Tree.png" id="1_w8n71"]
+[ext_resource type="Texture2D" uid="uid://bhjine7a1jtqk" path="res://deco/pine_tree/Tree.png" id="1_w8n71"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogmbn"]
 size = Vector2(73, 48)
@@ -71,8 +71,8 @@ position = Vector2(0.5, -49)
 shape = SubResource("RectangleShape2D_ogmbn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -84)
 texture = ExtResource("1_w8n71")
+offset = Vector2(0, -84)
 hframes = 4
 vframes = 3
 

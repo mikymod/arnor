@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3yoa8bogjch6"]
+
+[ext_resource type="Texture2D" uid="uid://drj6sl2wc0cgw" path="res://deco/mushroom/02.png" id="1_ueisi"]
+
+[node name="MushroomMedium" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ueisi")
+offset = Vector2(0, -15)
