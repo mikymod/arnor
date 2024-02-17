@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_7fqu2")
-value = 0
+value = 50.0
+max_value = 100

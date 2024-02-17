@@ -8,4 +8,4 @@ extends Area2D
 @export var amount: int = 10
 
 func pop_resource() -> void:
-	supply.add(amount)
+	supply.increase(amount)

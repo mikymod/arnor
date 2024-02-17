@@ -34,6 +34,7 @@ signal drag_canceled()
 
 @export var state: CardBoardState = preload("res://card_framework/card_board_state.tres")
 @export var card_scene: PackedScene = preload("res://card_framework/card/card.tscn")
+@export var supply: Supply = preload("res://supplies/gold.tres")
 
 @export var interpolation_speed: float = 0.1
 @export var card_angle: float = 5
@@ -204,7 +205,7 @@ func _cancel_drag() -> void:
 
 ##
 func _play() -> void:
-	if state.current_power < _playable_card.card_resource.cost:
+	if supply.value < _playable_card.card_resource.cost:
 		return
 	remove_card(_playable_card)
 	played.emit(_playable_card)

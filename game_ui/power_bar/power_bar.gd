@@ -1,17 +1,14 @@
 extends Control
 
-@export var state: CardBoardState = preload("res://card_framework/card_board_state.tres")
+#@export var state: CardBoardState = preload("res://card_framework/card_board_state.tres")
+@export var supply: Supply = preload("res://supplies/gold.tres")
 @export var speed: float = 3
 
-var progress: float = state.current_power * 10
-
 func _process(delta: float) -> void:
-	progress += delta * 3
-	$TextureProgressBar.value = progress
-	state.current_power = progress / 10
-
+	supply.increase(delta * 3)
+	$TextureProgressBar.value = supply.value
 
 func _on_card_played(card: Card) -> void:
 	var cost = card.card_resource.cost
-	state.decrease_power(cost)
-	progress = state.current_power * 10
+	supply.decrease(cost * 10)
+
