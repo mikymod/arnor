@@ -88,13 +88,14 @@ _data = {
 "walk": SubResource("Animation_pjvf8")
 }
 
-[node name="Tnt" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "agent", "state_machine", "attack_timer")]
+[node name="Tnt" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "agent", "state_machine", "attack_timer", "health_bar")]
 position = Vector2(589, 352)
 script = ExtResource("1_jf3eu")
 sprite = NodePath("Sprite2D")
 agent = NodePath("NavigationAgent2D")
 state_machine = NodePath("StateMachine")
 attack_timer = NodePath("AttackTimer")
+health_bar = NodePath("HealthBar")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -112,6 +112,7 @@ position = Vector2(447, 706)
 y_sort_enabled = true
 target = NodePath("../PlayerArea2/WoodTower")
 encounter = NodePath("../../..")
+color = Color(0, 0.560784, 0.756863, 1)
 
 [node name="Castle" parent="Encounter/Terrain/Entities/PlayerArea" instance=ExtResource("7_htqn4")]
 y_sort_enabled = true
@@ -121,6 +122,7 @@ position = Vector2(805, 805)
 y_sort_enabled = true
 target = NodePath("../PlayerArea/Castle")
 encounter = NodePath("../../..")
+color = Color(1, 0.207843, 0.439216, 1)
 
 [node name="WoodTower" parent="Encounter/Terrain/Entities/PlayerArea2" instance=ExtResource("9_lugeu")]
 y_sort_enabled = true

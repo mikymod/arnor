@@ -145,7 +145,7 @@ _data = {
 "walk": SubResource("Animation_3fg2o")
 }
 
-[node name="Pawn" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent", "state_machine", "attack_timer")]
+[node name="Pawn" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent", "state_machine", "attack_timer", "health_bar")]
 y_sort_enabled = true
 collision_mask = 13
 motion_mode = 1
@@ -160,6 +160,7 @@ anim_player = NodePath("AnimationPlayer")
 agent = NodePath("NavigationAgent2D")
 state_machine = NodePath("StateMachine")
 attack_timer = NodePath("AttackTimer")
+health_bar = NodePath("HealthBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -23)

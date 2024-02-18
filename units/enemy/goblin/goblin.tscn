@@ -124,7 +124,7 @@ _data = {
 "walk": SubResource("Animation_smynu")
 }
 
-[node name="Goblin" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "agent", "state_machine", "attack_timer")]
+[node name="Goblin" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "agent", "state_machine", "attack_timer", "health_bar")]
 position = Vector2(641, 352)
 collision_mask = 9
 script = ExtResource("1_p3gf3")
@@ -132,6 +132,7 @@ sprite = NodePath("Sprite2D")
 agent = NodePath("NavigationAgent2D")
 state_machine = NodePath("StateMachine")
 attack_timer = NodePath("AttackTimer")
+health_bar = NodePath("HealthBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -25)

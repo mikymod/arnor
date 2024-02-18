@@ -11,6 +11,8 @@ signal unit_spawned()
 
 #enum WaveType { easy, normal, hard, deadly }
 
+@onready var player_area: PlayerArea = parent
+
 ## Starts the spawner
 func start() -> void:
 	$Timer.start(start_time)
@@ -24,8 +26,10 @@ func spawn() -> void:
 	$Timer.start(spawn_time)
 	if units.is_empty(): return
 	var unit: Unit = units.pick_random().instantiate()
-	unit.target = destination
 	unit.global_position = $SpawnPoint.global_position
+	unit.target = destination
+	unit.health_bar.change_style(player_area)
+	
 	parent.add_child(unit)
 	unit_spawned.emit()
 	encounter.finished.connect(unit.die)

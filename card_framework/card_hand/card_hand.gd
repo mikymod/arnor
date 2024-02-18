@@ -205,7 +205,7 @@ func _cancel_drag() -> void:
 
 ##
 func _play() -> void:
-	if supply.value < _playable_card.card_resource.cost:
+	if supply.get_value() < _playable_card.card_resource.cost:
 		return
 	remove_card(_playable_card)
 	played.emit(_playable_card)

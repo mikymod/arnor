@@ -160,7 +160,7 @@ _data = {
 "walk": SubResource("Animation_tbsee")
 }
 
-[node name="Archer" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent", "state_machine", "attack_timer")]
+[node name="Archer" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent", "state_machine", "attack_timer", "health_bar")]
 position = Vector2(527, 259)
 collision_mask = 9
 script = ExtResource("1_b56ix")
@@ -169,6 +169,7 @@ anim_player = NodePath("AnimationPlayer")
 agent = NodePath("NavigationAgent2D")
 state_machine = NodePath("StateMachine")
 attack_timer = NodePath("AttackTimer")
+health_bar = NodePath("HealthBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)

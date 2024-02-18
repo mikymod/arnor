@@ -30,6 +30,7 @@ enum UnitSpeed { SLOW = 50, MEDIUM = 100, FAST = 200 }
 @export var state_machine: StateMachine
 @export var attack_timer: Timer
 @export var dead_scene: PackedScene = preload("res://units/dead/dead.tscn")
+@export var health_bar: HealthBar
 
 @export_group("Runtime")
 @export var target: Node:
@@ -37,6 +38,7 @@ enum UnitSpeed { SLOW = 50, MEDIUM = 100, FAST = 200 }
 		target = node
 	get:
 		return target
+		
 
 ## The other units in interaction range.
 var _units_in_range: Array[Unit] = []

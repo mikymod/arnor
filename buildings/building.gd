@@ -18,9 +18,13 @@ signal destroyed()
 @onready var health: float = max_health
 
 @onready var fires = $Fires.get_children()
+@onready var health_bar: HealthBar = $HealthBar
 
 func _ready() -> void:
 	spawned.emit(self)
+	var player_area: PlayerArea = get_parent()
+	health_bar.change_style(player_area)
+
 
 ## Applies damage to building
 func harm(amount: float) -> void:

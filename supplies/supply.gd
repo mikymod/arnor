@@ -10,6 +10,9 @@ signal supply_depleted()
 @export var max_value: int = 100
 const min_value: int = 0
 
+func get_value() -> int:
+	return value / 10
+
 ## Increases the amount of the supply
 func increase(amount: float) -> void:
 	value += amount if value <= max_value else max_value
