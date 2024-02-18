@@ -1,7 +1,7 @@
 class_name Pawn
 extends Unit
 
-@onready var _gathering_progress: GatheringProgress = $GatheringProgress
+@onready var _gathering_progress: GatheringBar = $GatheringBar
 
 var pine_tree: PineTree
 var gold_mine: GoldMine
@@ -18,16 +18,6 @@ func mine() -> void:
 func _on_interaction_body_entered(body: Node2D) -> void:
 	#if body.is_in_group(UnitGroup.keys()[UnitGroup.ENEMIES]):
 		#_units_in_range.append(body)
-	#if body is PineTree:
-		#pine_tree = body as PineTree
-		#var cut_pos = pine_tree.get_cut_position()
-		#agent.target_position = cut_pos.global_position
-		#agent.navigation_finished.connect(_on_pine_tree_reached)
-	#elif body is GoldMine:
-		#gold_mine = body as GoldMine
-		#var gather_pos = gold_mine.get_gather_position()
-		#agent.target_position = gather_pos.global_position
-		#agent.navigation_finished.connect(_on_gold_mine_reached)
 	pass
 
 func _on_pine_tree_reached() -> void:
@@ -50,3 +40,6 @@ func _on_interaction_area_entered(area: Area2D) -> void:
 		var gather_pos = gold_mine.get_gather_position()
 		agent.target_position = gather_pos.global_position
 		agent.navigation_finished.connect(_on_gold_mine_reached)
+
+func on_gathering_timeout():
+	state_machine.transition_to("Walk")

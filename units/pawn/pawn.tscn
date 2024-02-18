@@ -6,11 +6,11 @@
 [ext_resource type="Script" path="res://units/pawn/pawn_idle_state.gd" id="4_eppkp"]
 [ext_resource type="Script" path="res://units/unit/unit_walk_state.gd" id="5_v437n"]
 [ext_resource type="Script" path="res://units/pawn/pawn_cut_state.gd" id="6_5ypc2"]
-[ext_resource type="Script" path="res://units/pawn/gathering_progress.gd" id="7_d0src"]
 [ext_resource type="Script" path="res://units/pawn/pawn_mine_state.gd" id="7_n4hc8"]
 [ext_resource type="Script" path="res://units/pawn/pawn_hammer_state.gd" id="8_vw6ee"]
 [ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://game_ui/health_bar/health_bar.tscn" id="9_bb7oo"]
 [ext_resource type="Script" path="res://units/pawn/pawn_attack_state.gd" id="9_xdy6t"]
+[ext_resource type="PackedScene" uid="uid://ctrb1i6je8kif" path="res://game_ui/gathering_bar.tscn" id="10_ya5rd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p80o4"]
 radius = 24.1868
@@ -145,22 +145,12 @@ _data = {
 "walk": SubResource("Animation_3fg2o")
 }
 
-[node name="Pawn" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim_player", "agent", "state_machine", "attack_timer", "health_bar")]
+[node name="Pawn" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_mask = 13
 motion_mode = 1
 script = ExtResource("1_k4jhf")
 health = 200.0
-damage = null
-attack_speed = null
-speed = null
-range = null
-sprite = NodePath("Sprite2D")
-anim_player = NodePath("AnimationPlayer")
-agent = NodePath("NavigationAgent2D")
-state_machine = NodePath("StateMachine")
-attack_timer = NodePath("AttackTimer")
-health_bar = NodePath("HealthBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -23)
@@ -216,17 +206,15 @@ animation_player = NodePath("../../AnimationPlayer")
 nav_agent = NodePath("../../NavigationAgent2D")
 sprite = NodePath("../../Sprite2D")
 
-[node name="Cut" type="Node" parent="StateMachine" node_paths=PackedStringArray("_pawn", "_animation_player", "_gathering_progress")]
+[node name="Cut" type="Node" parent="StateMachine" node_paths=PackedStringArray("_pawn", "_animation_player")]
 script = ExtResource("6_5ypc2")
 _pawn = NodePath("../..")
 _animation_player = NodePath("../../AnimationPlayer")
-_gathering_progress = NodePath("../../GatheringProgress")
 
-[node name="Mine" type="Node" parent="StateMachine" node_paths=PackedStringArray("_pawn", "_animation_player", "_gathering_progress")]
+[node name="Mine" type="Node" parent="StateMachine" node_paths=PackedStringArray("_pawn", "_animation_player")]
 script = ExtResource("7_n4hc8")
 _pawn = NodePath("../..")
 _animation_player = NodePath("../../AnimationPlayer")
-_gathering_progress = NodePath("../../GatheringProgress")
 
 [node name="Hammer" type="Node" parent="StateMachine" node_paths=PackedStringArray("_pawn", "_animation_player")]
 script = ExtResource("8_vw6ee")
@@ -242,28 +230,7 @@ attack_timer = NodePath("../../AttackTimer")
 
 [node name="AttackTimer" type="Timer" parent="."]
 
-[node name="GatheringProgress" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = -88.0
-offset_top = -109.0
-offset_right = 82.0
-offset_bottom = -79.0
-script = ExtResource("7_d0src")
-
-[node name="ProgressBar" type="ProgressBar" parent="GatheringProgress"]
-z_index = 2
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-value = 28.1
-show_percentage = false
-
-[node name="Timer" type="Timer" parent="GatheringProgress"]
+[node name="GatheringBar" parent="." instance=ExtResource("10_ya5rd")]
 
 [node name="HealthBar" parent="." instance=ExtResource("9_bb7oo")]
 offset_left = -74.0
@@ -274,4 +241,3 @@ offset_bottom = -110.0
 [connection signal="health_changed" from="." to="HealthBar" method="on_health_changed"]
 [connection signal="spawned" from="." to="HealthBar" method="on_health_init"]
 [connection signal="area_entered" from="CollisionShape2D/InteractionArea2D" to="." method="_on_interaction_area_entered"]
-[connection signal="timeout" from="GatheringProgress/Timer" to="GatheringProgress" method="_on_timer_timeout"]

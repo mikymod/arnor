@@ -1,4 +1,4 @@
-class_name GatheringProgress
+class_name GatheringBar
 extends Control
 
 ## A progress bar that shows the gathering progress.

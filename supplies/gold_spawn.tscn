@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://dtg5l7s1ctj5h"]
+
+[ext_resource type="Texture2D" uid="uid://fs5svo0hwkde" path="res://supplies/G_Spawn.png" id="1_gvp7k"]
+[ext_resource type="Script" path="res://supplies/gold_spawn.gd" id="1_n63op"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy4o2"]
+atlas = ExtResource("1_gvp7k")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6y1r"]
+atlas = ExtResource("1_gvp7k")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrfiy"]
+atlas = ExtResource("1_gvp7k")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtd7p"]
+atlas = ExtResource("1_gvp7k")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_so5rk"]
+atlas = ExtResource("1_gvp7k")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eog8f"]
+atlas = ExtResource("1_gvp7k")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdxm6"]
+atlas = ExtResource("1_gvp7k")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7tkv0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hy4o2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6y1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrfiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtd7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_so5rk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eog8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdxm6")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="GoldSpawn" type="Node2D"]
+z_index = 2
+script = ExtResource("1_n63op")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7tkv0")
+frame = 6
+frame_progress = 1.0
+offset = Vector2(0, -33.735)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

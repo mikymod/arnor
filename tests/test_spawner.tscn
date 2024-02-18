@@ -1,10 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://bl6o7x7qphx8p"]
+[gd_scene load_steps=23 format=3 uid="uid://bl6o7x7qphx8p"]
 
 [ext_resource type="Script" path="res://encounter/encounter.gd" id="1_l2v7g"]
 [ext_resource type="PackedScene" uid="uid://dkpnn5025kmn0" path="res://camera/camera.tscn" id="2_yxajg"]
 [ext_resource type="TileSet" uid="uid://gwls54ddpum0" path="res://terrain/tileset_terrain.tres" id="3_rb3vf"]
 [ext_resource type="PackedScene" uid="uid://dq0hve3xn83nl" path="res://supplies/gold_mine/gold_mine.tscn" id="4_j203h"]
-[ext_resource type="Resource" uid="uid://dgn0lagk0tnxq" path="res://supplies/gold.tres" id="5_gwriy"]
 [ext_resource type="PackedScene" uid="uid://c1f3cs2ptukon" path="res://deco/pine_tree/pine_tree.tscn" id="6_whvov"]
 [ext_resource type="PackedScene" uid="uid://7ruoybqngxyn" path="res://player_area/player_area.tscn" id="6_yvm8o"]
 [ext_resource type="PackedScene" uid="uid://de36aplg7bs3u" path="res://buildings/castle/castle.tscn" id="7_htqn4"]
@@ -60,11 +59,9 @@ navigation_polygon = SubResource("NavigationPolygon_kr55t")
 
 [node name="GoldMine" parent="Encounter/Terrain/Entities/NavigationRegion2D" instance=ExtResource("4_j203h")]
 position = Vector2(1261, 442)
-supply = ExtResource("5_gwriy")
 
 [node name="GoldMine2" parent="Encounter/Terrain/Entities/NavigationRegion2D" instance=ExtResource("4_j203h")]
 position = Vector2(370, 255)
-supply = ExtResource("5_gwriy")
 
 [node name="PineTree" parent="Encounter/Terrain/Entities/NavigationRegion2D" instance=ExtResource("6_whvov")]
 position = Vector2(1032, -200)

@@ -2,7 +2,7 @@ extends State
 
 @export var _pawn: Pawn
 @export var _animation_player: AnimationPlayer
-@export var _gathering_progress: GatheringProgress
+@export var _gathering_progress: GatheringBar
 
 func enter() -> void:
 	_gathering_progress.start()
