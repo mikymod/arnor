@@ -167,10 +167,10 @@ position = Vector2(1123, 830)
 position = Vector2(1135, 833)
 
 [node name="BushBig" parent="Encounter/Terrain/Entities/Decos" instance=ExtResource("13_a717t")]
-position = Vector2(710, 800)
+position = Vector2(714, 806)
 
 [node name="BushLittle" parent="Encounter/Terrain/Entities/Decos" instance=ExtResource("15_5j6tf")]
-position = Vector2(686, 784)
+position = Vector2(686, 806)
 
 [node name="GrassLittle" parent="Encounter/Terrain/Entities/Decos" instance=ExtResource("16_nyw7t")]
 position = Vector2(316, 258)

@@ -48,14 +48,14 @@ axis_stretch_vertical = 2
 
 [node name="BuildingSprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, -129)
 texture = ExtResource("1_h16xk")
+offset = Vector2(0, -119)
 
 [node name="DestroyedSprite2D" type="Sprite2D" parent="."]
 visible = false
 y_sort_enabled = true
-position = Vector2(0, -129)
 texture = ExtResource("2_oui3m")
+offset = Vector2(0, -119)
 
 [node name="Fires" type="Node2D" parent="."]
 y_sort_enabled = true

@@ -85,14 +85,14 @@ axis_stretch_vertical = 2
 
 [node name="BuildingSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, -75)
 sprite_frames = SubResource("SpriteFrames_6gigu")
 frame_progress = 0.023258
+offset = Vector2(0, -75)
 
 [node name="DestroyedSprite2D" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-1, -72)
 texture = ExtResource("4_xk273")
+offset = Vector2(0, -75)
 
 [node name="Fires" type="Node2D" parent="."]
 y_sort_enabled = true
