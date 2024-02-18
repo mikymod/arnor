@@ -18,10 +18,12 @@ func get_gather_position() -> Node2D:
 	return $GatherPosition
 
 ## A callback invoked when a pawn entered the supply Area
-func _on_area_2d_body_entered(body):
-	activate()
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Pawn:
+		activate()
 
 ## A callback invoked when a pawn exited the supply area
-func _on_area_2d_body_exited(body):
-	deactivate()
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body is Pawn:
+		deactivate()
 
