@@ -14,7 +14,6 @@ func on_card_played(card: Card) -> void:
 	print(card.global_position)
 	unit.global_position = get_global_mouse_position()
 	unit.target = target
-	unit.health_bar.change_style(self)
 
 	encounter.finished.connect(unit.encounter_finished)
 	encounter.failed.connect(unit.die)

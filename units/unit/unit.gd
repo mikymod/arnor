@@ -23,22 +23,19 @@ enum UnitSpeed { SLOW = 50, MEDIUM = 100, FAST = 200 }
 ## The range of interaction area.
 @export var range: float = 0
 
-@export_group("Nodes")
-@export var sprite: Sprite2D
-@export var anim_player: AnimationPlayer
-@export var agent: NavigationAgent2D
-@export var state_machine: StateMachine
-@export var attack_timer: Timer
 @export var dead_scene: PackedScene = preload("res://units/dead/dead.tscn")
-@export var health_bar: HealthBar
-
-@export_group("Runtime")
 @export var target: Node:
 	set(node):
 		target = node
 	get:
 		return target
-		
+
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var agent: NavigationAgent2D = $NavigationAgent2D
+@onready var state_machine: StateMachine = $StateMachine
+@onready var attack_timer: Timer = $AttackTimer
+@onready var health_bar: HealthBar = $HealthBar
 
 ## The other units in interaction range.
 var _units_in_range: Array[Unit] = []
@@ -48,6 +45,8 @@ var _building: Building
 
 func _ready() -> void:
 	spawned.emit(self)
+	var player_area: PlayerArea = get_parent()
+	health_bar.change_style(player_area)
 
 ## Returns Damage Per Second dealt by the unit.
 func dps() -> float:
