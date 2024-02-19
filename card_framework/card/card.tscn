@@ -36,7 +36,7 @@ hframes = 6
 vframes = 8
 
 [node name="CostFrame" type="Sprite2D" parent="."]
-position = Vector2(78.6667, -84)
+position = Vector2(-77.3333, -84)
 texture = ExtResource("10_8tdbi")
 
 [node name="CostLabel" type="RichTextLabel" parent="CostFrame"]
