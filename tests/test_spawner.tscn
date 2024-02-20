@@ -105,11 +105,12 @@ position = Vector2(295, 783)
 [node name="PineTree14" parent="Encounter/Terrain/Entities/NavigationRegion2D" instance=ExtResource("6_whvov")]
 position = Vector2(447, 706)
 
-[node name="PlayerArea" parent="Encounter/Terrain/Entities" node_paths=PackedStringArray("target", "encounter") instance=ExtResource("6_yvm8o")]
+[node name="PlayerArea" parent="Encounter/Terrain/Entities" node_paths=PackedStringArray("target", "encounter", "building") instance=ExtResource("6_yvm8o")]
 y_sort_enabled = true
 target = NodePath("../PlayerArea2/WoodTower")
 encounter = NodePath("../../..")
 color = Color(0, 0.560784, 0.756863, 1)
+building = NodePath("Castle")
 
 [node name="Castle" parent="Encounter/Terrain/Entities/PlayerArea" instance=ExtResource("7_htqn4")]
 y_sort_enabled = true
@@ -211,6 +212,7 @@ visible = false
 [connection signal="drag_stopped" from="Encounter/CanvasLayer/CardFramework/CardHand" to="Encounter/Camera" method="set_input" binds= [true]]
 [connection signal="played" from="Encounter/CanvasLayer/CardFramework/CardHand" to="Encounter/Terrain/Entities/PlayerArea" method="on_card_played"]
 
+[editable path="Encounter/Terrain/Entities/PlayerArea/Castle"]
 [editable path="Encounter/Terrain/Entities/PlayerArea2/Spawner"]
 [editable path="Encounter/Terrain/Entities/PlayerArea2/Spawner2"]
 [editable path="Encounter/CanvasLayer/CardFramework"]

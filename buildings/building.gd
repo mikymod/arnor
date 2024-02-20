@@ -37,3 +37,18 @@ func repair(amount: float) -> void:
 	if health <= 0: return
 	health += amount
 	health_changed.emit(health)
+
+func get_spawn_area_extents() -> Dictionary:
+	var rect: RectangleShape2D = $Area2D/CollisionShape2D.shape 
+	var offset = $Area2D.position
+	var pos = global_position + offset
+	
+	var left = pos.x - rect.size.x / 2
+	var bottom = pos.y + rect.size.y / 2
+	
+	var right = pos.x + rect.size.x / 2
+	var top = pos.y - rect.size.y / 2
+	
+	return {"left": left, "top": top, "right": right, "bottom": bottom}
+	
+	
