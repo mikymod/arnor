@@ -24,6 +24,7 @@ signal destroyed()
 func _ready() -> void:
 	spawned.emit(self)
 	health_bar.change_style(_player_area)
+	add_to_group("buildings")
 
 ## Applies damage to building
 func harm(amount: float) -> void:

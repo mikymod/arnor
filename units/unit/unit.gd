@@ -47,6 +47,7 @@ func _ready() -> void:
 	spawned.emit(self)
 	var player_area: PlayerArea = get_parent()
 	health_bar.change_style(player_area)
+	add_to_group("units")
 
 ## Returns Damage Per Second dealt by the unit.
 func dps() -> float:
