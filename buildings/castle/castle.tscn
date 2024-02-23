@@ -22,6 +22,7 @@ position = Vector2(0, -56)
 shape = SubResource("RectangleShape2D_8mk1v")
 
 [node name="Area2D" type="Area2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -129)
 collision_layer = 0
 collision_mask = 0
@@ -33,6 +34,7 @@ shape = SubResource("RectangleShape2D_ni5gg")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Area2D"]
 visible = false
+y_sort_enabled = true
 offset_left = -251.0
 offset_top = -200.0
 offset_right = 250.0

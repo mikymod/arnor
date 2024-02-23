@@ -5,3 +5,9 @@ func harm(amount: float) -> void:
 	if (health <= 0):
 		$DestroyedSprite2D.visible = true
 		$BuildingSprite2D.visible = false
+
+func enable_spawn_area() -> void:
+	$Area2D/NinePatchRect.visible = true
+
+func disable_spawn_area() -> void:
+	$Area2D/NinePatchRect.visible = false
