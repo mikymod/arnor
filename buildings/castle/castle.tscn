@@ -60,28 +60,31 @@ texture = ExtResource("2_oui3m")
 offset = Vector2(0, -119)
 
 [node name="Fires" type="Node2D" parent="."]
-y_sort_enabled = true
 
 [node name="Fire" parent="Fires" node_paths=PackedStringArray("building") instance=ExtResource("5_l7orm")]
 visible = false
+z_index = 1
 position = Vector2(-76, -17)
 building = NodePath("../..")
 threshold = 800
 
 [node name="Fire2" parent="Fires" node_paths=PackedStringArray("building") instance=ExtResource("5_l7orm")]
 visible = false
+z_index = 1
 position = Vector2(112, -30)
 building = NodePath("../..")
 threshold = 600
 
 [node name="Fire3" parent="Fires" node_paths=PackedStringArray("building") instance=ExtResource("5_l7orm")]
 visible = false
+z_index = 1
 position = Vector2(-7, -132)
 building = NodePath("../..")
 threshold = 400
 
 [node name="Fire4" parent="Fires" node_paths=PackedStringArray("building") instance=ExtResource("5_l7orm")]
 visible = false
+z_index = 1
 position = Vector2(-92, -157)
 building = NodePath("../..")
 threshold = 200

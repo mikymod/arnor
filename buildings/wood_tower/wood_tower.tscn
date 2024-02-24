@@ -99,18 +99,21 @@ y_sort_enabled = true
 
 [node name="Fire" parent="Fires" node_paths=PackedStringArray("building") instance=ExtResource("3_p5ghb")]
 visible = false
+z_index = 1
 position = Vector2(-36, -1)
 building = NodePath("../..")
 threshold = 750
 
 [node name="Fire2" parent="Fires" node_paths=PackedStringArray("building") instance=ExtResource("3_p5ghb")]
 visible = false
+z_index = 1
 position = Vector2(37, -43)
 building = NodePath("../..")
 threshold = 500
 
 [node name="Fire3" parent="Fires" node_paths=PackedStringArray("building") instance=ExtResource("3_p5ghb")]
 visible = false
+z_index = 1
 position = Vector2(3, -104)
 building = NodePath("../..")
 threshold = 250
