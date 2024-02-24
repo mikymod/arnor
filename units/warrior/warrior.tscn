@@ -185,12 +185,12 @@ collision_mask = 9
 script = ExtResource("1_pehos")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
+position = Vector2(0, -35)
 shape = SubResource("CircleShape2D_npoes")
 metadata/_edit_group_ = true
 
 [node name="InteractionArea2D" type="Area2D" parent="."]
-position = Vector2(0, 8)
+position = Vector2(0, -35)
 collision_layer = 0
 collision_mask = 9
 monitorable = false
@@ -199,6 +199,7 @@ monitorable = false
 shape = SubResource("CircleShape2D_3ad0t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -35)
 texture = ExtResource("1_is0i7")
 hframes = 6
 vframes = 8
@@ -236,10 +237,10 @@ sprite = NodePath("../../Sprite2D")
 attack_timer = NodePath("../../AttackTimer")
 
 [node name="HealthBar" parent="." instance=ExtResource("7_cnin7")]
-offset_left = -73.0
-offset_top = -128.0
-offset_right = 74.0
-offset_bottom = -101.0
+offset_left = -35.0
+offset_top = -135.0
+offset_right = 35.0
+offset_bottom = -110.0
 value = 88.0
 metadata/_edit_use_anchors_ = true
 

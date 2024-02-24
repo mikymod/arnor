@@ -124,15 +124,10 @@ _data = {
 "walk": SubResource("Animation_smynu")
 }
 
-[node name="Goblin" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "agent", "state_machine", "attack_timer", "health_bar")]
+[node name="Goblin" type="CharacterBody2D"]
 position = Vector2(641, 352)
 collision_mask = 9
 script = ExtResource("1_p3gf3")
-sprite = NodePath("Sprite2D")
-agent = NodePath("NavigationAgent2D")
-state_machine = NodePath("StateMachine")
-attack_timer = NodePath("AttackTimer")
-health_bar = NodePath("HealthBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -25)
@@ -183,10 +178,10 @@ sprite = NodePath("../../Sprite2D")
 attack_timer = NodePath("../../AttackTimer")
 
 [node name="HealthBar" parent="." instance=ExtResource("3_epvrc")]
-offset_left = -73.0
-offset_top = -128.0
-offset_right = 74.0
-offset_bottom = -101.0
+offset_left = -35.0
+offset_top = -135.0
+offset_right = 35.0
+offset_bottom = -110.0
 metadata/_edit_use_anchors_ = true
 
 [node name="AttackTimer" type="Timer" parent="."]

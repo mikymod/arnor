@@ -233,9 +233,9 @@ attack_timer = NodePath("../../AttackTimer")
 [node name="GatheringBar" parent="." instance=ExtResource("10_ya5rd")]
 
 [node name="HealthBar" parent="." instance=ExtResource("9_bb7oo")]
-offset_left = -74.0
-offset_top = -137.0
-offset_right = 74.0
+offset_left = -35.0
+offset_top = -135.0
+offset_right = 35.0
 offset_bottom = -110.0
 
 [connection signal="health_changed" from="." to="HealthBar" method="on_health_changed"]

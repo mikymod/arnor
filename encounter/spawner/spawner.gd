@@ -28,7 +28,7 @@ func spawn() -> void:
 	var unit: Unit = units.pick_random().instantiate()
 	unit.global_position = $SpawnPoint.global_position
 	unit.target = destination
-	unit.health_bar.change_style(player_area)
+	#unit.health_bar.change_style(player_area)
 	
 	parent.add_child(unit)
 	unit_spawned.emit()
