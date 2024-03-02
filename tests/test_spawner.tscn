@@ -211,6 +211,8 @@ offset_bottom = 505.0
 [connection signal="finished" from="Encounter" to="Encounter/CanvasLayer/CardFramework/PowerBar" method="stop"]
 [connection signal="started" from="Encounter" to="Encounter/Terrain/Entities/PlayerArea2/Spawner" method="start"]
 [connection signal="started" from="Encounter" to="Encounter/Terrain/Entities/PlayerArea2/Spawner2" method="start"]
+[connection signal="started" from="Encounter" to="Encounter/CanvasLayer/CardFramework/Deck" method="start"]
+[connection signal="started" from="Encounter" to="Encounter/CanvasLayer/CardFramework/PowerBar" method="start"]
 [connection signal="destroyed" from="Encounter/Terrain/Entities/PlayerArea/Castle" to="Encounter" method="game_over"]
 [connection signal="destroyed" from="Encounter/Terrain/Entities/PlayerArea2/WoodTower" to="Encounter" method="finish"]
 [connection signal="drag_canceled" from="Encounter/CanvasLayer/CardFramework/CardHand" to="Encounter/Terrain/Entities/PlayerArea/Castle" method="disable_spawn_area"]

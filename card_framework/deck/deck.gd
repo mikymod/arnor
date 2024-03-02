@@ -19,9 +19,10 @@ func _ready() -> void:
 			var card_instance = card_scene.instantiate()
 			card_instance.card_resource = card
 			state.deck_cards.append(card_instance)
-	# TODO: test, must be removed
-	draw_cards(3)
 
+
+func start() -> void:
+	draw_cards(3)
 
 ## Pops an amount of cards from top of deck
 func draw_cards(amount: int = 1) -> void:
