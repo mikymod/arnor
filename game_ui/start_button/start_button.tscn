@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqlyoj7jorfq8"]
+
+[ext_resource type="Texture2D" uid="uid://d2y5t01mwt2mg" path="res://user_interface/textures/buttons/Button_Blue_9Slides.png" id="1_tlmva"]
+[ext_resource type="Texture2D" uid="uid://csdlbjemkkvld" path="res://user_interface/textures/buttons/Button_Blue_9Slides_Pressed.png" id="2_xuskw"]
+[ext_resource type="Texture2D" uid="uid://cfgqnqancwu32" path="res://user_interface/textures/buttons/Button_Disable_9Slides.png" id="3_u3uxa"]
+[ext_resource type="Script" path="res://game_ui/start_button/start_button.gd" id="4_t3awu"]
+
+[node name="StartButton" type="TextureButton"]
+offset_top = 1.0
+offset_right = 192.0
+offset_bottom = 193.0
+texture_normal = ExtResource("1_tlmva")
+texture_pressed = ExtResource("2_xuskw")
+texture_disabled = ExtResource("3_u3uxa")
+script = ExtResource("4_t3awu")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.115
+anchor_right = 1.0
+anchor_bottom = 0.703
+offset_top = -0.0799999
+offset_bottom = 0.0240021
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "[center][b][color=#000][font_size=32][outline_color=#fff][outline_size=10]
+START!
+[/outline_size][/outline_color][/font_size][/color][/b][/center]
+"
+fit_content = true
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
