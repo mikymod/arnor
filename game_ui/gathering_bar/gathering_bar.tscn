@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://ctrb1i6je8kif"]
 
-[ext_resource type="Script" path="res://game_ui/gathering_progress.gd" id="1_nabpv"]
+[ext_resource type="Script" path="res://game_ui/gathering_bar/gathering_progress.gd" id="1_nabpv"]
+
 
 [node name="GatheringBar" type="Control"]
 visible = false
