@@ -1,16 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://rt8ejmudsgr"]
 
 [ext_resource type="Texture2D" uid="uid://bf3aq7g6dtps2" path="res://buildings/castle/Carved_9Slides.png" id="1_buqbr"]
-[ext_resource type="Texture2D" uid="uid://dydcrp0liitfo" path="res://user_interface/textures/buttons/Button_Blue.png" id="2_d4ftl"]
-[ext_resource type="PackedScene" uid="uid://dfu7puw5v6xte" path="res://units/warrior/warrior_thumb.tscn" id="3_xpw72"]
+[ext_resource type="Script" path="res://user_interface/game_ui/history/history.gd" id="1_o0ji8"]
+[ext_resource type="PackedScene" uid="uid://dc4260mp863p5" path="res://user_interface/game_ui/history/history_frame.tscn" id="2_wcuyh"]
 
 [node name="History" type="Control"]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
+anchor_bottom = 0.5
+grow_horizontal = 0
 grow_vertical = 2
+script = ExtResource("1_o0ji8")
+frame_scene = ExtResource("2_wcuyh")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 y_sort_enabled = true
@@ -45,25 +49,3 @@ offset_top = -0.192001
 offset_bottom = 0.0639648
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Frame" type="TextureRect" parent="NinePatchRect/VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_d4ftl")
-
-[node name="Portrait" type="TextureRect" parent="NinePatchRect/VBoxContainer/Frame"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -16.0
-offset_top = -23.0
-offset_right = 16.0
-offset_bottom = 9.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="WarriorThumb" parent="NinePatchRect/VBoxContainer/Frame/Portrait" instance=ExtResource("3_xpw72")]
-position = Vector2(15.5, 18)
-scale = Vector2(0.333333, 0.333333)

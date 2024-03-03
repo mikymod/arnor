@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="CardResource" load_steps=4 format=3 uid="uid://cbvmv6ggmonwp"]
+[gd_resource type="Resource" script_class="CardResource" load_steps=5 format=3 uid="uid://cbvmv6ggmonwp"]
 
 [ext_resource type="Script" path="res://card_framework/card/resources/card_resource.gd" id="1_3iq1o"]
 [ext_resource type="PackedScene" uid="uid://dxordleb10cxn" path="res://units/pawn/pawn.tscn" id="2_1h8y8"]
 [ext_resource type="PackedScene" uid="uid://cwa1vvk086pey" path="res://units/pawn/pawn_thumb.tscn" id="3_4lcjq"]
+[ext_resource type="Texture2D" uid="uid://cnkhw7x3n3meg" path="res://units/pawn/pawn_thumb.png" id="4_w25bo"]
 
 [resource]
 script = ExtResource("1_3iq1o")
@@ -12,4 +13,5 @@ cost = 1
 rarity = 0
 color = Color(0, 0.576471, 0.72549, 1)
 unit_thumb = ExtResource("3_4lcjq")
+unit_thumb_ui = ExtResource("4_w25bo")
 unit_scene = ExtResource("2_1h8y8")
