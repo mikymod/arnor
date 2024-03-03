@@ -1,9 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://vc7x1xl80ihh"]
 
-[ext_resource type="Script" path="res://game_ui/power_bar/power_bar.gd" id="1_a2cdp"]
-[ext_resource type="Texture2D" uid="uid://dyrf5s8wf5gms" path="res://game_ui/power_bar/progress_bar_under.png" id="2_wxr1h"]
-[ext_resource type="Texture2D" uid="uid://bp7wmvd78rx1i" path="res://game_ui/power_bar/progress_bar_over.png" id="3_bfvef"]
-[ext_resource type="Texture2D" uid="uid://jaob021a0q0" path="res://game_ui/power_bar/progress_bar_fill.png" id="4_da6fd"]
+[ext_resource type="Script" path="res://user_interface/game_ui/power_bar/power_bar.gd" id="1_a2cdp"]
+[ext_resource type="Texture2D" uid="uid://dyrf5s8wf5gms" path="res://user_interface/game_ui/power_bar/progress_bar_under.png" id="2_wxr1h"]
+[ext_resource type="Texture2D" uid="uid://bp7wmvd78rx1i" path="res://user_interface/game_ui/power_bar/progress_bar_over.png" id="3_bfvef"]
+[ext_resource type="Texture2D" uid="uid://jaob021a0q0" path="res://user_interface/game_ui/power_bar/progress_bar_fill.png" id="4_da6fd"]
+
 
 [node name="PowerBar" type="Control"]
 layout_mode = 3

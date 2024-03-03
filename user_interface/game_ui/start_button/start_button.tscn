@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d2y5t01mwt2mg" path="res://user_interface/textures/buttons/Button_Blue_9Slides.png" id="1_tlmva"]
 [ext_resource type="Texture2D" uid="uid://csdlbjemkkvld" path="res://user_interface/textures/buttons/Button_Blue_9Slides_Pressed.png" id="2_xuskw"]
 [ext_resource type="Texture2D" uid="uid://cfgqnqancwu32" path="res://user_interface/textures/buttons/Button_Disable_9Slides.png" id="3_u3uxa"]
-[ext_resource type="Script" path="res://game_ui/start_button/start_button.gd" id="4_t3awu"]
+[ext_resource type="Script" path="res://user_interface/game_ui/start_button/start_button.gd" id="4_t3awu"]
 
 [node name="StartButton" type="TextureButton"]
 offset_top = 1.0

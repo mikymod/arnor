@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dkpnn5025kmn0" path="res://camera/camera.tscn" id="1_dtugg"]
 [ext_resource type="PackedScene" uid="uid://cqdmhpfw035kq" path="res://terrain/test/test_terrain_sample_1.tscn" id="1_xkkfu"]
 [ext_resource type="PackedScene" uid="uid://ckijaob7m7yx4" path="res://card_framework/card_framework.tscn" id="2_hl1iq"]
-[ext_resource type="PackedScene" uid="uid://cqlyoj7jorfq8" path="res://game_ui/start_button/start_button.tscn" id="5_gjgsv"]
+[ext_resource type="PackedScene" uid="uid://cqlyoj7jorfq8" path="res://user_interface/game_ui/start_button/start_button.tscn" id="5_gjgsv"]
+
 
 [node name="Encounter" type="Node"]
 script = ExtResource("1_7lv5l")

@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://mrrmxccs6xfc"]
+[gd_scene load_steps=3 format=3 uid="uid://mrrmxccs6xfc"]
 
+[ext_resource type="Script" path="res://user_interface/game_ui/encounter_banner/encounter_banner.gd" id="1_nhoa7"]
 [ext_resource type="Texture2D" uid="uid://ci4it3lod4lhl" path="res://user_interface/textures/ribbons/Ribbon_Blue_long.png" id="1_ofalf"]
 
 [node name="EncounterBanner" type="Control"]
@@ -13,6 +14,7 @@ offset_top = 0.199997
 offset_right = 2.27991
 offset_bottom = 2.12
 grow_horizontal = 2
+script = ExtResource("1_nhoa7")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

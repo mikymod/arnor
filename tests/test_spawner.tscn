@@ -21,8 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://s502nq1xlvw4" path="res://deco/rock/rock_little.tscn" id="19_wj8ci"]
 [ext_resource type="PackedScene" uid="uid://ccwquwrngyb4f" path="res://deco/rock/rock_medium.tscn" id="20_x264n"]
 [ext_resource type="PackedScene" uid="uid://cakj30pyx0o4w" path="res://deco/signage/scarecrow.tscn" id="21_jlpog"]
-[ext_resource type="PackedScene" uid="uid://cqlyoj7jorfq8" path="res://game_ui/start_button/start_button.tscn" id="22_6teap"]
-[ext_resource type="PackedScene" uid="uid://umtvp0dfwmf0" path="res://game_ui/game_over/game_over.tscn" id="23_kvsot"]
+[ext_resource type="PackedScene" uid="uid://cqlyoj7jorfq8" path="res://user_interface/game_ui/start_button/start_button.tscn" id="22_6teap"]
+[ext_resource type="PackedScene" uid="uid://umtvp0dfwmf0" path="res://user_interface/game_ui/encounter_end_screen/encounter_end_screen.tscn" id="23_kvsot"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kr55t"]
 vertices = PackedVector2Array(1076, 499, 1234, 695, 1141, 695, 494, 691, 494, 623, 808, 499, 401, 623, 396, 584, 396, 516, 744, 500, 449, 230, 527, -105, 528, 501, 449, 180, 1211, -337, 1211, -405, 1361, -591, 1370, 319, 1297, 266, 1079, -44, 1079, -215, 1166, -317, 1371, 387, 1375, 859, 1234, 763, 1340, 417, 808, 498, 291, 230, 303, 516, 1050, 746, 1050, 814, 815, 854, 342, 768, 342, 700, 401, 691, 800, -588, 800, -596, 1173, -479, 1080, -479, 803, -42, 803, -106, 986, -215, 1118, -405, 1118, -385, 1111, -385, 1111, -411, 1173, -411, 1080, -436, 1018, -436, 1018, -368, 1073, -368, 1073, -317, 986, -283, 1166, -337, 1079, -283, 414, 180, 414, 113, 321, 113, 321, 133, 283, 133, 241, -587, 283, 201, 291, 201, 1297, 319, 1204, 266, 1204, 334, 1182, 367, 1297, 334, 1297, 367, 1182, 417, 1340, 387, 1141, 746, 1143, 814, 1143, 763, 303, 584, 249, 700, 814, 855, 241, 856, 249, 768)
@@ -207,16 +207,17 @@ offset_top = 313.0
 offset_right = 1247.0
 offset_bottom = 505.0
 
-[node name="GameOver" parent="Encounter/CanvasLayer" instance=ExtResource("23_kvsot")]
+[node name="EncounterEndScreen" parent="Encounter/CanvasLayer" instance=ExtResource("23_kvsot")]
 visible = false
 
 [connection signal="failed" from="Encounter" to="Encounter/Terrain/Entities/PlayerArea2/Spawner" method="stop"]
 [connection signal="failed" from="Encounter" to="Encounter/Terrain/Entities/PlayerArea2/Spawner2" method="stop"]
 [connection signal="failed" from="Encounter" to="Encounter/CanvasLayer/CardFramework/PowerBar" method="stop"]
-[connection signal="failed" from="Encounter" to="Encounter/CanvasLayer/GameOver" method="set_visible" binds= [true]]
+[connection signal="failed" from="Encounter" to="Encounter/CanvasLayer/EncounterEndScreen" method="show_gameover"]
 [connection signal="finished" from="Encounter" to="Encounter/Terrain/Entities/PlayerArea2/Spawner" method="stop"]
 [connection signal="finished" from="Encounter" to="Encounter/Terrain/Entities/PlayerArea2/Spawner2" method="stop"]
 [connection signal="finished" from="Encounter" to="Encounter/CanvasLayer/CardFramework/PowerBar" method="stop"]
+[connection signal="finished" from="Encounter" to="Encounter/CanvasLayer/EncounterEndScreen" method="show_victory"]
 [connection signal="started" from="Encounter" to="Encounter/Terrain/Entities/PlayerArea2/Spawner" method="start"]
 [connection signal="started" from="Encounter" to="Encounter/Terrain/Entities/PlayerArea2/Spawner2" method="start"]
 [connection signal="started" from="Encounter" to="Encounter/CanvasLayer/CardFramework/Deck" method="start"]

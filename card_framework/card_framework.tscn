@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c5v7e6p62ymc5" path="res://card_framework/deck/deck.tscn" id="1_tf3eb"]
 [ext_resource type="PackedScene" uid="uid://df8to81yp88gw" path="res://card_framework/card_hand/card_hand.tscn" id="2_2n4ik"]
 [ext_resource type="PackedScene" uid="uid://dcaeke6xag722" path="res://card_framework/discard_pile/discard.tscn" id="4_pj8ie"]
-[ext_resource type="PackedScene" uid="uid://vc7x1xl80ihh" path="res://game_ui/power_bar/power_bar.tscn" id="5_0vplj"]
+[ext_resource type="PackedScene" uid="uid://vc7x1xl80ihh" path="res://user_interface/game_ui/power_bar/power_bar.tscn" id="5_0vplj"]
 [ext_resource type="PackedScene" uid="uid://dhv1qxopnsr8o" path="res://card_framework/cards_ui/cards_ui.tscn" id="5_rprjo"]
 
 [node name="CardFramework" type="Node"]

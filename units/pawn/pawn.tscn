@@ -8,9 +8,10 @@
 [ext_resource type="Script" path="res://units/pawn/pawn_cut_state.gd" id="6_5ypc2"]
 [ext_resource type="Script" path="res://units/pawn/pawn_mine_state.gd" id="7_n4hc8"]
 [ext_resource type="Script" path="res://units/pawn/pawn_hammer_state.gd" id="8_vw6ee"]
-[ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://game_ui/health_bar/health_bar.tscn" id="9_bb7oo"]
+[ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://user_interface/game_ui/health_bar/health_bar.tscn" id="9_bb7oo"]
 [ext_resource type="Script" path="res://units/pawn/pawn_attack_state.gd" id="9_xdy6t"]
-[ext_resource type="PackedScene" uid="uid://ctrb1i6je8kif" path="res://game_ui/gathering_bar/gathering_bar.tscn" id="10_ya5rd"]
+[ext_resource type="PackedScene" uid="uid://ctrb1i6je8kif" path="res://user_interface/game_ui/gathering_bar/gathering_bar.tscn" id="10_ya5rd"]
+
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p80o4"]
 radius = 24.1868

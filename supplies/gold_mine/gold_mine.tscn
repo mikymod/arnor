@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://6eqb15b527fm" path="res://supplies/gold_mine/GoldMine_Active.png" id="2_p7lfs"]
 [ext_resource type="Texture2D" uid="uid://ddhdu080340vt" path="res://supplies/gold_mine/GoldMine_Destroyed.png" id="3_7rjab"]
 [ext_resource type="PackedScene" uid="uid://dtg5l7s1ctj5h" path="res://supplies/gold_spawn.tscn" id="3_j1r7p"]
-[ext_resource type="PackedScene" uid="uid://ctrb1i6je8kif" path="res://game_ui/gathering_bar/gathering_bar.tscn" id="7_h0ae6"]
+[ext_resource type="PackedScene" uid="uid://ctrb1i6je8kif" path="res://user_interface/game_ui/gathering_bar/gathering_bar.tscn" id="7_h0ae6"]
+
 
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mshjr"]
