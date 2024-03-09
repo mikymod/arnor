@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhearmqka24oc"]
+
+[ext_resource type="Script" path="res://encounter/encounter.gd" id="1_7lv5l"]
+[ext_resource type="PackedScene" uid="uid://dkpnn5025kmn0" path="res://camera/camera.tscn" id="1_dtugg"]
+[ext_resource type="PackedScene" uid="uid://cqdmhpfw035kq" path="res://terrain/test/test_terrain_sample_1.tscn" id="1_xkkfu"]
+[ext_resource type="PackedScene" uid="uid://ckijaob7m7yx4" path="res://card_framework/card_framework.tscn" id="2_hl1iq"]
+[ext_resource type="PackedScene" uid="uid://cqlyoj7jorfq8" path="res://user_interface/game_ui/start_button/start_button.tscn" id="5_gjgsv"]
+
+
+[node name="Encounter" type="Node"]
+script = ExtResource("1_7lv5l")
+
+[node name="Camera" parent="." instance=ExtResource("1_dtugg")]
+offset = Vector2(800, 450)
+zoom = Vector2(0.8, 0.8)
+
+[node name="Terrain" parent="." instance=ExtResource("1_xkkfu")]
+
+[node name="GoldMine" parent="Terrain/Entities/NavigationRegion2D" index="0"]
+position = Vector2(1261, 442)
+
+[node name="PlayerArea" parent="Terrain/Entities/NavigationRegion2D" index="2" node_paths=PackedStringArray("target", "encounter")]
+target = NodePath("../PlayerArea2/WoodTower")
+encounter = NodePath("../../../..")
+color = Color(0, 0.560784, 0.756863, 1)
+
+[node name="PlayerArea2" parent="Terrain/Entities/NavigationRegion2D" index="3" node_paths=PackedStringArray("target", "encounter")]
+target = NodePath("../PlayerArea/Castle")
+encounter = NodePath("../../../..")
+color = Color(1, 0.207843, 0.439216, 1)
+
+[node name="Goblin2" parent="Terrain/Entities/NavigationRegion2D/PlayerArea2" index="1"]
+position = Vector2(1054, -108)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CardFramework" parent="CanvasLayer" instance=ExtResource("2_hl1iq")]
+
+[node name="StartButton" parent="CanvasLayer" instance=ExtResource("5_gjgsv")]
+offset_left = 1094.0
+offset_top = 327.0
+offset_right = 1094.0
+offset_bottom = 327.0
+
+[connection signal="destroyed" from="Terrain/Entities/NavigationRegion2D/PlayerArea/Castle" to="." method="game_over"]
+[connection signal="destroyed" from="Terrain/Entities/NavigationRegion2D/PlayerArea2/WoodTower" to="." method="finish"]
+[connection signal="drag_canceled" from="CanvasLayer/CardFramework/CardHand" to="Camera" method="set_input" binds= [true]]
+[connection signal="drag_started" from="CanvasLayer/CardFramework/CardHand" to="Camera" method="set_input" binds= [false]]
+[connection signal="drag_stopped" from="CanvasLayer/CardFramework/CardHand" to="Camera" method="set_input" binds= [true]]
+[connection signal="played" from="CanvasLayer/CardFramework/CardHand" to="Terrain/Entities/NavigationRegion2D/PlayerArea" method="on_card_played"]
+
+[editable path="Terrain"]
+[editable path="CanvasLayer/CardFramework"]
