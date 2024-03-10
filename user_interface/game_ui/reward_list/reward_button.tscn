@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://be06mmtrm0a6l"]
+
+[ext_resource type="Texture2D" uid="uid://j0kwx345xac5" path="res://user_interface/textures/buttons/Carved_3Slides.png" id="1_uv3r5"]
+[ext_resource type="Texture2D" uid="uid://06s0ca7hvxty" path="res://user_interface/textures/buttons/Carved_3Slides-clicked.png" id="2_h2ggt"]
+[ext_resource type="Texture2D" uid="uid://dk6lbldh5sp1j" path="res://user_interface/textures/icons/Regular_01.png" id="3_ffx63"]
+[ext_resource type="Script" path="res://user_interface/game_ui/reward_list/reward_button.gd" id="3_urvmf"]
+
+[node name="RewardButton" type="TextureButton"]
+texture_normal = ExtResource("1_uv3r5")
+texture_pressed = ExtResource("2_h2ggt")
+stretch_mode = 0
+script = ExtResource("3_urvmf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_ffx63")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "A new card"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
