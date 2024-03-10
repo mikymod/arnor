@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqdmhpfw035kq"]
+[gd_scene load_steps=8 format=3 uid="uid://cqdmhpfw035kq"]
 
 [ext_resource type="TileSet" uid="uid://gwls54ddpum0" path="res://terrain/tileset_terrain.tres" id="1_7mhop"]
 [ext_resource type="PackedScene" uid="uid://dq0hve3xn83nl" path="res://supplies/gold_mine/gold_mine.tscn" id="4_hnv7m"]
-[ext_resource type="Resource" uid="uid://dgn0lagk0tnxq" path="res://supplies/gold.tres" id="5_q5hec"]
 [ext_resource type="PackedScene" uid="uid://de36aplg7bs3u" path="res://buildings/castle/castle.tscn" id="7_04fhg"]
 [ext_resource type="PackedScene" uid="uid://7ruoybqngxyn" path="res://player_area/player_area.tscn" id="7_qpqhb"]
 [ext_resource type="PackedScene" uid="uid://bvmn3d0p758g4" path="res://units/enemy/goblin/goblin.tscn" id="8_d7ej2"]
@@ -36,11 +35,9 @@ navigation_polygon = SubResource("NavigationPolygon_kr55t")
 
 [node name="GoldMine" parent="Entities/NavigationRegion2D" instance=ExtResource("4_hnv7m")]
 position = Vector2(1239, 455)
-supply = ExtResource("5_q5hec")
 
 [node name="GoldMine2" parent="Entities/NavigationRegion2D" instance=ExtResource("4_hnv7m")]
 position = Vector2(370, 255)
-supply = ExtResource("5_q5hec")
 
 [node name="PlayerArea" parent="Entities/NavigationRegion2D" instance=ExtResource("7_qpqhb")]
 

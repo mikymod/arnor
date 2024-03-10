@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqdgrrerlbc67"]
+[gd_scene load_steps=6 format=3 uid="uid://dqdgrrerlbc67"]
 
 [ext_resource type="TileSet" uid="uid://gwls54ddpum0" path="res://terrain/tileset_terrain.tres" id="1_vwapa"]
 [ext_resource type="PackedScene" uid="uid://dxordleb10cxn" path="res://units/pawn/pawn.tscn" id="2_pe8tk"]
 [ext_resource type="PackedScene" uid="uid://c1f3cs2ptukon" path="res://deco/pine_tree/pine_tree.tscn" id="4_2k6dn"]
 [ext_resource type="PackedScene" uid="uid://dq0hve3xn83nl" path="res://supplies/gold_mine/gold_mine.tscn" id="4_sgih2"]
-[ext_resource type="Resource" uid="uid://dgn0lagk0tnxq" path="res://supplies/gold.tres" id="6_tewuw"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_l7lm8"]
 vertices = PackedVector2Array(1335, 529, 1392, 530, 1397, 688, 1267, 692, 1237, 651, 1237, 577, 1422, 509, 1584, 15, 1579, 893, 1420, 775, 1001, 83, 1000, 361, 935, 245, 935, 171, 400, 249, 457, 308, 204, 303, 283, 249, 1336, 303, 1255, 364, 1255, 297, 530, 81, 859, 171, 202, 240, 283, 182, 847, 361, 852, 300, 859, 245, 784, 304, 783, 238, 750, 243, 654, 236, 381, 396, 430, 394, 430, 433, 367, 431, 192, 393, 626, 301, 530, 304, 622, 236, 622, 651, 887, 649, 884, 839, 834, 888, 708, 887, 652, 497, 752, 390, 821, 390, 820, 454, 655, 565, 17, 885, 21, 642, 370, 656, 1036, 141, 1393, 141, 1391, 304, 1138, 297, 1031, 459, 1138, 364, 1267, 749, 915, 746, 1161, 651, 1161, 577, 909, 565, 58, 328, 18, 380, 17, 380, 19, 127, 49, 111, 486, 40, 486, 111, 19, 15, 182, 328, 182, 388, 435, 502, 434, 560, 399, 560, 397, 464, 459, 464, 450, 493, 1359, 500, 1361, 393, 1419, 393, 1420, 115, 82, 239, 79, 141, 1286, 844, 1292, 775, 460, 499, 496, 140, 400, 182, 501, 389, 1069, 110, 1037, 46, 653, 390, 619, 494, 461, 650)
@@ -53,11 +52,9 @@ position = Vector2(1199, 669)
 
 [node name="GoldMine" parent="Entities/NavigationRegion2D" instance=ExtResource("4_sgih2")]
 position = Vector2(1196, 372)
-supply = ExtResource("6_tewuw")
 
 [node name="GoldMine2" parent="Entities/NavigationRegion2D" instance=ExtResource("4_sgih2")]
 position = Vector2(341, 257)
-supply = ExtResource("6_tewuw")
 
 [node name="PineTree2" parent="Entities/NavigationRegion2D" instance=ExtResource("4_2k6dn")]
 position = Vector2(897, 263)

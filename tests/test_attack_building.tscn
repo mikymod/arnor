@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bvmn3d0p758g4" path="res://units/enemy/goblin/goblin.tscn" id="6_nv2nc"]
 [ext_resource type="PackedScene" uid="uid://cxy42xjpo5o3n" path="res://buildings/wood_tower/wood_tower.tscn" id="6_yrdi6"]
 
-
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_x8krk"]
 vertices = PackedVector2Array(1034, -17, 1392, -619, 1387, 884, 1033, 460, 792, 463, 810, 877, 793, 496, 713, -76, 792, -625, 806, -11, 711, -12, 772, 526, 811, 882, 209, 882, 561, 523, 205, -625, 563, -76, 792, -630, 805, -10)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5, 6), PackedInt32Array(7, 8, 1, 0, 9, 10), PackedInt32Array(11, 6, 5), PackedInt32Array(5, 12, 13), PackedInt32Array(11, 5, 13, 14), PackedInt32Array(14, 13, 15, 16), PackedInt32Array(16, 15, 17, 8, 7), PackedInt32Array(10, 9, 18)])
