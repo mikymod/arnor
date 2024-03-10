@@ -27,7 +27,7 @@ stretch_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
-text = "A new card"
+text = "Something"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true

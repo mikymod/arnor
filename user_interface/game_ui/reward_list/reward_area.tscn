@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://bogg034lnmw4f"]
+
+[ext_resource type="Texture2D" uid="uid://d2y5t01mwt2mg" path="res://user_interface/textures/buttons/Button_Blue_9Slides.png" id="1_bxupi"]
+[ext_resource type="PackedScene" uid="uid://b1m8a8sxxys3l" path="res://user_interface/game_ui/reward_list/reward_list.tscn" id="1_yaeoh"]
+[ext_resource type="Texture2D" uid="uid://brrhllofjpwk3" path="res://units/warrior/warrior_thumb.png" id="2_r6q7w"]
+
+[node name="RewardArea" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CardReward" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.4
+anchor_top = 0.152
+anchor_right = 0.6
+anchor_bottom = 0.5
+offset_top = -0.44001
+
+[node name="BackgroundFrame" type="TextureRect" parent="CardReward"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bxupi")
+
+[node name="ForegroundFrame" type="TextureRect" parent="CardReward/BackgroundFrame"]
+layout_mode = 1
+offset_left = 31.0
+offset_top = 20.0
+offset_right = 223.0
+offset_bottom = 212.0
+texture = ExtResource("2_r6q7w")
+stretch_mode = 4
+
+[node name="RewardList" parent="." instance=ExtResource("1_yaeoh")]
+layout_mode = 1
+anchor_bottom = 0.758
+offset_bottom = 0.23999
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -97.0
+offset_top = -135.0
+offset_right = 95.0
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Take all"
