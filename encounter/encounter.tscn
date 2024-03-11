@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b4eh62pserfre"]
+[gd_scene load_steps=27 format=3 uid="uid://b4eh62pserfre"]
 
 [ext_resource type="Script" path="res://encounter/encounter.gd" id="1_p7r8p"]
 [ext_resource type="PackedScene" uid="uid://dkpnn5025kmn0" path="res://camera/camera.tscn" id="2_q32or"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cqlyoj7jorfq8" path="res://user_interface/game_ui/start_button/start_button.tscn" id="22_qlpxc"]
 [ext_resource type="PackedScene" uid="uid://umtvp0dfwmf0" path="res://user_interface/game_ui/encounter_end_screen/encounter_end_screen.tscn" id="23_ipxs3"]
 [ext_resource type="PackedScene" uid="uid://rt8ejmudsgr" path="res://user_interface/game_ui/history/history.tscn" id="24_kxkbf"]
+[ext_resource type="PackedScene" uid="uid://bogg034lnmw4f" path="res://user_interface/game_ui/reward_list/reward_area.tscn" id="25_xa4v1"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kr55t"]
 vertices = PackedVector2Array(1076, 499, 1234, 695, 1141, 695, 494, 691, 494, 623, 808, 499, 401, 623, 396, 584, 396, 516, 744, 500, 449, 230, 527, -105, 528, 501, 449, 180, 1211, -337, 1211, -405, 1361, -591, 1370, 319, 1297, 266, 1079, -44, 1079, -215, 1166, -317, 1371, 387, 1375, 859, 1234, 763, 1340, 417, 808, 498, 291, 230, 303, 516, 1050, 746, 1050, 814, 815, 854, 342, 768, 342, 700, 401, 691, 800, -588, 800, -596, 1173, -479, 1080, -479, 803, -42, 803, -106, 986, -215, 1118, -405, 1118, -385, 1111, -385, 1111, -411, 1173, -411, 1080, -436, 1018, -436, 1018, -368, 1073, -368, 1073, -317, 986, -283, 1166, -337, 1079, -283, 414, 180, 414, 113, 321, 113, 321, 133, 283, 133, 241, -587, 283, 201, 291, 201, 1297, 319, 1204, 266, 1204, 334, 1182, 367, 1297, 334, 1297, 367, 1182, 417, 1340, 387, 1141, 746, 1143, 814, 1143, 763, 303, 584, 249, 700, 814, 855, 241, 856, 249, 768)
@@ -146,8 +147,10 @@ position = Vector2(295, 783)
 [node name="PineTree14" parent="NavigationRegion2D" instance=ExtResource("15_545aw")]
 position = Vector2(447, 706)
 
-[node name="PlayerArea" parent="." instance=ExtResource("16_jnunn")]
+[node name="PlayerArea" parent="." node_paths=PackedStringArray("target", "encounter") instance=ExtResource("16_jnunn")]
 y_sort_enabled = true
+target = NodePath("../PlayerArea2/WoodTower")
+encounter = NodePath("..")
 color = Color(0, 0.560784, 0.756863, 1)
 
 [node name="Castle" parent="PlayerArea" instance=ExtResource("17_myg7p")]
@@ -157,26 +160,34 @@ position = Vector2(805, 805)
 [node name="HealthBar" parent="PlayerArea/Castle" index="5"]
 value = 88.0
 
-[node name="PlayerArea2" parent="." instance=ExtResource("16_jnunn")]
+[node name="PlayerArea2" parent="." node_paths=PackedStringArray("target", "encounter") instance=ExtResource("16_jnunn")]
 y_sort_enabled = true
+target = NodePath("../PlayerArea/Castle")
+encounter = NodePath("..")
 color = Color(1, 0.207843, 0.439216, 1)
 
 [node name="WoodTower" parent="PlayerArea2" instance=ExtResource("18_e4aoh")]
 y_sort_enabled = true
 position = Vector2(797, -354)
 
-[node name="Spawner" parent="PlayerArea2" instance=ExtResource("19_ypas1")]
+[node name="Spawner" parent="PlayerArea2" node_paths=PackedStringArray("parent", "destination", "encounter") instance=ExtResource("19_ypas1")]
 position = Vector2(919, -270)
+parent = NodePath("..")
+destination = NodePath("../../PlayerArea/Castle")
 spawn_time = 10.0
 units = Array[PackedScene]([ExtResource("20_2q65j")])
+encounter = NodePath("../..")
 
 [node name="Timer" parent="PlayerArea2/Spawner" index="0"]
 wait_time = 10.0
 
-[node name="Spawner2" parent="PlayerArea2" instance=ExtResource("19_ypas1")]
+[node name="Spawner2" parent="PlayerArea2" node_paths=PackedStringArray("parent", "destination", "encounter") instance=ExtResource("19_ypas1")]
 position = Vector2(676, -248)
+parent = NodePath("..")
+destination = NodePath("../../PlayerArea/Castle")
 spawn_time = 8.0
 units = Array[PackedScene]([ExtResource("20_2q65j")])
+encounter = NodePath("../..")
 
 [node name="Timer" parent="PlayerArea2/Spawner2" index="0"]
 wait_time = 10.0
@@ -197,10 +208,13 @@ offset_top = 313.0
 offset_right = 1245.0
 offset_bottom = 505.0
 
+[node name="History" parent="CanvasLayer" instance=ExtResource("24_kxkbf")]
+visible = false
+
 [node name="EncounterEndScreen" parent="CanvasLayer" instance=ExtResource("23_ipxs3")]
 visible = false
 
-[node name="History" parent="CanvasLayer" instance=ExtResource("24_kxkbf")]
+[node name="RewardArea" parent="CanvasLayer" instance=ExtResource("25_xa4v1")]
 visible = false
 
 [connection signal="failed" from="." to="PlayerArea2/Spawner" method="stop"]
@@ -228,8 +242,11 @@ visible = false
 [connection signal="played" from="CanvasLayer/CardFramework/CardHand" to="PlayerArea" method="on_card_played"]
 [connection signal="played" from="CanvasLayer/CardFramework/CardHand" to="CanvasLayer/History" method="on_card_played"]
 [connection signal="pressed" from="CanvasLayer/StartButton" to="." method="start"]
+[connection signal="pressed" from="CanvasLayer/EncounterEndScreen/TextureButton" to="CanvasLayer/EncounterEndScreen" method="set_visible" binds= [false]]
+[connection signal="pressed" from="CanvasLayer/EncounterEndScreen/TextureButton" to="CanvasLayer/RewardArea" method="set_visible" binds= [true]]
 
 [editable path="PlayerArea/Castle"]
 [editable path="PlayerArea2/Spawner"]
 [editable path="PlayerArea2/Spawner2"]
 [editable path="CanvasLayer/CardFramework"]
+[editable path="CanvasLayer/EncounterEndScreen"]
