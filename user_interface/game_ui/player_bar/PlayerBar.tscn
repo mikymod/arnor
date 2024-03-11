@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://ct5awjc6we2r0"]
+
+[ext_resource type="Script" path="res://user_interface/game_ui/player_bar/PlayerBar.gd" id="1_3t64l"]
+[ext_resource type="Texture2D" uid="uid://blsu6pidf4inq" path="res://user_interface/game_ui/player_bar/gold_icon.png" id="1_ffu0x"]
+[ext_resource type="Resource" uid="uid://b5bef6s8fu55j" path="res://player/player.tres" id="2_5y4up"]
+[ext_resource type="Texture2D" uid="uid://p7aplp6drw1w" path="res://user_interface/game_ui/player_bar/level_icon.png" id="2_t1nos"]
+[ext_resource type="Texture2D" uid="uid://botx5j2lt5fq3" path="res://user_interface/textures/icons/Regular_02.png" id="3_1ccxo"]
+[ext_resource type="Texture2D" uid="uid://cd28ewgweh8gi" path="res://user_interface/textures/icons/Pressed_02.png" id="4_bys2d"]
+[ext_resource type="Texture2D" uid="uid://lcu7y7kne32p" path="res://user_interface/textures/icons/Disable_02.png" id="5_rhfdm"]
+
+[node name="PlayerBar" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.044
+offset_bottom = 0.319998
+grow_horizontal = 2
+script = ExtResource("1_3t64l")
+player = ExtResource("2_5y4up")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.524
+offset_bottom = -16.768
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="GoldRect" type="TextureRect" parent="ColorRect"]
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("1_ffu0x")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="GoldLabel" type="Label" parent="ColorRect"]
+offset_left = 32.0
+offset_right = 64.0
+offset_bottom = 32.0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelRect" type="TextureRect" parent="ColorRect"]
+offset_left = 84.0
+offset_right = 116.0
+offset_bottom = 32.0
+texture = ExtResource("2_t1nos")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="LevelLabel" type="Label" parent="ColorRect"]
+offset_left = 116.0
+offset_right = 148.0
+offset_bottom = 32.0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureButton" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -16.0
+offset_bottom = 24.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("3_1ccxo")
+texture_pressed = ExtResource("4_bys2d")
+texture_disabled = ExtResource("5_rhfdm")
+ignore_texture_size = true
+stretch_mode = 4
