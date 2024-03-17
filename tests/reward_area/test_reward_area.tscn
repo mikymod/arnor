@@ -1,0 +1,116 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg0m6ovynvpvp"]
+
+[ext_resource type="PackedScene" uid="uid://bogg034lnmw4f" path="res://user_interface/game_ui/reward_list/reward_area.tscn" id="1_46b61"]
+[ext_resource type="Script" path="res://cheats/cheat_player.gd" id="2_2opof"]
+
+[node name="TestRewardArea" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RewardArea" parent="." instance=ExtResource("1_46b61")]
+layout_mode = 1
+
+[node name="RewardTestPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_left = 96.0
+offset_top = 174.0
+offset_right = 452.0
+offset_bottom = 313.0
+script = ExtResource("2_2opof")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RewardTestPanel"]
+layout_mode = 2
+
+[node name="PlayerLevel" type="HBoxContainer" parent="RewardTestPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RewardTestPanel/VBoxContainer/PlayerLevel"]
+layout_mode = 2
+text = "Player Level               "
+
+[node name="HSlider" type="HSlider" parent="RewardTestPanel/VBoxContainer/PlayerLevel"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+
+[node name="SliderValue" type="Label" parent="RewardTestPanel/VBoxContainer/PlayerLevel"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "1  "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="EncounterDifficulty" type="HBoxContainer" parent="RewardTestPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RewardTestPanel/VBoxContainer/EncounterDifficulty"]
+layout_mode = 2
+text = "Encounter difficulty "
+
+[node name="HSlider" type="HSlider" parent="RewardTestPanel/VBoxContainer/EncounterDifficulty"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+
+[node name="SliderValue" type="Label" parent="RewardTestPanel/VBoxContainer/EncounterDifficulty"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "1  "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MaxLevel" type="HBoxContainer" parent="RewardTestPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RewardTestPanel/VBoxContainer/MaxLevel"]
+layout_mode = 2
+text = "Max Level                   "
+
+[node name="HSlider" type="HSlider" parent="RewardTestPanel/VBoxContainer/MaxLevel"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 10.0
+value = 10.0
+
+[node name="SliderValue" type="Label" parent="RewardTestPanel/VBoxContainer/MaxLevel"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "1  "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="BaseReward" type="HBoxContainer" parent="RewardTestPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RewardTestPanel/VBoxContainer/BaseReward"]
+layout_mode = 2
+text = "Base Reward              "
+
+[node name="HSlider" type="HSlider" parent="RewardTestPanel/VBoxContainer/BaseReward"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 2000.0
+value = 1.0
+
+[node name="SliderValue" type="Label" parent="RewardTestPanel/VBoxContainer/BaseReward"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "1  "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ExpButton" type="Button" parent="RewardTestPanel/VBoxContainer"]
+layout_mode = 2
+text = "Calculate"
+
+[connection signal="pressed" from="RewardTestPanel/VBoxContainer/ExpButton" to="RewardTestPanel" method="_on_button_pressed"]

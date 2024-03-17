@@ -5,6 +5,8 @@ signal started()
 signal finished()
 signal failed()
 
+@export var encounter_res: EncounterResource
+
 func start() -> void:
 	started.emit()
 

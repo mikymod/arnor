@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv8wfbpfso0rl"]
+[gd_scene load_steps=3 format=3 uid="uid://bv8wfbpfso0rl"]
 
 [ext_resource type="PackedScene" uid="uid://ct5awjc6we2r0" path="res://user_interface/game_ui/player_bar/PlayerBar.tscn" id="1_1nwtj"]
+[ext_resource type="PackedScene" uid="uid://c6j3afi61e0kp" path="res://cheats/cheat_player_panel.tscn" id="2_s31io"]
 
 [node name="TestPlayerBar" type="Node"]
 
@@ -8,30 +9,4 @@
 
 [node name="PlayerBar" parent="CanvasLayer" instance=ExtResource("1_1nwtj")]
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_top = 0.158
-anchor_right = 0.114
-anchor_bottom = 0.369
-offset_top = 0.239998
-offset_right = 0.0799866
-offset_bottom = 0.319977
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
-layout_mode = 2
-text = "add gold"
-
-[node name="Button2" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
-layout_mode = 2
-text = "add exp"
-
-[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/Button" to="CanvasLayer/PlayerBar" method="add_gold" binds= [100]]
-[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/Button2" to="CanvasLayer/PlayerBar" method="add_exp" binds= [1000]]
+[node name="CheatPlayer" parent="CanvasLayer" instance=ExtResource("2_s31io")]
