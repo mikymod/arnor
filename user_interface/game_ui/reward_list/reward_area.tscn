@@ -64,9 +64,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RewardButton" parent="RewardList/VBoxContainer" instance=ExtResource("4_vyosn")]
-layout_mode = 2
-
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 7

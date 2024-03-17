@@ -121,9 +121,9 @@ layout_mode = 2
 [node name="HSlider" type="HSlider" parent="VBoxContainer/Gold"]
 layout_mode = 2
 size_flags_horizontal = 3
-min_value = 1.0
+min_value = -1000.0
 max_value = 1000.0
-value = 1.0
+value = 10.0
 
 [node name="Label" type="Label" parent="VBoxContainer/Gold"]
 layout_mode = 2

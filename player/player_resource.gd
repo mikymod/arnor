@@ -20,6 +20,7 @@ var gold: int = 0
 
 func add_gold(amount: int) -> void:
 	gold += amount
+	if gold <= 0: gold = 0
 	gold_changed.emit()
 
 func reset_gold() -> void:
