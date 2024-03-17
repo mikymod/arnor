@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://j0kwx345xac5" path="res://user_interface/textures/buttons/Carved_3Slides.png" id="1_uv3r5"]
 [ext_resource type="Texture2D" uid="uid://06s0ca7hvxty" path="res://user_interface/textures/buttons/Carved_3Slides-clicked.png" id="2_h2ggt"]
 [ext_resource type="Texture2D" uid="uid://dk6lbldh5sp1j" path="res://user_interface/textures/icons/Regular_01.png" id="3_ffx63"]
-[ext_resource type="Script" path="res://user_interface/game_ui/reward_list/reward_button.gd" id="3_urvmf"]
+[ext_resource type="Script" path="res://user_interface/game_ui/reward_area/reward_button.gd" id="3_urvmf"]
 
 [node name="RewardButton" type="TextureButton"]
 texture_normal = ExtResource("1_uv3r5")

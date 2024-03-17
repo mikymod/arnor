@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cqlyoj7jorfq8" path="res://user_interface/game_ui/start_button/start_button.tscn" id="22_qlpxc"]
 [ext_resource type="PackedScene" uid="uid://umtvp0dfwmf0" path="res://user_interface/game_ui/encounter_end_screen/encounter_end_screen.tscn" id="23_ipxs3"]
 [ext_resource type="PackedScene" uid="uid://rt8ejmudsgr" path="res://user_interface/game_ui/history/history.tscn" id="24_kxkbf"]
-[ext_resource type="PackedScene" uid="uid://bogg034lnmw4f" path="res://user_interface/game_ui/reward_list/reward_area.tscn" id="25_xa4v1"]
+[ext_resource type="PackedScene" uid="uid://bogg034lnmw4f" path="res://user_interface/game_ui/reward_area/reward_area.tscn" id="25_xa4v1"]
 [ext_resource type="PackedScene" uid="uid://ct5awjc6we2r0" path="res://user_interface/game_ui/player_bar/PlayerBar.tscn" id="26_myns3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kr55t"]

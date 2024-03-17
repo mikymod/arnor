@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dg0m6ovynvpvp"]
 
-[ext_resource type="PackedScene" uid="uid://bogg034lnmw4f" path="res://user_interface/game_ui/reward_list/reward_area.tscn" id="1_46b61"]
+[ext_resource type="PackedScene" uid="uid://bogg034lnmw4f" path="res://user_interface/game_ui/reward_area/reward_area.tscn" id="1_46b61"]
 [ext_resource type="PackedScene" uid="uid://c6j3afi61e0kp" path="res://cheats/cheat_player_panel.tscn" id="3_6gm0j"]
 [ext_resource type="PackedScene" uid="uid://ct5awjc6we2r0" path="res://user_interface/game_ui/player_bar/PlayerBar.tscn" id="3_7qxji"]
 [ext_resource type="Script" path="res://tests/reward_area/reward_panel.gd" id="4_74fjo"]
