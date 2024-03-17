@@ -78,6 +78,43 @@ text = "1  "
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[node name="XP" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/XP"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 1000.0
+value = 1.0
+
+[node name="Label" type="Label" parent="VBoxContainer/XP"]
+layout_mode = 2
+text = "0000"
+
+[node name="AddXpButton" type="Button" parent="VBoxContainer/XP"]
+layout_mode = 2
+text = "add exp "
+
+[node name="PrevLevelThreshold" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="NextLevelThreshold" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LevelThresholdDelta" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="CurrentXP" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ResetXpButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Reset XP"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
 [node name="Gold" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
@@ -96,32 +133,11 @@ text = "0000"
 layout_mode = 2
 text = "add gold"
 
-[node name="XP" type="HBoxContainer" parent="VBoxContainer"]
+[node name="ResetGoldButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+text = "Reset XP"
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/XP"]
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 1.0
-max_value = 1000.0
-value = 1.0
-
-[node name="Label" type="Label" parent="VBoxContainer/XP"]
-layout_mode = 2
-text = "0000"
-
-[node name="AddExpButton" type="Button" parent="VBoxContainer/XP"]
-layout_mode = 2
-text = "add exp "
-
-[node name="PrevLevelThreshold" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="CurrentXP" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="NextLevelThreshold" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-
+[connection signal="pressed" from="VBoxContainer/XP/AddXpButton" to="." method="add_xp"]
+[connection signal="pressed" from="VBoxContainer/ResetXpButton" to="." method="reset_xp"]
 [connection signal="pressed" from="VBoxContainer/Gold/AddGoldButton" to="." method="add_gold"]
-[connection signal="pressed" from="VBoxContainer/XP/AddExpButton" to="." method="add_xp"]
+[connection signal="pressed" from="VBoxContainer/ResetGoldButton" to="." method="reset_gold"]

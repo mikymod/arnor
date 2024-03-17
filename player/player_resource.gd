@@ -5,7 +5,7 @@ signal gold_changed()
 signal exp_changed()
 signal level_reached()
 
-const base_xp: int = 1000
+const base_xp: int = 25
 const exponent: float = 1.5
 
 @export var name: String = "Tav"
@@ -22,6 +22,10 @@ func add_gold(amount: int) -> void:
 	gold += amount
 	gold_changed.emit()
 
+func reset_gold() -> void:
+	gold = 0
+	gold_changed.emit()
+
 func add_xp(amount: int) -> void:
 	if level == max_level:
 		return
@@ -33,6 +37,11 @@ func add_xp(amount: int) -> void:
 		if level == max_level:
 			break
 
+func reset_xp() -> void:
+	xp = 0
+	level = 1
+	exp_changed.emit()
+
 func next_level_threshold() -> int:
 	if level >= max_level: return 0
 	return floor(base_xp * (pow(level ,exponent)))
@@ -40,3 +49,6 @@ func next_level_threshold() -> int:
 func prev_level_threshold() -> int:
 	if level <= 1: return 0
 	return floor(base_xp * (pow(level - 1 ,exponent)))
+
+func level_threshold_delta() -> int:
+	return next_level_threshold() - prev_level_threshold()
