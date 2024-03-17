@@ -78,3 +78,5 @@ offset_bottom = -89.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Take all"
+
+[connection signal="pressed" from="Button" to="." method="take_rewards"]

@@ -69,5 +69,6 @@ func _difficulty_modifier() -> float:
 	return encounter.difficulty as float / player.level
 
 func take_rewards() -> void:
-	pass
+	player.add_xp(reward.xp)
+	player.add_gold(reward.gold)
 	
