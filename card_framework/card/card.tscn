@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dhpr8xqtrhlf"]
 
 [ext_resource type="Script" path="res://card_framework/card/card.gd" id="1_2nfhv"]
-[ext_resource type="Resource" uid="uid://dduc3gtaplml7" path="res://resources/cards/warrior_card.tres" id="2_1loiv"]
+[ext_resource type="Resource" uid="uid://dduc3gtaplml7" path="res://resources/cards/warrior.tres" id="2_1loiv"]
 [ext_resource type="Texture2D" uid="uid://ddkbsodsxnu4v" path="res://user_interface/textures/buttons/Button_Hover_9Slides.png" id="4_ipy1g"]
 [ext_resource type="Texture2D" uid="uid://d2y5t01mwt2mg" path="res://user_interface/textures/buttons/Button_Blue_9Slides.png" id="5_5ny7b"]
 [ext_resource type="Texture2D" uid="uid://v8m4bjnuqsw3" path="res://units/warrior/Warrior_Purple.png" id="6_ys8e2"]

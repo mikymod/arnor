@@ -1,8 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5v7e6p62ymc5"]
 
 [ext_resource type="Script" path="res://card_framework/deck/deck.gd" id="1_nxpp5"]
-[ext_resource type="Resource" uid="uid://dg36h13i00eiv" path="res://resources/decks/player_1_deck.tres" id="2_lswuo"]
+[ext_resource type="Resource" uid="uid://dg36h13i00eiv" path="res://resources/decks/player_1_deck.tres" id="2_rk8y6"]
 
 [node name="Deck" type="Node"]
 script = ExtResource("1_nxpp5")
-deck_resource = ExtResource("2_lswuo")
+deck_resource = ExtResource("2_rk8y6")

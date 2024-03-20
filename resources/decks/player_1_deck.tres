@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="DeckResource" load_steps=4 format=3 uid="uid://dg36h13i00eiv"]
 
-[ext_resource type="Script" path="res://resources/decks/deck_resource.gd" id="1_2yqxr"]
-[ext_resource type="Resource" uid="uid://dduc3gtaplml7" path="res://resources/cards/warrior_card.tres" id="2_sxo7r"]
-[ext_resource type="Resource" uid="uid://brk6p43421ggf" path="res://resources/cards/archer_card.tres" id="3_e4qqe"]
+[ext_resource type="Script" path="res://resources/decks/deck_resource.gd" id="1_sc5ky"]
+[ext_resource type="Resource" uid="uid://dduc3gtaplml7" path="res://resources/cards/warrior.tres" id="2_sbhof"]
+[ext_resource type="Resource" uid="uid://brk6p43421ggf" path="res://resources/cards/archer.tres" id="3_wjv85"]
 
 [resource]
-script = ExtResource("1_2yqxr")
+script = ExtResource("1_sc5ky")
 slots = {
-ExtResource("2_sxo7r"): false,
-ExtResource("3_e4qqe"): false
+ExtResource("2_sbhof"): false,
+ExtResource("3_wjv85"): false
 }
-num_slots = 2
+num_slots = 3
 max_slots = 6

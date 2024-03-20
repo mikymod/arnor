@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DeckResource" load_steps=2 format=3 uid="uid://dg7v5d7tl3f1l"]
+
+[ext_resource type="Script" path="res://resources/decks/deck_resource.gd" id="1_r4lxy"]
+
+[resource]
+script = ExtResource("1_r4lxy")
+slots = {}
+num_slots = 2
+max_slots = 6
