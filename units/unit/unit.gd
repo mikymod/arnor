@@ -5,7 +5,6 @@ signal spawned(unit: Unit)
 signal health_changed(health: float)
 signal died()
 
-
 @export_group("Stats")
 ## The health of the unit.
 @export var health: float = 1000

@@ -1,14 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5v7e6p62ymc5"]
+[gd_scene load_steps=3 format=3 uid="uid://c5v7e6p62ymc5"]
 
 [ext_resource type="Script" path="res://card_framework/deck/deck.gd" id="1_nxpp5"]
-[ext_resource type="Resource" uid="uid://dduc3gtaplml7" path="res://card_framework/card/resources/warrior_card.tres" id="2_r383j"]
-[ext_resource type="Resource" uid="uid://brk6p43421ggf" path="res://card_framework/card/resources/archer_card.tres" id="3_iroev"]
-[ext_resource type="Resource" uid="uid://cbvmv6ggmonwp" path="res://card_framework/card/resources/pawn_card.tres" id="4_sxfha"]
+[ext_resource type="Resource" uid="uid://dg36h13i00eiv" path="res://card_framework/deck/player_1_deck.tres" id="2_lswuo"]
 
 [node name="Deck" type="Node"]
 script = ExtResource("1_nxpp5")
-decklist = {
-ExtResource("2_r383j"): 3,
-ExtResource("3_iroev"): 3,
-ExtResource("4_sxfha"): 3
-}
+deck_resource = ExtResource("2_lswuo")

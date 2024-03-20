@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bogg034lnmw4f"]
+[gd_scene load_steps=5 format=3 uid="uid://bogg034lnmw4f"]
 
 [ext_resource type="Texture2D" uid="uid://d2y5t01mwt2mg" path="res://user_interface/textures/buttons/Button_Blue_9Slides.png" id="1_bxupi"]
 [ext_resource type="Script" path="res://user_interface/game_ui/reward_area/reward_area.gd" id="1_dc2v4"]
-[ext_resource type="Resource" uid="uid://bj4fuarubk2on" path="res://encounter/encounter_res.tres" id="2_doxo3"]
 [ext_resource type="Texture2D" uid="uid://brrhllofjpwk3" path="res://units/warrior/warrior_thumb.png" id="2_r6q7w"]
-[ext_resource type="Resource" uid="uid://b5bef6s8fu55j" path="res://player/player.tres" id="3_s5dsu"]
 [ext_resource type="PackedScene" uid="uid://be06mmtrm0a6l" path="res://user_interface/game_ui/reward_area/reward_button.tscn" id="4_vyosn"]
 
 [node name="RewardArea" type="Control"]
@@ -15,8 +13,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dc2v4")
-encounter = ExtResource("2_doxo3")
-player = ExtResource("3_s5dsu")
 button_scene = ExtResource("4_vyosn")
 
 [node name="CardReward" type="Control" parent="."]

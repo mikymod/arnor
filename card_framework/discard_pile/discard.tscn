@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcaeke6xag722"]
-
-[ext_resource type="Script" path="res://card_framework/discard_pile/discard.gd" id="1_iia4q"]
-
-[node name="Discard" type="Node"]
-script = ExtResource("1_iia4q")

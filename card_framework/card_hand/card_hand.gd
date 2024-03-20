@@ -32,7 +32,6 @@ signal drag_started()
 signal drag_stopped()
 signal drag_canceled()
 
-@export var state: CardBoardState = preload("res://card_framework/card_board_state.tres")
 @export var card_scene: PackedScene = preload("res://card_framework/card/card.tscn")
 @export var supply: Supply = preload("res://supplies/gold.tres")
 
@@ -42,7 +41,6 @@ signal drag_canceled()
 @export var arc_height: float = 0
 @export var peek_x_displacement: float = 50
 @export var peek_y_displacement: float = -100
-
 
 var _hover_queue: Array[Card]
 var _hovered_card: Card
@@ -54,13 +52,7 @@ var _unit_thumb: Node = null
 
 var _playable_card: Card
 
-
-func _ready() -> void:
-	#for i in 5:
-		#add_card()
-	#_reposition()
-	pass
-
+var hand_cards: Array[Card] = []
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -72,7 +64,6 @@ func _input(event: InputEvent) -> void:
 			_stop_drag()
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
 			_cancel_drag()
-
 
 func _process(delta: float) -> void:
 	if _dragged_card != null:
@@ -86,27 +77,27 @@ func add_card() -> void:
 	new_card.hover_started.connect(_on_card_hover_started)
 	new_card.hover_stopped.connect(_on_card_hover_stopped)
 	add_child(new_card)
-	state.hand_cards.append(new_card)
+	hand_cards.append(new_card)
 
 ## Removes a card from hand
 func remove_card(card: Card) -> void:
 	card.hover_started.disconnect(_on_card_hover_started)
 	card.hover_stopped.disconnect(_on_card_hover_stopped)
 	remove_child(card)
-	state.hand_cards.erase(card)
+	hand_cards.erase(card)
 
 ## Reposition all cards in hand
 func _reposition():
 	var tween = get_tree().create_tween()
 	var positions = _generate_positions()
-	for i in range(state.hand_cards.size()):
-		tween.tween_property(state.hand_cards[i], "position", positions[i], interpolation_speed) 
-		state.hand_cards[i].rotation_degrees = _get_card_angle(i)
+	for i in range(hand_cards.size()):
+		tween.tween_property(hand_cards[i], "position", positions[i], interpolation_speed) 
+		hand_cards[i].rotation_degrees = _get_card_angle(i)
 
 ## Retrieves the card x position 
 func _get_card_x_pos(index: int) -> float:
 	var center = _get_center()
-	var num_cards = state.hand_cards.size()
+	var num_cards = hand_cards.size()
 	var x_displacement = _get_x_displacement(index)
 	return (index - num_cards / 2) * card_spacing + position.x + center.x + x_displacement
 
@@ -126,7 +117,7 @@ func _get_card_angle(index: int) -> float:
 
 ## Retrieves the index starting from center
 func _get_index_from_center(index: int) -> int:
-	var index_from_center: float = index - (state.hand_cards.size() - 1) / 2
+	var index_from_center: float = index - (hand_cards.size() - 1) / 2
 	if (index_from_center < 0):
 		index_from_center -= 0.5
 	return round(index_from_center)
@@ -139,7 +130,7 @@ func _get_y_displacement(index: int) -> float:
 
 func _generate_positions() -> Array:
 	var positions = []
-	for i in range(state.hand_cards.size()):
+	for i in range(hand_cards.size()):
 		var pos_x = _get_card_x_pos(i)
 		var pos_y = _get_card_y_pos(i)
 		positions.append(Vector2(pos_x, pos_y))
@@ -163,7 +154,7 @@ func _on_card_hover_stopped(card: Card) -> void:
 func _set_hovered_card() -> void:
 	# TODO: investigate this below
 	#cards.all(func (element): element.unhover())
-	for card in state.hand_cards:
+	for card in hand_cards:
 		card.unhover()
 	
 	if (_hover_queue.size() <= 0):
@@ -172,7 +163,7 @@ func _set_hovered_card() -> void:
 		return
 		
 	_hovered_card = _hover_queue.front()
-	_hovered_card_index = state.hand_cards.find(_hovered_card)
+	_hovered_card_index = hand_cards.find(_hovered_card)
 	_hovered_card.hover()
 
 ## Start card dragging
@@ -202,7 +193,6 @@ func _cancel_drag() -> void:
 	_reposition()
 	drag_canceled.emit()
 
-
 ##
 func _play() -> void:
 	if supply.get_value() < _playable_card.card_resource.cost:
@@ -230,12 +220,11 @@ func _on_hand_area_exited(area: Area2D) -> void:
 	call_deferred("add_child", _unit_thumb)
 	_playable_card = card
 
-
 ## Callback invoked when cards are drawed
 func _on_cards_drawed(drawed_cards: Array[Card]) -> void:
 	for new_card in drawed_cards:
 		new_card.hover_started.connect(_on_card_hover_started)
 		new_card.hover_stopped.connect(_on_card_hover_stopped)
 		add_child(new_card)
-		state.hand_cards.append(new_card)
+		hand_cards.append(new_card)
 	_reposition()
