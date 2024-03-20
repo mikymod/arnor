@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://blsu6pidf4inq" path="res://user_interface/game_ui/player_bar/gold_icon.png" id="1_ffu0x"]
 [ext_resource type="Script" path="res://user_interface/game_ui/player_bar/player_bar.gd" id="1_k3h4c"]
-[ext_resource type="Resource" uid="uid://b5bef6s8fu55j" path="res://player/player.tres" id="2_5y4up"]
+[ext_resource type="Resource" uid="uid://b5bef6s8fu55j" path="res://resources/player/player.tres" id="2_5y4up"]
 [ext_resource type="Texture2D" uid="uid://p7aplp6drw1w" path="res://user_interface/game_ui/player_bar/level_icon.png" id="2_t1nos"]
 [ext_resource type="Texture2D" uid="uid://botx5j2lt5fq3" path="res://user_interface/textures/icons/Regular_02.png" id="3_1ccxo"]
 [ext_resource type="Texture2D" uid="uid://cd28ewgweh8gi" path="res://user_interface/textures/icons/Pressed_02.png" id="4_bys2d"]
