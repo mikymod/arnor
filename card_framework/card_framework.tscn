@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckijaob7m7yx4"]
+[gd_scene load_steps=5 format=3 uid="uid://ckijaob7m7yx4"]
 
 [ext_resource type="PackedScene" uid="uid://c5v7e6p62ymc5" path="res://card_framework/deck/deck.tscn" id="1_tf3eb"]
 [ext_resource type="PackedScene" uid="uid://df8to81yp88gw" path="res://card_framework/card_hand/card_hand.tscn" id="2_2n4ik"]
+[ext_resource type="Resource" uid="uid://b5bef6s8fu55j" path="res://resources/player/player.tres" id="3_7e03g"]
 [ext_resource type="PackedScene" uid="uid://vc7x1xl80ihh" path="res://user_interface/game_ui/power_bar/power_bar.tscn" id="5_0vplj"]
 
 [node name="CardFramework" type="Node"]
@@ -9,6 +10,7 @@
 [node name="Deck" parent="." instance=ExtResource("1_tf3eb")]
 
 [node name="CardHand" parent="." instance=ExtResource("2_2n4ik")]
+player_resource = ExtResource("3_7e03g")
 
 [node name="PowerBar" parent="." instance=ExtResource("5_0vplj")]
 

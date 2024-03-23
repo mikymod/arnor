@@ -5,8 +5,9 @@ class_name PowerBar
 extends Control
 
 # The supply variable represents the resource supply for the power bar.
-@export var supply: Supply = preload ("res://supplies/gold.tres")
+#@export var supply: Supply = preload ("res://supplies/gold.tres")
 
+@export var player_resource: PlayerResource
 # The speed variable represents the speed at which the power bar increases.
 @export var speed: float = 3
 
@@ -15,7 +16,7 @@ extends Control
 var active: bool = false
 
 func _ready() -> void:
-	$TextureProgressBar.value = supply.value
+	$TextureProgressBar.value = player_resource.mana
 	stop()
 
 # The _process function is called every frame.
@@ -24,8 +25,8 @@ func _ready() -> void:
 # It also updates the value of the TextureProgressBar.
 func _process(delta: float) -> void:
 	if not active: return
-	supply.increase(delta * 3)
-	$TextureProgressBar.value = supply.value
+	player_resource.increase_mana(delta * 3)
+	$TextureProgressBar.value = player_resource.mana
 
 # The start function starts the power bar.
 # It sets the active variable to true and enables the _process function.
@@ -44,4 +45,4 @@ func stop() -> void:
 # It decreases the supply value based on the cost of the card multiplied by 10.
 func _on_card_played(card: Card) -> void:
 	var cost = card.card_resource.cost
-	supply.decrease(cost * 10)
+	player_resource.decrease_mana(cost * 10)

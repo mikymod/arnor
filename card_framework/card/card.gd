@@ -7,7 +7,7 @@ signal hover_started(card: Card)
 signal hover_stopped(card: Card)
 
 @export var card_resource: CardResource
-@export var supply: Supply = preload("res://supplies/gold.tres")
+@export var player_resource: PlayerResource
 
 @onready var _background_frame: Sprite2D = $BackgroundFrame
 @onready var _foreground_frame: Sprite2D = $BackgroundFrame/ForegroundFrame
@@ -24,7 +24,7 @@ func _ready() -> void:
 	set_data()
 
 func _process(delta: float) -> void:
-	if card_resource.cost > supply.get_value():
+	if card_resource.cost > player_resource.get_mana_value():
 		modulate = Color.DARK_GRAY
 	else:
 		modulate = Color.WHITE

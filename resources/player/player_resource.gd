@@ -4,6 +4,7 @@ extends Resource
 signal gold_changed()
 signal exp_changed()
 signal level_reached()
+signal mana_changed()
 
 const base_xp: int = 25
 const exponent: float = 1.5
@@ -18,6 +19,10 @@ var max_level: int = 10:
 var xp: int = 0
 var level: int = 1
 var gold: int = 0
+
+var mana: float = 0
+const min_mana: int = 0
+var max_mana: float = 100
 
 func add_gold(amount: int) -> void:
 	gold += amount
@@ -54,3 +59,19 @@ func prev_level_threshold() -> int:
 
 func level_threshold_delta() -> int:
 	return next_level_threshold() - prev_level_threshold()
+
+func increase_mana(amount: float) -> void:
+	if amount < 0: return;
+	mana += amount if mana + amount <= max_mana else max_mana
+	mana_changed.emit()
+
+## Decreases the amount of mana
+func decrease_mana(amount: float) -> void:
+	if amount < 0: return;
+	mana -= amount
+	mana_changed.emit()
+	if mana <= min_mana:
+		mana = min_mana
+
+func get_mana_value() -> int:
+	return mana / 10

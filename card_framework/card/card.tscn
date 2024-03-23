@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhpr8xqtrhlf"]
+[gd_scene load_steps=11 format=3 uid="uid://dhpr8xqtrhlf"]
 
 [ext_resource type="Script" path="res://card_framework/card/card.gd" id="1_2nfhv"]
 [ext_resource type="Resource" uid="uid://dduc3gtaplml7" path="res://resources/cards/warrior.tres" id="2_1loiv"]
+[ext_resource type="Resource" uid="uid://b5bef6s8fu55j" path="res://resources/player/player.tres" id="3_16if0"]
 [ext_resource type="Texture2D" uid="uid://ddkbsodsxnu4v" path="res://user_interface/textures/buttons/Button_Hover_9Slides.png" id="4_ipy1g"]
 [ext_resource type="Texture2D" uid="uid://d2y5t01mwt2mg" path="res://user_interface/textures/buttons/Button_Blue_9Slides.png" id="5_5ny7b"]
 [ext_resource type="Texture2D" uid="uid://v8m4bjnuqsw3" path="res://units/warrior/Warrior_Purple.png" id="6_ys8e2"]
@@ -19,6 +20,7 @@ collision_layer = 256
 collision_mask = 512
 script = ExtResource("1_2nfhv")
 card_resource = ExtResource("2_1loiv")
+player_resource = ExtResource("3_16if0")
 
 [node name="Selected" type="Sprite2D" parent="."]
 visible = false

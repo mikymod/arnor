@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://vc7x1xl80ihh"]
+[gd_scene load_steps=6 format=3 uid="uid://vc7x1xl80ihh"]
 
 [ext_resource type="Script" path="res://user_interface/game_ui/power_bar/power_bar.gd" id="1_a2cdp"]
+[ext_resource type="Resource" uid="uid://b5bef6s8fu55j" path="res://resources/player/player.tres" id="2_1ww63"]
 [ext_resource type="Texture2D" uid="uid://dyrf5s8wf5gms" path="res://user_interface/game_ui/power_bar/progress_bar_under.png" id="2_wxr1h"]
 [ext_resource type="Texture2D" uid="uid://bp7wmvd78rx1i" path="res://user_interface/game_ui/power_bar/progress_bar_over.png" id="3_bfvef"]
 [ext_resource type="Texture2D" uid="uid://jaob021a0q0" path="res://user_interface/game_ui/power_bar/progress_bar_fill.png" id="4_da6fd"]
@@ -18,6 +19,7 @@ offset_right = 222.5
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_a2cdp")
+player_resource = ExtResource("2_1ww63")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 layout_mode = 1
