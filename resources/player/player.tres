@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="Player" load_steps=2 format=3 uid="uid://b5bef6s8fu55j"]
+[gd_resource type="Resource" script_class="PlayerResource" load_steps=3 format=3 uid="uid://b5bef6s8fu55j"]
 
 [ext_resource type="Script" path="res://resources/player/player_resource.gd" id="1_2kqpx"]
+[ext_resource type="Resource" uid="uid://dg36h13i00eiv" path="res://resources/decks/player_1_deck.tres" id="1_knq65"]
 
 [resource]
 script = ExtResource("1_2kqpx")
 name = "Tav"
+deck_resource = ExtResource("1_knq65")

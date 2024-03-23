@@ -10,16 +10,17 @@ extends Node2D
 ## Spawn a unit when a card is played.
 ## This function must be connected to a signal
 func on_card_played(card: Card) -> void:
-	var unit: Unit = card.card_resource.unit_scene.instantiate()
-	#unit.global_position = get_global_mouse_position()
-	unit.global_position = spawn_in_shape(unit)
-	unit.target = target
+	spawn_unit(card.card_resource, get_nearest_position_in_shape())
 
+func spawn_unit(card: CardResource, spawn_position: Vector2) -> void:
+	var unit: Unit = card.unit_scene.instantiate()
+	unit.global_position = spawn_position
+	unit.target = target
 	encounter.finished.connect(unit.encounter_finished)
 	encounter.failed.connect(unit.die)
 	add_child(unit)
 
-func spawn_in_shape(unit: Unit) -> Vector2:
+func get_nearest_position_in_shape() -> Vector2:
 	var building = get_nearest_building()
 	var extents = building.get_spawn_area_extents()
 	var mouse_pos = get_global_mouse_position()

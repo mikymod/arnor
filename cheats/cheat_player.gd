@@ -1,6 +1,6 @@
 extends PanelContainer
 
-@export var player_res: PlayerResource = preload("res://player/player.tres")
+@export var player_res: PlayerResource = preload("res://resources/player/player.tres")
 
 var gold_amount: int = 0
 var xp_amount: int = 0

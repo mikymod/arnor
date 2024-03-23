@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PlayerResource" load_steps=3 format=3 uid="uid://bdo443kc3xp4u"]
+
+[ext_resource type="Resource" uid="uid://ckn8xwfby0eu1" path="res://resources/decks/cpu_player_deck.tres" id="1_ix8b6"]
+[ext_resource type="Script" path="res://resources/player/player_resource.gd" id="1_y4ulq"]
+
+[resource]
+script = ExtResource("1_y4ulq")
+name = "CPU"
+deck_resource = ExtResource("1_ix8b6")

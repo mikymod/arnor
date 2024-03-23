@@ -9,6 +9,7 @@ const base_xp: int = 25
 const exponent: float = 1.5
 
 @export var name: String = "Tav"
+@export var deck_resource: DeckResource
 
 var max_level: int = 10:
 	get: return max_level

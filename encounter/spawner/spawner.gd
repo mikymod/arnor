@@ -1,17 +1,12 @@
-extends Node2D
+class_name Spawner
+extends Node
 
-signal unit_spawned()
+signal timeout(position: Vector2)
 
-@export var parent: Node2D
-@export var destination: Node2D
 @export var start_time: float = 3
 @export var spawn_time: float = 3
-@export var units: Array[PackedScene]
-@export var encounter: Encounter
 
-#enum WaveType { easy, normal, hard, deadly }
-
-@onready var player_area: PlayerArea = parent
+@onready var spawn_points: Array[Node] = $SpawnPoints.get_children()
 
 ## Starts the spawner
 func start() -> void:
@@ -21,16 +16,7 @@ func start() -> void:
 func stop() -> void:
 	$Timer.stop()
 
-## Spawns a unit
-func spawn() -> void:
+func on_timer_timeout() -> void:
+	var spawn_position: Vector2 = spawn_points.pick_random().global_position
+	timeout.emit(spawn_position)
 	$Timer.start(spawn_time)
-	if units.is_empty(): return
-	var unit: Unit = units.pick_random().instantiate()
-	unit.global_position = $SpawnPoint.global_position
-	unit.target = destination
-	#unit.health_bar.change_style(player_area)
-	
-	parent.add_child(unit)
-	unit_spawned.emit()
-	encounter.finished.connect(unit.die)
-	encounter.failed.connect(unit.encounter_finished)

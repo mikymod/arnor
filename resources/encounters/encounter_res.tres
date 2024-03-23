@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="EncounterResource" load_steps=3 format=3 uid="uid://bj4fuarubk2on"]
 
-[ext_resource type="Resource" uid="uid://dg7v5d7tl3f1l" path="res://resources/decks/player_2_deck.tres" id="1_cxg5r"]
+[ext_resource type="Resource" uid="uid://bdo443kc3xp4u" path="res://resources/player/cpu_player.tres" id="1_58f2u"]
 [ext_resource type="Script" path="res://resources/encounters/encounter_resource.gd" id="2_qs40h"]
 
 [resource]
 script = ExtResource("2_qs40h")
 difficulty = 1
-deck_res = ExtResource("1_cxg5r")
+player_resource = ExtResource("1_58f2u")

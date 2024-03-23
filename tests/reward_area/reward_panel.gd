@@ -1,6 +1,6 @@
 extends PanelContainer
 
-@export var encounter_res: EncounterResource = preload("res://encounter/encounter_res.tres")
+@export var encounter_res: EncounterResource = preload("res://resources/encounters/encounter_res.tres")
 
 func _ready() -> void:
 	$VBoxContainer/EncounterDifficulty/DifficultySlider.value = encounter_res.difficulty

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b4eh62pserfre"]
+[gd_scene load_steps=29 format=3 uid="uid://b4eh62pserfre"]
 
 [ext_resource type="Script" path="res://encounter/encounter.gd" id="1_p7r8p"]
 [ext_resource type="PackedScene" uid="uid://dkpnn5025kmn0" path="res://camera/camera.tscn" id="2_q32or"]
@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://de36aplg7bs3u" path="res://buildings/castle/castle.tscn" id="17_myg7p"]
 [ext_resource type="PackedScene" uid="uid://cxy42xjpo5o3n" path="res://buildings/wood_tower/wood_tower.tscn" id="18_e4aoh"]
 [ext_resource type="PackedScene" uid="uid://df5uefmg55vxg" path="res://encounter/spawner/spawner.tscn" id="19_ypas1"]
-[ext_resource type="PackedScene" uid="uid://bvmn3d0p758g4" path="res://units/enemy/goblin/goblin.tscn" id="20_2q65j"]
 [ext_resource type="PackedScene" uid="uid://ckijaob7m7yx4" path="res://card_framework/card_framework.tscn" id="21_pfmw1"]
 [ext_resource type="PackedScene" uid="uid://cqlyoj7jorfq8" path="res://user_interface/game_ui/start_button/start_button.tscn" id="22_qlpxc"]
 [ext_resource type="PackedScene" uid="uid://umtvp0dfwmf0" path="res://user_interface/game_ui/encounter_end_screen/encounter_end_screen.tscn" id="23_ipxs3"]
@@ -37,6 +36,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Encounter" type="Node"]
 script = ExtResource("1_p7r8p")
+encounter_res = ExtResource("26_y6ytl")
 
 [node name="Camera" parent="." instance=ExtResource("2_q32or")]
 offset = Vector2(800, 450)
@@ -131,28 +131,6 @@ color = Color(1, 0.207843, 0.439216, 1)
 y_sort_enabled = true
 position = Vector2(797, -354)
 
-[node name="Spawner" parent="PlayerArea2" node_paths=PackedStringArray("parent", "destination", "encounter") instance=ExtResource("19_ypas1")]
-position = Vector2(919, -270)
-parent = NodePath("..")
-destination = NodePath("../../PlayerArea/Castle")
-spawn_time = 10.0
-units = Array[PackedScene]([ExtResource("20_2q65j")])
-encounter = NodePath("../..")
-
-[node name="Timer" parent="PlayerArea2/Spawner" index="0"]
-wait_time = 10.0
-
-[node name="Spawner2" parent="PlayerArea2" node_paths=PackedStringArray("parent", "destination", "encounter") instance=ExtResource("19_ypas1")]
-position = Vector2(676, -248)
-parent = NodePath("..")
-destination = NodePath("../../PlayerArea/Castle")
-spawn_time = 8.0
-units = Array[PackedScene]([ExtResource("20_2q65j")])
-encounter = NodePath("../..")
-
-[node name="Timer" parent="PlayerArea2/Spawner2" index="0"]
-wait_time = 10.0
-
 [node name="Decos" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -195,6 +173,18 @@ position = Vector2(1047, -196)
 [node name="Scarecrow" parent="Decos" instance=ExtResource("13_hr1xb")]
 position = Vector2(1278, 643)
 
+[node name="Spawner" parent="." instance=ExtResource("19_ypas1")]
+spawn_time = 5.0
+
+[node name="SpawnPoints" parent="Spawner" index="1"]
+position = Vector2(800, -288)
+
+[node name="SpawnPoint" parent="Spawner/SpawnPoints" index="0"]
+position = Vector2(-99, 39)
+
+[node name="SpawnPoint2" parent="Spawner/SpawnPoints" index="1"]
+position = Vector2(86, 40)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CardFramework" parent="CanvasLayer" instance=ExtResource("21_pfmw1")]
@@ -221,22 +211,18 @@ player_res = ExtResource("27_hkxj7")
 
 [node name="PlayerBar" parent="CanvasLayer" instance=ExtResource("26_myns3")]
 
-[connection signal="failed" from="." to="PlayerArea2/Spawner" method="stop"]
-[connection signal="failed" from="." to="PlayerArea2/Spawner2" method="stop"]
 [connection signal="failed" from="." to="CanvasLayer/CardFramework/PowerBar" method="stop"]
 [connection signal="failed" from="." to="CanvasLayer/EncounterEndScreen" method="show_gameover"]
-[connection signal="finished" from="." to="PlayerArea2/Spawner" method="stop"]
-[connection signal="finished" from="." to="PlayerArea2/Spawner2" method="stop"]
 [connection signal="finished" from="." to="CanvasLayer/CardFramework/PowerBar" method="stop"]
 [connection signal="finished" from="." to="CanvasLayer/EncounterEndScreen" method="show_victory"]
-[connection signal="started" from="." to="PlayerArea2/Spawner" method="start"]
-[connection signal="started" from="." to="PlayerArea2/Spawner2" method="start"]
+[connection signal="started" from="." to="Spawner" method="start"]
 [connection signal="started" from="." to="CanvasLayer/CardFramework/Deck" method="start"]
 [connection signal="started" from="." to="CanvasLayer/CardFramework/PowerBar" method="start"]
 [connection signal="started" from="." to="CanvasLayer/CardFramework/PowerBar" method="set_visible" binds= [true]]
 [connection signal="started" from="." to="CanvasLayer/History" method="set_visible" binds= [true]]
 [connection signal="destroyed" from="PlayerArea/Castle" to="." method="game_over"]
 [connection signal="destroyed" from="PlayerArea2/WoodTower" to="." method="finish"]
+[connection signal="timeout" from="Spawner" to="." method="on_spawner_timeout"]
 [connection signal="drag_canceled" from="CanvasLayer/CardFramework/CardHand" to="PlayerArea/Castle" method="disable_spawn_area"]
 [connection signal="drag_canceled" from="CanvasLayer/CardFramework/CardHand" to="Camera" method="set_input" binds= [true]]
 [connection signal="drag_started" from="CanvasLayer/CardFramework/CardHand" to="PlayerArea/Castle" method="enable_spawn_area"]
@@ -250,7 +236,6 @@ player_res = ExtResource("27_hkxj7")
 [connection signal="pressed" from="CanvasLayer/EncounterEndScreen/TextureButton" to="CanvasLayer/RewardArea" method="set_visible" binds= [true]]
 
 [editable path="PlayerArea/Castle"]
-[editable path="PlayerArea2/Spawner"]
-[editable path="PlayerArea2/Spawner2"]
+[editable path="Spawner"]
 [editable path="CanvasLayer/CardFramework"]
 [editable path="CanvasLayer/EncounterEndScreen"]
