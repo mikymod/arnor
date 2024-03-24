@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dq0hve3xn83nl"]
+[gd_scene load_steps=8 format=3 uid="uid://dq0hve3xn83nl"]
 
 [ext_resource type="Script" path="res://supplies/gold_mine/gold_mine.gd" id="1_fhxx5"]
 [ext_resource type="Texture2D" uid="uid://qn0rey6nfou2" path="res://supplies/gold_mine/GoldMine_Inactive.png" id="1_ubblb"]
 [ext_resource type="Texture2D" uid="uid://6eqb15b527fm" path="res://supplies/gold_mine/GoldMine_Active.png" id="2_p7lfs"]
 [ext_resource type="Texture2D" uid="uid://ddhdu080340vt" path="res://supplies/gold_mine/GoldMine_Destroyed.png" id="3_7rjab"]
 [ext_resource type="PackedScene" uid="uid://dtg5l7s1ctj5h" path="res://supplies/gold_spawn.tscn" id="3_j1r7p"]
-[ext_resource type="PackedScene" uid="uid://ctrb1i6je8kif" path="res://user_interface/game_ui/gathering_bar/gathering_bar.tscn" id="7_h0ae6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mshjr"]
 size = Vector2(233, 122)
@@ -54,18 +53,4 @@ collision_layer = 4
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_s827y")
 
-[node name="GatheringBar" parent="." instance=ExtResource("7_h0ae6")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -85.0
-offset_top = -135.0
-offset_right = 85.0
-offset_bottom = -105.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [connection signal="body_entered" from="." to="." method="_on_area_2d_body_entered"]
-[connection signal="gathering_stopped" from="GatheringBar" to="." method="_on_gathering_bar_gathering_stopped"]

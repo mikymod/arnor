@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DeckResource" load_steps=3 format=3 uid="uid://ckn8xwfby0eu1"]
+
+[ext_resource type="Script" path="res://resources/decks/deck_resource.gd" id="1_syii5"]
+[ext_resource type="Resource" uid="uid://cbvmv6ggmonwp" path="res://resources/cards/pawn.tres" id="4_ii6x7"]
+
+[resource]
+script = ExtResource("1_syii5")
+slots = {
+ExtResource("4_ii6x7"): false
+}
+num_slots = 3
+max_slots = 6

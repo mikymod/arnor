@@ -12,7 +12,6 @@
 [ext_resource type="Script" path="res://units/pawn/pawn_attack_state.gd" id="9_xdy6t"]
 [ext_resource type="PackedScene" uid="uid://ctrb1i6je8kif" path="res://user_interface/game_ui/gathering_bar/gathering_bar.tscn" id="10_ya5rd"]
 
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_p80o4"]
 radius = 24.1868
 
