@@ -1,5 +1,5 @@
 class_name GoldMine
-extends SupplySource
+extends Area2D
 
 ## A source for gold.
 
@@ -43,7 +43,7 @@ func _on_gathering_bar_gathering_stopped():
 	var supply = supply_scene.instantiate()
 	supply.position = $SupplyPosition.position
 	add_child(supply)
-	pop_resource()
+	_pawn.player_resource.increase_mana(10)
 	_gathering_bar.gathering_stopped.disconnect(_pawn.on_gathering_timeout)
 	deactivate()
 	_pawn = null

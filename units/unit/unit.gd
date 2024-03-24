@@ -42,11 +42,20 @@ var _units_in_range: Array[Unit] = []
 ## The building in interaction range
 var _building: Building
 
+@onready var player_area: PlayerArea = get_parent()
+@onready var encounter: Encounter = player_area.get_parent()
+
+var player_resource: PlayerResource:
+	get: return player_area.player_resource
+
+var encounter_resource: EncounterResource:
+	get: return encounter.encounter_res
+
+
 func _ready() -> void:
-	spawned.emit(self)
-	var player_area: PlayerArea = get_parent()
-	health_bar.change_style(player_area)
+	health_bar.change_style(player_area.player_resource)
 	add_to_group("units")
+	spawned.emit(self)
 
 ## Returns Damage Per Second dealt by the unit.
 func dps() -> float:

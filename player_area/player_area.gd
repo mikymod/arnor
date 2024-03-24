@@ -3,14 +3,28 @@ extends Node2D
 
 ## 
 
+@export var player_resource: PlayerResource
 @export var target: Node2D
-@export var encounter: Encounter
-@export var color: Color = Color.WHITE
+
+@export var mana_regen: float = 3
+
+@onready var encounter: Encounter = get_parent() as Encounter
+
+func _process(delta: float) -> void:
+	player_resource.increase_mana(mana_regen * delta)
 
 ## Spawn a unit when a card is played.
 ## This function must be connected to a signal
 func on_card_played(card: Card) -> void:
+	var cost = card.card_resource.cost
+	player_resource.decrease_mana(cost * 10)
 	spawn_unit(card.card_resource, get_nearest_position_in_shape())
+
+## 
+func play_card(card: CardResource, spawn_position: Vector2) -> void:
+	if player_resource.get_mana_value() < card.cost: return
+	player_resource.decrease_mana(card.cost * 10)
+	spawn_unit(card, spawn_position)
 
 func spawn_unit(card: CardResource, spawn_position: Vector2) -> void:
 	var unit: Unit = card.unit_scene.instantiate()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b4eh62pserfre"]
+[gd_scene load_steps=30 format=3 uid="uid://b4eh62pserfre"]
 
 [ext_resource type="Script" path="res://encounter/encounter.gd" id="1_p7r8p"]
 [ext_resource type="PackedScene" uid="uid://dkpnn5025kmn0" path="res://camera/camera.tscn" id="2_q32or"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://de3ugljrnpf8c" path="res://deco/grass/grass_little.tscn" id="8_p1l8g"]
 [ext_resource type="PackedScene" uid="uid://dihmo58nyvbq3" path="res://deco/grass/grass_big.tscn" id="9_yvnm6"]
 [ext_resource type="PackedScene" uid="uid://bf5rmi1fp0gij" path="res://deco/rock/rock_big.tscn" id="10_ddq17"]
+[ext_resource type="Resource" uid="uid://bdo443kc3xp4u" path="res://resources/player/cpu_player.tres" id="10_mxgfl"]
 [ext_resource type="PackedScene" uid="uid://s502nq1xlvw4" path="res://deco/rock/rock_little.tscn" id="11_ov8q0"]
 [ext_resource type="PackedScene" uid="uid://ccwquwrngyb4f" path="res://deco/rock/rock_medium.tscn" id="12_mt5qr"]
 [ext_resource type="PackedScene" uid="uid://cakj30pyx0o4w" path="res://deco/signage/scarecrow.tscn" id="13_hr1xb"]
@@ -36,7 +37,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Encounter" type="Node"]
 script = ExtResource("1_p7r8p")
-encounter_res = ExtResource("26_y6ytl")
+encounter_resource = ExtResource("26_y6ytl")
 
 [node name="Camera" parent="." instance=ExtResource("2_q32or")]
 offset = Vector2(800, 450)
@@ -108,11 +109,10 @@ position = Vector2(295, 783)
 [node name="PineTree14" parent="NavigationRegion2D" instance=ExtResource("15_545aw")]
 position = Vector2(447, 706)
 
-[node name="PlayerArea" parent="." node_paths=PackedStringArray("target", "encounter") instance=ExtResource("16_jnunn")]
+[node name="PlayerArea" parent="." node_paths=PackedStringArray("target") instance=ExtResource("16_jnunn")]
 y_sort_enabled = true
+player_resource = ExtResource("27_hkxj7")
 target = NodePath("../PlayerArea2/WoodTower")
-encounter = NodePath("..")
-color = Color(0, 0.560784, 0.756863, 1)
 
 [node name="Castle" parent="PlayerArea" instance=ExtResource("17_myg7p")]
 y_sort_enabled = true
@@ -121,11 +121,10 @@ position = Vector2(805, 805)
 [node name="HealthBar" parent="PlayerArea/Castle" index="5"]
 value = 88.0
 
-[node name="PlayerArea2" parent="." node_paths=PackedStringArray("target", "encounter") instance=ExtResource("16_jnunn")]
+[node name="PlayerArea2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("16_jnunn")]
 y_sort_enabled = true
+player_resource = ExtResource("10_mxgfl")
 target = NodePath("../PlayerArea/Castle")
-encounter = NodePath("..")
-color = Color(1, 0.207843, 0.439216, 1)
 
 [node name="WoodTower" parent="PlayerArea2" instance=ExtResource("18_e4aoh")]
 y_sort_enabled = true

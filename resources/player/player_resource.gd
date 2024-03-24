@@ -10,6 +10,7 @@ const base_xp: int = 25
 const exponent: float = 1.5
 
 @export var name: String = "Tav"
+@export var color: Color = Color.WHITE
 @export var deck_resource: DeckResource
 
 var max_level: int = 10:
@@ -20,9 +21,9 @@ var xp: int = 0
 var level: int = 1
 var gold: int = 0
 
-var mana: float = 0
 const min_mana: int = 0
 var max_mana: float = 100
+var mana: float = 20
 
 func add_gold(amount: int) -> void:
 	gold += amount

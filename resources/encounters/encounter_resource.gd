@@ -3,5 +3,5 @@ extends Resource
 
 @export_range(1, 10) var difficulty: int = 1
 
-## The cpu player
-@export var player_resource: PlayerResource
+@export var enemy_resource: PlayerResource
+

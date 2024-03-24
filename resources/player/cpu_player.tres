@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="PlayerResource" load_steps=3 format=3 uid="uid://bdo443kc3xp4u"]
 
-[ext_resource type="Resource" uid="uid://ckn8xwfby0eu1" path="res://resources/decks/cpu_player_deck.tres" id="1_ix8b6"]
+[ext_resource type="Resource" uid="uid://cdjrv4t5fayhg" path="res://resources/decks/cpu_player_deck_only_pan.tres" id="1_vr3he"]
 [ext_resource type="Script" path="res://resources/player/player_resource.gd" id="1_y4ulq"]
 
 [resource]
 script = ExtResource("1_y4ulq")
 name = "CPU"
-deck_resource = ExtResource("1_ix8b6")
+color = Color(1, 0.207843, 0.439216, 1)
+deck_resource = ExtResource("1_vr3he")

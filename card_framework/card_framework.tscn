@@ -15,5 +15,4 @@ player_resource = ExtResource("3_7e03g")
 [node name="PowerBar" parent="." instance=ExtResource("5_0vplj")]
 
 [connection signal="cards_drawed" from="Deck" to="CardHand" method="_on_cards_drawed"]
-[connection signal="played" from="CardHand" to="PowerBar" method="_on_card_played"]
 [connection signal="played" from="CardHand" to="Deck" method="draw_cards" unbinds=1]

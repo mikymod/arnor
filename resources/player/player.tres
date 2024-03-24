@@ -6,4 +6,5 @@
 [resource]
 script = ExtResource("1_2kqpx")
 name = "Tav"
+color = Color(0, 0.560784, 0.756863, 1)
 deck_resource = ExtResource("1_knq65")

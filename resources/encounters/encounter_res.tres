@@ -6,4 +6,4 @@
 [resource]
 script = ExtResource("2_qs40h")
 difficulty = 1
-player_resource = ExtResource("1_58f2u")
+enemy_resource = ExtResource("1_58f2u")
