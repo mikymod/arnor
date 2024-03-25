@@ -10,8 +10,17 @@ extends Node2D
 
 @onready var encounter: Encounter = get_parent() as Encounter
 
+func _ready() -> void:
+	deactivate()
+
 func _process(delta: float) -> void:
 	player_resource.increase_mana(mana_regen * delta)
+
+func activate() -> void:
+	set_process(true)
+
+func deactivate() -> void:
+	set_process(false)
 
 ## Spawn a unit when a card is played.
 ## This function must be connected to a signal

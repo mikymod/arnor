@@ -231,6 +231,7 @@ player_res = ExtResource("27_hkxj7")
 [connection signal="played" from="CanvasLayer/CardFramework/CardHand" to="PlayerArea" method="on_card_played"]
 [connection signal="played" from="CanvasLayer/CardFramework/CardHand" to="CanvasLayer/History" method="on_card_played"]
 [connection signal="pressed" from="CanvasLayer/StartButton" to="." method="start"]
+[connection signal="pressed" from="CanvasLayer/StartButton" to="PlayerArea" method="activate"]
 [connection signal="pressed" from="CanvasLayer/EncounterEndScreen/TextureButton" to="CanvasLayer/EncounterEndScreen" method="set_visible" binds= [false]]
 [connection signal="pressed" from="CanvasLayer/EncounterEndScreen/TextureButton" to="CanvasLayer/RewardArea" method="set_visible" binds= [true]]
 
