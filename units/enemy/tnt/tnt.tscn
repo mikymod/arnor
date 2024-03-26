@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://units/unit/unit_attack_state.gd" id="5_ba54e"]
 [ext_resource type="PackedScene" uid="uid://duu6eri66nrec" path="res://user_interface/game_ui/health_bar/health_bar.tscn" id="6_q8hpc"]
 
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_64ksx"]
 radius = 24.1868
 
@@ -99,12 +98,13 @@ position = Vector2(0, -35)
 shape = SubResource("CircleShape2D_64ksx")
 metadata/_edit_group_ = true
 
-[node name="InteractionArea2D" type="Area2D" parent="CollisionShape2D"]
+[node name="InteractionArea2D" type="Area2D" parent="."]
+position = Vector2(0, -35)
 collision_layer = 0
 collision_mask = 9
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/InteractionArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea2D"]
 shape = SubResource("CircleShape2D_ywm3w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -156,7 +156,7 @@ metadata/_edit_use_anchors_ = true
 
 [connection signal="health_changed" from="." to="HealthBar" method="on_health_changed"]
 [connection signal="spawned" from="." to="HealthBar" method="on_health_init"]
-[connection signal="area_entered" from="CollisionShape2D/InteractionArea2D" to="." method="add_building_in_range"]
-[connection signal="area_exited" from="CollisionShape2D/InteractionArea2D" to="." method="remove_building_in_range"]
-[connection signal="body_entered" from="CollisionShape2D/InteractionArea2D" to="." method="add_to_units_in_range"]
-[connection signal="body_exited" from="CollisionShape2D/InteractionArea2D" to="." method="remove_from_units_in_range"]
+[connection signal="area_entered" from="InteractionArea2D" to="." method="add_building_in_range"]
+[connection signal="area_exited" from="InteractionArea2D" to="." method="remove_building_in_range"]
+[connection signal="body_entered" from="InteractionArea2D" to="." method="add_to_units_in_range"]
+[connection signal="body_exited" from="InteractionArea2D" to="." method="remove_from_units_in_range"]

@@ -56,7 +56,8 @@ func _ready() -> void:
 	health_bar.change_style(player_area.player_resource)
 	add_to_group("units")
 	spawned.emit(self)
-
+	$InteractionArea2D/CollisionShape2D.shape.radius = range
+	
 ## Returns Damage Per Second dealt by the unit.
 func dps() -> float:
 	return damage / attack_speed
