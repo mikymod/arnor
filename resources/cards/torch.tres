@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=4 format=3 uid="uid://blucockg5fivk"]
+
+[ext_resource type="Script" path="res://resources/cards/card_resource.gd" id="1_ktxma"]
+[ext_resource type="PackedScene" uid="uid://bvmn3d0p758g4" path="res://units/enemy/goblin/goblin.tscn" id="2_dysrl"]
+[ext_resource type="Texture2D" uid="uid://defmw4etad08u" path="res://units/enemy/goblin/torch_thumb.png" id="3_cfjbq"]
+
+[resource]
+script = ExtResource("1_ktxma")
+name = "Goblin"
+description = "A goblin"
+cost = 2
+rarity = 0
+color = Color(0.819608, 0.121569, 0.301961, 1)
+unit_thumb = ExtResource("3_cfjbq")
+unit_scene = ExtResource("2_dysrl")

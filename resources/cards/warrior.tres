@@ -1,8 +1,7 @@
-[gd_resource type="Resource" script_class="CardResource" load_steps=5 format=3 uid="uid://dduc3gtaplml7"]
+[gd_resource type="Resource" script_class="CardResource" load_steps=4 format=3 uid="uid://dduc3gtaplml7"]
 
 [ext_resource type="Script" path="res://resources/cards/card_resource.gd" id="1_p7yic"]
 [ext_resource type="PackedScene" uid="uid://bww3godgplh8r" path="res://units/warrior/warrior.tscn" id="2_qtxr6"]
-[ext_resource type="PackedScene" uid="uid://dfu7puw5v6xte" path="res://units/warrior/warrior_thumb.tscn" id="3_tew40"]
 [ext_resource type="Texture2D" uid="uid://brrhllofjpwk3" path="res://units/warrior/warrior_thumb.png" id="4_awrpw"]
 
 [resource]
@@ -12,6 +11,5 @@ description = "This is an empty card"
 cost = 2
 rarity = 0
 color = Color(0, 0.576471, 0.72549, 1)
-unit_thumb = ExtResource("3_tew40")
-unit_thumb_ui = ExtResource("4_awrpw")
+unit_thumb = ExtResource("4_awrpw")
 unit_scene = ExtResource("2_qtxr6")

@@ -53,4 +53,5 @@ collision_layer = 4
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_s827y")
 
-[connection signal="body_entered" from="." to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

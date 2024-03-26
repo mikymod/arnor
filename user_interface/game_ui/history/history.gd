@@ -7,7 +7,7 @@ var _items: Array[HistoryFrame] = []
 func on_card_played(card: Card) -> void:
 	# Instantiate new item
 	var frame = frame_scene.instantiate()
-	frame.set_thumb(card.card_resource.unit_thumb_ui)
+	frame.set_thumb(card.card_resource.unit_thumb)
 	_items.append(frame)
 
 	# Clears old child

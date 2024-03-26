@@ -22,4 +22,3 @@ func finish() -> void:
 
 func game_over() -> void:
 	failed.emit()
-	

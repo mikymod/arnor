@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://b5bef6s8fu55j" path="res://resources/player/player.tres" id="3_16if0"]
 [ext_resource type="Texture2D" uid="uid://ddkbsodsxnu4v" path="res://user_interface/textures/buttons/Button_Hover_9Slides.png" id="4_ipy1g"]
 [ext_resource type="Texture2D" uid="uid://d2y5t01mwt2mg" path="res://user_interface/textures/buttons/Button_Blue_9Slides.png" id="5_5ny7b"]
-[ext_resource type="Texture2D" uid="uid://v8m4bjnuqsw3" path="res://units/warrior/Warrior_Purple.png" id="6_ys8e2"]
+[ext_resource type="Texture2D" uid="uid://brrhllofjpwk3" path="res://units/warrior/warrior_thumb.png" id="6_jhfb3"]
 [ext_resource type="Theme" uid="uid://dtrv8a5pv0ub" path="res://card_framework/card/card_theme.tres" id="7_qpin3"]
 [ext_resource type="FontFile" uid="uid://dj6p0nso1gbcq" path="res://PeaberryBase.ttf" id="9_8jdq7"]
 [ext_resource type="Texture2D" uid="uid://v3c1o8102kew" path="res://user_interface/textures/buttons/Button_Hover.png" id="10_8tdbi"]
@@ -31,11 +31,10 @@ texture = ExtResource("4_ipy1g")
 [node name="BackgroundFrame" type="Sprite2D" parent="."]
 texture = ExtResource("5_5ny7b")
 
-[node name="ForegroundFrame" type="Sprite2D" parent="BackgroundFrame"]
+[node name="ForegroundFrame" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("6_ys8e2")
-hframes = 6
-vframes = 8
+scale = Vector2(1.011, 1)
+texture = ExtResource("6_jhfb3")
 
 [node name="CostFrame" type="Sprite2D" parent="."]
 position = Vector2(-77.3333, -84)

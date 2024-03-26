@@ -49,7 +49,7 @@ var _hovered_card_index: int = -1
 
 var _dragged_card: Card
 var _dragging: bool = false
-var _unit_thumb: Node = null
+#var _unit_thumb: Node = null
 
 var _playable_card: Card
 
@@ -69,8 +69,8 @@ func _input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if _dragged_card != null:
 		_dragged_card.global_position = get_viewport().get_mouse_position()
-	if _unit_thumb != null:
-		_unit_thumb.global_position = get_viewport().get_mouse_position()
+	#if _unit_thumb != null:
+		#_unit_thumb.global_position = get_viewport().get_mouse_position()
 
 ## Adds a card to hand
 func add_card() -> void:
@@ -200,7 +200,7 @@ func _play() -> void:
 		return
 	remove_card(_playable_card)
 	played.emit(_playable_card)
-	_unit_thumb.queue_free() # TODO: place _unit_thumb on map
+	#_unit_thumb.queue_free() # TODO: place _unit_thumb on map
 	_playable_card = null
 	_hover_queue.clear()
 	_reposition()
@@ -208,17 +208,13 @@ func _play() -> void:
 ## Callback invoked when a card enters the hand area
 func _on_hand_area_entered(area: Area2D) -> void:
 	var card = area as Card
-	card.change_opacity(1)
-	if _unit_thumb != null:
-		_unit_thumb.queue_free()
+	card.show_all()
 	_playable_card = null
 
 ## Callback invoked when a card leaves the hand area
 func _on_hand_area_exited(area: Area2D) -> void:
 	var card = area as Card
-	card.change_opacity(0)
-	_unit_thumb = card.card_resource.unit_thumb.instantiate()
-	call_deferred("add_child", _unit_thumb)
+	card.show_only_foreground()
 	_playable_card = card
 
 ## Callback invoked when cards are drawed

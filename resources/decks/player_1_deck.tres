@@ -1,16 +1,20 @@
-[gd_resource type="Resource" script_class="DeckResource" load_steps=5 format=3 uid="uid://dg36h13i00eiv"]
+[gd_resource type="Resource" script_class="DeckResource" load_steps=7 format=3 uid="uid://dg36h13i00eiv"]
 
 [ext_resource type="Script" path="res://resources/decks/deck_resource.gd" id="1_sc5ky"]
 [ext_resource type="Resource" uid="uid://dduc3gtaplml7" path="res://resources/cards/warrior.tres" id="2_sbhof"]
 [ext_resource type="Resource" uid="uid://brk6p43421ggf" path="res://resources/cards/archer.tres" id="3_wjv85"]
 [ext_resource type="Resource" uid="uid://cbvmv6ggmonwp" path="res://resources/cards/pawn.tres" id="4_kf0bi"]
+[ext_resource type="Resource" uid="uid://cqquqfyee3h8l" path="res://resources/cards/barrel.tres" id="5_ga3gx"]
+[ext_resource type="Resource" uid="uid://cw2wnjguiy5j7" path="res://resources/cards/tnt.tres" id="6_3vx2t"]
 
 [resource]
 script = ExtResource("1_sc5ky")
 slots = {
 ExtResource("2_sbhof"): false,
 ExtResource("3_wjv85"): false,
-ExtResource("4_kf0bi"): false
+ExtResource("4_kf0bi"): false,
+ExtResource("5_ga3gx"): false,
+ExtResource("6_3vx2t"): false
 }
 num_slots = 3
 max_slots = 6

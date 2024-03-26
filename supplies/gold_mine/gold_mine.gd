@@ -33,10 +33,10 @@ func get_supply_position() -> Node2D:
 	return $SupplyPosition
 
 ## A callback invoked when a pawn entered the supply Area
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
 	if body is Pawn:
 		activate()
 
-func _on_gathering_bar_gathering_stopped() -> void:
-	deactivate()
-
+func _on_body_exited(body):
+	if body is Pawn:
+		deactivate()
