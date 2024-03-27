@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://de5a8sx3a8shk"]
+
+[ext_resource type="Texture2D" uid="uid://d2y5t01mwt2mg" path="res://user_interface/textures/buttons/Button_Blue_9Slides.png" id="1_yrcfq"]
+[ext_resource type="Script" path="res://user_interface/card_collection/card_collection_item.gd" id="2_1evig"]
+[ext_resource type="Texture2D" uid="uid://csdlbjemkkvld" path="res://user_interface/textures/buttons/Button_Blue_9Slides_Pressed.png" id="2_3povh"]
+[ext_resource type="Texture2D" uid="uid://brrhllofjpwk3" path="res://units/warrior/warrior_thumb.png" id="3_a6wml"]
+
+[node name="CardCollectionItem" type="TextureButton"]
+texture_normal = ExtResource("1_yrcfq")
+texture_pressed = ExtResource("2_3povh")
+script = ExtResource("2_1evig")
+
+[node name="UnitThumb" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a6wml")
+stretch_mode = 3

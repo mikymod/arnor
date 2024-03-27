@@ -18,3 +18,5 @@ enum Rarity {
 @export var color: Color = Color.WHITE
 @export var unit_thumb: Texture2D
 @export var unit_scene: PackedScene
+
+var xp: int = 0

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardPileResource" load_steps=8 format=3 uid="uid://cfratc1qi7wqp"]
+
+[ext_resource type="Script" path="res://resources/card_pile_resource.gd" id="1_jq4dq"]
+[ext_resource type="Resource" uid="uid://brk6p43421ggf" path="res://resources/cards/archer.tres" id="1_yimrr"]
+[ext_resource type="Resource" uid="uid://cqquqfyee3h8l" path="res://resources/cards/barrel.tres" id="2_4gr8u"]
+[ext_resource type="Resource" uid="uid://cbvmv6ggmonwp" path="res://resources/cards/pawn.tres" id="3_2ujvr"]
+[ext_resource type="Resource" uid="uid://cw2wnjguiy5j7" path="res://resources/cards/tnt.tres" id="4_fbnem"]
+[ext_resource type="Resource" uid="uid://blucockg5fivk" path="res://resources/cards/torch.tres" id="5_7g7w1"]
+[ext_resource type="Resource" uid="uid://dduc3gtaplml7" path="res://resources/cards/warrior.tres" id="6_goo3b"]
+
+[resource]
+script = ExtResource("1_jq4dq")
+cards = {
+ExtResource("1_yimrr"): true,
+ExtResource("2_4gr8u"): false,
+ExtResource("3_2ujvr"): false,
+ExtResource("4_fbnem"): false,
+ExtResource("5_7g7w1"): false,
+ExtResource("6_goo3b"): false
+}

@@ -52,11 +52,11 @@ func reset_xp() -> void:
 
 func next_level_threshold() -> int:
 	if level >= max_level: return 0
-	return floor(base_xp * (pow(level ,exponent)))
+	return floor(base_xp * (pow(level, exponent)))
 
 func prev_level_threshold() -> int:
 	if level <= 1: return 0
-	return floor(base_xp * (pow(level - 1 ,exponent)))
+	return floor(base_xp * (pow(level - 1, exponent)))
 
 func level_threshold_delta() -> int:
 	return next_level_threshold() - prev_level_threshold()

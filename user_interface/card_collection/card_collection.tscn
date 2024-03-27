@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3xu4tr2sbrja"]
+
+[ext_resource type="Script" path="res://user_interface/card_collection/card_collection.gd" id="1_8es13"]
+[ext_resource type="Resource" uid="uid://cfratc1qi7wqp" path="res://resources/player_collection.tres" id="2_idl0u"]
+[ext_resource type="PackedScene" uid="uid://de5a8sx3a8shk" path="res://user_interface/card_collection/card_collection_item.tscn" id="2_rrbi0"]
+
+[node name="CardCollection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8es13")
+card_pile_resource = ExtResource("2_idl0u")
+card_item = ExtResource("2_rrbi0")
+
+[node name="OwnedScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+
+[node name="GridContainer" type="GridContainer" parent="OwnedScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 6
+
+[node name="UnownedScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GridContainer" type="GridContainer" parent="UnownedScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 6
