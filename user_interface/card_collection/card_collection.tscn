@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d3xu4tr2sbrja"]
 
 [ext_resource type="Script" path="res://user_interface/card_collection/card_collection.gd" id="1_8es13"]
-[ext_resource type="Resource" uid="uid://cfratc1qi7wqp" path="res://resources/player_collection.tres" id="2_idl0u"]
+[ext_resource type="Resource" path="res://resources/player_collection.tres" id="2_idl0u"]
 [ext_resource type="PackedScene" uid="uid://de5a8sx3a8shk" path="res://user_interface/card_collection/card_collection_item.tscn" id="2_rrbi0"]
 
 [node name="CardCollection" type="Control"]

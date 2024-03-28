@@ -27,3 +27,6 @@ func add_card(card: CardResource) -> void:
 	if cards[card] == true:
 		card_already_collected.emit(card)
 	cards[card] = true
+
+func remove_card(card: CardResource) -> void:
+	cards[card] = false
